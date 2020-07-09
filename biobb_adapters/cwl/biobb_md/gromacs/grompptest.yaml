@@ -1,0 +1,8 @@
+config_rec:
+    input_mdp_path: "hello"
+    mdp: 
+      integrator: steep
+    type: nvt
+    output_mdp_path: soup
+    maxwarn: 100
+    restart: true
