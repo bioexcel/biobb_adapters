@@ -25,6 +25,29 @@ inputs:
       #prefix: --config
       # "grompp-config.json" from InitialWorkDirRequirement
       valueFrom: "grompp-config.json"
+      # This does not actually work because the inner "default" fields 
+      # are not allowed, but cwltool fills in lots of nulls for the optionals:
+#{
+#  "container_image":null,
+#  "container_path":null,
+#  "container_shell_path":null,
+#  "container_user_id":null,
+#  "container_volume_path":null,
+#  "container_working_dir":null,
+#  "gmx_path":null,
+#  "input_mdp_path":"hello",
+#  "maxwarn":100,
+#  "mdp":{
+#    "define":null,
+#    "include":null,
+#    "integrator":"steep"
+#  },
+#  "output_mdp_path":"soup",
+#  "output_top_path":null,
+#  "remove_tmp":null,
+#  "restart":true,
+#  "type":"nvt"
+#}
   config:
     type: 
       - "null"
