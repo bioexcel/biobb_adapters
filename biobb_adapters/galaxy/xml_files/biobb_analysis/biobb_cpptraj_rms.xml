@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_cpptraj_rms_ext" name="CpptrajRms" version="3.0.0" >
-    <description>: Calculates the Root Mean Square deviation (RMSd) of a given cpptraj compatible trajectory.</description>
+    <description>: Wrapper of the Ambertools Cpptraj module for calculating the Root Mean Square deviation (RMSd) of a given cpptraj compatible trajectory.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_analysis:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -20,7 +20,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__in_parameters__dq__:__dq__${config.in_parameters}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
+          --config "__oc____dq__start__dq__:__dq__${config.start}__dq__,__dq__end__dq__:__dq__${config.end}__dq__,__dq__steps__dq__:__dq__${config.steps}__dq__,__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__reference__dq__:__dq__${config.reference}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
         #end if
         
           --input_top_path ${input_top_path}.${input_top_path.ext}
@@ -53,7 +53,7 @@
         
           <param name="input_traj_path" type="data" format="crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  optional="False" label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
         
-          <param name="input_exp_path" type="data" format=""  optional="True" label="input  file" help="Path to the experimental reference file (required if reference = experimental). Format: [input]."/> 
+          <param name="input_exp_path" type="data" format="pdb"  optional="True" label="input PDB file" help="Path to the experimental reference file (required if reference = experimental). Format: [input].pdb"/> 
         
         
           <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_rms.dat" optional="False" label="output DAT,AGR,XMGR,GNU name" help="Path to the output processed analysis Format: [output].[format] "/>
@@ -75,7 +75,69 @@
             </when>
             <when value="option4">
                 
-                  <param name="in_parameters" type="text" label="in_parameters" help=" (Json)" value="{}" />
+                  <param name="start" type="integer" value="1" 
+                     min="1" max="100000"
+                           label="start" help="Starting frame for slicing" optional="false"/>
+                
+                  <param name="end" type="integer" value="-1" 
+                     min="-1" max="100000"
+                           label="end" help="Ending frame for slicing" optional="false"/>
+                
+                  <param name="steps" type="integer" value="1" 
+                     min="1" max="100000"
+                           label="steps" help="Step for slicing" optional="false"/>
+                
+                  <param name="mask" type="select" label="mask" help="Mask definition. ">
+                    
+                      <option value="c-alpha" 
+                      
+                      >c-alpha</option>
+                    
+                      <option value="backbone" 
+                      
+                      >backbone</option>
+                    
+                      <option value="all-atoms" 
+                      selected="true"
+                      >all-atoms</option>
+                    
+                      <option value="heavy-atoms" 
+                      
+                      >heavy-atoms</option>
+                    
+                      <option value="side-chain" 
+                      
+                      >side-chain</option>
+                    
+                      <option value="solute" 
+                      
+                      >solute</option>
+                    
+                      <option value="ions" 
+                      
+                      >ions</option>
+                    
+                      <option value="solvent" 
+                      
+                      >solvent</option>
+                    
+                    </param>
+                
+                  <param name="reference" type="select" label="reference" help="Reference definition. ">
+                    
+                      <option value="first" 
+                      selected="true"
+                      >first</option>
+                    
+                      <option value="average" 
+                      
+                      >average</option>
+                    
+                      <option value="experimental" 
+                      
+                      >experimental</option>
+                    
+                    </param>
                 
                   <param name="cpptraj_path" type="text" value="cpptraj" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"/>
                 

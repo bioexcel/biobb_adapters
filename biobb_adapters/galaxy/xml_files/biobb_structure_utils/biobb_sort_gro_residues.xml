@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_sort_gro_residues_ext" name="SortGroResidues" version="3.0.0" >
     <description>: Class to sort the selected residues from a GRO 3D structure.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="residue_name_list" type="text" value="[&#39;NA&#39;, &#39;CL&#39;, &#39;SOL&#39;]" label="residue_name_list" help="Ordered residue name list." optional="false"/>
+                  
                 
             </when>
         </conditional>

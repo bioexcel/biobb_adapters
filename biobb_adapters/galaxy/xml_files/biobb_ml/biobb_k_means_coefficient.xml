@@ -1,7 +1,7 @@
 <tool id="biobb_ml_k_means_coefficient_ext" name="KMeansCoefficient" version="3.0.1" >
-    <description>: Clusters a given dataset and calculates best K coefficient for a k-means clustering.</description>
+    <description>: Wrapper of the scikit-learn KMeans method.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__max_clusters__dq__:__dq__${config.max_clusters}__dq____cc__"
+          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__max_clusters__dq__:__dq__${config.max_clusters}__dq__,__dq__random_state_method__dq__:__dq__${config.random_state_method}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -65,9 +65,19 @@
             </when>
             <when value="option4">
                 
-                  <param name="predictors" type="text" value="None" label="predictors" help="Features or columns from your dataset you want to use for fitting." optional="false"/>
+                  <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  
+                  <param name="max_clusters" type="integer" value="6" 
+                     min="1" max="100"
+                           label="max_clusters" help="Maximum number of clusters to use by default for kmeans queries." optional="false"/>
+                
+                  <param name="random_state_method" type="integer" value="5" 
+                     min="1" max="1000"
+                           label="random_state_method" help="Determines random number generation for centroid initialization." optional="false"/>
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
                 
             </when>
         </conditional>

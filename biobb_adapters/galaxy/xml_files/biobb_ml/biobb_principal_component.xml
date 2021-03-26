@@ -1,7 +1,7 @@
 <tool id="biobb_ml_principal_component_ext" name="PrincipalComponent" version="3.0.1" >
-    <description>: Analyses a given dataset through Principal Component Analysis (PCA).</description>
+    <description>: Wrapper of the scikit-learn PCA method.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__features__dq__:__dq__${config.features}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__n_components__dq__:__dq__${config.n_components}__dq____cc__"
+          --config "__oc____dq__features__dq__:__dq__${config.features}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__n_components__dq__:__dq__${config.n_components}__dq__,__dq__random_state_method__dq__:__dq__${config.random_state_method}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -65,11 +65,19 @@
             </when>
             <when value="option4">
                 
-                  <param name="features" type="text" value="None" label="features" help="Features or columns from your dataset you want to use for fitting." optional="false"/>
+                  <param name="features" type="text" label="features" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." optional="false"/>
+                  <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  
+                  <param name="n_components" type="text" label="n_components" help="Dictionary containing the number of components to keep (int) or the minimum number of principal components such the 0 to 1 range of the variance (float) is retained. If not set ({}) all components are kept. Formats for integer values: { &#34;value&#34;: 2 } or for float values: { &#34;value&#34;: 0.3 } (Json)" value="{}" />
+                
+                  <param name="random_state_method" type="integer" value="5" 
+                     min="1" max="1000"
+                           label="random_state_method" help="Controls the randomness of the estimator." optional="false"/>
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
                 
             </when>
         </conditional>

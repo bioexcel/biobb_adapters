@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_gmx_image_ext" name="GmxImage" version="3.0.0" >
-    <description>: Corrects periodicity (image) from a given GROMACS compatible trajectory file.</description>
+    <description>: Wrapper of the GROMACS trjconv module for correcting periodicity (image) from a given GROMACS compatible trajectory file.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_analysis:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -56,7 +56,7 @@
           <param name="input_index_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
         
-          <param name="outname_output_traj_path" type="text" value="mygmx_image.xtc" optional="False" label="output XTC,TRR,GRO,G96,PDB,TNG name" help="Path to the output file Format: [output].[format] "/>
+          <param name="outname_output_traj_path" type="text" value="mygmx_image.xtc" optional="False" label="output XTC,TRR,CPT,GRO,G96,PDB,TNG name" help="Path to the output file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -75,7 +75,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values.">
+                  <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. ">
                     
                       <option value="System" 
                       selected="true"
@@ -155,7 +155,7 @@
                     
                     </param>
                 
-                  <param name="center_selection" type="select" label="center_selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values.">
+                  <param name="center_selection" type="select" label="center_selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. ">
                     
                       <option value="System" 
                       selected="true"
@@ -235,7 +235,7 @@
                     
                     </param>
                 
-                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values.">
+                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. ">
                     
                       <option value="System" 
                       selected="true"
@@ -315,14 +315,14 @@
                     
                     </param>
                 
-                  <param name="pbc" type="select" label="pbc" help="PBC treatment (see help text for full description).">
+                  <param name="pbc" type="select" label="pbc" help=". ">
                     
                       <option value="none" 
                       
                       >none</option>
                     
                       <option value="mol" 
-                      selected="true"
+                      
                       >mol</option>
                     
                       <option value="res" 
@@ -351,7 +351,7 @@
                     checked="true"
                     label="center" help="Center atoms in box." />
                 
-                  <param name="ur" type="select" label="ur" help="Unit-cell representation.">
+                  <param name="ur" type="select" label="ur" help="Unit-cell representation. ">
                     
                       <option value="rect" 
                       
@@ -367,7 +367,7 @@
                     
                     </param>
                 
-                  <param name="fit" type="select" label="fit" help="Fit molecule to ref structure in the structure file.">
+                  <param name="fit" type="select" label="fit" help="Fit molecule to ref structure in the structure file. ">
                     
                       <option value="none" 
                       selected="true"
@@ -402,7 +402,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_traj_path" format="xtc,trr,gro,g96,pdb,tng" label="${outname_output_traj_path}"/>
+        <data name="output_traj_path" format="xtc,trr,cpt,gro,g96,pdb,tng" label="${outname_output_traj_path}"/>
         
     </outputs>
     <tests>

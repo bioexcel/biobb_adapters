@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_gmx_cluster_ext" name="GmxCluster" version="3.0.0" >
-    <description>: Creates cluster structures from a given GROMACS compatible trajectory.</description>
+    <description>: Wrapper of the GROMACS cluster module for clustering structures from a given GROMACS compatible trajectory.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_analysis:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -75,7 +75,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values.">
+                  <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. ">
                     
                       <option value="System" 
                       selected="true"
@@ -155,7 +155,7 @@
                     
                     </param>
                 
-                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values.">
+                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. ">
                     
                       <option value="System" 
                       selected="true"
@@ -239,7 +239,7 @@
                     
                     label="dista" help="Use RMSD of distances instead of RMS deviation." />
                 
-                  <param name="method" type="select" label="method" help="Method for cluster determination.">
+                  <param name="method" type="select" label="method" help="Method for cluster determination. ">
                     
                       <option value="linkage" 
                       selected="true"
@@ -263,9 +263,7 @@
                     
                     </param>
                 
-                  <param name="cutoff" type="float" value="0.1" 
-                     
-                           label="cutoff" help="for two structures to be neighbor." optional="false"/>
+                  
                 
                   <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 

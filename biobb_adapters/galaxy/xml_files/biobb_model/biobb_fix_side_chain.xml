@@ -1,7 +1,7 @@
 <tool id="biobb_model_fix_side_chain_ext" name="FixSideChain" version="3.0.1" >
     <description>: Class to model the missing atoms in amino acid side chains of a PDB.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_model:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__rebuild__dq__:__dq__${config.rebuild}__dq____cc__"
+          --config "__oc____dq__use_modeller__dq__:__dq__${config.use_modeller}__dq____cc__"
         #end if
         
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
@@ -59,9 +59,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="rebuild" type="boolean" 
+                  <param name="use_modeller" type="boolean" 
                     
-                    label="rebuild" help="Rebuilds side chain completely using Modeller" />
+                    label="use_modeller" help="Use Modeller suite to rebuild the missing side chain atoms." />
                 
             </when>
         </conditional>

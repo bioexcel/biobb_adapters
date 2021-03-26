@@ -1,7 +1,7 @@
 <tool id="biobb_ml_dbscan_ext" name="Dbscan" version="3.0.1" >
-    <description>: Clusters a given dataset with DBSCAN clustering method.</description>
+    <description>: Wrapper of the scikit-learn DBSCAN method.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__eps__dq__:__dq__${config.eps}__dq__,__dq__min_samples__dq__:__dq__${config.min_samples}__dq__,__dq__plots__dq__:__dq__${config.plots}__dq____cc__"
+          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__eps__dq__:__dq__${config.eps}__dq__,__dq__min_samples__dq__:__dq__${config.min_samples}__dq__,__dq__metric__dq__:__dq__${config.metric}__dq__,__dq__plots__dq__:__dq__${config.plots}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -65,15 +65,115 @@
             </when>
             <when value="option4">
                 
-                  <param name="predictors" type="text" value="None" label="predictors" help="Features or columns from your dataset you want to use for fitting." optional="false"/>
-                
-                  <param name="eps" type="float" value="0.5" 
-                     
-                           label="eps" help="The maximum distance between two samples for one to be considered as in the neighborhood of the other." optional="false"/>
+                  <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
                   
                 
-                  <param name="plots" type="text" value="None" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]." optional="false"/>
+                  <param name="min_samples" type="integer" value="5" 
+                     min="1" max="100"
+                           label="min_samples" help="The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself." optional="false"/>
+                
+                  <param name="metric" type="select" label="metric" help="The metric to use when calculating distance between instances in a feature array. ">
+                    
+                      <option value="cityblock" 
+                      
+                      >cityblock</option>
+                    
+                      <option value="cosine" 
+                      
+                      >cosine</option>
+                    
+                      <option value="euclidean" 
+                      selected="true"
+                      >euclidean</option>
+                    
+                      <option value="l1" 
+                      
+                      >l1</option>
+                    
+                      <option value="l2" 
+                      
+                      >l2</option>
+                    
+                      <option value="manhattan" 
+                      
+                      >manhattan</option>
+                    
+                      <option value="braycurtis" 
+                      
+                      >braycurtis</option>
+                    
+                      <option value="canberra" 
+                      
+                      >canberra</option>
+                    
+                      <option value="chebyshev" 
+                      
+                      >chebyshev</option>
+                    
+                      <option value="correlation" 
+                      
+                      >correlation</option>
+                    
+                      <option value="dice" 
+                      
+                      >dice</option>
+                    
+                      <option value="hamming" 
+                      
+                      >hamming</option>
+                    
+                      <option value="jaccard" 
+                      
+                      >jaccard</option>
+                    
+                      <option value="kulsinski" 
+                      
+                      >kulsinski</option>
+                    
+                      <option value="mahalanobis" 
+                      
+                      >mahalanobis</option>
+                    
+                      <option value="minkowski" 
+                      
+                      >minkowski</option>
+                    
+                      <option value="rogerstanimoto" 
+                      
+                      >rogerstanimoto</option>
+                    
+                      <option value="russellrao" 
+                      
+                      >russellrao</option>
+                    
+                      <option value="seuclidean" 
+                      
+                      >seuclidean</option>
+                    
+                      <option value="sokalmichener" 
+                      
+                      >sokalmichener</option>
+                    
+                      <option value="sokalsneath" 
+                      
+                      >sokalsneath</option>
+                    
+                      <option value="sqeuclidean" 
+                      
+                      >sqeuclidean</option>
+                    
+                      <option value="yule" 
+                      
+                      >yule</option>
+                    
+                    </param>
+                
+                  
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
                 
             </when>
         </conditional>

@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_extract_atoms_ext" name="ExtractAtoms" version="3.0.0" >
     <description>: Class to extract atoms from a 3D structure.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

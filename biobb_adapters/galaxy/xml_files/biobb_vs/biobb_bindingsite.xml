@@ -1,7 +1,7 @@
 <tool id="biobb_vs_bindingsite_ext" name="Bindingsite" version="3.0.0" >
-    <description>: Finds the binding site of the input_pdb file based on the ligands&#39; location of similar structures (members of the sequence identity cluster)</description>
+    <description>: This class finds the binding site of the input_pdb.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_vs:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -69,183 +69,959 @@
                 
                   <param name="ligand" type="text" value="None" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, no action will be executed." optional="false"/>
                 
-                  <param name="radius" type="float" value="5.0" 
-                     
-                           label="radius" help="around ligand atoms to consider a protein atom as a binding site atom." optional="false"/>
-                
                   
                 
-                  <param name="matrix_name" type="select" label="matrix_name" help="Substitution matrices for use in alignments.">
+                  <param name="max_num_ligands" type="integer" value="15" 
+                     
+                           label="max_num_ligands" help="Total number of superimposed ligands to be extracted from the identity cluster. For populated clusters, the restriction avoids to superimpose redundant structures. If 0, all ligands extracted will be considered." optional="false"/>
+                
+                  <param name="matrix_name" type="select" label="matrix_name" help="Substitution matrices for use in alignments. ">
                     
-                      <option value="&#39;benner6&#39;" 
+                      <option value="benner6" 
                       
-                      >&#39;benner6&#39;</option>
+                      >benner6</option>
                     
-                      <option value="&#39;benner22&#39;" 
+                      <option value="benner22" 
                       
-                      >&#39;benner22&#39;</option>
+                      >benner22</option>
                     
-                      <option value="&#39;benner74&#39;" 
+                      <option value="benner74" 
                       
-                      >&#39;benner74&#39;</option>
+                      >benner74</option>
                     
-                      <option value="&#39;blosum100&#39;" 
+                      <option value="blosum100" 
                       
-                      >&#39;blosum100&#39;</option>
+                      >blosum100</option>
                     
-                      <option value="&#39;blosum30&#39;" 
+                      <option value="blosum30" 
                       
-                      >&#39;blosum30&#39;</option>
+                      >blosum30</option>
                     
-                      <option value="&#39;blosum35&#39;" 
+                      <option value="blosum35" 
                       
-                      >&#39;blosum35&#39;</option>
+                      >blosum35</option>
                     
-                      <option value="&#39;blosum40&#39;" 
+                      <option value="blosum40" 
                       
-                      >&#39;blosum40&#39;</option>
+                      >blosum40</option>
                     
-                      <option value="&#39;blosum45&#39;" 
+                      <option value="blosum45" 
                       
-                      >&#39;blosum45&#39;</option>
+                      >blosum45</option>
                     
-                      <option value="&#39;blosum50&#39;" 
+                      <option value="blosum50" 
                       
-                      >&#39;blosum50&#39;</option>
+                      >blosum50</option>
                     
-                      <option value="&#39;blosum55&#39;" 
+                      <option value="blosum55" 
                       
-                      >&#39;blosum55&#39;</option>
+                      >blosum55</option>
                     
-                      <option value="&#39;blosum60&#39;" 
+                      <option value="blosum60" 
                       
-                      >&#39;blosum60&#39;</option>
+                      >blosum60</option>
                     
-                      <option value="&#39;blosum62&#39;" 
+                      <option value="blosum62" 
                       selected="true"
-                      >&#39;blosum62&#39;</option>
+                      >blosum62</option>
                     
-                      <option value="&#39;blosum65&#39;" 
+                      <option value="blosum65" 
                       
-                      >&#39;blosum65&#39;</option>
+                      >blosum65</option>
                     
-                      <option value="&#39;blosum70&#39;" 
+                      <option value="blosum70" 
                       
-                      >&#39;blosum70&#39;</option>
+                      >blosum70</option>
                     
-                      <option value="&#39;blosum75&#39;" 
+                      <option value="blosum75" 
                       
-                      >&#39;blosum75&#39;</option>
+                      >blosum75</option>
                     
-                      <option value="&#39;blosum80&#39;" 
+                      <option value="blosum80" 
                       
-                      >&#39;blosum80&#39;</option>
+                      >blosum80</option>
                     
-                      <option value="&#39;blosum85&#39;" 
+                      <option value="blosum85" 
                       
-                      >&#39;blosum85&#39;</option>
+                      >blosum85</option>
                     
-                      <option value="&#39;blosum90&#39;" 
+                      <option value="blosum90" 
                       
-                      >&#39;blosum90&#39;</option>
+                      >blosum90</option>
                     
-                      <option value="&#39;blosum95&#39;" 
+                      <option value="blosum95" 
                       
-                      >&#39;blosum95&#39;</option>
+                      >blosum95</option>
                     
-                      <option value="&#39;feng&#39;" 
+                      <option value="feng" 
                       
-                      >&#39;feng&#39;</option>
+                      >feng</option>
                     
-                      <option value="&#39;fitch&#39;" 
+                      <option value="fitch" 
                       
-                      >&#39;fitch&#39;</option>
+                      >fitch</option>
                     
-                      <option value="&#39;genetic&#39;" 
+                      <option value="genetic" 
                       
-                      >&#39;genetic&#39;</option>
+                      >genetic</option>
                     
-                      <option value="&#39;gonnet&#39;" 
+                      <option value="gonnet" 
                       
-                      >&#39;gonnet&#39;</option>
+                      >gonnet</option>
                     
-                      <option value="&#39;grant&#39;" 
+                      <option value="grant" 
                       
-                      >&#39;grant&#39;</option>
+                      >grant</option>
                     
-                      <option value="&#39;ident&#39;" 
+                      <option value="ident" 
                       
-                      >&#39;ident&#39;</option>
+                      >ident</option>
                     
-                      <option value="&#39;johnson&#39;" 
+                      <option value="johnson" 
                       
-                      >&#39;johnson&#39;</option>
+                      >johnson</option>
                     
-                      <option value="&#39;levin&#39;" 
+                      <option value="levin" 
                       
-                      >&#39;levin&#39;</option>
+                      >levin</option>
                     
-                      <option value="&#39;mclach&#39;" 
+                      <option value="mclach" 
                       
-                      >&#39;mclach&#39;</option>
+                      >mclach</option>
                     
-                      <option value="&#39;miyata&#39;" 
+                      <option value="miyata" 
                       
-                      >&#39;miyata&#39;</option>
+                      >miyata</option>
                     
-                      <option value="&#39;nwsgappep&#39;" 
+                      <option value="nwsgappep" 
                       
-                      >&#39;nwsgappep&#39;</option>
+                      >nwsgappep</option>
                     
-                      <option value="&#39;pam120&#39;" 
+                      <option value="pam120" 
                       
-                      >&#39;pam120&#39;</option>
+                      >pam120</option>
                     
-                      <option value="&#39;pam180&#39;" 
+                      <option value="pam180" 
                       
-                      >&#39;pam180&#39;</option>
+                      >pam180</option>
                     
-                      <option value="&#39;pam250&#39;" 
+                      <option value="pam250" 
                       
-                      >&#39;pam250&#39;</option>
+                      >pam250</option>
                     
-                      <option value="&#39;pam30&#39;" 
+                      <option value="pam30" 
                       
-                      >&#39;pam30&#39;</option>
+                      >pam30</option>
                     
-                      <option value="&#39;pam300&#39;" 
+                      <option value="pam300" 
                       
-                      >&#39;pam300&#39;</option>
+                      >pam300</option>
                     
-                      <option value="&#39;pam60&#39;" 
+                      <option value="pam60" 
                       
-                      >&#39;pam60&#39;</option>
+                      >pam60</option>
                     
-                      <option value="&#39;pam90&#39;" 
+                      <option value="pam90" 
                       
-                      >&#39;pam90&#39;</option>
+                      >pam90</option>
                     
-                      <option value="&#39;rao&#39;" 
+                      <option value="rao" 
                       
-                      >&#39;rao&#39;</option>
+                      >rao</option>
                     
-                      <option value="&#39;risler&#39;" 
+                      <option value="risler" 
                       
-                      >&#39;risler&#39;</option>
+                      >risler</option>
                     
-                      <option value="&#39;structure&#39;" 
+                      <option value="structurebenner6" 
                       
-                      >&#39;structure&#39;</option>
+                      >structurebenner6</option>
+                    
+                      <option value="benner22" 
+                      
+                      >benner22</option>
+                    
+                      <option value="benner74" 
+                      
+                      >benner74</option>
+                    
+                      <option value="blosum100" 
+                      
+                      >blosum100</option>
+                    
+                      <option value="blosum30" 
+                      
+                      >blosum30</option>
+                    
+                      <option value="blosum35" 
+                      
+                      >blosum35</option>
+                    
+                      <option value="blosum40" 
+                      
+                      >blosum40</option>
+                    
+                      <option value="blosum45" 
+                      
+                      >blosum45</option>
+                    
+                      <option value="blosum50" 
+                      
+                      >blosum50</option>
+                    
+                      <option value="blosum55" 
+                      
+                      >blosum55</option>
+                    
+                      <option value="blosum60" 
+                      
+                      >blosum60</option>
+                    
+                      <option value="blosum62" 
+                      selected="true"
+                      >blosum62</option>
+                    
+                      <option value="blosum65" 
+                      
+                      >blosum65</option>
+                    
+                      <option value="blosum70" 
+                      
+                      >blosum70</option>
+                    
+                      <option value="blosum75" 
+                      
+                      >blosum75</option>
+                    
+                      <option value="blosum80" 
+                      
+                      >blosum80</option>
+                    
+                      <option value="blosum85" 
+                      
+                      >blosum85</option>
+                    
+                      <option value="blosum90" 
+                      
+                      >blosum90</option>
+                    
+                      <option value="blosum95" 
+                      
+                      >blosum95</option>
+                    
+                      <option value="feng" 
+                      
+                      >feng</option>
+                    
+                      <option value="fitch" 
+                      
+                      >fitch</option>
+                    
+                      <option value="genetic" 
+                      
+                      >genetic</option>
+                    
+                      <option value="gonnet" 
+                      
+                      >gonnet</option>
+                    
+                      <option value="grant" 
+                      
+                      >grant</option>
+                    
+                      <option value="ident" 
+                      
+                      >ident</option>
+                    
+                      <option value="johnson" 
+                      
+                      >johnson</option>
+                    
+                      <option value="levin" 
+                      
+                      >levin</option>
+                    
+                      <option value="mclach" 
+                      
+                      >mclach</option>
+                    
+                      <option value="miyata" 
+                      
+                      >miyata</option>
+                    
+                      <option value="nwsgappep" 
+                      
+                      >nwsgappep</option>
+                    
+                      <option value="pam120" 
+                      
+                      >pam120</option>
+                    
+                      <option value="pam180" 
+                      
+                      >pam180</option>
+                    
+                      <option value="pam250" 
+                      
+                      >pam250</option>
+                    
+                      <option value="pam30" 
+                      
+                      >pam30</option>
+                    
+                      <option value="pam300" 
+                      
+                      >pam300</option>
+                    
+                      <option value="pam60" 
+                      
+                      >pam60</option>
+                    
+                      <option value="pam90" 
+                      
+                      >pam90</option>
+                    
+                      <option value="rao" 
+                      
+                      >rao</option>
+                    
+                      <option value="risler" 
+                      
+                      >risler</option>
+                    
+                      <option value="structurebenner6" 
+                      
+                      >structurebenner6</option>
+                    
+                      <option value="benner22" 
+                      
+                      >benner22</option>
+                    
+                      <option value="benner74" 
+                      
+                      >benner74</option>
+                    
+                      <option value="blosum100" 
+                      
+                      >blosum100</option>
+                    
+                      <option value="blosum30" 
+                      
+                      >blosum30</option>
+                    
+                      <option value="blosum35" 
+                      
+                      >blosum35</option>
+                    
+                      <option value="blosum40" 
+                      
+                      >blosum40</option>
+                    
+                      <option value="blosum45" 
+                      
+                      >blosum45</option>
+                    
+                      <option value="blosum50" 
+                      
+                      >blosum50</option>
+                    
+                      <option value="blosum55" 
+                      
+                      >blosum55</option>
+                    
+                      <option value="blosum60" 
+                      
+                      >blosum60</option>
+                    
+                      <option value="blosum62" 
+                      selected="true"
+                      >blosum62</option>
+                    
+                      <option value="blosum65" 
+                      
+                      >blosum65</option>
+                    
+                      <option value="blosum70" 
+                      
+                      >blosum70</option>
+                    
+                      <option value="blosum75" 
+                      
+                      >blosum75</option>
+                    
+                      <option value="blosum80" 
+                      
+                      >blosum80</option>
+                    
+                      <option value="blosum85" 
+                      
+                      >blosum85</option>
+                    
+                      <option value="blosum90" 
+                      
+                      >blosum90</option>
+                    
+                      <option value="blosum95" 
+                      
+                      >blosum95</option>
+                    
+                      <option value="feng" 
+                      
+                      >feng</option>
+                    
+                      <option value="fitch" 
+                      
+                      >fitch</option>
+                    
+                      <option value="genetic" 
+                      
+                      >genetic</option>
+                    
+                      <option value="gonnet" 
+                      
+                      >gonnet</option>
+                    
+                      <option value="grant" 
+                      
+                      >grant</option>
+                    
+                      <option value="ident" 
+                      
+                      >ident</option>
+                    
+                      <option value="johnson" 
+                      
+                      >johnson</option>
+                    
+                      <option value="levin" 
+                      
+                      >levin</option>
+                    
+                      <option value="mclach" 
+                      
+                      >mclach</option>
+                    
+                      <option value="miyata" 
+                      
+                      >miyata</option>
+                    
+                      <option value="nwsgappep" 
+                      
+                      >nwsgappep</option>
+                    
+                      <option value="pam120" 
+                      
+                      >pam120</option>
+                    
+                      <option value="pam180" 
+                      
+                      >pam180</option>
+                    
+                      <option value="pam250" 
+                      
+                      >pam250</option>
+                    
+                      <option value="pam30" 
+                      
+                      >pam30</option>
+                    
+                      <option value="pam300" 
+                      
+                      >pam300</option>
+                    
+                      <option value="pam60" 
+                      
+                      >pam60</option>
+                    
+                      <option value="pam90" 
+                      
+                      >pam90</option>
+                    
+                      <option value="rao" 
+                      
+                      >rao</option>
+                    
+                      <option value="risler" 
+                      
+                      >risler</option>
+                    
+                      <option value="structurebenner6" 
+                      
+                      >structurebenner6</option>
+                    
+                      <option value="benner22" 
+                      
+                      >benner22</option>
+                    
+                      <option value="benner74" 
+                      
+                      >benner74</option>
+                    
+                      <option value="blosum100" 
+                      
+                      >blosum100</option>
+                    
+                      <option value="blosum30" 
+                      
+                      >blosum30</option>
+                    
+                      <option value="blosum35" 
+                      
+                      >blosum35</option>
+                    
+                      <option value="blosum40" 
+                      
+                      >blosum40</option>
+                    
+                      <option value="blosum45" 
+                      
+                      >blosum45</option>
+                    
+                      <option value="blosum50" 
+                      
+                      >blosum50</option>
+                    
+                      <option value="blosum55" 
+                      
+                      >blosum55</option>
+                    
+                      <option value="blosum60" 
+                      
+                      >blosum60</option>
+                    
+                      <option value="blosum62" 
+                      selected="true"
+                      >blosum62</option>
+                    
+                      <option value="blosum65" 
+                      
+                      >blosum65</option>
+                    
+                      <option value="blosum70" 
+                      
+                      >blosum70</option>
+                    
+                      <option value="blosum75" 
+                      
+                      >blosum75</option>
+                    
+                      <option value="blosum80" 
+                      
+                      >blosum80</option>
+                    
+                      <option value="blosum85" 
+                      
+                      >blosum85</option>
+                    
+                      <option value="blosum90" 
+                      
+                      >blosum90</option>
+                    
+                      <option value="blosum95" 
+                      
+                      >blosum95</option>
+                    
+                      <option value="feng" 
+                      
+                      >feng</option>
+                    
+                      <option value="fitch" 
+                      
+                      >fitch</option>
+                    
+                      <option value="genetic" 
+                      
+                      >genetic</option>
+                    
+                      <option value="gonnet" 
+                      
+                      >gonnet</option>
+                    
+                      <option value="grant" 
+                      
+                      >grant</option>
+                    
+                      <option value="ident" 
+                      
+                      >ident</option>
+                    
+                      <option value="johnson" 
+                      
+                      >johnson</option>
+                    
+                      <option value="levin" 
+                      
+                      >levin</option>
+                    
+                      <option value="mclach" 
+                      
+                      >mclach</option>
+                    
+                      <option value="miyata" 
+                      
+                      >miyata</option>
+                    
+                      <option value="nwsgappep" 
+                      
+                      >nwsgappep</option>
+                    
+                      <option value="pam120" 
+                      
+                      >pam120</option>
+                    
+                      <option value="pam180" 
+                      
+                      >pam180</option>
+                    
+                      <option value="pam250" 
+                      
+                      >pam250</option>
+                    
+                      <option value="pam30" 
+                      
+                      >pam30</option>
+                    
+                      <option value="pam300" 
+                      
+                      >pam300</option>
+                    
+                      <option value="pam60" 
+                      
+                      >pam60</option>
+                    
+                      <option value="pam90" 
+                      
+                      >pam90</option>
+                    
+                      <option value="rao" 
+                      
+                      >rao</option>
+                    
+                      <option value="risler" 
+                      
+                      >risler</option>
+                    
+                      <option value="structurebenner6" 
+                      
+                      >structurebenner6</option>
+                    
+                      <option value="benner22" 
+                      
+                      >benner22</option>
+                    
+                      <option value="benner74" 
+                      
+                      >benner74</option>
+                    
+                      <option value="blosum100" 
+                      
+                      >blosum100</option>
+                    
+                      <option value="blosum30" 
+                      
+                      >blosum30</option>
+                    
+                      <option value="blosum35" 
+                      
+                      >blosum35</option>
+                    
+                      <option value="blosum40" 
+                      
+                      >blosum40</option>
+                    
+                      <option value="blosum45" 
+                      
+                      >blosum45</option>
+                    
+                      <option value="blosum50" 
+                      
+                      >blosum50</option>
+                    
+                      <option value="blosum55" 
+                      
+                      >blosum55</option>
+                    
+                      <option value="blosum60" 
+                      
+                      >blosum60</option>
+                    
+                      <option value="blosum62" 
+                      selected="true"
+                      >blosum62</option>
+                    
+                      <option value="blosum65" 
+                      
+                      >blosum65</option>
+                    
+                      <option value="blosum70" 
+                      
+                      >blosum70</option>
+                    
+                      <option value="blosum75" 
+                      
+                      >blosum75</option>
+                    
+                      <option value="blosum80" 
+                      
+                      >blosum80</option>
+                    
+                      <option value="blosum85" 
+                      
+                      >blosum85</option>
+                    
+                      <option value="blosum90" 
+                      
+                      >blosum90</option>
+                    
+                      <option value="blosum95" 
+                      
+                      >blosum95</option>
+                    
+                      <option value="feng" 
+                      
+                      >feng</option>
+                    
+                      <option value="fitch" 
+                      
+                      >fitch</option>
+                    
+                      <option value="genetic" 
+                      
+                      >genetic</option>
+                    
+                      <option value="gonnet" 
+                      
+                      >gonnet</option>
+                    
+                      <option value="grant" 
+                      
+                      >grant</option>
+                    
+                      <option value="ident" 
+                      
+                      >ident</option>
+                    
+                      <option value="johnson" 
+                      
+                      >johnson</option>
+                    
+                      <option value="levin" 
+                      
+                      >levin</option>
+                    
+                      <option value="mclach" 
+                      
+                      >mclach</option>
+                    
+                      <option value="miyata" 
+                      
+                      >miyata</option>
+                    
+                      <option value="nwsgappep" 
+                      
+                      >nwsgappep</option>
+                    
+                      <option value="pam120" 
+                      
+                      >pam120</option>
+                    
+                      <option value="pam180" 
+                      
+                      >pam180</option>
+                    
+                      <option value="pam250" 
+                      
+                      >pam250</option>
+                    
+                      <option value="pam30" 
+                      
+                      >pam30</option>
+                    
+                      <option value="pam300" 
+                      
+                      >pam300</option>
+                    
+                      <option value="pam60" 
+                      
+                      >pam60</option>
+                    
+                      <option value="pam90" 
+                      
+                      >pam90</option>
+                    
+                      <option value="rao" 
+                      
+                      >rao</option>
+                    
+                      <option value="risler" 
+                      
+                      >risler</option>
+                    
+                      <option value="structurebenner6" 
+                      
+                      >structurebenner6</option>
+                    
+                      <option value="benner22" 
+                      
+                      >benner22</option>
+                    
+                      <option value="benner74" 
+                      
+                      >benner74</option>
+                    
+                      <option value="blosum100" 
+                      
+                      >blosum100</option>
+                    
+                      <option value="blosum30" 
+                      
+                      >blosum30</option>
+                    
+                      <option value="blosum35" 
+                      
+                      >blosum35</option>
+                    
+                      <option value="blosum40" 
+                      
+                      >blosum40</option>
+                    
+                      <option value="blosum45" 
+                      
+                      >blosum45</option>
+                    
+                      <option value="blosum50" 
+                      
+                      >blosum50</option>
+                    
+                      <option value="blosum55" 
+                      
+                      >blosum55</option>
+                    
+                      <option value="blosum60" 
+                      
+                      >blosum60</option>
+                    
+                      <option value="blosum62" 
+                      selected="true"
+                      >blosum62</option>
+                    
+                      <option value="blosum65" 
+                      
+                      >blosum65</option>
+                    
+                      <option value="blosum70" 
+                      
+                      >blosum70</option>
+                    
+                      <option value="blosum75" 
+                      
+                      >blosum75</option>
+                    
+                      <option value="blosum80" 
+                      
+                      >blosum80</option>
+                    
+                      <option value="blosum85" 
+                      
+                      >blosum85</option>
+                    
+                      <option value="blosum90" 
+                      
+                      >blosum90</option>
+                    
+                      <option value="blosum95" 
+                      
+                      >blosum95</option>
+                    
+                      <option value="feng" 
+                      
+                      >feng</option>
+                    
+                      <option value="fitch" 
+                      
+                      >fitch</option>
+                    
+                      <option value="genetic" 
+                      
+                      >genetic</option>
+                    
+                      <option value="gonnet" 
+                      
+                      >gonnet</option>
+                    
+                      <option value="grant" 
+                      
+                      >grant</option>
+                    
+                      <option value="ident" 
+                      
+                      >ident</option>
+                    
+                      <option value="johnson" 
+                      
+                      >johnson</option>
+                    
+                      <option value="levin" 
+                      
+                      >levin</option>
+                    
+                      <option value="mclach" 
+                      
+                      >mclach</option>
+                    
+                      <option value="miyata" 
+                      
+                      >miyata</option>
+                    
+                      <option value="nwsgappep" 
+                      
+                      >nwsgappep</option>
+                    
+                      <option value="pam120" 
+                      
+                      >pam120</option>
+                    
+                      <option value="pam180" 
+                      
+                      >pam180</option>
+                    
+                      <option value="pam250" 
+                      
+                      >pam250</option>
+                    
+                      <option value="pam30" 
+                      
+                      >pam30</option>
+                    
+                      <option value="pam300" 
+                      
+                      >pam300</option>
+                    
+                      <option value="pam60" 
+                      
+                      >pam60</option>
+                    
+                      <option value="pam90" 
+                      
+                      >pam90</option>
+                    
+                      <option value="rao" 
+                      
+                      >rao</option>
+                    
+                      <option value="risler" 
+                      
+                      >risler</option>
+                    
+                      <option value="structure" 
+                      
+                      >structure</option>
                     
                     </param>
                 
-                  <param name="gap_open" type="float" value="-10.0" 
-                     
-                           label="gap_open" help="Gap open penalty." optional="false"/>
+                  
                 
-                  <param name="gap_extend" type="float" value="-0.5" 
-                     
-                           label="gap_extend" help="Gap extend penalty." optional="false"/>
+                  
                 
             </when>
         </conditional>

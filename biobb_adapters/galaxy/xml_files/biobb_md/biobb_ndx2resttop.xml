@@ -1,7 +1,7 @@
 <tool id="biobb_md_ndx2resttop_ext" name="Ndx2resttop" version="3.0.0" >
     <description>: Generate a restrained topology from an index NDX file.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_md:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -69,7 +69,7 @@
                 
                   <param name="force_constants" type="text" value="500 500 500" label="force_constants" help="Array of three floats defining the force constants." optional="false"/>
                 
-                  <param name="ref_rest_chain_triplet_list" type="text" value="" label="ref_rest_chain_triplet_list" help="Triplet list composed by (reference group, restrain group, chain) list." optional="true"/>
+                  <param name="ref_rest_chain_triplet_list" type="text" value="None" label="ref_rest_chain_triplet_list" help="Triplet list composed by (reference group, restrain group, chain) list." optional="false"/>
                 
             </when>
         </conditional>

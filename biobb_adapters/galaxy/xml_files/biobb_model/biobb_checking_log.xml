@@ -1,0 +1,87 @@
+<tool id="biobb_model_checking_log_ext" name="CheckingLog" version="3.0.1" >
+    <description>: Class to check the errors of a PDB structure.</description>
+    <requirements>
+        <requirement type="docker">quay.io/biocontainers/biobb_model:3.0.1--py_0</requirement>
+    </requirements>
+    <command detect_errors="aggressive"><![CDATA[
+        
+          ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
+        
+        #if $config.sele == "option1":
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+        #end if
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_model:3.0.1--py_0 checking_log
+        #if $config.sele == "option1":
+          --config ${config.properties}.${config.properties.ext}
+        #else if $config.sele == "option2":
+          --config '${config.jsonstr}'
+        #else if $config.sele == "option4":
+          --config "__oc____cc__"
+        #end if
+        
+          --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+        
+        
+          --output_log_path $__root_dir__/database/files/000/$outname_output_log_path
+        ;          
+        #if $config.sele == "option1":
+          rm -f ${config.properties}.${config.properties.ext};
+        #end if
+        
+          rm -f ${input_pdb_path}.${input_pdb_path.ext};
+        
+        
+          if test -f $__root_dir__/database/files/000/$outname_output_log_path; then mv $__root_dir__/database/files/000/$outname_output_log_path $output_log_path; fi;
+        
+    ]]>
+    </command>
+    <inputs>
+        
+          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
+        
+        
+          <param name="outname_output_log_path" type="text" value="mychecking_log.log" optional="False" label="output LOG name" help="Output report log file path Format: [output].log "/>
+        
+        
+    </inputs>
+    <outputs>
+        
+        <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
+        
+    </outputs>
+    <tests>
+        <test>
+        </test>
+    </tests>    
+    <help>
+.. class:: infomark
+        
+Check the syntax for the tool parameters at the original library documentation: https://biobb_model.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png    
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+        
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+        
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-20},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_model},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

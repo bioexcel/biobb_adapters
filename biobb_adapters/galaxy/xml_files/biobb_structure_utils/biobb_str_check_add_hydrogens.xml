@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_str_check_add_hydrogens_ext" name="StrCheckAddHydrogens" version="3.0.0" >
-    <description>: Class to add hydrogens to a 3D structure.</description>
+    <description>: This class is a wrapper of the Structure Checking tool to add hydrogens to a 3D structure.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -63,7 +63,7 @@
                     
                     label="charges" help="Wether or not to add charges to the output file. If True the output is in PDBQT format." />
                 
-                  <param name="mode" type="select" label="mode" help="Selection mode.">
+                  <param name="mode" type="select" label="mode" help="Selection mode. ">
                     
                       <option value="auto" 
                       

@@ -1,7 +1,7 @@
 <tool id="biobb_md_make_ndx_ext" name="MakeNdx" version="3.0.0" >
     <description>: Wrapper of the GROMACS make_ndx module.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_md:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -43,7 +43,7 @@
     </command>
     <inputs>
         
-          <param name="input_structure_path" type="data" format="pdb,gro,tpr"  optional="False" label="input PDB,GRO,TPR file" help="Path to the input GRO/PDB/TPR file. Format: [input].[format]"/> 
+          <param name="input_structure_path" type="data" format="gro,pdb,tpr"  optional="False" label="input GRO,PDB,TPR file" help="Path to the input GRO/PDB/TPR file. Format: [input].[format]"/> 
         
           <param name="input_ndx_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the input index NDX file. Format: [input].ndx"/> 
         
@@ -69,7 +69,7 @@
                 
                   <param name="selection" type="text" value="a CA C N O" label="selection" help="Heavy atoms. Atom selection string." optional="false"/>
                 
-                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="false"/>
                 
                   <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 

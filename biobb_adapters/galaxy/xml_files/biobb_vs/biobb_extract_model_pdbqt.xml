@@ -1,7 +1,7 @@
 <tool id="biobb_vs_extract_model_pdbqt_ext" name="ExtractModelPdbqt" version="3.0.0" >
-    <description>: Extracts a model from a PDBQT file with several models</description>
+    <description>: Extracts a model from a PDBQT file with several models.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_vs:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -59,7 +59,9 @@
             </when>
             <when value="option4">
                 
-                  
+                  <param name="model" type="integer" value="1" 
+                     
+                           label="model" help="Model number to extract from input_pdbqt_path." optional="false"/>
                 
             </when>
         </conditional>

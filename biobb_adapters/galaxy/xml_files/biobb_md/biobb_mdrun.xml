@@ -1,11 +1,13 @@
 <tool id="biobb_md_mdrun_ext" name="Mdrun" version="3.0.0" >
     <description>: Wrapper of the GROMACS mdrun module.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_md:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
           ln -f -s ${input_tpr_path} ${input_tpr_path}.${input_tpr_path.ext};
+        
+          ln -f -s ${input_cpt_path} ${input_cpt_path}.${input_cpt_path.ext};
         
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
@@ -16,10 +18,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__num_threads__dq__:__dq__${config.num_threads}__dq__,__dq__use_gpu__dq__:__dq__${config.use_gpu}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:__dq__${config.mpi_np}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
+          --config "__oc____dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:__dq__${config.mpi_np}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq__,__dq__checkpoint_time__dq__:__dq__${config.checkpoint_time}__dq__,__dq__num_threads__dq__:__dq__${config.num_threads}__dq__,__dq__num_threads_mpi__dq__:__dq__${config.num_threads_mpi}__dq__,__dq__num_threads_omp__dq__:__dq__${config.num_threads_omp}__dq__,__dq__num_threads_omp_pme__dq__:__dq__${config.num_threads_omp_pme}__dq__,__dq__use_gpu__dq__:__dq__${config.use_gpu}__dq__,__dq__gpu_id__dq__:__dq__${config.gpu_id}__dq__,__dq__gpu_tasks__dq__:__dq__${config.gpu_tasks}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
           --input_tpr_path ${input_tpr_path}.${input_tpr_path.ext}
+        
+          --input_cpt_path ${input_cpt_path}.${input_cpt_path.ext}
         
         
           --output_trr_path $__root_dir__/database/files/000/$outname_output_trr_path
@@ -42,6 +46,8 @@
         
           rm -f ${input_tpr_path}.${input_tpr_path.ext};
         
+          rm -f ${input_cpt_path}.${input_cpt_path.ext};
+        
         
           if test -f $__root_dir__/database/files/000/$outname_output_trr_path; then mv $__root_dir__/database/files/000/$outname_output_trr_path $output_trr_path; fi;
         
@@ -62,6 +68,8 @@
     <inputs>
         
           <param name="input_tpr_path" type="data" format="tpr"  optional="False" label="input TPR file" help="Path to the portable binary run input file TPR. Format: [input].tpr"/> 
+        
+          <param name="input_cpt_path" type="data" format="cpt"  optional="True" label="input CPT file" help="Path to the input GROMACS checkpoint file CPT. Format: [input].cpt"/> 
         
         
           <param name="outname_output_trr_path" type="text" value="mymdrun.trr" optional="False" label="output TRR name" help="Path to the GROMACS uncompressed raw trajectory file TRR Format: [output].trr "/>
@@ -95,23 +103,45 @@
             </when>
             <when value="option4">
                 
+                  <param name="mpi_bin" type="text" value="None" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="false"/>
+                
+                  <param name="mpi_np" type="integer" value="0" 
+                     
+                           label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="false"/>
+                
+                  <param name="mpi_hostlist" type="text" value="None" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="false"/>
+                
+                  <param name="checkpoint_time" type="integer" value="15" 
+                     
+                           label="checkpoint_time" help="Checkpoint writing interval in minutes. Only enabled if an output_cpt_path is provided." optional="false"/>
+                
                   <param name="num_threads" type="integer" value="0" 
                      
                            label="num_threads" help="Let GROMACS guess. The number of threads that are going to be used." optional="false"/>
                 
+                  <param name="num_threads_mpi" type="integer" value="0" 
+                     
+                           label="num_threads_mpi" help="Let GROMACS guess. The number of GROMACS MPI threads that are going to be used." optional="false"/>
+                
+                  <param name="num_threads_omp" type="integer" value="0" 
+                     
+                           label="num_threads_omp" help="Let GROMACS guess. The number of GROMACS OPENMP threads that are going to be used." optional="false"/>
+                
+                  <param name="num_threads_omp_pme" type="integer" value="0" 
+                     
+                           label="num_threads_omp_pme" help="Let GROMACS guess. The number of GROMACS OPENMP_PME threads that are going to be used." optional="false"/>
+                
                   <param name="use_gpu" type="boolean" 
                     
-                    label="use_gpu" help="Use settings appropriate for GPU" />
+                    label="use_gpu" help="Use settings appropriate for GPU. Adds: -nb gpu -pme gpu" />
                 
-                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
+                  <param name="gpu_id" type="text" value="None" label="gpu_id" help="List of unique GPU device IDs available to use." optional="false"/>
+                
+                  <param name="gpu_tasks" type="text" value="None" label="gpu_tasks" help="List of GPU device IDs, mapping each PP task on each node to a device." optional="false"/>
+                
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="false"/>
                 
                   <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
-                
-                  <param name="mpi_bin" type="text" value="" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"/>
-                
-                  <param name="mpi_np" type="text" value="" label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
-                
-                  <param name="mpi_hostlist" type="text" value="" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"/>
                 
             </when>
         </conditional>

@@ -1,13 +1,15 @@
 <tool id="biobb_md_append_ligand_ext" name="AppendLigand" version="3.0.0" >
     <description>: This class takes a ligand ITP file and inserts it in a topology.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_md:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
           ln -f -s ${input_top_zip_path} ${input_top_zip_path}.${input_top_zip_path.ext};
         
           ln -f -s ${input_itp_path} ${input_itp_path}.${input_itp_path.ext};
+        
+          ln -f -s ${input_posres_itp_path} ${input_posres_itp_path}.${input_posres_itp_path.ext};
         
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
@@ -25,6 +27,8 @@
         
           --input_itp_path ${input_itp_path}.${input_itp_path.ext}
         
+          --input_posres_itp_path ${input_posres_itp_path}.${input_posres_itp_path.ext}
+        
         
           --output_top_zip_path $__root_dir__/database/files/000/$outname_output_top_zip_path
         ;          
@@ -36,6 +40,8 @@
         
           rm -f ${input_itp_path}.${input_itp_path.ext};
         
+          rm -f ${input_posres_itp_path}.${input_posres_itp_path.ext};
+        
         
           if test -f $__root_dir__/database/files/000/$outname_output_top_zip_path; then mv $__root_dir__/database/files/000/$outname_output_top_zip_path $output_top_zip_path; fi;
         
@@ -46,6 +52,8 @@
           <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input topology TOP and ITP files zipball. Format: [input].zip"/> 
         
           <param name="input_itp_path" type="data" format="itp"  optional="False" label="input ITP file" help="Path to the ligand ITP file to be inserted in the topology. Format: [input].itp"/> 
+        
+          <param name="input_posres_itp_path" type="data" format="itp"  optional="True" label="input ITP file" help="Path to the position restriction ITP file. Format: [input].itp"/> 
         
         
           <param name="outname_output_top_zip_path" type="text" value="myappend_ligand.zip" optional="False" label="output ZIP name" help="Path/Name the output topology TOP and ITP files zipball Format: [output].zip "/>

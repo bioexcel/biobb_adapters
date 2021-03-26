@@ -1,7 +1,7 @@
 <tool id="biobb_md_editconf_ext" name="Editconf" version="3.0.0" >
-    <description>: Wrapper of the GROMACS editconf module.</description>
+    <description>: Wrapper class for the GROMACS editconf module.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_md:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -61,13 +61,31 @@
                 
                   
                 
-                  <param name="box_type" type="text" value="cubic" label="box_type" help="Geometrical shape of the solvent box. Available box types: (http://manual.gromacs.org/current/onlinehelp/gmx-editconf.html) -bt option." optional="false"/>
+                  <param name="box_type" type="select" label="box_type" help="Geometrical shape of the solvent box. ">
+                    
+                      <option value="cubic" 
+                      selected="true"
+                      >cubic</option>
+                    
+                      <option value="triclinic" 
+                      
+                      >triclinic</option>
+                    
+                      <option value="dodecahedron" 
+                      
+                      >dodecahedron</option>
+                    
+                      <option value="octahedron" 
+                      
+                      >octahedron</option>
+                    
+                    </param>
                 
                   <param name="center_molecule" type="boolean" 
-                    
+                    checked="true"
                     label="center_molecule" help="Center molecule in the box." />
                 
-                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="false"/>
                 
                   <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 

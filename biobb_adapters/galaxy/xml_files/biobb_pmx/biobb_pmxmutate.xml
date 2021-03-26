@@ -1,7 +1,7 @@
 <tool id="biobb_pmx_pmxmutate_ext" name="Pmxmutate" version="3.0.1" >
-    <description>: Wrapper class for the `PMX mutate &lt;https://github.com/deGrootLab/pmx&gt;`_ module.</description>
+    <description>: Wrapper class for the PMX mutate module.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_pmx:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__resinfo__dq__:__dq__${config.resinfo}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
+          --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__resinfo__dq__:__dq__${config.resinfo}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__pmx_path__dq__:__dq__${config.pmx_path}__dq____cc__"
         #end if
         
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
@@ -67,23 +67,17 @@
             </when>
             <when value="option4">
                 
-                  <param name="mutation_list" type="text" value="Val2Ala" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" optional="false"/>
+                  <param name="mutation_list" type="text" value="Val2Ala" label="mutation_list" help="Mutation list in the format &#34;Chain:WT_AA_ThreeLeterCode Resnum MUT_AA_ThreeLeterCode&#34; (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;." optional="false"/>
                 
-                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." optional="false"/>
+                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield to use." optional="false"/>
                 
                   <param name="resinfo" type="boolean" 
                     
-                    label="resinfo" help="Print a 3 to 1 letter residue list." />
+                    label="resinfo" help="Show the list of 3-letter -&gt; 1-letter residues." />
                 
-                  <param name="dna" type="boolean" 
-                    
-                    label="dna" help="Generate hybrid residue for the DNA nucleotides." />
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path to the GMXLIB folder in your computer." optional="false"/>
                 
-                  <param name="rna" type="boolean" 
-                    
-                    label="rna" help="Generate hybrid residue for the RNA nucleotides." />
-                
-                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." optional="false"/>
+                  <param name="pmx_path" type="text" value="pmx" label="pmx_path" help="Path to the PMX command line interface." optional="false"/>
                 
             </when>
         </conditional>

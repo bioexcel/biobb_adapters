@@ -1,7 +1,7 @@
 <tool id="biobb_md_genrestr_ext" name="Genrestr" version="3.0.0" >
-    <description>: Wrapper class for the GROMACS genrestr module.</description>
+    <description>: Wrapper of the GROMACS genrestr module.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_md:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -45,7 +45,7 @@
         
           <param name="input_structure_path" type="data" format="pdb,gro,tpr"  optional="False" label="input PDB,GRO,TPR file" help="Path to the input structure PDB, GRO or TPR format. Format: [input].[format]"/> 
         
-          <param name="input_ndx_path" type="data" format="ndx"  optional="False" label="input NDX file" help="Path to the input GROMACS index file, NDX format. Format: [input].ndx"/> 
+          <param name="input_ndx_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the input GROMACS index file, NDX format. Format: [input].ndx"/> 
         
         
           <param name="outname_output_itp_path" type="text" value="mygenrestr.itp" optional="False" label="output ITP name" help="Path the output ITP topology file with restrains Format: [output].itp "/>
@@ -71,7 +71,7 @@
                 
                   <param name="force_constants" type="text" value="500 500 500" label="force_constants" help="Array of three floats defining the force constants" optional="false"/>
                 
-                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="false"/>
                 
                   <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 

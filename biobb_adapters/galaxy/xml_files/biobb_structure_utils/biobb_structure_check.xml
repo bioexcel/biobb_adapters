@@ -1,0 +1,155 @@
+<tool id="biobb_structure_utils_structure_check_ext" name="StructureCheck" version="3.0.0" >
+    <description>: This class is a wrapper of the Structure Checking tool to generate summary checking results on a json file.</description>
+    <requirements>
+        <requirement type="docker">quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0</requirement>
+    </requirements>
+    <command detect_errors="aggressive"><![CDATA[
+        
+          ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
+        
+        #if $config.sele == "option1":
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+        #end if
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0 structure_check
+        #if $config.sele == "option1":
+          --config ${config.properties}.${config.properties.ext}
+        #else if $config.sele == "option2":
+          --config '${config.jsonstr}'
+        #else if $config.sele == "option4":
+          --config "__oc____dq__features__dq__:__dq__${config.features}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+        #end if
+        
+          --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        
+        
+          --output_summary_path $__root_dir__/database/files/000/$outname_output_summary_path
+        ;          
+        #if $config.sele == "option1":
+          rm -f ${config.properties}.${config.properties.ext};
+        #end if
+        
+          rm -f ${input_structure_path}.${input_structure_path.ext};
+        
+        
+          if test -f $__root_dir__/database/files/000/$outname_output_summary_path; then mv $__root_dir__/database/files/000/$outname_output_summary_path $output_summary_path; fi;
+        
+    ]]>
+    </command>
+    <inputs>
+        
+          <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
+        
+        
+          <param name="outname_output_summary_path" type="text" value="mystructure_check.json" optional="False" label="output JSON name" help="Output summary checking results Format: [output].json "/>
+        
+        <conditional name="config">
+            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
+                <option value="option1">from configuration file</option>
+                <option value="option2">from JSON string</option>
+                <option value="option4"> Manual input</option>
+            </param>
+            <when value="option1">
+                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option2">
+                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option3">
+            </when>
+            <when value="option4">
+                
+                  <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. ">
+                    
+                      <option value="models" 
+                      
+                      >models</option>
+                    
+                      <option value="chains" 
+                      
+                      >chains</option>
+                    
+                      <option value="altloc" 
+                      
+                      >altloc</option>
+                    
+                      <option value="metals" 
+                      
+                      >metals</option>
+                    
+                      <option value="ligands" 
+                      
+                      >ligands</option>
+                    
+                      <option value="chiral" 
+                      
+                      >chiral</option>
+                    
+                      <option value="getss" 
+                      
+                      >getss</option>
+                    
+                      <option value="cistransbck" 
+                      
+                      >cistransbck</option>
+                    
+                      <option value="backbone" 
+                      
+                      >backbone</option>
+                    
+                      <option value="amide" 
+                      
+                      >amide</option>
+                    
+                      <option value="clashes" 
+                      
+                      >clashes</option>
+                    
+                    </param>
+                
+                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" optional="false"/>
+                
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+        
+        <data name="output_summary_path" format="json" label="${outname_output_summary_path}"/>
+        
+    </outputs>
+    <tests>
+        <test>
+        </test>
+    </tests>    
+    <help>
+.. class:: infomark
+        
+Check the syntax for the tool parameters at the original library documentation: https://biobb_structure_utils.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png    
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+        
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+        
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-20},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_structure_utils},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

@@ -1,7 +1,7 @@
 <tool id="biobb_chemistry_babel_add_hydrogens_ext" name="BabelAddHydrogens" version="3.0.0" >
-    <description>: Adds hydrogen atoms to small molecules.</description>
+    <description>: This class is a wrapper of the Open Babel tool.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_chemistry:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -37,10 +37,10 @@
     </command>
     <inputs>
         
-          <param name="input_path" type="data" format="abinit,acesout,acr,adfout,alc,aoforce,arc,axsf,bgf,box,bs,c09out,c3d2,caccrt,can,car,castep,ccc,cdjson,cdx,cdxml,cif,ck,cml,cmlr,CONFIG,CONTCAR,CONTFF,crk2d,crk3d,ct,cub,cube,dallog,dalmol,dat,dmol,dx,ent,exyz,fa,fasta,fch,fchk,fck,feat,fhiaims,fract,fs,fsa,g03,g09,g92,g94,g98,gal,gam,gamess,gamin,gamout,got,gpr,gro,gukin,gukout,gzmat,hin,HISTORY,inchi,inp,ins,jin,jout,log,lpmd,mcdl,mcif,MDFF,mdl,ml2,mmcif,mmd,mmod,mol,mol2,mold,molden,molf,moo,mop,mopcrt,mopin,mopout,mpc,mpo,mpqc,mrv,msi,nwo,orca,out,outmol,output,pc,pcjson,pcm,pdb,pdbqt,png,pos,POSCAR,POSFF,pqr,pqs,prep,pwscf,qcout,res,rsmi,rxn,sd,sdf,siesta,smi,smiles,smy,sy2,t41,tdd,text,therm,tmol,txt,txyz,unixyz,VASP,vmol,xml,xsf,xtc,xyz,yob"  optional="False" label="input ABINIT,ACESOUT,ACR,ADFOUT,ALC,AOFORCE,ARC,AXSF,BGF,BOX,BS,C09OUT,C3D2,CACCRT,CAN,CAR,CASTEP,CCC,CDJSON,CDX,CDXML,CIF,CK,CML,CMLR,CONFIG,CONTCAR,CONTFF,CRK2D,CRK3D,CT,CUB,CUBE,DALLOG,DALMOL,DAT,DMOL,DX,ENT,EXYZ,FA,FASTA,FCH,FCHK,FCK,FEAT,FHIAIMS,FRACT,FS,FSA,G03,G09,G92,G94,G98,GAL,GAM,GAMESS,GAMIN,GAMOUT,GOT,GPR,GRO,GUKIN,GUKOUT,GZMAT,HIN,HISTORY,INCHI,INP,INS,JIN,JOUT,LOG,LPMD,MCDL,MCIF,MDFF,MDL,ML2,MMCIF,MMD,MMOD,MOL,MOL2,MOLD,MOLDEN,MOLF,MOO,MOP,MOPCRT,MOPIN,MOPOUT,MPC,MPO,MPQC,MRV,MSI,NWO,ORCA,OUT,OUTMOL,OUTPUT,PC,PCJSON,PCM,PDB,PDBQT,PNG,POS,POSCAR,POSFF,PQR,PQS,PREP,PWSCF,QCOUT,RES,RSMI,RXN,SD,SDF,SIESTA,SMI,SMILES,SMY,SY2,T41,TDD,TEXT,THERM,TMOL,TXT,TXYZ,UNIXYZ,VASP,VMOL,XML,XSF,XTC,XYZ,YOB file" help="Path to the input file. Format: [input].[format]"/> 
+          <param name="input_path" type="data" format="dat,ent,fa,fasta,gro,inp,log,mcif,mdl,mmcif,mol,mol2,pdb,pdbqt,png,sdf,smi,smiles,txt,xml,xtc"  optional="False" label="input DAT,ENT,FA,FASTA,GRO,INP,LOG,MCIF,MDL,MMCIF,MOL,MOL2,PDB,PDBQT,PNG,SDF,SMI,SMILES,TXT,XML,XTC file" help="Path to the input file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_path" type="text" value="mybabel_add_hydrogens.acesin" optional="False" label="output ACESIN,ADF,ALC,ASCII,BGF,BOX,BS,C3D1,C3D2,CAC,CACCRT,CACHE,CACINT,CAN,CDJSON,CDXML,CHT,CIF,CK,CML,CMLR,COM,CONFABREPORT,CONFIG,CONTCAR,CONTFF,COPY,CRK2D,CRK3D,CSR,CSSR,CT,CUB,CUBE,DALMOL,DMOL,DX,ENT,EXYZ,FA,FASTA,FEAT,FH,FHIAIMS,FIX,FPS,FPT,FRACT,FS,FSA,GAMIN,GAU,GJC,GJF,GPR,GR96,GRO,GUKIN,GUKOUT,GZMAT,HIN,INCHI,INCHIKEY,INP,JIN,K,LMPDAT,LPMD,MCDL,MCIF,MDFF,MDL,ML2,MMCIF,MMD,MMOD,MNA,MOL,MOL2,MOLD,MOLDEN,MOLF,MOLREPORT,MOP,MOPCRT,MOPIN,MP,MPC,MPD,MPQCIN,MRV,MSMS,NUL,NW,ORCAINP,OUTMOL,PAINT,PCJSON,PCM,PDB,PDBQT,PNG,POINTCLOUD,POSCAR,POSFF,POV,PQR,PQS,QCIN,REPORT,RSMI,RXN,SD,SDF,SMI,SMILES,STL,SVG,SY2,TDD,TEXT,THERM,TMOL,TXT,TXYZ,UNIXYZ,VASP,VMOL,XED,XYZ,YOB,ZIN name" help="Path to the output file Format: [output].[format] "/>
+          <param name="outname_output_path" type="text" value="mybabel_add_hydrogens.ent" optional="False" label="output ENT,FA,FASTA,GRO,INP,MCIF,MDL,MMCIF,MOL,MOL2,PDB,PDBQT,PNG,SDF,SMI,SMILES,TXT name" help="Path to the output file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -59,167 +59,15 @@
             </when>
             <when value="option4">
                 
-                  <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, file extension will be taken.">
-                    
-                      <option value="abinit" 
-                      
-                      >abinit</option>
-                    
-                      <option value="acesout" 
-                      
-                      >acesout</option>
-                    
-                      <option value="acr" 
-                      
-                      >acr</option>
-                    
-                      <option value="adfout" 
-                      
-                      >adfout</option>
-                    
-                      <option value="alc" 
-                      
-                      >alc</option>
-                    
-                      <option value="aoforce" 
-                      
-                      >aoforce</option>
-                    
-                      <option value="arc" 
-                      
-                      >arc</option>
-                    
-                      <option value="axsf" 
-                      
-                      >axsf</option>
-                    
-                      <option value="bgf" 
-                      
-                      >bgf</option>
-                    
-                      <option value="box" 
-                      
-                      >box</option>
-                    
-                      <option value="bs" 
-                      
-                      >bs</option>
-                    
-                      <option value="c09out" 
-                      
-                      >c09out</option>
-                    
-                      <option value="c3d2" 
-                      
-                      >c3d2</option>
-                    
-                      <option value="caccrt" 
-                      
-                      >caccrt</option>
-                    
-                      <option value="can" 
-                      
-                      >can</option>
-                    
-                      <option value="car" 
-                      
-                      >car</option>
-                    
-                      <option value="castep" 
-                      
-                      >castep</option>
-                    
-                      <option value="ccc" 
-                      
-                      >ccc</option>
-                    
-                      <option value="cdjson" 
-                      
-                      >cdjson</option>
-                    
-                      <option value="cdx" 
-                      
-                      >cdx</option>
-                    
-                      <option value="cdxml" 
-                      
-                      >cdxml</option>
-                    
-                      <option value="cif" 
-                      
-                      >cif</option>
-                    
-                      <option value="ck" 
-                      
-                      >ck</option>
-                    
-                      <option value="cml" 
-                      
-                      >cml</option>
-                    
-                      <option value="cmlr" 
-                      
-                      >cmlr</option>
-                    
-                      <option value="CONFIG" 
-                      
-                      >CONFIG</option>
-                    
-                      <option value="CONTCAR" 
-                      
-                      >CONTCAR</option>
-                    
-                      <option value="CONTFF" 
-                      
-                      >CONTFF</option>
-                    
-                      <option value="crk2d" 
-                      
-                      >crk2d</option>
-                    
-                      <option value="crk3d" 
-                      
-                      >crk3d</option>
-                    
-                      <option value="ct" 
-                      
-                      >ct</option>
-                    
-                      <option value="cub" 
-                      
-                      >cub</option>
-                    
-                      <option value="cube" 
-                      
-                      >cube</option>
-                    
-                      <option value="dallog" 
-                      
-                      >dallog</option>
-                    
-                      <option value="dalmol" 
-                      
-                      >dalmol</option>
+                  <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. ">
                     
                       <option value="dat" 
                       
                       >dat</option>
                     
-                      <option value="dmol" 
-                      
-                      >dmol</option>
-                    
-                      <option value="dx" 
-                      
-                      >dx</option>
-                    
                       <option value="ent" 
                       
                       >ent</option>
-                    
-                      <option value="exyz" 
-                      
-                      >exyz</option>
                     
                       <option value="fa" 
                       
@@ -229,169 +77,29 @@
                       
                       >fasta</option>
                     
-                      <option value="fch" 
-                      
-                      >fch</option>
-                    
-                      <option value="fchk" 
-                      
-                      >fchk</option>
-                    
-                      <option value="fck" 
-                      
-                      >fck</option>
-                    
-                      <option value="feat" 
-                      
-                      >feat</option>
-                    
-                      <option value="fhiaims" 
-                      
-                      >fhiaims</option>
-                    
-                      <option value="fract" 
-                      
-                      >fract</option>
-                    
-                      <option value="fs" 
-                      
-                      >fs</option>
-                    
-                      <option value="fsa" 
-                      
-                      >fsa</option>
-                    
-                      <option value="g03" 
-                      
-                      >g03</option>
-                    
-                      <option value="g09" 
-                      
-                      >g09</option>
-                    
-                      <option value="g92" 
-                      
-                      >g92</option>
-                    
-                      <option value="g94" 
-                      
-                      >g94</option>
-                    
-                      <option value="g98" 
-                      
-                      >g98</option>
-                    
-                      <option value="gal" 
-                      
-                      >gal</option>
-                    
-                      <option value="gam" 
-                      
-                      >gam</option>
-                    
-                      <option value="gamess" 
-                      
-                      >gamess</option>
-                    
-                      <option value="gamin" 
-                      
-                      >gamin</option>
-                    
-                      <option value="gamout" 
-                      
-                      >gamout</option>
-                    
-                      <option value="got" 
-                      
-                      >got</option>
-                    
-                      <option value="gpr" 
-                      
-                      >gpr</option>
-                    
                       <option value="gro" 
                       
                       >gro</option>
                     
-                      <option value="gukin" 
-                      
-                      >gukin</option>
-                    
-                      <option value="gukout" 
-                      
-                      >gukout</option>
-                    
-                      <option value="gzmat" 
-                      
-                      >gzmat</option>
-                    
-                      <option value="hin" 
-                      
-                      >hin</option>
-                    
-                      <option value="HISTORY" 
-                      
-                      >HISTORY</option>
-                    
-                      <option value="inchi" 
-                      
-                      >inchi</option>
-                    
                       <option value="inp" 
                       
                       >inp</option>
-                    
-                      <option value="ins" 
-                      
-                      >ins</option>
-                    
-                      <option value="jin" 
-                      
-                      >jin</option>
-                    
-                      <option value="jout" 
-                      
-                      >jout</option>
                     
                       <option value="log" 
                       
                       >log</option>
                     
-                      <option value="lpmd" 
-                      
-                      >lpmd</option>
-                    
-                      <option value="mcdl" 
-                      
-                      >mcdl</option>
-                    
                       <option value="mcif" 
                       
                       >mcif</option>
-                    
-                      <option value="MDFF" 
-                      
-                      >MDFF</option>
                     
                       <option value="mdl" 
                       
                       >mdl</option>
                     
-                      <option value="ml2" 
-                      
-                      >ml2</option>
-                    
                       <option value="mmcif" 
                       
                       >mmcif</option>
-                    
-                      <option value="mmd" 
-                      
-                      >mmd</option>
-                    
-                      <option value="mmod" 
-                      
-                      >mmod</option>
                     
                       <option value="mol" 
                       
@@ -400,90 +108,6 @@
                       <option value="mol2" 
                       
                       >mol2</option>
-                    
-                      <option value="mold" 
-                      
-                      >mold</option>
-                    
-                      <option value="molden" 
-                      
-                      >molden</option>
-                    
-                      <option value="molf" 
-                      
-                      >molf</option>
-                    
-                      <option value="moo" 
-                      
-                      >moo</option>
-                    
-                      <option value="mop" 
-                      
-                      >mop</option>
-                    
-                      <option value="mopcrt" 
-                      
-                      >mopcrt</option>
-                    
-                      <option value="mopin" 
-                      
-                      >mopin</option>
-                    
-                      <option value="mopout" 
-                      
-                      >mopout</option>
-                    
-                      <option value="mpc" 
-                      
-                      >mpc</option>
-                    
-                      <option value="mpo" 
-                      
-                      >mpo</option>
-                    
-                      <option value="mpqc" 
-                      
-                      >mpqc</option>
-                    
-                      <option value="mrv" 
-                      
-                      >mrv</option>
-                    
-                      <option value="msi" 
-                      
-                      >msi</option>
-                    
-                      <option value="nwo" 
-                      
-                      >nwo</option>
-                    
-                      <option value="orca" 
-                      
-                      >orca</option>
-                    
-                      <option value="out" 
-                      
-                      >out</option>
-                    
-                      <option value="outmol" 
-                      
-                      >outmol</option>
-                    
-                      <option value="output" 
-                      
-                      >output</option>
-                    
-                      <option value="pc" 
-                      
-                      >pc</option>
-                    
-                      <option value="pcjson" 
-                      
-                      >pcjson</option>
-                    
-                      <option value="pcm" 
-                      
-                      >pcm</option>
                     
                       <option value="pdb" 
                       
@@ -497,61 +121,9 @@
                       
                       >png</option>
                     
-                      <option value="pos" 
-                      
-                      >pos</option>
-                    
-                      <option value="POSCAR" 
-                      
-                      >POSCAR</option>
-                    
-                      <option value="POSFF" 
-                      
-                      >POSFF</option>
-                    
-                      <option value="pqr" 
-                      
-                      >pqr</option>
-                    
-                      <option value="pqs" 
-                      
-                      >pqs</option>
-                    
-                      <option value="prep" 
-                      
-                      >prep</option>
-                    
-                      <option value="pwscf" 
-                      
-                      >pwscf</option>
-                    
-                      <option value="qcout" 
-                      
-                      >qcout</option>
-                    
-                      <option value="res" 
-                      
-                      >res</option>
-                    
-                      <option value="rsmi" 
-                      
-                      >rsmi</option>
-                    
-                      <option value="rxn" 
-                      
-                      >rxn</option>
-                    
-                      <option value="sd" 
-                      
-                      >sd</option>
-                    
                       <option value="sdf" 
                       
                       >sdf</option>
-                    
-                      <option value="siesta" 
-                      
-                      >siesta</option>
                     
                       <option value="smi" 
                       
@@ -561,233 +133,25 @@
                       
                       >smiles</option>
                     
-                      <option value="smy" 
-                      
-                      >smy</option>
-                    
-                      <option value="sy2" 
-                      
-                      >sy2</option>
-                    
-                      <option value="t41" 
-                      
-                      >t41</option>
-                    
-                      <option value="tdd" 
-                      
-                      >tdd</option>
-                    
-                      <option value="text" 
-                      
-                      >text</option>
-                    
-                      <option value="therm" 
-                      
-                      >therm</option>
-                    
-                      <option value="tmol" 
-                      
-                      >tmol</option>
-                    
                       <option value="txt" 
                       
                       >txt</option>
-                    
-                      <option value="txyz" 
-                      
-                      >txyz</option>
-                    
-                      <option value="unixyz" 
-                      
-                      >unixyz</option>
-                    
-                      <option value="VASP" 
-                      
-                      >VASP</option>
-                    
-                      <option value="vmol" 
-                      
-                      >vmol</option>
                     
                       <option value="xml" 
                       
                       >xml</option>
                     
-                      <option value="xsf" 
-                      
-                      >xsf</option>
-                    
                       <option value="xtc" 
                       
                       >xtc</option>
                     
-                      <option value="xyz" 
-                      
-                      >xyz</option>
-                    
-                      <option value="yob" 
-                      
-                      >yob</option>
-                    
                     </param>
                 
-                  <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, file extension will be taken.">
-                    
-                      <option value="acesin" 
-                      
-                      >acesin</option>
-                    
-                      <option value="adf" 
-                      
-                      >adf</option>
-                    
-                      <option value="alc" 
-                      
-                      >alc</option>
-                    
-                      <option value="ascii" 
-                      
-                      >ascii</option>
-                    
-                      <option value="bgf" 
-                      
-                      >bgf</option>
-                    
-                      <option value="box" 
-                      
-                      >box</option>
-                    
-                      <option value="bs" 
-                      
-                      >bs</option>
-                    
-                      <option value="c3d1" 
-                      
-                      >c3d1</option>
-                    
-                      <option value="c3d2" 
-                      
-                      >c3d2</option>
-                    
-                      <option value="cac" 
-                      
-                      >cac</option>
-                    
-                      <option value="caccrt" 
-                      
-                      >caccrt</option>
-                    
-                      <option value="cache" 
-                      
-                      >cache</option>
-                    
-                      <option value="cacint" 
-                      
-                      >cacint</option>
-                    
-                      <option value="can" 
-                      
-                      >can</option>
-                    
-                      <option value="cdjson" 
-                      
-                      >cdjson</option>
-                    
-                      <option value="cdxml" 
-                      
-                      >cdxml</option>
-                    
-                      <option value="cht" 
-                      
-                      >cht</option>
-                    
-                      <option value="cif" 
-                      
-                      >cif</option>
-                    
-                      <option value="ck" 
-                      
-                      >ck</option>
-                    
-                      <option value="cml" 
-                      
-                      >cml</option>
-                    
-                      <option value="cmlr" 
-                      
-                      >cmlr</option>
-                    
-                      <option value="com" 
-                      
-                      >com</option>
-                    
-                      <option value="confabreport" 
-                      
-                      >confabreport</option>
-                    
-                      <option value="CONFIG" 
-                      
-                      >CONFIG</option>
-                    
-                      <option value="CONTCAR" 
-                      
-                      >CONTCAR</option>
-                    
-                      <option value="CONTFF" 
-                      
-                      >CONTFF</option>
-                    
-                      <option value="copy" 
-                      
-                      >copy</option>
-                    
-                      <option value="crk2d" 
-                      
-                      >crk2d</option>
-                    
-                      <option value="crk3d" 
-                      
-                      >crk3d</option>
-                    
-                      <option value="csr" 
-                      
-                      >csr</option>
-                    
-                      <option value="cssr" 
-                      
-                      >cssr</option>
-                    
-                      <option value="ct" 
-                      
-                      >ct</option>
-                    
-                      <option value="cub" 
-                      
-                      >cub</option>
-                    
-                      <option value="cube" 
-                      
-                      >cube</option>
-                    
-                      <option value="dalmol" 
-                      
-                      >dalmol</option>
-                    
-                      <option value="dmol" 
-                      
-                      >dmol</option>
-                    
-                      <option value="dx" 
-                      
-                      >dx</option>
+                  <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. ">
                     
                       <option value="ent" 
                       
                       >ent</option>
-                    
-                      <option value="exyz" 
-                      
-                      >exyz</option>
                     
                       <option value="fa" 
                       
@@ -797,149 +161,25 @@
                       
                       >fasta</option>
                     
-                      <option value="feat" 
-                      
-                      >feat</option>
-                    
-                      <option value="fh" 
-                      
-                      >fh</option>
-                    
-                      <option value="fhiaims" 
-                      
-                      >fhiaims</option>
-                    
-                      <option value="fix" 
-                      
-                      >fix</option>
-                    
-                      <option value="fps" 
-                      
-                      >fps</option>
-                    
-                      <option value="fpt" 
-                      
-                      >fpt</option>
-                    
-                      <option value="fract" 
-                      
-                      >fract</option>
-                    
-                      <option value="fs" 
-                      
-                      >fs</option>
-                    
-                      <option value="fsa" 
-                      
-                      >fsa</option>
-                    
-                      <option value="gamin" 
-                      
-                      >gamin</option>
-                    
-                      <option value="gau" 
-                      
-                      >gau</option>
-                    
-                      <option value="gjc" 
-                      
-                      >gjc</option>
-                    
-                      <option value="gjf" 
-                      
-                      >gjf</option>
-                    
-                      <option value="gpr" 
-                      
-                      >gpr</option>
-                    
-                      <option value="gr96" 
-                      
-                      >gr96</option>
-                    
                       <option value="gro" 
                       
                       >gro</option>
-                    
-                      <option value="gukin" 
-                      
-                      >gukin</option>
-                    
-                      <option value="gukout" 
-                      
-                      >gukout</option>
-                    
-                      <option value="gzmat" 
-                      
-                      >gzmat</option>
-                    
-                      <option value="hin" 
-                      
-                      >hin</option>
-                    
-                      <option value="inchi" 
-                      
-                      >inchi</option>
-                    
-                      <option value="inchikey" 
-                      
-                      >inchikey</option>
                     
                       <option value="inp" 
                       
                       >inp</option>
                     
-                      <option value="jin" 
-                      
-                      >jin</option>
-                    
-                      <option value="k" 
-                      
-                      >k</option>
-                    
-                      <option value="lmpdat" 
-                      
-                      >lmpdat</option>
-                    
-                      <option value="lpmd" 
-                      
-                      >lpmd</option>
-                    
-                      <option value="mcdl" 
-                      
-                      >mcdl</option>
-                    
                       <option value="mcif" 
                       
                       >mcif</option>
-                    
-                      <option value="MDFF" 
-                      
-                      >MDFF</option>
                     
                       <option value="mdl" 
                       
                       >mdl</option>
                     
-                      <option value="ml2" 
-                      
-                      >ml2</option>
-                    
                       <option value="mmcif" 
                       
                       >mmcif</option>
-                    
-                      <option value="mmd" 
-                      
-                      >mmd</option>
-                    
-                      <option value="mmod" 
-                      
-                      >mmod</option>
-                    
-                      <option value="mna" 
-                      
-                      >mna</option>
                     
                       <option value="mol" 
                       
@@ -948,86 +188,6 @@
                       <option value="mol2" 
                       
                       >mol2</option>
-                    
-                      <option value="mold" 
-                      
-                      >mold</option>
-                    
-                      <option value="molden" 
-                      
-                      >molden</option>
-                    
-                      <option value="molf" 
-                      
-                      >molf</option>
-                    
-                      <option value="molreport" 
-                      
-                      >molreport</option>
-                    
-                      <option value="mop" 
-                      
-                      >mop</option>
-                    
-                      <option value="mopcrt" 
-                      
-                      >mopcrt</option>
-                    
-                      <option value="mopin" 
-                      
-                      >mopin</option>
-                    
-                      <option value="mp" 
-                      
-                      >mp</option>
-                    
-                      <option value="mpc" 
-                      
-                      >mpc</option>
-                    
-                      <option value="mpd" 
-                      
-                      >mpd</option>
-                    
-                      <option value="mpqcin" 
-                      
-                      >mpqcin</option>
-                    
-                      <option value="mrv" 
-                      
-                      >mrv</option>
-                    
-                      <option value="msms" 
-                      
-                      >msms</option>
-                    
-                      <option value="nul" 
-                      
-                      >nul</option>
-                    
-                      <option value="nw" 
-                      
-                      >nw</option>
-                    
-                      <option value="orcainp" 
-                      
-                      >orcainp</option>
-                    
-                      <option value="outmol" 
-                      
-                      >outmol</option>
-                    
-                      <option value="paint" 
-                      
-                      >paint</option>
-                    
-                      <option value="pcjson" 
-                      
-                      >pcjson</option>
-                    
-                      <option value="pcm" 
-                      
-                      >pcm</option>
                     
                       <option value="pdb" 
                       
@@ -1041,50 +201,6 @@
                       
                       >png</option>
                     
-                      <option value="pointcloud" 
-                      
-                      >pointcloud</option>
-                    
-                      <option value="POSCAR" 
-                      
-                      >POSCAR</option>
-                    
-                      <option value="POSFF" 
-                      
-                      >POSFF</option>
-                    
-                      <option value="pov" 
-                      
-                      >pov</option>
-                    
-                      <option value="pqr" 
-                      
-                      >pqr</option>
-                    
-                      <option value="pqs" 
-                      
-                      >pqs</option>
-                    
-                      <option value="qcin" 
-                      
-                      >qcin</option>
-                    
-                      <option value="report" 
-                      
-                      >report</option>
-                    
-                      <option value="rsmi" 
-                      
-                      >rsmi</option>
-                    
-                      <option value="rxn" 
-                      
-                      >rxn</option>
-                    
-                      <option value="sd" 
-                      
-                      >sd</option>
-                    
                       <option value="sdf" 
                       
                       >sdf</option>
@@ -1097,73 +213,17 @@
                       
                       >smiles</option>
                     
-                      <option value="stl" 
-                      
-                      >stl</option>
-                    
-                      <option value="svg" 
-                      
-                      >svg</option>
-                    
-                      <option value="sy2" 
-                      
-                      >sy2</option>
-                    
-                      <option value="tdd" 
-                      
-                      >tdd</option>
-                    
-                      <option value="text" 
-                      
-                      >text</option>
-                    
-                      <option value="therm" 
-                      
-                      >therm</option>
-                    
-                      <option value="tmol" 
-                      
-                      >tmol</option>
-                    
                       <option value="txt" 
                       
                       >txt</option>
                     
-                      <option value="txyz" 
+                      <option value="xtc" 
                       
-                      >txyz</option>
-                    
-                      <option value="unixyz" 
-                      
-                      >unixyz</option>
-                    
-                      <option value="VASP" 
-                      
-                      >VASP</option>
-                    
-                      <option value="vmol" 
-                      
-                      >vmol</option>
-                    
-                      <option value="xed" 
-                      
-                      >xed</option>
-                    
-                      <option value="xyz" 
-                      
-                      >xyz</option>
-                    
-                      <option value="yob" 
-                      
-                      >yob</option>
-                    
-                      <option value="zin" 
-                      
-                      >zin</option>
+                      >xtc</option>
                     
                     </param>
                 
-                  <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D.">
+                  <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. ">
                     
                       <option value="2" 
                       
@@ -1175,9 +235,7 @@
                     
                     </param>
                 
-                  <param name="ph" type="float" value="None" 
-                     
-                           label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
+                  
                 
                   <param name="obabel_path" type="text" value="obabel" label="obabel_path" help="Path to the obabel executable binary." optional="false"/>
                 
@@ -1186,7 +244,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_path" format="acesin,adf,alc,ascii,bgf,box,bs,c3d1,c3d2,cac,caccrt,cache,cacint,can,cdjson,cdxml,cht,cif,ck,cml,cmlr,com,confabreport,CONFIG,CONTCAR,CONTFF,copy,crk2d,crk3d,csr,cssr,ct,cub,cube,dalmol,dmol,dx,ent,exyz,fa,fasta,feat,fh,fhiaims,fix,fps,fpt,fract,fs,fsa,gamin,gau,gjc,gjf,gpr,gr96,gro,gukin,gukout,gzmat,hin,inchi,inchikey,inp,jin,k,lmpdat,lpmd,mcdl,mcif,MDFF,mdl,ml2,mmcif,mmd,mmod,mna,mol,mol2,mold,molden,molf,molreport,mop,mopcrt,mopin,mp,mpc,mpd,mpqcin,mrv,msms,nul,nw,orcainp,outmol,paint,pcjson,pcm,pdb,pdbqt,png,pointcloud,POSCAR,POSFF,pov,pqr,pqs,qcin,report,rsmi,rxn,sd,sdf,smi,smiles,stl,svg,sy2,tdd,text,therm,tmol,txt,txyz,unixyz,VASP,vmol,xed,xyz,yob,zin" label="${outname_output_path}"/>
+        <data name="output_path" format="ent,fa,fasta,gro,inp,mcif,mdl,mmcif,mol,mol2,pdb,pdbqt,png,sdf,smi,smiles,txt" label="${outname_output_path}"/>
         
     </outputs>
     <tests>

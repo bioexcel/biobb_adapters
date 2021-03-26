@@ -1,7 +1,7 @@
 <tool id="biobb_chemistry_babel_minimize_ext" name="BabelMinimize" version="3.0.0" >
-    <description>: Energetically minimize small molecules.</description>
+    <description>: This class is a wrapper of the Open Babel tool.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_chemistry:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -59,43 +59,41 @@
             </when>
             <when value="option4">
                 
-                  <param name="criteria" type="float" value="1e-6" 
-                     
-                           label="criteria" help="Convergence criteria" optional="false"/>
+                  
                 
-                  <param name="method" type="select" label="method" help="Method.">
+                  <param name="method" type="select" label="method" help="Method. ">
                     
-                      <option value="cg (conjugate gradients algorithm)" 
-                      
-                      >cg (conjugate gradients algorithm)</option>
+                      <option value="cg" 
+                      selected="true"
+                      >cg</option>
                     
-                      <option value="sd (steepest descent algorithm)" 
+                      <option value="sd" 
                       
-                      >sd (steepest descent algorithm)</option>
+                      >sd</option>
                     
                     </param>
                 
-                  <param name="force_field" type="select" label="force_field" help="Force field.">
+                  <param name="force_field" type="select" label="force_field" help="Force field. ">
                     
-                      <option value="GAFF (General Amber Force Field)" 
+                      <option value="GAFF" 
                       
-                      >GAFF (General Amber Force Field)</option>
+                      >GAFF</option>
                     
-                      <option value="Ghemical (Ghemical force field)" 
+                      <option value="Ghemical" 
                       
-                      >Ghemical (Ghemical force field)</option>
+                      >Ghemical</option>
                     
-                      <option value="MMFF94 (MMFF94 force field)" 
+                      <option value="MMFF94" 
                       
-                      >MMFF94 (MMFF94 force field)</option>
+                      >MMFF94</option>
                     
-                      <option value="MMFF94s (MMFF94s force field)" 
+                      <option value="MMFF94s" 
                       
-                      >MMFF94s (MMFF94s force field)</option>
+                      >MMFF94s</option>
                     
-                      <option value="UFF (Universal Force Field)" 
+                      <option value="UFF" 
                       
-                      >UFF (Universal Force Field)</option>
+                      >UFF</option>
                     
                     </param>
                 
@@ -103,21 +101,21 @@
                     
                     label="hydrogens" help="Add hydrogen atoms." />
                 
-                  
+                  <param name="steps" type="integer" value="2500" 
+                     
+                           label="steps" help="Maximum number of steps." optional="false"/>
                 
                   <param name="cutoff" type="boolean" 
                     
                     label="cutoff" help="Use cut-off." />
                 
-                  <param name="rvdw" type="float" value="6.0" 
-                     
-                           label="rvdw" help="VDW cut-off distance." optional="false"/>
-                
-                  <param name="rele" type="float" value="10.0" 
-                     
-                           label="rele" help="Electrostatic cut-off distance." optional="false"/>
+                  
                 
                   
+                
+                  <param name="frequency" type="integer" value="10" 
+                     
+                           label="frequency" help="Frequency to update the non-bonded pairs." optional="false"/>
                 
                   <param name="obminimize_path" type="text" value="obminimize" label="obminimize_path" help="Path to the obminimize executable binary." optional="false"/>
                 

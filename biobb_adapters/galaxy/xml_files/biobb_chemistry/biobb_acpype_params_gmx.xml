@@ -1,7 +1,7 @@
 <tool id="biobb_chemistry_acpype_params_gmx_ext" name="AcpypeParamsGmx" version="3.0.0" >
-    <description>: Small molecule parameterization for GROMACS MD package.</description>
+    <description>: This class is a wrapper of Acpype tool for generation of topologies for GROMACS.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_chemistry:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -73,7 +73,9 @@
                 
                   <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." optional="false"/>
                 
-                  
+                  <param name="charge" type="integer" value="0" 
+                     min="-20" max="20"
+                           label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="false"/>
                 
                   <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." optional="false"/>
                 

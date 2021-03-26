@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_gmx_energy_ext" name="GmxEnergy" version="3.0.0" >
-    <description>: Extracts energy components from a given GROMACS energy file.</description>
+    <description>: Wrapper of the GROMACS energy module for extracting energy components from a given GROMACS energy file.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_analysis:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="xvg" type="select" label="xvg" help="XVG plot formatting.">
+                  <param name="xvg" type="select" label="xvg" help="XVG plot formatting. ">
                     
                       <option value="xmgrace" 
                       
@@ -75,19 +75,19 @@
                     
                     </param>
                 
-                  <param name="terms" type="select" label="terms" help="Energy terms.">
+                  <param name="terms" type="select" label="terms" help="Energy terms. ">
                     
                       <option value="Angle" 
                       
                       >Angle</option>
                     
-                      <option value="Proper-Dih" 
+                      <option value="Proper-Dih." 
                       
-                      >Proper-Dih</option>
+                      >Proper-Dih.</option>
                     
-                      <option value="Improper-Dih" 
+                      <option value="Improper-Dih." 
                       
-                      >Improper-Dih</option>
+                      >Improper-Dih.</option>
                     
                       <option value="LJ-14" 
                       
@@ -105,21 +105,21 @@
                       
                       >Coulomb-(SR)</option>
                     
-                      <option value="Coul-recip" 
+                      <option value="Coul.-recip." 
                       
-                      >Coul-recip</option>
+                      >Coul.-recip.</option>
                     
-                      <option value="Position-Rest" 
+                      <option value="Position-Rest." 
                       
-                      >Position-Rest</option>
+                      >Position-Rest.</option>
                     
                       <option value="Potential" 
                       
                       >Potential</option>
                     
-                      <option value="Kinetic-En" 
+                      <option value="Kinetic-En." 
                       
-                      >Kinetic-En</option>
+                      >Kinetic-En.</option>
                     
                       <option value="Total-Energy" 
                       
@@ -133,9 +133,9 @@
                       
                       >Pressure</option>
                     
-                      <option value="Constr-rmsd" 
+                      <option value="Constr.-rmsd" 
                       
-                      >Constr-rmsd</option>
+                      >Constr.-rmsd</option>
                     
                       <option value="Box-X" 
                       

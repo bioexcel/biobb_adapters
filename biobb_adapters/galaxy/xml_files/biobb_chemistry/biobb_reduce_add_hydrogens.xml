@@ -1,7 +1,7 @@
 <tool id="biobb_chemistry_reduce_add_hydrogens_ext" name="ReduceAddHydrogens" version="3.0.0" >
-    <description>: Adds hydrogen atoms to small molecules.</description>
+    <description>: This class is a wrapper of the Ambertools reduce module for adding hydrogens to a given structure.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_chemistry:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -97,7 +97,7 @@
                 
                   <param name="rotexist" type="boolean" 
                     
-                    label="rotexist" help="to rotate" />
+                    label="rotexist" help="allow existing rotatable groups (OH, SH, Met-CH3) to rotate" />
                 
                   <param name="rotexoh" type="boolean" 
                     

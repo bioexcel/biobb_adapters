@@ -1,7 +1,7 @@
 <tool id="biobb_vs_autodock_vina_ext" name="AutodockVina" version="3.0.0" >
-    <description>: Docking of the ligand to a set of grids describing the target protein.</description>
+    <description>: Wrapper of the AutoDock Vina software.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_vs:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -81,7 +81,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="vina_path" type="text" value="&#39;vina&#39;" label="vina_path" help="path to vina in your local computer." optional="false"/>
+                  <param name="vina_path" type="text" value="vina" label="vina_path" help="path to vina in your local computer." optional="false"/>
                 
             </when>
         </conditional>

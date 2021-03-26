@@ -1,7 +1,7 @@
 <tool id="biobb_ml_recurrent_neural_network_ext" name="RecurrentNeuralNetwork" version="3.0.1" >
-    <description>: Trains and tests a given dataset and save the complete model for a Recurrent Neural Network.</description>
+    <description>: Wrapper of the TensorFlow Keras LSTM method using Recurrent Neural Networks.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -71,19 +71,21 @@
             </when>
             <when value="option4">
                 
-                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." optional="false"/>
+                  <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  <param name="validation_size" type="float" value="0.2" 
+                  
+                
+                  <param name="window_size" type="integer" value="5" 
                      
-                           label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
+                           label="window_size" help="Number of steps for each window of training model." optional="false"/>
+                
+                  <param name="test_size" type="integer" value="5" 
+                     
+                           label="test_size" help="Represents the number of samples of the dataset to include in the test split." optional="false"/>
                 
                   
                 
-                  
-                
-                  <param name="hidden_layers" type="text" value="None" label="hidden_layers" help=" List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]." optional="false"/>
-                
-                  <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance.">
+                  <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. ">
                     
                       <option value="Adadelta" 
                       
@@ -119,13 +121,15 @@
                     
                     </param>
                 
-                  <param name="learning_rate" type="float" value="0.02" 
+                  
+                
+                  <param name="batch_size" type="integer" value="100" 
                      
-                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                           label="batch_size" help="Number of samples per gradient update." optional="false"/>
                 
-                  
-                
-                  
+                  <param name="max_epochs" type="integer" value="100" 
+                     
+                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
                 
                   <param name="normalize_cm" type="boolean" 
                     

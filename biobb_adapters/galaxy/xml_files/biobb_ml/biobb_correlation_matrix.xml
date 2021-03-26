@@ -1,7 +1,7 @@
 <tool id="biobb_ml_correlation_matrix_ext" name="CorrelationMatrix" version="3.0.1" >
     <description>: Generates a correlation matrix from a given dataset.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="features" type="text" value="None" label="features" help="List with all features to compare." optional="false"/>
+                  <param name="features" type="text" label="features" help="Independent variables or columns from your dataset you want to compare. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
             </when>
         </conditional>

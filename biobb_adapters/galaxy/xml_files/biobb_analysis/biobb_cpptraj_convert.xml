@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_cpptraj_convert_ext" name="CpptrajConvert" version="3.0.0" >
-    <description>: Converts between cpptraj compatible trajectory file formats and/or extracts a selection of atoms or frames.</description>
+    <description>: Wrapper of the Ambertools Cpptraj module for converting between cpptraj compatible trajectory file formats and/or extracting a selection of atoms or frames.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_analysis:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__in_parameters__dq__:__dq__${config.in_parameters}__dq__,__dq__out_parameters__dq__:__dq__${config.out_parameters}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
+          --config "__oc____dq__start__dq__:__dq__${config.start}__dq__,__dq__end__dq__:__dq__${config.end}__dq__,__dq__steps__dq__:__dq__${config.steps}__dq__,__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__format__dq__:__dq__${config.format}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
         #end if
         
           --input_top_path ${input_top_path}.${input_top_path.ext}
@@ -67,9 +67,137 @@
             </when>
             <when value="option4">
                 
-                  <param name="in_parameters" type="text" label="in_parameters" help=" (Json)" value="{}" />
+                  <param name="start" type="integer" value="1" 
+                     min="1" max="100000"
+                           label="start" help="Starting frame for slicing" optional="false"/>
                 
-                  <param name="out_parameters" type="text" label="out_parameters" help=" (Json)" value="{}" />
+                  <param name="end" type="integer" value="-1" 
+                     min="-1" max="100000"
+                           label="end" help="Ending frame for slicing" optional="false"/>
+                
+                  <param name="steps" type="integer" value="1" 
+                     min="1" max="100000"
+                           label="steps" help="Step for slicing" optional="false"/>
+                
+                  <param name="mask" type="select" label="mask" help="Mask definition. ">
+                    
+                      <option value="c-alpha" 
+                      
+                      >c-alpha</option>
+                    
+                      <option value="backbone" 
+                      
+                      >backbone</option>
+                    
+                      <option value="all-atoms" 
+                      selected="true"
+                      >all-atoms</option>
+                    
+                      <option value="heavy-atoms" 
+                      
+                      >heavy-atoms</option>
+                    
+                      <option value="side-chain" 
+                      
+                      >side-chain</option>
+                    
+                      <option value="solute" 
+                      
+                      >solute</option>
+                    
+                      <option value="ions" 
+                      
+                      >ions</option>
+                    
+                      <option value="solvent" 
+                      
+                      >solvent</option>
+                    
+                    </param>
+                
+                  <param name="format" type="select" label="format" help="Output trajectory format. ">
+                    
+                      <option value="crd" 
+                      
+                      >crd</option>
+                    
+                      <option value="cdf" 
+                      
+                      >cdf</option>
+                    
+                      <option value="netcdf" 
+                      selected="true"
+                      >netcdf</option>
+                    
+                      <option value="restart" 
+                      
+                      >restart</option>
+                    
+                      <option value="ncrestart" 
+                      
+                      >ncrestart</option>
+                    
+                      <option value="restartnc" 
+                      
+                      >restartnc</option>
+                    
+                      <option value="dcd" 
+                      
+                      >dcd</option>
+                    
+                      <option value="charmm" 
+                      
+                      >charmm</option>
+                    
+                      <option value="cor" 
+                      
+                      >cor</option>
+                    
+                      <option value="pdb" 
+                      
+                      >pdb</option>
+                    
+                      <option value="mol2" 
+                      
+                      >mol2</option>
+                    
+                      <option value="trr" 
+                      
+                      >trr</option>
+                    
+                      <option value="gro" 
+                      
+                      >gro</option>
+                    
+                      <option value="binpos" 
+                      
+                      >binpos</option>
+                    
+                      <option value="xtc" 
+                      
+                      >xtc</option>
+                    
+                      <option value="cif" 
+                      
+                      >cif</option>
+                    
+                      <option value="arc" 
+                      
+                      >arc</option>
+                    
+                      <option value="sqm" 
+                      
+                      >sqm</option>
+                    
+                      <option value="sdf" 
+                      
+                      >sdf</option>
+                    
+                      <option value="conflib" 
+                      
+                      >conflib</option>
+                    
+                    </param>
                 
                   <param name="cpptraj_path" type="text" value="cpptraj" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"/>
                 

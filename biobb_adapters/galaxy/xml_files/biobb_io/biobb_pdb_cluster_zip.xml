@@ -1,7 +1,7 @@
 <tool id="biobb_io_pdb_cluster_zip_ext" name="PdbClusterZip" version="3.0.0" >
-    <description>: Wrapper class for the `MMB PDB mirror &lt;http://mmb.irbbarcelona.org/api/&gt;`_.</description>
+    <description>: This class is a wrapper for downloading a PDB cluster from the Protein Data Bank.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_io:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -14,7 +14,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__filter__dq__:__dq__${config.filter}__dq__,__dq__cluster__dq__:__dq__${config.cluster}__dq__,__dq__url__dq__:__dq__${config.url}__dq____cc__"
+          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__filter__dq__:__dq__${config.filter}__dq__,__dq__cluster__dq__:__dq__${config.cluster}__dq__,__dq__api_id__dq__:__dq__${config.api_id}__dq____cc__"
         #end if
         
         
@@ -51,13 +51,45 @@
             </when>
             <when value="option4">
                 
-                  <param name="pdb_code" type="text" value="2vgb" label="pdb_code" help="RSCB PDB code. ie: &#34;2VGB&#34;" optional="false"/>
+                  <param name="pdb_code" type="text" value="None" label="pdb_code" help="RSCB PDB code." optional="false"/>
                 
-                  <param name="filter" type="text" value="[&#39;ATOM&#39;, &#39;MODEL&#39;, &#39;ENDMDL&#39;]" label="filter" help="Array of groups to be kept. If value is None or False no filter will be applied. All the possible values are defined in the official PDB specification (http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html)" optional="false"/>
+                  <param name="filter" type="text" value="[ATOM, MODEL, ENDMDL]" label="filter" help="Array of groups to be kept. If value is None or False no filter will be applied. All the possible values are defined in the official PDB specification (http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html)" optional="false"/>
                 
-                  <param name="cluster" type="text" value="90" label="cluster" help="Cluster number for the :meth:`biobb_io.api.MmbPdb.get_pdb_cluster_zip` method." optional="false"/>
+                  <param name="cluster" type="select" label="cluster" help="Sequence Similarity Cutoff. ">
+                    
+                      <option value="50" 
+                      
+                      >50</option>
+                    
+                      <option value="70" 
+                      
+                      >70</option>
+                    
+                      <option value="90" 
+                      selected="true"
+                      >90</option>
+                    
+                      <option value="95" 
+                      
+                      >95</option>
+                    
+                    </param>
                 
-                  <param name="url" type="text" value="https://files.rcsb.org/download/" label="url" help="URL of the PDB REST API. Another option for this parameter is the MMB PDB mirror API (&#34;http://mmb.irbbarcelona.org/api/pdb/&#34;)." optional="false"/>
+                  <param name="api_id" type="select" label="api_id" help="Identifier of the PDB REST API from which the PDB structure will be downloaded. ">
+                    
+                      <option value="pdbe" 
+                      selected="true"
+                      >pdbe</option>
+                    
+                      <option value="pdb" 
+                      
+                      >pdb</option>
+                    
+                      <option value="mmb" 
+                      
+                      >mmb</option>
+                    
+                    </param>
                 
             </when>
         </conditional>

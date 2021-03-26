@@ -1,7 +1,7 @@
 <tool id="biobb_io_pdb_variants_ext" name="PdbVariants" version="3.0.0" >
-    <description>: Wrapper class for the MMB group UNIPROT REST API.</description>
+    <description>: This class creates a text file containing a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_io:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -14,7 +14,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__url__dq__:__dq__${config.url}__dq____cc__"
+          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq____cc__"
         #end if
         
         
@@ -51,9 +51,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="pdb_code" type="text" value="2vgb" label="pdb_code" help="RSCB PDB four letter code. ie: &#34;2ki5&#34;." optional="false"/>
-                
-                  <param name="url" type="text" value="http://mmb.irbbarcelona.org/api" label="url" help="URL of the UNIPROT REST API." optional="false"/>
+                  <param name="pdb_code" type="text" value="None" label="pdb_code" help="RSCB PDB four letter code." optional="false"/>
                 
             </when>
         </conditional>

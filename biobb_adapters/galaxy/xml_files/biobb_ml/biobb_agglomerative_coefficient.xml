@@ -1,7 +1,7 @@
 <tool id="biobb_ml_agglomerative_coefficient_ext" name="AgglomerativeCoefficient" version="3.0.1" >
-    <description>: Clusters a given dataset and calculates best K coefficient for an agglomerative clustering.</description>
+    <description>: Wrapper of the scikit-learn AgglomerativeClustering method.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__max_clusters__dq__:__dq__${config.max_clusters}__dq____cc__"
+          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__max_clusters__dq__:__dq__${config.max_clusters}__dq__,__dq__affinity__dq__:__dq__${config.affinity}__dq__,__dq__linkage__dq__:__dq__${config.linkage}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -65,9 +65,63 @@
             </when>
             <when value="option4">
                 
-                  <param name="predictors" type="text" value="None" label="predictors" help="Features or columns from your dataset you want to use for fitting." optional="false"/>
+                  <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  
+                  <param name="max_clusters" type="integer" value="6" 
+                     min="1" max="100"
+                           label="max_clusters" help="Maximum number of clusters to use by default for kmeans queries." optional="false"/>
+                
+                  <param name="affinity" type="select" label="affinity" help="Metric used to compute the linkage. If linkage is &#34;ward&#34;, only &#34;euclidean&#34; is accepted. ">
+                    
+                      <option value="euclidean" 
+                      selected="true"
+                      >euclidean</option>
+                    
+                      <option value="l1" 
+                      
+                      >l1</option>
+                    
+                      <option value="l2" 
+                      
+                      >l2</option>
+                    
+                      <option value="manhattan" 
+                      
+                      >manhattan</option>
+                    
+                      <option value="cosine" 
+                      
+                      >cosine</option>
+                    
+                      <option value="precomputed" 
+                      
+                      >precomputed</option>
+                    
+                    </param>
+                
+                  <param name="linkage" type="select" label="linkage" help="The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion. ">
+                    
+                      <option value="ward" 
+                      selected="true"
+                      >ward</option>
+                    
+                      <option value="complete" 
+                      
+                      >complete</option>
+                    
+                      <option value="average" 
+                      
+                      >average</option>
+                    
+                      <option value="single" 
+                      
+                      >single</option>
+                    
+                    </param>
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
                 
             </when>
         </conditional>

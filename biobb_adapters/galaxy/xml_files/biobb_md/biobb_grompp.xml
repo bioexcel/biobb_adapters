@@ -1,7 +1,7 @@
 <tool id="biobb_md_grompp_ext" name="Grompp" version="3.0.0" >
     <description>: Wrapper of the GROMACS grompp module.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_md:3.0.0--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -24,7 +24,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__mdp__dq__:__dq__${config.mdp}__dq__,__dq__maxwarn__dq__:__dq__${config.maxwarn}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          --config "__oc____dq__mdp__dq__:__dq__${config.mdp}__dq__,__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__maxwarn__dq__:__dq__${config.maxwarn}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
           --input_gro_path ${input_gro_path}.${input_gro_path.ext}
@@ -69,7 +69,7 @@
         
           <param name="input_ndx_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the input GROMACS index files NDX. Format: [input].ndx"/> 
         
-          <param name="input_mdp_path" type="data" format="mdp"  optional="True" label="input MDP file" help="Path of the input GROMACS MDP file. Format: [input].mdp"/> 
+          <param name="input_mdp_path" type="data" format="mdp"  optional="True" label="input MDP file" help="Path to the input GROMACS MDP file. Format: [input].mdp"/> 
         
         
           <param name="outname_output_tpr_path" type="text" value="mygrompp.tpr" optional="False" label="output TPR name" help="Path to the output portable binary run file TPR Format: [output].tpr "/>
@@ -91,13 +91,41 @@
             </when>
             <when value="option4">
                 
-                  <param name="mdp" type="text" label="mdp" help="MDP options specification. (Used if *input_mdp_path* is None) (Json)" value="{}" />
+                  <param name="mdp" type="text" label="mdp" help="MDP options specification. (Json)" value="{}" />
+                
+                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each creates a different mdp file. ">
+                    
+                      <option value="minimization" 
+                      selected="true"
+                      >minimization</option>
+                    
+                      <option value="nvt" 
+                      
+                      >nvt</option>
+                    
+                      <option value="npt" 
+                      
+                      >npt</option>
+                    
+                      <option value="free" 
+                      
+                      >free</option>
+                    
+                      <option value="ions" 
+                      
+                      >ions</option>
+                    
+                      <option value="index" 
+                      
+                      >index</option>
+                    
+                    </param>
                 
                   <param name="maxwarn" type="integer" value="10" 
-                     min="0" max="1000"
+                     
                            label="maxwarn" help="Maximum number of allowed warnings." optional="false"/>
                 
-                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="false"/>
                 
                   <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 

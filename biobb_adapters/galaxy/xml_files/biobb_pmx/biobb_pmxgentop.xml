@@ -1,7 +1,7 @@
 <tool id="biobb_pmx_pmxgentop_ext" name="Pmxgentop" version="3.0.1" >
-    <description>: Wrapper class for the `PMX gentop &lt;https://github.com/deGrootLab/pmx&gt;`_ module.</description>
+    <description>: Wrapper class for the PMX gentop module.</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_pmx:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__split__dq__:__dq__${config.split}__dq__,__dq__scale_mass__dq__:__dq__${config.scale_mass}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__output_top_name__dq__:__dq__${config.output_top_name}__dq__,__dq__keyword_list__dq__:__dq__${config.keyword_list}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
+          --config "__oc____dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__split__dq__:__dq__${config.split}__dq__,__dq__scale_mass__dq__:__dq__${config.scale_mass}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__pmx_path__dq__:__dq__${config.pmx_path}__dq____cc__"
         #end if
         
           --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
@@ -59,29 +59,19 @@
             </when>
             <when value="option4">
                 
-                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." optional="false"/>
+                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Force field to use. If **input_top_zip_path** is a top file, it&#39;s not necessary to specify the forcefield, as it will be determined automatically. If **input_top_zip_path** is an itp file, then it&#39;s needed." optional="false"/>
                 
                   <param name="split" type="boolean" 
                     
-                    label="split" help="Print a 3 to 1 letter residue list." />
+                    label="split" help="Write separate topologies for the vdW and charge transformations." />
                 
                   <param name="scale_mass" type="boolean" 
                     
-                    label="scale_mass" help="Scale mass." />
+                    label="scale_mass" help="Scale the masses of morphing atoms so that dummies have a mass of 1." />
                 
-                  <param name="dna" type="boolean" 
-                    
-                    label="dna" help="Generate hybrid residue for the DNA nucleotides." />
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path to the GMXLIB folder in your computer." optional="false"/>
                 
-                  <param name="rna" type="boolean" 
-                    
-                    label="rna" help="Generate hybrid residue for the RNA nucleotides." />
-                
-                  <param name="output_top_name" type="text" value="gentop.top" label="output_top_name" help="Name of the output top file." optional="false"/>
-                
-                  <param name="keyword_list" type="text" value="[&#39;Protein&#39;, &#39;DNA&#39;]" label="keyword_list" help="List of comma separated Keywords to match top and itp files." optional="false"/>
-                
-                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." optional="false"/>
+                  <param name="pmx_path" type="text" value="pmx" label="pmx_path" help="Path to the PMX command line interface." optional="false"/>
                 
             </when>
         </conditional>

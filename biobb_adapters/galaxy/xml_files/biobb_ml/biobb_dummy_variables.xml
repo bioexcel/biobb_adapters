@@ -1,7 +1,7 @@
 <tool id="biobb_ml_dummy_variables_ext" name="DummyVariables" version="3.0.1" >
-    <description>: Maps dummy variables from a given dataset.</description>
+    <description>: Converts categorical variables into dummy/indicator variables (binaries).</description>
     <requirements>
-        <requirement type="binary">docker</requirement>
+        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__columns__dq__:__dq__${config.columns}__dq____cc__"
+          --config "__oc____dq__targets__dq__:__dq__${config.targets}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="columns" type="text" value="None" label="columns" help="List with all columns you want to map." optional="false"/>
+                  <param name="targets" type="text" label="targets" help="Independent variables or columns from your dataset you want to drop. If None given, all the columns will be taken. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
             </when>
         </conditional>
