@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_extract_chain_ext" name="ExtractChain" version="3.0.0" >
     <description>: This class is a wrapper of the Structure Checking tool to extract a chain from a 3D structure.</description>
     <requirements>
-        <requirement type="docker">quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0</requirement>
+        <requirement type="package">biobb_structure_utils</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -10,7 +10,7 @@
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0 extract_chain
+        extract_chain.py
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":

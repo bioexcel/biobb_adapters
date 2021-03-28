@@ -1,7 +1,7 @@
 <tool id="biobb_vs_autodock_vina_ext" name="AutodockVina" version="3.0.0" >
     <description>: Wrapper of the AutoDock Vina software.</description>
     <requirements>
-        <requirement type="docker">quay.io/biocontainers/biobb_vs:3.0.0--py_0</requirement>
+        <requirement type="package">biobb_vs</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -14,7 +14,7 @@
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_vs:3.0.0--py_0 autodock_vina
+        autodock_vina.py
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":

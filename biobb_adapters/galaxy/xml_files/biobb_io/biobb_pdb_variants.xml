@@ -1,14 +1,14 @@
 <tool id="biobb_io_pdb_variants_ext" name="PdbVariants" version="3.0.0" >
     <description>: This class creates a text file containing a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.</description>
     <requirements>
-        <requirement type="docker">quay.io/biocontainers/biobb_io:3.0.0--py_0</requirement>
+        <requirement type="package">biobb_io</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_io:3.0.0--py_0 pdb_variants
+        pdb_variants.py
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":

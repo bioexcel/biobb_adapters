@@ -1,7 +1,7 @@
 <tool id="biobb_ml_polynomial_regression_ext" name="PolynomialRegression" version="3.0.1" >
     <description>: Wrapper of the scikit-learn LinearRegression method with PolynomialFeatures.</description>
     <requirements>
-        <requirement type="docker">quay.io/biocontainers/biobb_ml:3.0.1--py_0</requirement>
+        <requirement type="package">biobb_ml</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -10,7 +10,7 @@
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 polynomial_regression
+        polynomial_regression.py
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":

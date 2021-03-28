@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_cpptraj_strip_ext" name="CpptrajStrip" version="3.0.0" >
     <description>: Wrapper of the Ambertools Cpptraj module for stripping a defined set of atoms (mask) from a given cpptraj compatible trajectory.</description>
     <requirements>
-        <requirement type="docker">quay.io/biocontainers/biobb_analysis:3.0.0--py_0</requirement>
+        <requirement type="package">biobb_analysis</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -12,7 +12,7 @@
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_analysis:3.0.0--py_0 cpptraj_strip
+        cpptraj_strip.py
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
