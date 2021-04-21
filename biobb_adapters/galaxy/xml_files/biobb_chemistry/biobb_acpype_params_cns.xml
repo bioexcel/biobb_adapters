@@ -15,18 +15,18 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
+        #else if $config.sele == "option3":
           --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
         #end if
         
           --input_path ${input_path}.${input_path.ext}
         
         
-          --output_path_par $__root_dir__/database/files/000/$outname_output_path_par
+          --output_path_par $__new_file_path__/$outname_output_path_par
         
-          --output_path_inp $__root_dir__/database/files/000/$outname_output_path_inp
+          --output_path_inp $__new_file_path__/$outname_output_path_inp
         
-          --output_path_top $__root_dir__/database/files/000/$outname_output_path_top
+          --output_path_top $__new_file_path__/$outname_output_path_top
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -35,11 +35,11 @@
           rm -f ${input_path}.${input_path.ext};
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_path_par; then mv $__root_dir__/database/files/000/$outname_output_path_par $output_path_par; fi;
+          if test -f $__new_file_path__/$outname_output_path_par; then mv $__new_file_path__/$outname_output_path_par $output_path_par; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_path_inp; then mv $__root_dir__/database/files/000/$outname_output_path_inp $output_path_inp; fi;
+          if test -f $__new_file_path__/$outname_output_path_inp; then mv $__new_file_path__/$outname_output_path_inp $output_path_inp; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_path_top; then mv $__root_dir__/database/files/000/$outname_output_path_top $output_path_top; fi;
+          if test -f $__new_file_path__/$outname_output_path_top; then mv $__new_file_path__/$outname_output_path_top $output_path_top; fi;
         
     ]]>
     </command>
@@ -56,10 +56,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option4"> Manual input</option>
+                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -68,8 +67,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-            </when>
-            <when value="option4">
                 
                   <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." optional="false"/>
                 

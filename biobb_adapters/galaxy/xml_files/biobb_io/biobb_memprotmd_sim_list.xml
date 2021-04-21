@@ -13,19 +13,19 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
+        #else if $config.sele == "option3":
           --config "__oc____cc__"
         #end if
         
         
-          --output_simulations $__root_dir__/database/files/000/$outname_output_simulations
+          --output_simulations $__new_file_path__/$outname_output_simulations
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
         #end if
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_simulations; then mv $__root_dir__/database/files/000/$outname_output_simulations $output_simulations; fi;
+          if test -f $__new_file_path__/$outname_output_simulations; then mv $__new_file_path__/$outname_output_simulations $output_simulations; fi;
         
     ]]>
     </command>

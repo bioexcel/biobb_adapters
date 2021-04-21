@@ -17,7 +17,7 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
+        #else if $config.sele == "option3":
           --config "__oc____dq__restrained_group__dq__:__dq__${config.restrained_group}__dq__,__dq__force_constants__dq__:__dq__${config.force_constants}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
@@ -26,7 +26,7 @@
           --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
         
         
-          --output_itp_path $__root_dir__/database/files/000/$outname_output_itp_path
+          --output_itp_path $__new_file_path__/$outname_output_itp_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -37,7 +37,7 @@
           rm -f ${input_ndx_path}.${input_ndx_path.ext};
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_itp_path; then mv $__root_dir__/database/files/000/$outname_output_itp_path $output_itp_path; fi;
+          if test -f $__new_file_path__/$outname_output_itp_path; then mv $__new_file_path__/$outname_output_itp_path $output_itp_path; fi;
         
     ]]>
     </command>
@@ -52,10 +52,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option4"> Manual input</option>
+                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -64,8 +63,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-            </when>
-            <when value="option4">
                 
                   <param name="restrained_group" type="text" value="system" label="restrained_group" help="Index group that will be restrained." optional="false"/>
                 

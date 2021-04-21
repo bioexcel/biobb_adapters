@@ -13,19 +13,19 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
+        #else if $config.sele == "option3":
           --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq____cc__"
         #end if
         
         
-          --output_mutations_list_txt $__root_dir__/database/files/000/$outname_output_mutations_list_txt
+          --output_mutations_list_txt $__new_file_path__/$outname_output_mutations_list_txt
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
         #end if
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_mutations_list_txt; then mv $__root_dir__/database/files/000/$outname_output_mutations_list_txt $output_mutations_list_txt; fi;
+          if test -f $__new_file_path__/$outname_output_mutations_list_txt; then mv $__new_file_path__/$outname_output_mutations_list_txt $output_mutations_list_txt; fi;
         
     ]]>
     </command>
@@ -36,10 +36,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option4"> Manual input</option>
+                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -48,8 +47,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-            </when>
-            <when value="option4">
                 
                   <param name="pdb_code" type="text" value="None" label="pdb_code" help="RSCB PDB four letter code." optional="false"/>
                 

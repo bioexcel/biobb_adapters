@@ -15,14 +15,14 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
-          --config "__oc____dq__method__dq__:__dq__${config.method}__dq__,__dq__type__dq__:__dq__${config.type}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__evaluate__dq__:__dq__${config.evaluate}__dq__,__dq__evaluate_splits__dq__:__dq__${config.evaluate_splits}__dq__,__dq__evaluate_repeats__dq__:__dq__${config.evaluate_repeats}__dq__,__dq__n_bins__dq__:__dq__${config.n_bins}__dq__,__dq__balanced_binning__dq__:__dq__${config.balanced_binning}__dq__,__dq__sampling_strategy__dq__:__dq__${config.sampling_strategy}__dq__,__dq__k_neighbors__dq__:__dq__${config.k_neighbors}__dq__,__dq__random_state_method__dq__:__dq__${config.random_state_method}__dq__,__dq__random_state_evaluate__dq__:__dq__${config.random_state_evaluate}__dq____cc__"
+        #else if $config.sele == "option3":
+          --config "__oc____dq__method__dq__:__dq__${config.method}__dq__,__dq__type__dq__:__dq__${config.type}__dq__,__dq__target__dq__:${config.target},__dq__evaluate__dq__:__dq__${config.evaluate}__dq__,__dq__evaluate_splits__dq__:__dq__${config.evaluate_splits}__dq__,__dq__evaluate_repeats__dq__:__dq__${config.evaluate_repeats}__dq__,__dq__n_bins__dq__:__dq__${config.n_bins}__dq__,__dq__balanced_binning__dq__:__dq__${config.balanced_binning}__dq__,__dq__sampling_strategy__dq__:${config.sampling_strategy},__dq__k_neighbors__dq__:__dq__${config.k_neighbors}__dq__,__dq__random_state_method__dq__:__dq__${config.random_state_method}__dq__,__dq__random_state_evaluate__dq__:__dq__${config.random_state_evaluate}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
         
         
-          --output_dataset_path $__root_dir__/database/files/000/$outname_output_dataset_path
+          --output_dataset_path $__new_file_path__/$outname_output_dataset_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -31,7 +31,7 @@
           rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_dataset_path; then mv $__root_dir__/database/files/000/$outname_output_dataset_path $output_dataset_path; fi;
+          if test -f $__new_file_path__/$outname_output_dataset_path; then mv $__new_file_path__/$outname_output_dataset_path $output_dataset_path; fi;
         
     ]]>
     </command>
@@ -44,10 +44,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option4"> Manual input</option>
+                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -56,8 +55,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-            </when>
-            <when value="option4">
                 
                   <param name="method" type="select" label="method" help="Oversampling method. It&#39;s a mandatory property. ">
                     

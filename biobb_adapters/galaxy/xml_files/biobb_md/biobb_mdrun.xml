@@ -17,7 +17,7 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
+        #else if $config.sele == "option3":
           --config "__oc____dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:__dq__${config.mpi_np}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq__,__dq__checkpoint_time__dq__:__dq__${config.checkpoint_time}__dq__,__dq__num_threads__dq__:__dq__${config.num_threads}__dq__,__dq__num_threads_mpi__dq__:__dq__${config.num_threads_mpi}__dq__,__dq__num_threads_omp__dq__:__dq__${config.num_threads_omp}__dq__,__dq__num_threads_omp_pme__dq__:__dq__${config.num_threads_omp_pme}__dq__,__dq__use_gpu__dq__:__dq__${config.use_gpu}__dq__,__dq__gpu_id__dq__:__dq__${config.gpu_id}__dq__,__dq__gpu_tasks__dq__:__dq__${config.gpu_tasks}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
@@ -26,19 +26,19 @@
           --input_cpt_path ${input_cpt_path}.${input_cpt_path.ext}
         
         
-          --output_trr_path $__root_dir__/database/files/000/$outname_output_trr_path
+          --output_trr_path $__new_file_path__/$outname_output_trr_path
         
-          --output_gro_path $__root_dir__/database/files/000/$outname_output_gro_path
+          --output_gro_path $__new_file_path__/$outname_output_gro_path
         
-          --output_edr_path $__root_dir__/database/files/000/$outname_output_edr_path
+          --output_edr_path $__new_file_path__/$outname_output_edr_path
         
-          --output_log_path $__root_dir__/database/files/000/$outname_output_log_path
+          --output_log_path $__new_file_path__/$outname_output_log_path
         
-          --output_xtc_path $__root_dir__/database/files/000/$outname_output_xtc_path
+          --output_xtc_path $__new_file_path__/$outname_output_xtc_path
         
-          --output_cpt_path $__root_dir__/database/files/000/$outname_output_cpt_path
+          --output_cpt_path $__new_file_path__/$outname_output_cpt_path
         
-          --output_dhdl_path $__root_dir__/database/files/000/$outname_output_dhdl_path
+          --output_dhdl_path $__new_file_path__/$outname_output_dhdl_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -49,19 +49,19 @@
           rm -f ${input_cpt_path}.${input_cpt_path.ext};
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_trr_path; then mv $__root_dir__/database/files/000/$outname_output_trr_path $output_trr_path; fi;
+          if test -f $__new_file_path__/$outname_output_trr_path; then mv $__new_file_path__/$outname_output_trr_path $output_trr_path; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_gro_path; then mv $__root_dir__/database/files/000/$outname_output_gro_path $output_gro_path; fi;
+          if test -f $__new_file_path__/$outname_output_gro_path; then mv $__new_file_path__/$outname_output_gro_path $output_gro_path; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_edr_path; then mv $__root_dir__/database/files/000/$outname_output_edr_path $output_edr_path; fi;
+          if test -f $__new_file_path__/$outname_output_edr_path; then mv $__new_file_path__/$outname_output_edr_path $output_edr_path; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_log_path; then mv $__root_dir__/database/files/000/$outname_output_log_path $output_log_path; fi;
+          if test -f $__new_file_path__/$outname_output_log_path; then mv $__new_file_path__/$outname_output_log_path $output_log_path; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_xtc_path; then mv $__root_dir__/database/files/000/$outname_output_xtc_path $output_xtc_path; fi;
+          if test -f $__new_file_path__/$outname_output_xtc_path; then mv $__new_file_path__/$outname_output_xtc_path $output_xtc_path; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_cpt_path; then mv $__root_dir__/database/files/000/$outname_output_cpt_path $output_cpt_path; fi;
+          if test -f $__new_file_path__/$outname_output_cpt_path; then mv $__new_file_path__/$outname_output_cpt_path $output_cpt_path; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_dhdl_path; then mv $__root_dir__/database/files/000/$outname_output_dhdl_path $output_dhdl_path; fi;
+          if test -f $__new_file_path__/$outname_output_dhdl_path; then mv $__new_file_path__/$outname_output_dhdl_path $output_dhdl_path; fi;
         
     ]]>
     </command>
@@ -88,10 +88,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option4"> Manual input</option>
+                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -100,8 +99,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-            </when>
-            <when value="option4">
                 
                   <param name="mpi_bin" type="text" value="None" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="false"/>
                 

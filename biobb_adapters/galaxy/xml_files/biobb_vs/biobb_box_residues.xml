@@ -15,14 +15,14 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
-          --config "__oc____dq__resid_list__dq__:__dq__${config.resid_list}__dq__,__dq__offset__dq__:__dq__${config.offset}__dq__,__dq__box_coordinates__dq__:__dq__${config.box_coordinates}__dq__,__dq__residue_offset__dq__:__dq__${config.residue_offset}__dq____cc__"
+        #else if $config.sele == "option3":
+          --config "__oc____dq__resid_list__dq__:${config.resid_list},__dq__offset__dq__:__dq__${config.offset}__dq__,__dq__box_coordinates__dq__:__dq__${config.box_coordinates}__dq__,__dq__residue_offset__dq__:__dq__${config.residue_offset}__dq____cc__"
         #end if
         
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
         
         
-          --output_pdb_path $__root_dir__/database/files/000/$outname_output_pdb_path
+          --output_pdb_path $__new_file_path__/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -31,7 +31,7 @@
           rm -f ${input_pdb_path}.${input_pdb_path.ext};
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_pdb_path; then mv $__root_dir__/database/files/000/$outname_output_pdb_path $output_pdb_path; fi;
+          if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
         
     ]]>
     </command>
@@ -44,10 +44,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option4"> Manual input</option>
+                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -56,10 +55,8 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-            </when>
-            <when value="option4">
                 
-                  
+                  <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
                 
                   
                 

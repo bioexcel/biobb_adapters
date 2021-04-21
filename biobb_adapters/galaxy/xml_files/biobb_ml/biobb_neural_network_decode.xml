@@ -17,7 +17,7 @@
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
-        #else if $config.sele == "option4":
+        #else if $config.sele == "option3":
           --config "__oc____cc__"
         #end if
         
@@ -26,9 +26,9 @@
           --input_model_path ${input_model_path}.${input_model_path.ext}
         
         
-          --output_decode_path $__root_dir__/database/files/000/$outname_output_decode_path
+          --output_decode_path $__new_file_path__/$outname_output_decode_path
         
-          --output_predict_path $__root_dir__/database/files/000/$outname_output_predict_path
+          --output_predict_path $__new_file_path__/$outname_output_predict_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -39,9 +39,9 @@
           rm -f ${input_model_path}.${input_model_path.ext};
         
         
-          if test -f $__root_dir__/database/files/000/$outname_output_decode_path; then mv $__root_dir__/database/files/000/$outname_output_decode_path $output_decode_path; fi;
+          if test -f $__new_file_path__/$outname_output_decode_path; then mv $__new_file_path__/$outname_output_decode_path $output_decode_path; fi;
         
-          if test -f $__root_dir__/database/files/000/$outname_output_predict_path; then mv $__root_dir__/database/files/000/$outname_output_predict_path $output_predict_path; fi;
+          if test -f $__new_file_path__/$outname_output_predict_path; then mv $__new_file_path__/$outname_output_predict_path $output_predict_path; fi;
         
     ]]>
     </command>
