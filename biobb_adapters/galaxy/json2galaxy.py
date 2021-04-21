@@ -163,9 +163,12 @@ def main():
                 data['props'][k] = v
                 
                 # Generating "galaxyfied" Json string for config parameter
-                props_str.append("__dq__" +  k + "__dq__:__dq__${config." + k + "}__dq__")
+                if v['type'] == 'array' or v['type'] == 'object':
+                    props_str.append("__dq__" +  k + "__dq__:${config." + k + "}")
+                else:
+                    props_str.append("__dq__" +  k + "__dq__:__dq__${config." + k + "}__dq__")
             
-            data['config4str'] = "__oc__" + ",".join(props_str) + "__cc__"
+            data['config_str'] = "__oc__" + ",".join(props_str) + "__cc__"
 
     env = Environment(
         loader=FileSystemLoader(template_dir),
