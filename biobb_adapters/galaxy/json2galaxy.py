@@ -144,6 +144,8 @@ def main():
                     continue
                 if 'enum' in v:
                     v['values'] = v['enum']
+                    if v['type'] == 'array':
+                        v['multiple'] = True
                     v['type'] = 'select'
                 elif 'description' in v:
                     m = re.search('(.*) Valid values: (.*)', v['description'])
@@ -159,16 +161,22 @@ def main():
                 if 'optional' not in v:
                     v['optional'] = "false"
                 if v['type'] == 'number':
-                    v['type'] == 'float'
+                    v['type'] = 'float'
                 data['props'][k] = v
                 
                 # Generating "galaxyfied" Json string for config parameter
-                if v['type'] == 'array' or v['type'] == 'object':
-                    props_str.append("__dq__" +  k + "__dq__:${config." + k + "}")
+                if v['type'] in ('string', 'boolean', 'select'):
+                    if 'multiple' in v and v['multiple']:
+                        txt = "__ob__${','.join($config." + k + ")}__cb__" 
+                    else:
+                        txt = "__dq__${config." + k + "}__dq__"
+                    props_str.append("__dq__" +  k + "__dq__:" + txt)
+                    
                 else:
-                    props_str.append("__dq__" +  k + "__dq__:__dq__${config." + k + "}__dq__")
+                    props_str.append("__dq__" +  k + "__dq__:${config." + k + "}")
             
             data['config_str'] = "__oc__" + ",".join(props_str) + "__cc__"
+            #print(data)
 
     env = Environment(
         loader=FileSystemLoader(template_dir),

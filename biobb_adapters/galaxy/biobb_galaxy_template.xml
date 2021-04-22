@@ -19,7 +19,9 @@
           --config "{{config_str}}"
         #end if
         {% for k in files['input'] %}
+        #if str(${{ k }}) != 'None':
           --{{ k }} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext}
+        #end if
         {% endfor %}
         {% for k in files['output'] %}
           --{{ k }} $__new_file_path__/$outname_{{ k }}
@@ -66,7 +68,7 @@
                      {%- endif %}
                            label="{{ k }}" help="{{ v['description']}}" optional="{{v['optional']}}"/> 
                   {%- elif v['type'] == 'select' -%}
-                    <param name="{{ k }}" type="select" label="{{ k }}" help="{{ v['description'] }}">
+                    <param name="{{ k }}" type="select" label="{{ k }}" help="{{ v['description'] }}" multiple="{{v['multiple']}}">
                     {% for opt in v['values'] %}
                       <option value="{{ opt }}" 
                       {% if opt == v['default'] -%}
