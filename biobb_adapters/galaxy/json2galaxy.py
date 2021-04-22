@@ -167,7 +167,7 @@ def main():
                 # Generating "galaxyfied" Json string for config parameter
                 if v['type'] in ('string', 'boolean', 'select'):
                     if 'multiple' in v and v['multiple']:
-                        txt = "__ob__${','.join($config." + k + ")}__cb__" 
+                        txt = "__ob____dq__${'__dq__,__dq__'.join($config." + k + ")}__dq____cb__" 
                     else:
                         txt = "__dq__${config." + k + "}__dq__"
                     props_str.append("__dq__" +  k + "__dq__:" + txt)
