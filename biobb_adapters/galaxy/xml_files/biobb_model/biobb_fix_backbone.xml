@@ -18,12 +18,16 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__add_caps__dq__:__dq__${config.add_caps}__dq____cc__"
+          --config "__oc____dq__add_caps__dq__:${config.add_caps}__cc__"
         #end if
         
+        #if str($input_pdb_path) != 'None':
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+        #end if
         
+        #if str($input_fasta_canonical_sequence_path) != 'None':
           --input_fasta_canonical_sequence_path ${input_fasta_canonical_sequence_path}.${input_fasta_canonical_sequence_path.ext}
+        #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path

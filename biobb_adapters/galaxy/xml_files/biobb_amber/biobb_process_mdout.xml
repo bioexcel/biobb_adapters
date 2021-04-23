@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__terms__dq__:__dq__${config.terms}__dq____cc__"
+          --config "__oc____dq__terms__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.terms)}__dq____cb____cc__"
         #end if
         
+        #if str($input_log_path) != 'None':
           --input_log_path ${input_log_path}.${input_log_path.ext}
+        #end if
         
         
           --output_dat_path $__new_file_path__/$outname_output_dat_path
@@ -56,7 +58,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="terms" type="select" label="terms" help="Statistics descriptors. ">
+                  <param name="terms" type="select" label="terms" help="Statistics descriptors. " multiple="True">
                     
                       <option value="VOLUME" 
                       

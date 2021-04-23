@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__pocket__dq__:__dq__${config.pocket}__dq____cc__"
+          --config "__oc____dq__pocket__dq__:${config.pocket}__cc__"
         #end if
         
+        #if str($input_pockets_zip) != 'None':
           --input_pockets_zip ${input_pockets_zip}.${input_pockets_zip.ext}
+        #end if
         
         
           --output_pocket_pdb $__new_file_path__/$outname_output_pocket_pdb
@@ -62,8 +64,9 @@
             </when>
             <when value="option3">
                 
-                  <param name="pocket" type="integer" value="1" 
-                     min="1" max="1000"
+                  <param name="pocket" type="integer" 
+                      value="1"
+                      min="1" max="1000"
                            label="pocket" help="Pocket id from the summary json given by the fpocket building block." optional="false"/>
                 
             </when>

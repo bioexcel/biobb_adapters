@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
+          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:${config.charge},__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
         #end if
         
+        #if str($input_path) != 'None':
           --input_path ${input_path}.${input_path.ext}
+        #end if
         
         
           --output_path_itp $__new_file_path__/$outname_output_path_itp
@@ -62,13 +64,18 @@
             </when>
             <when value="option3">
                 
-                  <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." optional="false"/>
+                  <param name="basename" type="text" label="basename" help="A basename for the project (folder and output files)." optional="false"
+                      value="BBB"
+                    />
                 
-                  <param name="charge" type="integer" value="0" 
-                     min="-20" max="20"
-                           label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="false"/>
+                  <param name="charge" type="integer" 
+                      
+                      min="-20" max="20"
+                           label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="true"/>
                 
-                  <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." optional="false"/>
+                  <param name="acpype_path" type="text" label="acpype_path" help="Path to the acpype executable binary." optional="false"
+                      value="acpype"
+                    />
                 
             </when>
         </conditional>

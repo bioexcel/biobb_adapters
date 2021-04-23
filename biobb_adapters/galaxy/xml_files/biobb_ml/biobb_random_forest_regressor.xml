@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__independent_vars__dq__:${config.independent_vars},__dq__target__dq__:${config.target},__dq__weight__dq__:${config.weight},__dq__n_estimators__dq__:__dq__${config.n_estimators}__dq__,__dq__max_depth__dq__:__dq__${config.max_depth}__dq__,__dq__random_state_method__dq__:__dq__${config.random_state_method}__dq__,__dq__random_state_train_test__dq__:__dq__${config.random_state_train_test}__dq__,__dq__test_size__dq__:__dq__${config.test_size}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
+          --config "__oc____dq__independent_vars__dq__:${config.independent_vars},__dq__target__dq__:${config.target},__dq__weight__dq__:${config.weight},__dq__n_estimators__dq__:${config.n_estimators},__dq__max_depth__dq__:${config.max_depth},__dq__random_state_method__dq__:${config.random_state_method},__dq__random_state_train_test__dq__:${config.random_state_train_test},__dq__test_size__dq__:${config.test_size},__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
+        #if str($input_dataset_path) != 'None':
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+        #end if
         
         
           --output_model_path $__new_file_path__/$outname_output_model_path
@@ -74,23 +76,30 @@
                 
                   <param name="weight" type="text" label="weight" help="Weight variable from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  <param name="n_estimators" type="integer" value="10" 
-                     
+                  <param name="n_estimators" type="integer" 
+                      value="10"
+                      
                            label="n_estimators" help="The number of trees in the forest." optional="false"/>
                 
-                  <param name="max_depth" type="integer" value="None" 
-                     
-                           label="max_depth" help="The maximum depth of the tree." optional="false"/>
+                  <param name="max_depth" type="integer" 
+                      
+                      
+                           label="max_depth" help="The maximum depth of the tree." optional="true"/>
                 
-                  <param name="random_state_method" type="integer" value="5" 
-                     min="1" max="1000"
+                  <param name="random_state_method" type="integer" 
+                      value="5"
+                      min="1" max="1000"
                            label="random_state_method" help="Controls the randomness of the estimator." optional="false"/>
                 
-                  <param name="random_state_train_test" type="integer" value="5" 
-                     min="1" max="1000"
+                  <param name="random_state_train_test" type="integer" 
+                      value="5"
+                      min="1" max="1000"
                            label="random_state_train_test" help="Controls the shuffling applied to the data before applying the split." optional="false"/>
                 
-                  
+                  <param name="test_size" type="float" 
+                      value="0.2"
+                      
+                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
                 
                   <param name="scale" type="boolean" 
                     

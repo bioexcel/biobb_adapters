@@ -24,18 +24,28 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__mdin__dq__:${config.mdin},__dq__pmemd_path__dq__:__dq__${config.pmemd_path}__dq__,__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:__dq__${config.mpi_np}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
+          --config "__oc____dq__mdin__dq__:${config.mdin},__dq__pmemd_path__dq__:__dq__${config.pmemd_path}__dq__,__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
         #end if
         
+        #if str($input_top_path) != 'None':
           --input_top_path ${input_top_path}.${input_top_path.ext}
+        #end if
         
+        #if str($input_crd_path) != 'None':
           --input_crd_path ${input_crd_path}.${input_crd_path.ext}
+        #end if
         
+        #if str($input_mdin_path) != 'None':
           --input_mdin_path ${input_mdin_path}.${input_mdin_path.ext}
+        #end if
         
+        #if str($input_cpin_path) != 'None':
           --input_cpin_path ${input_cpin_path}.${input_cpin_path.ext}
+        #end if
         
+        #if str($input_ref_path) != 'None':
           --input_ref_path ${input_ref_path}.${input_ref_path.ext}
+        #end if
         
         
           --output_log_path $__new_file_path__/$outname_output_log_path
@@ -120,9 +130,11 @@
                 
                   <param name="mdin" type="text" label="mdin" help="pmemd MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
                 
-                  <param name="pmemd_path" type="text" value="pmemd" label="pmemd_path" help="pmemd binary path to be used." optional="false"/>
+                  <param name="pmemd_path" type="text" label="pmemd_path" help="pmemd binary path to be used." optional="false"
+                      value="pmemd"
+                    />
                 
-                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. ">
+                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
                     
                       <option value="minimization" 
                       selected="true"
@@ -146,13 +158,18 @@
                     
                     </param>
                 
-                  <param name="mpi_bin" type="text" value="None" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="false"/>
+                  <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
+                      
+                    />
                 
-                  <param name="mpi_np" type="integer" value="0" 
-                     
-                           label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="false"/>
+                  <param name="mpi_np" type="integer" 
+                      
+                      
+                           label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
                 
-                  <param name="mpi_hostlist" type="text" value="None" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="false"/>
+                  <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
+                      
+                    />
                 
             </when>
         </conditional>

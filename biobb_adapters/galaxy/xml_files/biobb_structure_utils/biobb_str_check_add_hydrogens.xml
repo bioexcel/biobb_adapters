@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__charges__dq__:__dq__${config.charges}__dq__,__dq__mode__dq__:__dq__${config.mode}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+          --config "__oc____dq__charges__dq__:${config.charges},__dq__mode__dq__:__dq__${config.mode}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
         #end if
         
+        #if str($input_structure_path) != 'None':
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        #end if
         
         
           --output_structure_path $__new_file_path__/$outname_output_structure_path
@@ -60,7 +62,7 @@
                     
                     label="charges" help="Wether or not to add charges to the output file. If True the output is in PDBQT format." />
                 
-                  <param name="mode" type="select" label="mode" help="Selection mode. ">
+                  <param name="mode" type="select" label="mode" help="Selection mode. " multiple="">
                     
                       <option value="auto" 
                       
@@ -84,7 +86,9 @@
                     
                     </param>
                 
-                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" optional="false"/>
+                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+                      value="check_structure"
+                    />
                 
             </when>
         </conditional>

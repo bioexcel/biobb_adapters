@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__features__dq__:${config.features},__dq__target__dq__:${config.target},__dq__optimise__dq__:__dq__${config.optimise}__dq__,__dq__max_components__dq__:__dq__${config.max_components}__dq__,__dq__cv__dq__:__dq__${config.cv}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
+          --config "__oc____dq__features__dq__:${config.features},__dq__target__dq__:${config.target},__dq__optimise__dq__:${config.optimise},__dq__max_components__dq__:${config.max_components},__dq__cv__dq__:${config.cv},__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
+        #if str($input_dataset_path) != 'None':
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+        #end if
         
         
           --output_results_path $__new_file_path__/$outname_output_results_path
@@ -70,12 +72,14 @@
                     
                     label="optimise" help="Whether or not optimise the process of MSE calculation. Beware, if True selected, the process can take a long time depending on the **max_components** value." />
                 
-                  <param name="max_components" type="integer" value="10" 
-                     min="1" max="1000"
+                  <param name="max_components" type="integer" 
+                      value="10"
+                      min="1" max="1000"
                            label="max_components" help="Maximum number of components to use by default for PLS queries." optional="false"/>
                 
-                  <param name="cv" type="integer" value="10" 
-                     min="1" max="10000"
+                  <param name="cv" type="integer" 
+                      value="10"
+                      min="1" max="10000"
                            label="cv" help="Specify the number of folds in the cross-validation splitting strategy. Value must be between 2 and number of samples in the dataset." optional="false"/>
                 
                   <param name="scale" type="boolean" 

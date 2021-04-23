@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__features__dq__:__dq__${config.features}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+          --config "__oc____dq__features__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.features)}__dq____cb__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
         #end if
         
+        #if str($input_structure_path) != 'None':
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        #end if
         
         
           --output_summary_path $__new_file_path__/$outname_output_summary_path
@@ -56,7 +58,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. ">
+                  <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. " multiple="True">
                     
                       <option value="models" 
                       
@@ -104,7 +106,9 @@
                     
                     </param>
                 
-                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" optional="false"/>
+                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+                      value="check_structure"
+                    />
                 
             </when>
         </conditional>

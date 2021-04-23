@@ -24,18 +24,28 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__forcefield__dq__:__dq__${config.forcefield}__dq__,__dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__box_type__dq__:__dq__${config.box_type}__dq__,__dq__ions_type__dq__:__dq__${config.ions_type}__dq__,__dq__neutralise__dq__:__dq__${config.neutralise}__dq__,__dq__ionic_concentration__dq__:__dq__${config.ionic_concentration}__dq__,__dq__positive_ions_number__dq__:__dq__${config.positive_ions_number}__dq__,__dq__negative_ions_number__dq__:__dq__${config.negative_ions_number}__dq__,__dq__positive_ions_type__dq__:__dq__${config.positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${config.negative_ions_type}__dq____cc__"
+          --config "__oc____dq__forcefield__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.forcefield)}__dq____cb__,__dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__box_type__dq__:__dq__${config.box_type}__dq__,__dq__ions_type__dq__:__dq__${config.ions_type}__dq__,__dq__neutralise__dq__:${config.neutralise},__dq__ionic_concentration__dq__:${config.ionic_concentration},__dq__positive_ions_number__dq__:${config.positive_ions_number},__dq__negative_ions_number__dq__:${config.negative_ions_number},__dq__positive_ions_type__dq__:__dq__${config.positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${config.negative_ions_type}__dq____cc__"
         #end if
         
+        #if str($input_pdb_path) != 'None':
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+        #end if
         
+        #if str($input_lib_path) != 'None':
           --input_lib_path ${input_lib_path}.${input_lib_path.ext}
+        #end if
         
+        #if str($input_frcmod_path) != 'None':
           --input_frcmod_path ${input_frcmod_path}.${input_frcmod_path.ext}
+        #end if
         
+        #if str($input_params_path) != 'None':
           --input_params_path ${input_params_path}.${input_params_path.ext}
+        #end if
         
+        #if str($input_source_path) != 'None':
           --input_source_path ${input_source_path}.${input_source_path.ext}
+        #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
@@ -100,7 +110,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. ">
+                  <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                     
                       <option value="protein.ff14SB" 
                       
@@ -128,7 +138,7 @@
                     
                     </param>
                 
-                  <param name="water_type" type="select" label="water_type" help="Water molecule parameters to be used for the topology. ">
+                  <param name="water_type" type="select" label="water_type" help="Water molecule parameters to be used for the topology. " multiple="">
                     
                       <option value="POL3BOX" 
                       
@@ -176,7 +186,7 @@
                     
                     </param>
                 
-                  <param name="box_type" type="select" label="box_type" help="Type for the MD system box. ">
+                  <param name="box_type" type="select" label="box_type" help="Type for the MD system box. " multiple="">
                     
                       <option value="cubic" 
                       
@@ -188,7 +198,7 @@
                     
                     </param>
                 
-                  <param name="ions_type" type="select" label="ions_type" help="Ions type. ">
+                  <param name="ions_type" type="select" label="ions_type" help="Ions type. " multiple="">
                     
                       <option value="ionsjc_tip3p" 
                       selected="true"
@@ -220,17 +230,22 @@
                     checked="true"
                     label="neutralise" help="Energetically neutralise the system adding the necessary counterions." />
                 
-                  
+                  <param name="ionic_concentration" type="float" 
+                      value="0.05"
+                      
+                           label="ionic_concentration" help="Additional ionic concentration to include in the system box. Units in Mol/L." optional="false"/>
                 
-                  <param name="positive_ions_number" type="integer" value="0" 
-                     
-                           label="positive_ions_number" help="Number of additional positive ions to include in the system box." optional="false"/>
+                  <param name="positive_ions_number" type="integer" 
+                      
+                      
+                           label="positive_ions_number" help="Number of additional positive ions to include in the system box." optional="true"/>
                 
-                  <param name="negative_ions_number" type="integer" value="0" 
-                     
-                           label="negative_ions_number" help="Number of additional negative ions to include in the system box." optional="false"/>
+                  <param name="negative_ions_number" type="integer" 
+                      
+                      
+                           label="negative_ions_number" help="Number of additional negative ions to include in the system box." optional="true"/>
                 
-                  <param name="positive_ions_type" type="select" label="positive_ions_type" help="Type of additional positive ions to include in the system box. ">
+                  <param name="positive_ions_type" type="select" label="positive_ions_type" help="Type of additional positive ions to include in the system box. " multiple="">
                     
                       <option value="Na+" 
                       selected="true"
@@ -242,7 +257,7 @@
                     
                     </param>
                 
-                  <param name="negative_ions_type" type="select" label="negative_ions_type" help="Type of additional negative ions to include in the system box. ">
+                  <param name="negative_ions_type" type="select" label="negative_ions_type" help="Type of additional negative ions to include in the system box. " multiple="">
                     
                       <option value="Cl-" 
                       selected="true"

@@ -21,9 +21,13 @@
           --config "__oc____dq__score__dq__:${config.score},__dq__druggability_score__dq__:${config.druggability_score},__dq__volume__dq__:${config.volume}__cc__"
         #end if
         
+        #if str($input_pockets_zip) != 'None':
           --input_pockets_zip ${input_pockets_zip}.${input_pockets_zip.ext}
+        #end if
         
+        #if str($input_summary) != 'None':
           --input_summary ${input_summary}.${input_summary.ext}
+        #end if
         
         
           --output_filter_pockets_zip $__new_file_path__/$outname_output_filter_pockets_zip

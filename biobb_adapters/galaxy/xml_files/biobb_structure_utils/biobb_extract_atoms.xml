@@ -19,7 +19,9 @@
           --config "__oc____dq__regular_expression_pattern__dq__:__dq__${config.regular_expression_pattern}__dq____cc__"
         #end if
         
+        #if str($input_structure_path) != 'None':
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        #end if
         
         
           --output_structure_path $__new_file_path__/$outname_output_structure_path
@@ -56,7 +58,9 @@
             </when>
             <when value="option3">
                 
-                  <param name="regular_expression_pattern" type="text" value="^D" label="regular_expression_pattern" help="Python style regular expression matching the selected atom names." optional="false"/>
+                  <param name="regular_expression_pattern" type="text" label="regular_expression_pattern" help="Python style regular expression matching the selected atom names." optional="false"
+                      value="^D"
+                    />
                 
             </when>
         </conditional>

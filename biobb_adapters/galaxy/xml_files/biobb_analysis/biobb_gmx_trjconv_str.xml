@@ -23,11 +23,17 @@
           --config "__oc____dq__selection__dq__:__dq__${config.selection}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
+        #if str($input_structure_path) != 'None':
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        #end if
         
+        #if str($input_top_path) != 'None':
           --input_top_path ${input_top_path}.${input_top_path.ext}
+        #end if
         
+        #if str($input_index_path) != 'None':
           --input_index_path ${input_index_path}.${input_index_path.ext}
+        #end if
         
         
           --output_str_path $__new_file_path__/$outname_output_str_path
@@ -72,7 +78,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="selection" type="select" label="selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. ">
+                  <param name="selection" type="select" label="selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                     
                       <option value="System" 
                       selected="true"
@@ -152,7 +158,9 @@
                     
                     </param>
                 
-                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
+                    />
                 
             </when>
         </conditional>

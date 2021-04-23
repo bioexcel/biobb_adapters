@@ -19,7 +19,9 @@
           --config "__oc____dq__residue_name_list__dq__:${config.residue_name_list}__cc__"
         #end if
         
+        #if str($input_gro_path) != 'None':
           --input_gro_path ${input_gro_path}.${input_gro_path.ext}
+        #end if
         
         
           --output_gro_path $__new_file_path__/$outname_output_gro_path

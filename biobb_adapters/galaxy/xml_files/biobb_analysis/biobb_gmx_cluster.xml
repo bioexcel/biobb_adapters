@@ -20,14 +20,20 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__fit_selection__dq__:__dq__${config.fit_selection}__dq__,__dq__output_selection__dq__:__dq__${config.output_selection}__dq__,__dq__dista__dq__:__dq__${config.dista}__dq__,__dq__method__dq__:__dq__${config.method}__dq__,__dq__cutoff__dq__:__dq__${config.cutoff}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          --config "__oc____dq__fit_selection__dq__:__dq__${config.fit_selection}__dq__,__dq__output_selection__dq__:__dq__${config.output_selection}__dq__,__dq__dista__dq__:${config.dista},__dq__method__dq__:__dq__${config.method}__dq__,__dq__cutoff__dq__:${config.cutoff},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
+        #if str($input_structure_path) != 'None':
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        #end if
         
+        #if str($input_traj_path) != 'None':
           --input_traj_path ${input_traj_path}.${input_traj_path.ext}
+        #end if
         
+        #if str($input_index_path) != 'None':
           --input_index_path ${input_index_path}.${input_index_path.ext}
+        #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
@@ -72,7 +78,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. ">
+                  <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                     
                       <option value="System" 
                       selected="true"
@@ -152,7 +158,7 @@
                     
                     </param>
                 
-                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. ">
+                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                     
                       <option value="System" 
                       selected="true"
@@ -236,7 +242,7 @@
                     
                     label="dista" help="Use RMSD of distances instead of RMS deviation." />
                 
-                  <param name="method" type="select" label="method" help="Method for cluster determination. ">
+                  <param name="method" type="select" label="method" help="Method for cluster determination. " multiple="">
                     
                       <option value="linkage" 
                       selected="true"
@@ -260,9 +266,14 @@
                     
                     </param>
                 
-                  
+                  <param name="cutoff" type="float" 
+                      value="0.1"
+                      
+                           label="cutoff" help="RMSD cut-off (nm) for two structures to be neighbor." optional="false"/>
                 
-                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
+                    />
                 
             </when>
         </conditional>

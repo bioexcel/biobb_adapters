@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__ignh__dq__:__dq__${config.ignh}__dq__,__dq__his__dq__:__dq__${config.his}__dq__,__dq__merge__dq__:__dq__${config.merge}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          --config "__oc____dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__ignh__dq__:${config.ignh},__dq__his__dq__:__dq__${config.his}__dq__,__dq__merge__dq__:${config.merge},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
+        #if str($input_pdb_path) != 'None':
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+        #end if
         
         
           --output_gro_path $__new_file_path__/$outname_output_gro_path
@@ -62,7 +64,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="water_type" type="select" label="water_type" help="Water molecule type.">
+                  <param name="water_type" type="select" label="water_type" help="Water molecule type." multiple="">
                     
                       <option value="spc" 
                       
@@ -90,7 +92,7 @@
                     
                     </param>
                 
-                  <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion.">
+                  <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion." multiple="">
                     
                       <option value="gromos45a3" 
                       
@@ -158,15 +160,21 @@
                     
                     label="ignh" help="Should pdb2gmx ignore the hidrogens in the original structure." />
                 
-                  <param name="his" type="text" value="None" label="his" help="Histidine protonation array." optional="false"/>
+                  <param name="his" type="text" label="his" help="Histidine protonation array." optional="true"
+                      
+                    />
                 
                   <param name="merge" type="boolean" 
                     
                     label="merge" help="Merge all chains into a single molecule." />
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="false"/>
+                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+                      
+                    />
                 
-                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
+                    />
                 
             </when>
         </conditional>

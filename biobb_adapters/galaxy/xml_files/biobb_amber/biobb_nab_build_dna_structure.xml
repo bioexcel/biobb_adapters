@@ -48,9 +48,11 @@
             </when>
             <when value="option3">
                 
-                  <param name="sequence" type="text" value="GCGCGGCTGATAAACGAAAGC" label="sequence" help="Nucleotide sequence to convert to a 3D structure. Nucleotides should be written in 1-letter code, with no spaces between them." optional="false"/>
+                  <param name="sequence" type="text" label="sequence" help="Nucleotide sequence to convert to a 3D structure. Nucleotides should be written in 1-letter code, with no spaces between them." optional="false"
+                      value="GCGCGGCTGATAAACGAAAGC"
+                    />
                 
-                  <param name="helix_type" type="select" label="helix_type" help="DNA/RNA helix type. ">
+                  <param name="helix_type" type="select" label="helix_type" help="DNA/RNA helix type. " multiple="">
                     
                       <option value="arna" 
                       
@@ -102,9 +104,13 @@
                     
                     </param>
                 
-                  <param name="compiler" type="text" value="gcc" label="compiler" help="Alternative C compiler for nab." optional="false"/>
+                  <param name="compiler" type="text" label="compiler" help="Alternative C compiler for nab." optional="false"
+                      value="gcc"
+                    />
                 
-                  <param name="linker" type="text" value="gfortran" label="linker" help="Alternative Fortran linker for nab." optional="false"/>
+                  <param name="linker" type="text" label="linker" help="Alternative Fortran linker for nab." optional="false"
+                      value="gfortran"
+                    />
                 
             </when>
         </conditional>

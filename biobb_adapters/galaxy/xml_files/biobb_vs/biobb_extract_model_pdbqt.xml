@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__model__dq__:__dq__${config.model}__dq____cc__"
+          --config "__oc____dq__model__dq__:${config.model}__cc__"
         #end if
         
+        #if str($input_pdbqt_path) != 'None':
           --input_pdbqt_path ${input_pdbqt_path}.${input_pdbqt_path.ext}
+        #end if
         
         
           --output_pdbqt_path $__new_file_path__/$outname_output_pdbqt_path
@@ -56,8 +58,9 @@
             </when>
             <when value="option3">
                 
-                  <param name="model" type="integer" value="1" 
-                     
+                  <param name="model" type="integer" 
+                      value="1"
+                      
                            label="model" help="Model number to extract from input_pdbqt_path." optional="false"/>
                 
             </when>

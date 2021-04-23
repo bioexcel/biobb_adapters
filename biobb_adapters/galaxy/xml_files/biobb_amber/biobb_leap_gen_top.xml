@@ -24,18 +24,28 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__forcefield__dq__:__dq__${config.forcefield}__dq____cc__"
+          --config "__oc____dq__forcefield__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.forcefield)}__dq____cb____cc__"
         #end if
         
+        #if str($input_pdb_path) != 'None':
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+        #end if
         
+        #if str($input_lib_path) != 'None':
           --input_lib_path ${input_lib_path}.${input_lib_path.ext}
+        #end if
         
+        #if str($input_frcmod_path) != 'None':
           --input_frcmod_path ${input_frcmod_path}.${input_frcmod_path.ext}
+        #end if
         
+        #if str($input_params_path) != 'None':
           --input_params_path ${input_params_path}.${input_params_path.ext}
+        #end if
         
+        #if str($input_source_path) != 'None':
           --input_source_path ${input_source_path}.${input_source_path.ext}
+        #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
@@ -100,7 +110,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. ">
+                  <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                     
                       <option value="protein.ff14SB" 
                       

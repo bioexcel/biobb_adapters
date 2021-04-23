@@ -48,7 +48,9 @@
             </when>
             <when value="option3">
                 
-                  <param name="pdb_code" type="text" value="None" label="pdb_code" help="RSCB PDB structure code." optional="false"/>
+                  <param name="pdb_code" type="text" label="pdb_code" help="RSCB PDB structure code." optional="true"
+                      
+                    />
                 
             </when>
         </conditional>

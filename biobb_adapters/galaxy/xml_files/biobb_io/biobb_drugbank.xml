@@ -48,7 +48,9 @@
             </when>
             <when value="option3">
                 
-                  <param name="drugbank_id" type="text" value="None" label="drugbank_id" help="Drugbank component id." optional="false"/>
+                  <param name="drugbank_id" type="text" label="drugbank_id" help="Drugbank component id." optional="true"
+                      
+                    />
                 
             </when>
         </conditional>

@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__flip__dq__:__dq__${config.flip}__dq__,__dq__noflip__dq__:__dq__${config.noflip}__dq__,__dq__nuclear__dq__:__dq__${config.nuclear}__dq__,__dq__nooh__dq__:__dq__${config.nooh}__dq__,__dq__oh__dq__:__dq__${config.oh}__dq__,__dq__his__dq__:__dq__${config.his}__dq__,__dq__noheth__dq__:__dq__${config.noheth}__dq__,__dq__rotnh3__dq__:__dq__${config.rotnh3}__dq__,__dq__norotnh3__dq__:__dq__${config.norotnh3}__dq__,__dq__rotexist__dq__:__dq__${config.rotexist}__dq__,__dq__rotexoh__dq__:__dq__${config.rotexoh}__dq__,__dq__allalt__dq__:__dq__${config.allalt}__dq__,__dq__onlya__dq__:__dq__${config.onlya}__dq__,__dq__charges__dq__:__dq__${config.charges}__dq__,__dq__dorotmet__dq__:__dq__${config.dorotmet}__dq__,__dq__noadjust__dq__:__dq__${config.noadjust}__dq__,__dq__build__dq__:__dq__${config.build}__dq__,__dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
+          --config "__oc____dq__flip__dq__:${config.flip},__dq__noflip__dq__:${config.noflip},__dq__nuclear__dq__:${config.nuclear},__dq__nooh__dq__:${config.nooh},__dq__oh__dq__:${config.oh},__dq__his__dq__:${config.his},__dq__noheth__dq__:${config.noheth},__dq__rotnh3__dq__:${config.rotnh3},__dq__norotnh3__dq__:${config.norotnh3},__dq__rotexist__dq__:${config.rotexist},__dq__rotexoh__dq__:${config.rotexoh},__dq__allalt__dq__:${config.allalt},__dq__onlya__dq__:${config.onlya},__dq__charges__dq__:${config.charges},__dq__dorotmet__dq__:${config.dorotmet},__dq__noadjust__dq__:${config.noadjust},__dq__build__dq__:${config.build},__dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
         #end if
         
+        #if str($input_path) != 'None':
           --input_path ${input_path}.${input_path.ext}
+        #end if
         
         
           --output_path $__new_file_path__/$outname_output_path
@@ -124,7 +126,9 @@
                     
                     label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
                 
-                  <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." optional="false"/>
+                  <param name="reduce_path" type="text" label="reduce_path" help="Path to the reduce executable binary." optional="false"
+                      value="reduce"
+                    />
                 
             </when>
         </conditional>

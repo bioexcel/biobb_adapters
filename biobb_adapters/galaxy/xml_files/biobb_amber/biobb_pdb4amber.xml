@@ -18,12 +18,16 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__remove_hydrogens__dq__:__dq__${config.remove_hydrogens}__dq__,__dq__remove_waters__dq__:__dq__${config.remove_waters}__dq____cc__"
+          --config "__oc____dq__remove_hydrogens__dq__:${config.remove_hydrogens},__dq__remove_waters__dq__:${config.remove_waters}__cc__"
         #end if
         
+        #if str($input_pdb_path) != 'None':
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+        #end if
         
+        #if str($output_pdb_path) != 'None':
           --output_pdb_path ${output_pdb_path}.${output_pdb_path.ext}
+        #end if
         
         ;          
         #if $config.sele == "option1":

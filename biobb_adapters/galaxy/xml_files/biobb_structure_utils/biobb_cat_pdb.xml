@@ -21,9 +21,13 @@
           --config "__oc____cc__"
         #end if
         
+        #if str($input_structure1) != 'None':
           --input_structure1 ${input_structure1}.${input_structure1.ext}
+        #end if
         
+        #if str($input_structure2) != 'None':
           --input_structure2 ${input_structure2}.${input_structure2.ext}
+        #end if
         
         
           --output_structure_path $__new_file_path__/$outname_output_structure_path

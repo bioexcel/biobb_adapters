@@ -48,9 +48,11 @@
             </when>
             <when value="option3">
                 
-                  <param name="ligand_code" type="text" value="None" label="ligand_code" help="RSCB PDB ligand code." optional="false"/>
+                  <param name="ligand_code" type="text" label="ligand_code" help="RSCB PDB ligand code." optional="true"
+                      
+                    />
                 
-                  <param name="api_id" type="select" label="api_id" help="Identifier of the PDB REST API from which the SDF structure will be downloaded. ">
+                  <param name="api_id" type="select" label="api_id" help="Identifier of the PDB REST API from which the SDF structure will be downloaded. " multiple="">
                     
                       <option value="pdbe" 
                       selected="true"

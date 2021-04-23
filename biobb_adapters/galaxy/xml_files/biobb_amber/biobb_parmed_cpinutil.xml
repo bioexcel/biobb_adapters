@@ -19,7 +19,9 @@
           --config "__oc____dq__resnames__dq__:__dq__${config.resnames}__dq__,__dq__igb__dq__:__dq__${config.igb}__dq__,__dq__system__dq__:__dq__${config.system}__dq____cc__"
         #end if
         
+        #if str($input_top_path) != 'None':
           --input_top_path ${input_top_path}.${input_top_path.ext}
+        #end if
         
         
           --output_cpin_path $__new_file_path__/$outname_output_cpin_path
@@ -62,7 +64,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. ">
+                  <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. " multiple="">
                     
                       <option value="AS4" 
                       
@@ -90,7 +92,7 @@
                     
                     </param>
                 
-                  <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. ">
+                  <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. " multiple="">
                     
                       <option value="1" 
                       
@@ -114,7 +116,9 @@
                     
                     </param>
                 
-                  <param name="system" type="text" value="Unknown" label="system" help="Name of system to titrate." optional="false"/>
+                  <param name="system" type="text" label="system" help="Name of system to titrate." optional="false"
+                      value="Unknown"
+                    />
                 
             </when>
         </conditional>

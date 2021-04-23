@@ -18,12 +18,16 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__snapshot__dq__:__dq__${config.snapshot}__dq__,__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__format__dq__:__dq__${config.format}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
+          --config "__oc____dq__snapshot__dq__:${config.snapshot},__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__format__dq__:__dq__${config.format}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
         #end if
         
+        #if str($input_top_path) != 'None':
           --input_top_path ${input_top_path}.${input_top_path.ext}
+        #end if
         
+        #if str($input_traj_path) != 'None':
           --input_traj_path ${input_traj_path}.${input_traj_path.ext}
+        #end if
         
         
           --output_cpptraj_path $__new_file_path__/$outname_output_cpptraj_path
@@ -64,11 +68,12 @@
             </when>
             <when value="option3">
                 
-                  <param name="snapshot" type="integer" value="1" 
-                     min="1" max="100000"
+                  <param name="snapshot" type="integer" 
+                      value="1"
+                      min="1" max="100000"
                            label="snapshot" help="Frame to be captured for snapshot" optional="false"/>
                 
-                  <param name="mask" type="select" label="mask" help="Mask definition. ">
+                  <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
                     
                       <option value="c-alpha" 
                       
@@ -104,7 +109,7 @@
                     
                     </param>
                 
-                  <param name="format" type="select" label="format" help="Output trajectory format. ">
+                  <param name="format" type="select" label="format" help="Output trajectory format. " multiple="">
                     
                       <option value="crd" 
                       
@@ -188,7 +193,9 @@
                     
                     </param>
                 
-                  <param name="cpptraj_path" type="text" value="cpptraj" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"/>
+                  <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
+                      value="cpptraj"
+                    />
                 
             </when>
         </conditional>

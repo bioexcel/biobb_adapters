@@ -14,7 +14,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__sequence__dq__:__dq__${config.sequence}__dq__,__dq__forcefield__dq__:__dq__${config.forcefield}__dq__,__dq__build_library__dq__:__dq__${config.build_library}__dq____cc__"
+          --config "__oc____dq__sequence__dq__:__dq__${config.sequence}__dq__,__dq__forcefield__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.forcefield)}__dq____cb__,__dq__build_library__dq__:${config.build_library}__cc__"
         #end if
         
         
@@ -48,9 +48,11 @@
             </when>
             <when value="option3">
                 
-                  <param name="sequence" type="text" value="ALA GLY SER PRO ARG ALA PRO GLY" label="sequence" help="Aminoacid sequence to convert to a linear 3D structure. Aminoacids should be written in 3-letter code, with a blank space between them." optional="false"/>
+                  <param name="sequence" type="text" label="sequence" help="Aminoacid sequence to convert to a linear 3D structure. Aminoacids should be written in 3-letter code, with a blank space between them." optional="false"
+                      value="ALA GLY SER PRO ARG ALA PRO GLY"
+                    />
                 
-                  <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. ">
+                  <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                     
                       <option value="protein.ff14SB" 
                       

@@ -19,7 +19,9 @@
           --config "__oc____cc__"
         #end if
         
+        #if str($input_pdb_path) != 'None':
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+        #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path

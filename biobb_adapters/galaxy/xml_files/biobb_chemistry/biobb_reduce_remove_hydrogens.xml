@@ -19,7 +19,9 @@
           --config "__oc____dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
         #end if
         
+        #if str($input_path) != 'None':
           --input_path ${input_path}.${input_path.ext}
+        #end if
         
         
           --output_path $__new_file_path__/$outname_output_path
@@ -56,7 +58,9 @@
             </when>
             <when value="option3">
                 
-                  <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." optional="false"/>
+                  <param name="reduce_path" type="text" label="reduce_path" help="Path to the reduce executable binary." optional="false"
+                      value="reduce"
+                    />
                 
             </when>
         </conditional>

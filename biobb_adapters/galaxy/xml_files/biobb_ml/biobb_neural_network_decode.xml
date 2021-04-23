@@ -21,9 +21,13 @@
           --config "__oc____cc__"
         #end if
         
+        #if str($input_decode_path) != 'None':
           --input_decode_path ${input_decode_path}.${input_decode_path.ext}
+        #end if
         
+        #if str($input_model_path) != 'None':
           --input_model_path ${input_model_path}.${input_model_path.ext}
+        #end if
         
         
           --output_decode_path $__new_file_path__/$outname_output_decode_path

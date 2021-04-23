@@ -18,12 +18,16 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__method__dq__:__dq__${config.method}__dq__,__dq__temperature__dq__:__dq__${config.temperature}__dq__,__dq__nboots__dq__:__dq__${config.nboots}__dq__,__dq__nblocks__dq__:__dq__${config.nblocks}__dq__,__dq__integ_only__dq__:__dq__${config.integ_only}__dq__,__dq__reverseB__dq__:__dq__${config.reverseB}__dq__,__dq__skip__dq__:__dq__${config.skip}__dq__,__dq__slice__dq__:__dq__${config.slice}__dq__,__dq__rand__dq__:__dq__${config.rand}__dq__,__dq__index__dq__:__dq__${config.index}__dq__,__dq__prec__dq__:__dq__${config.prec}__dq__,__dq__units__dq__:__dq__${config.units}__dq__,__dq__no_ks__dq__:__dq__${config.no_ks}__dq__,__dq__nbins__dq__:__dq__${config.nbins}__dq__,__dq__dpi__dq__:__dq__${config.dpi}__dq__,__dq__pmx_path__dq__:__dq__${config.pmx_path}__dq____cc__"
+          --config "__oc____dq__method__dq__:__dq__${config.method}__dq__,__dq__temperature__dq__:${config.temperature},__dq__nboots__dq__:${config.nboots},__dq__nblocks__dq__:${config.nblocks},__dq__integ_only__dq__:${config.integ_only},__dq__reverseB__dq__:${config.reverseB},__dq__skip__dq__:${config.skip},__dq__slice__dq__:__dq__${config.slice}__dq__,__dq__rand__dq__:${config.rand},__dq__index__dq__:__dq__${config.index}__dq__,__dq__prec__dq__:${config.prec},__dq__units__dq__:__dq__${config.units}__dq__,__dq__no_ks__dq__:${config.no_ks},__dq__nbins__dq__:${config.nbins},__dq__dpi__dq__:${config.dpi},__dq__pmx_path__dq__:__dq__${config.pmx_path}__dq____cc__"
         #end if
         
+        #if str($input_a_xvg_zip_path) != 'None':
           --input_a_xvg_zip_path ${input_a_xvg_zip_path}.${input_a_xvg_zip_path.ext}
+        #end if
         
+        #if str($input_b_xvg_zip_path) != 'None':
           --input_b_xvg_zip_path ${input_b_xvg_zip_path}.${input_b_xvg_zip_path.ext}
+        #end if
         
         
           --output_result_path $__new_file_path__/$outname_output_result_path
@@ -70,7 +74,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="method" type="select" label="method" help="Choose one or more estimators to use. ">
+                  <param name="method" type="select" label="method" help="Choose one or more estimators to use. " multiple="">
                     
                       <option value="CGI" 
                       
@@ -86,14 +90,19 @@
                     
                     </param>
                 
-                  
+                  <param name="temperature" type="float" 
+                      value="298.15"
+                      
+                           label="temperature" help="Temperature in Kelvin." optional="false"/>
                 
-                  <param name="nboots" type="integer" value="0" 
-                     
-                           label="nboots" help="Number of bootstrap samples to use for the bootstrap estimate of the standard errors." optional="false"/>
+                  <param name="nboots" type="integer" 
+                      
+                      
+                           label="nboots" help="Number of bootstrap samples to use for the bootstrap estimate of the standard errors." optional="true"/>
                 
-                  <param name="nblocks" type="integer" value="1" 
-                     
+                  <param name="nblocks" type="integer" 
+                      value="1"
+                      
                            label="nblocks" help="Number of blocks to divide the data into for an estimate of the standard error." optional="false"/>
                 
                   <param name="integ_only" type="boolean" 
@@ -104,23 +113,30 @@
                     
                     label="reverseB" help="Whether to reverse the work values for the backward (B-&gt;A) transformation." />
                 
-                  <param name="skip" type="integer" value="1" 
-                     
+                  <param name="skip" type="integer" 
+                      value="1"
+                      
                            label="skip" help="Skip files." optional="false"/>
                 
-                  <param name="slice" type="text" value="None" label="slice" help="Subset of trajectories to analyze. Provide list slice, e.g. &#34;10 50&#34; will result in selecting dhdl_files[10:50]." optional="false"/>
+                  <param name="slice" type="text" label="slice" help="Subset of trajectories to analyze. Provide list slice, e.g. &#34;10 50&#34; will result in selecting dhdl_files[10:50]." optional="true"
+                      
+                    />
                 
-                  <param name="rand" type="integer" value="None" 
-                     
-                           label="rand" help="Take a random subset of trajectories. Default is None (do not take random subset)." optional="false"/>
+                  <param name="rand" type="integer" 
+                      
+                      
+                           label="rand" help="Take a random subset of trajectories. Default is None (do not take random subset)." optional="true"/>
                 
-                  <param name="index" type="text" value="None" label="index" help="Zero-based index of files to analyze (e.g. &#34;0 10 20 50 60&#34;). It keeps the dhdl.xvg files according to their position in the list, sorted according to the filenames." optional="false"/>
+                  <param name="index" type="text" label="index" help="Zero-based index of files to analyze (e.g. &#34;0 10 20 50 60&#34;). It keeps the dhdl.xvg files according to their position in the list, sorted according to the filenames." optional="true"
+                      
+                    />
                 
-                  <param name="prec" type="integer" value="2" 
-                     
+                  <param name="prec" type="integer" 
+                      value="2"
+                      
                            label="prec" help="The decimal precision of the screen/file output." optional="false"/>
                 
-                  <param name="units" type="select" label="units" help="The units of the output. ">
+                  <param name="units" type="select" label="units" help="The units of the output. " multiple="">
                     
                       <option value="kJ" 
                       selected="true"
@@ -140,15 +156,19 @@
                     
                     label="no_ks" help="Whether to do a Kolmogorov-Smirnov test to check whether the Gaussian assumption for CGI holds." />
                 
-                  <param name="nbins" type="integer" value="20" 
-                     
+                  <param name="nbins" type="integer" 
+                      value="20"
+                      
                            label="nbins" help="Number of histograms bins for the plot." optional="false"/>
                 
-                  <param name="dpi" type="integer" value="300" 
-                     min="72" max="2048"
+                  <param name="dpi" type="integer" 
+                      value="300"
+                      min="72" max="2048"
                            label="dpi" help="Resolution of the plot." optional="false"/>
                 
-                  <param name="pmx_path" type="text" value="pmx" label="pmx_path" help="Path to the PMX command line interface." optional="false"/>
+                  <param name="pmx_path" type="text" label="pmx_path" help="Path to the PMX command line interface." optional="false"
+                      value="pmx"
+                    />
                 
             </when>
         </conditional>

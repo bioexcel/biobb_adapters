@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__input_format__dq__:__dq__${config.input_format}__dq__,__dq__output_format__dq__:__dq__${config.output_format}__dq__,__dq__coordinates__dq__:__dq__${config.coordinates}__dq__,__dq__ph__dq__:__dq__${config.ph}__dq__,__dq__obabel_path__dq__:__dq__${config.obabel_path}__dq____cc__"
+          --config "__oc____dq__input_format__dq__:__dq__${config.input_format}__dq__,__dq__output_format__dq__:__dq__${config.output_format}__dq__,__dq__coordinates__dq__:__dq__${config.coordinates}__dq__,__dq__ph__dq__:${config.ph},__dq__obabel_path__dq__:__dq__${config.obabel_path}__dq____cc__"
         #end if
         
+        #if str($input_path) != 'None':
           --input_path ${input_path}.${input_path.ext}
+        #end if
         
         
           --output_path $__new_file_path__/$outname_output_path
@@ -56,7 +58,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. ">
+                  <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. " multiple="">
                     
                       <option value="dat" 
                       
@@ -144,7 +146,7 @@
                     
                     </param>
                 
-                  <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. ">
+                  <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. " multiple="">
                     
                       <option value="ent" 
                       
@@ -220,7 +222,7 @@
                     
                     </param>
                 
-                  <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. ">
+                  <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. " multiple="">
                     
                       <option value="2" 
                       
@@ -232,9 +234,14 @@
                     
                     </param>
                 
-                  
+                  <param name="ph" type="float" 
+                      
+                      min="-10.0" max="20.0"
+                           label="ph" help="Add hydrogens appropriate for pH." optional="true"/>
                 
-                  <param name="obabel_path" type="text" value="obabel" label="obabel_path" help="Path to the obabel executable binary." optional="false"/>
+                  <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
+                      value="obabel"
+                    />
                 
             </when>
         </conditional>

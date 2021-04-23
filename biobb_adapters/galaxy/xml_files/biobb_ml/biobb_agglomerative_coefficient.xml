@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__predictors__dq__:${config.predictors},__dq__max_clusters__dq__:__dq__${config.max_clusters}__dq__,__dq__affinity__dq__:__dq__${config.affinity}__dq__,__dq__linkage__dq__:__dq__${config.linkage}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
+          --config "__oc____dq__predictors__dq__:${config.predictors},__dq__max_clusters__dq__:${config.max_clusters},__dq__affinity__dq__:__dq__${config.affinity}__dq__,__dq__linkage__dq__:__dq__${config.linkage}__dq__,__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
+        #if str($input_dataset_path) != 'None':
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+        #end if
         
         
           --output_results_path $__new_file_path__/$outname_output_results_path
@@ -64,11 +66,12 @@
                 
                   <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  <param name="max_clusters" type="integer" value="6" 
-                     min="1" max="100"
+                  <param name="max_clusters" type="integer" 
+                      value="6"
+                      min="1" max="100"
                            label="max_clusters" help="Maximum number of clusters to use by default for kmeans queries." optional="false"/>
                 
-                  <param name="affinity" type="select" label="affinity" help="Metric used to compute the linkage. If linkage is &#34;ward&#34;, only &#34;euclidean&#34; is accepted. ">
+                  <param name="affinity" type="select" label="affinity" help="Metric used to compute the linkage. If linkage is &#34;ward&#34;, only &#34;euclidean&#34; is accepted. " multiple="">
                     
                       <option value="euclidean" 
                       selected="true"
@@ -96,7 +99,7 @@
                     
                     </param>
                 
-                  <param name="linkage" type="select" label="linkage" help="The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion. ">
+                  <param name="linkage" type="select" label="linkage" help="The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion. " multiple="">
                     
                       <option value="ward" 
                       selected="true"

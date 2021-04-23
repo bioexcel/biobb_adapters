@@ -21,9 +21,13 @@
           --config "__oc____dq__force_constants__dq__:__dq__${config.force_constants}__dq__,__dq__ref_rest_chain_triplet_list__dq__:__dq__${config.ref_rest_chain_triplet_list}__dq____cc__"
         #end if
         
+        #if str($input_ndx_path) != 'None':
           --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
+        #end if
         
+        #if str($input_top_zip_path) != 'None':
           --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
+        #end if
         
         
           --output_top_zip_path $__new_file_path__/$outname_output_top_zip_path
@@ -64,9 +68,13 @@
             </when>
             <when value="option3">
                 
-                  <param name="force_constants" type="text" value="500 500 500" label="force_constants" help="Array of three floats defining the force constants." optional="false"/>
+                  <param name="force_constants" type="text" label="force_constants" help="Array of three floats defining the force constants." optional="false"
+                      value="500 500 500"
+                    />
                 
-                  <param name="ref_rest_chain_triplet_list" type="text" value="None" label="ref_rest_chain_triplet_list" help="Triplet list composed by (reference group, restrain group, chain) list." optional="false"/>
+                  <param name="ref_rest_chain_triplet_list" type="text" label="ref_rest_chain_triplet_list" help="Triplet list composed by (reference group, restrain group, chain) list." optional="true"
+                      
+                    />
                 
             </when>
         </conditional>

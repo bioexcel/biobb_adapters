@@ -19,7 +19,9 @@
           --config "__oc____dq__heteroatoms__dq__:${config.heteroatoms}__cc__"
         #end if
         
+        #if str($input_structure_path) != 'None':
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        #end if
         
         
           --output_heteroatom_path $__new_file_path__/$outname_output_heteroatom_path

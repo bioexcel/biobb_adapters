@@ -16,10 +16,12 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__features__dq__:${config.features},__dq__target__dq__:${config.target},__dq__n_components__dq__:${config.n_components},__dq__random_state_method__dq__:__dq__${config.random_state_method}__dq__,__dq__scale__dq__:__dq__${config.scale}__dq____cc__"
+          --config "__oc____dq__features__dq__:${config.features},__dq__target__dq__:${config.target},__dq__n_components__dq__:${config.n_components},__dq__random_state_method__dq__:${config.random_state_method},__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
+        #if str($input_dataset_path) != 'None':
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+        #end if
         
         
           --output_results_path $__new_file_path__/$outname_output_results_path
@@ -68,8 +70,9 @@
                 
                   <param name="n_components" type="text" label="n_components" help="Dictionary containing the number of components to keep (int) or the minimum number of principal components such the 0 to 1 range of the variance (float) is retained. If not set ({}) all components are kept. Formats for integer values: { &#34;value&#34;: 2 } or for float values: { &#34;value&#34;: 0.3 } (Json)" value="{}" />
                 
-                  <param name="random_state_method" type="integer" value="5" 
-                     min="1" max="1000"
+                  <param name="random_state_method" type="integer" 
+                      value="5"
+                      min="1" max="1000"
                            label="random_state_method" help="Controls the randomness of the estimator." optional="false"/>
                 
                   <param name="scale" type="boolean" 

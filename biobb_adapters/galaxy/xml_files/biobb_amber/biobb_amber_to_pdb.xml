@@ -21,9 +21,13 @@
           --config "__oc____cc__"
         #end if
         
+        #if str($input_top_path) != 'None':
           --input_top_path ${input_top_path}.${input_top_path.ext}
+        #end if
         
+        #if str($input_crd_path) != 'None':
           --input_crd_path ${input_crd_path}.${input_crd_path.ext}
+        #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
