@@ -60,12 +60,19 @@
             <when value="option3">
                 {% for k, v in props.items() %}
                   {% if v['type'] == 'string' or v['type'] == 'list' -%}
-                    <param name="{{ k }}" type="text" value="{{ v['default']}}" label="{{ k }}" help="{{ v['description'] }}" optional="{{v['optional']}}"/> 
+                    <param name="{{ k }}" type="text" label="{{ k }}" help="{{ v['description'] }}" optional="{{v['optional']}}"
+                      {% if v['default'] -%}
+                        value="{{ v['default']}}" 
+                      {%- endif %}
+                    /> 
                   {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
-                    <param name="{{ k }}" type="{{v['type']}}" value="{{ v['default']}}" 
-                     {% if v['min'] -%}
+                    <param name="{{ k }}" type="{{v['type']}}" 
+                      {% if v['default'] -%}
+                        value="{{ v['default']}}" 
+                      {%- endif %}
+                      {% if v['min'] -%}
                            min="{{ v['min'] }}" max="{{ v['max'] }}" 
-                     {%- endif %}
+                      {%- endif %}
                            label="{{ k }}" help="{{ v['description']}}" optional="{{v['optional']}}"/> 
                   {%- elif v['type'] == 'select' -%}
                     <param name="{{ k }}" type="select" label="{{ k }}" help="{{ v['description'] }}" multiple="{{v['multiple']}}">

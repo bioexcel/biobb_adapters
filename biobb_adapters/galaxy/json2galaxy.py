@@ -1,10 +1,11 @@
 """ Utility to generate Galaxy automated tool definitions (XML) from biobb json_schemas """
 
-import sys
-import json
 import argparse
+import json
 import os
 import re
+import sys
+
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from jinja2.exceptions import TemplateSyntaxError
 
@@ -158,6 +159,9 @@ def main():
                     if v['default'] == 'None':
                         v['default'] = ''
                         v['optional'] = "true"
+                #Hack to avoid Galaxy compilation error
+                if not v['default']:
+                    v['optional'] = "true"
                 if 'optional' not in v:
                     v['optional'] = "false"
                 if v['type'] == 'number':
@@ -165,10 +169,12 @@ def main():
                 data['props'][k] = v
                 
                 # Generating "galaxyfied" Json string for config parameter
-                if v['type'] in ('string', 'boolean', 'select'):
+                if v['type'] in ('string', 'select'):
                     if 'multiple' in v and v['multiple']:
+                        # ["${'","'.join($config.k)}"]
                         txt = "__ob____dq__${'__dq__,__dq__'.join($config." + k + ")}__dq____cb__" 
                     else:
+                        # "${config.k}"
                         txt = "__dq__${config." + k + "}__dq__"
                     props_str.append("__dq__" +  k + "__dq__:" + txt)
                     
