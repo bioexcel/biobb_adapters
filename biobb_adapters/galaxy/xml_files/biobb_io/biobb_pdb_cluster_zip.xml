@@ -32,7 +32,7 @@
     <inputs>
         
         
-          <param name="outname_output_pdb_zip_path" type="text" value="mypdb_cluster_zip.zip" optional="False" label="output ZIP name" help="Path to the ZIP file containing the output PDB files Format: [output].zip "/>
+          <param name="outname_output_pdb_zip_path" type="text" value="mypdb_cluster_zip.pdb" optional="False" label="output PDB,ZIP name" help="Path to the ZIP or PDB file containing the output PDB files Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -97,7 +97,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_pdb_zip_path" format="zip" label="${outname_output_pdb_zip_path}"/>
+        <data name="output_pdb_zip_path" format="pdb,zip" label="${outname_output_pdb_zip_path}"/>
         
     </outputs>
     <tests>

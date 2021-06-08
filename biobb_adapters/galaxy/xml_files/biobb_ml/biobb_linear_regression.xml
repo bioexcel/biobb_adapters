@@ -54,7 +54,7 @@
         
           <param name="outname_output_test_table_path" type="text" value="mylinear_regression.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
         
-          <param name="outname_output_plot_path" type="text" value="mylinear_regression.png" optional="True" label="output PNG name" help="Residual plot checks the error between actual values and predicted values Format: [output].png "/>
+          <param name="outname_output_plot_path" type="text" value="mylinear_regression.png" optional="True" label="output PNG name" help="Residual plot checks the error between actual values and predicted values. Sample file Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
