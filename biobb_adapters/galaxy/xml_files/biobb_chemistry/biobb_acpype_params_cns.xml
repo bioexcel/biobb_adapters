@@ -77,7 +77,7 @@
                   <param name="charge" type="integer" 
                       
                       min="-20" max="20"
-                           label="charge" help="Net molecular charge, for gas default is 0." optional="true"/>
+                           label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="true"/>
                 
                   <param name="acpype_path" type="text" label="acpype_path" help="Path to the acpype executable binary." optional="false"
                       value="acpype"

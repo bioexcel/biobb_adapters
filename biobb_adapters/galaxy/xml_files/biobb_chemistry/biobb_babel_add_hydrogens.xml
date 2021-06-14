@@ -235,9 +235,9 @@
                     </param>
                 
                   <param name="ph" type="float" 
+                      value="7.4"
                       
-                      min="-10.0" max="20.0"
-                           label="ph" help="Add hydrogens appropriate for pH." optional="true"/>
+                           label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
                 
                   <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
                       value="obabel"

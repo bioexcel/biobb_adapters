@@ -1,36 +1,30 @@
-<tool id="biobb_md_gmxselect_ext" name="Gmxselect" version="3.0.0" >
-    <description>: Wrapper of the GROMACS select module.</description>
+<tool id="biobb_structure_utils_extract_molecule_ext" name="ExtractMolecule" version="3.0.0" >
+    <description>: This class is a wrapper of the Structure Checking tool to extract a molecule from a 3D structure.</description>
     <requirements>
-        <requirement type="package">biobb_md</requirement>
+        <requirement type="package">biobb_structure_utils</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
           ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
         
-          ln -f -s ${input_ndx_path} ${input_ndx_path}.${input_ndx_path.ext};
-        
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        gmxselect
+        extract_molecule
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__selection__dq__:__dq__${config.selection}__dq__,__dq__append__dq__:${config.append},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq____cc__"
+          --config "__oc____dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
         #end if
         
         #if str($input_structure_path) != 'None':
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
         #end if
         
-        #if str($input_ndx_path) != 'None':
-          --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
-        #end if
         
-        
-          --output_ndx_path $__new_file_path__/$outname_output_ndx_path
+          --output_molecule_path $__new_file_path__/$outname_output_molecule_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -38,21 +32,17 @@
         
           rm -f ${input_structure_path}.${input_structure_path.ext};
         
-          rm -f ${input_ndx_path}.${input_ndx_path.ext};
         
-        
-          if test -f $__new_file_path__/$outname_output_ndx_path; then mv $__new_file_path__/$outname_output_ndx_path $output_ndx_path; fi;
+          if test -f $__new_file_path__/$outname_output_molecule_path; then mv $__new_file_path__/$outname_output_molecule_path $output_molecule_path; fi;
         
     ]]>
     </command>
     <inputs>
         
-          <param name="input_structure_path" type="data" format="pdb,gro,tpr"  optional="False" label="input PDB,GRO,TPR file" help="Path to the input GRO/PDB/TPR file. Format: [input].[format]"/> 
-        
-          <param name="input_ndx_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the input index NDX file. Format: [input].ndx"/> 
+          <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_ndx_path" type="text" value="mygmxselect.ndx" optional="False" label="output NDX name" help="Path to the output index NDX file Format: [output].ndx "/>
+          <param name="outname_output_molecule_path" type="text" value="myextract_molecule.pdb" optional="False" label="output PDB name" help="Output molecule file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -68,20 +58,8 @@
             </when>
             <when value="option3">
                 
-                  <param name="selection" type="text" label="selection" help="Heavy atoms. Atom selection string." optional="false"
-                      value="a CA C N O"
-                    />
-                
-                  <param name="append" type="boolean" 
-                    
-                    label="append" help="Append the content of the input_ndx_path to the output_ndx_path." />
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
-                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
-                      
+                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+                      value="check_structure"
                     />
                 
             </when>
@@ -89,7 +67,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_ndx_path" format="ndx" label="${outname_output_ndx_path}"/>
+        <data name="output_molecule_path" format="pdb" label="${outname_output_molecule_path}"/>
         
     </outputs>
     <tests>
@@ -99,7 +77,7 @@
     <help>
 .. class:: infomark
         
-Check the syntax for the tool parameters at the original library documentation: https://biobb_md.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb_structure_utils.readthedocs.io/en/latest
 
 -----
 
@@ -122,7 +100,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_md},
+            url = {https://github.com/bioexcel/biobb_structure_utils},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

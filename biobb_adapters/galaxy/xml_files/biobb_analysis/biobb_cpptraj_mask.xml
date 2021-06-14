@@ -49,10 +49,10 @@
         
           <param name="input_top_path" type="data" format="top,pdb,prmtop,parmtop,zip"  optional="False" label="input TOP,PDB,PRMTOP,PARMTOP,ZIP file" help="Path to the input structure or topology file. Format: [input].[format]"/> 
         
-          <param name="input_traj_path" type="data" format="crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  optional="False" label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
+          <param name="input_traj_path" type="data" format="mdcrd,crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  optional="False" label="input MDCRD,CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_mask.crd" optional="False" label="output CRD,NETCDF,RST7,NCRST,DCD,PDB,MOL2,BINPOS,TRR,XTC,SQM name" help="Path to the output processed trajectory Format: [output].[format] "/>
+          <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_mask.mdcrd" optional="False" label="output MDCRD,CRD,NETCDF,RST7,NCRST,DCD,PDB,MOL2,BINPOS,TRR,XTC,SQM name" help="Path to the output processed trajectory Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -212,7 +212,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_cpptraj_path" format="crd,netcdf,rst7,ncrst,dcd,pdb,mol2,binpos,trr,xtc,sqm" label="${outname_output_cpptraj_path}"/>
+        <data name="output_cpptraj_path" format="mdcrd,crd,netcdf,rst7,ncrst,dcd,pdb,mol2,binpos,trr,xtc,sqm" label="${outname_output_cpptraj_path}"/>
         
     </outputs>
     <tests>

@@ -154,6 +154,10 @@
                       
                       >free</option>
                     
+                      <option value="ions" 
+                      
+                      >ions</option>
+                    
                       <option value="index" 
                       
                       >index</option>

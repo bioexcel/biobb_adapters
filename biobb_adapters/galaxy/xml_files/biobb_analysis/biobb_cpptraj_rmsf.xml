@@ -57,7 +57,7 @@
         
           <param name="input_top_path" type="data" format="top,pdb,prmtop,parmtop,zip"  optional="False" label="input TOP,PDB,PRMTOP,PARMTOP,ZIP file" help="Path to the input structure or topology file. Format: [input].[format]"/> 
         
-          <param name="input_traj_path" type="data" format="crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  optional="False" label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
+          <param name="input_traj_path" type="data" format="mdcrd,crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  optional="False" label="input MDCRD,CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
         
           <param name="input_exp_path" type="data" format="pdb"  optional="True" label="input PDB file" help="Path to the experimental reference file (required if reference = experimental). Format: [input].pdb"/> 
         
