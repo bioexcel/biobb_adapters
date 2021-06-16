@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__ion_mask__dq__:__dq__${config.ion_mask}__dq__,__dq__solute_mask__dq__:__dq__${config.solute_mask}__dq__,__dq__distance__dq__:${config.distance},__dq__overlap__dq__:${config.overlap}__cc__"
+            --config "__oc____dq__distance__dq__:${config.distance},__dq__ion_mask__dq__:__dq__${config.ion_mask}__dq__,__dq__overlap__dq__:${config.overlap},__dq__solute_mask__dq__:__dq__${config.solute_mask}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -32,9 +32,9 @@
           #end if
         
         
-          --output_pdb_path $__new_file_path__/$outname_output_pdb_path
-        
           --output_crd_path $__new_file_path__/$outname_output_crd_path
+        
+          --output_pdb_path $__new_file_path__/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
@@ -45,9 +45,9 @@
           rm -f ${input_crd_path}.${input_crd_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
-        
           if test -f $__new_file_path__/$outname_output_crd_path; then mv $__new_file_path__/$outname_output_crd_path $output_crd_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
         
     ]]>
     </command>
@@ -58,9 +58,9 @@
           <param name="input_crd_path" type="data" format="crd,mdcrd,inpcrd"  optional="False" label="input CRD,MDCRD,INPCRD file" help="Input coordinates file (AMBER crd). Format: [input].[format]"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mycpptraj_randomize_ions.pdb" optional="False" label="output PDB name" help="Structure PDB file with randomized ions Format: [output].pdb "/>
-        
           <param name="outname_output_crd_path" type="text" value="mycpptraj_randomize_ions.crd" optional="False" label="output CRD,MDCRD,INPCRD name" help="Structure CRD file with coordinates including randomized ions Format: [output].[format] "/>
+        
+          <param name="outname_output_pdb_path" type="text" value="mycpptraj_randomize_ions.pdb" optional="False" label="output PDB name" help="Structure PDB file with randomized ions Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -76,18 +76,18 @@
             </when>
             <when value="option3">
                 
-                  <param name="ion_mask" type="text" label="ion_mask" help="Ions to be randomized. Cpptraj mask syntax can be found at the official Cpptraj manual." optional="false"
-                      value=":K+,Cl-,Na+"
-                    />
+                  <param name="distance" type="float" 
+                      value="5.0"
+                      
+                           label="distance" help="Minimum distance cutoff for the ions around the defined solute." optional="false"/>
                 
                   <param name="solute_mask" type="text" label="solute_mask" help="Solute (or set of atoms) around which the ions can get no closer than the distance specified. Cpptraj mask syntax can be found at the official Cpptraj manual." optional="false"
                       value=":DA,DC,DG,DT,D?3,D?5"
                     />
                 
-                  <param name="distance" type="float" 
-                      value="5.0"
-                      
-                           label="distance" help="Minimum distance cutoff for the ions around the defined solute." optional="false"/>
+                  <param name="ion_mask" type="text" label="ion_mask" help="Ions to be randomized. Cpptraj mask syntax can be found at the official Cpptraj manual." optional="false"
+                      value=":K+,Cl-,Na+"
+                    />
                 
                   <param name="overlap" type="float" 
                       value="3.5"
@@ -99,9 +99,9 @@
     </inputs>
     <outputs>
         
-        <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
-        
         <data name="output_crd_path" format="crd,mdcrd,inpcrd" label="${outname_output_crd_path}"/>
+        
+        <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
     </outputs>
     <tests>

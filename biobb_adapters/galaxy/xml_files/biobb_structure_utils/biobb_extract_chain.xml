@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__chains__dq__:${config.chains},__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+            --config "__oc____dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq__,__dq__chains__dq__:${config.chains}__cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -60,11 +60,11 @@
             </when>
             <when value="option3">
                 
-                  <param name="chains" type="text" label="chains" help="List of chains to be extracted from the input_structure_path file. If empty, all the chains of the structure will be returned. (Json)" value="[]" />
-                
                   <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
                       value="check_structure"
                     />
+                
+                  <param name="chains" type="text" label="chains" help="List of chains to be extracted from the input_structure_path file. If empty, all the chains of the structure will be returned. (Json)" value="[]" />
                 
             </when>
         </conditional>

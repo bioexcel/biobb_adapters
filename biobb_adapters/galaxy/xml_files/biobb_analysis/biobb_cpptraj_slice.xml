@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__start__dq__:${config.start},__dq__end__dq__:${config.end},__dq__steps__dq__:${config.steps},__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__format__dq__:__dq__${config.format}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
+            --config "__oc____dq__end__dq__:${config.end},__dq__format__dq__:__dq__${config.format}__dq__,__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__start__dq__:${config.start},__dq__steps__dq__:${config.steps},__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -70,56 +70,10 @@
             </when>
             <when value="option3">
                 
-                  <param name="start" type="integer" 
-                      value="1"
-                      min="1" max="100000"
-                           label="start" help="Starting frame for slicing." optional="false"/>
-                
                   <param name="end" type="integer" 
                       value="-1"
                       min="-1" max="100000"
                            label="end" help="Ending frame for slicing." optional="false"/>
-                
-                  <param name="steps" type="integer" 
-                      value="1"
-                      min="1" max="100000"
-                           label="steps" help="Step for slicing." optional="false"/>
-                
-                  <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
-                    
-                      <option value="c-alpha" 
-                      
-                      >c-alpha</option>
-                    
-                      <option value="backbone" 
-                      
-                      >backbone</option>
-                    
-                      <option value="all-atoms" 
-                      selected="true"
-                      >all-atoms</option>
-                    
-                      <option value="heavy-atoms" 
-                      
-                      >heavy-atoms</option>
-                    
-                      <option value="side-chain" 
-                      
-                      >side-chain</option>
-                    
-                      <option value="solute" 
-                      
-                      >solute</option>
-                    
-                      <option value="ions" 
-                      
-                      >ions</option>
-                    
-                      <option value="solvent" 
-                      
-                      >solvent</option>
-                    
-                    </param>
                 
                   <param name="format" type="select" label="format" help="Output trajectory format. " multiple="">
                     
@@ -204,6 +158,52 @@
                       >conflib</option>
                     
                     </param>
+                
+                  <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
+                    
+                      <option value="c-alpha" 
+                      
+                      >c-alpha</option>
+                    
+                      <option value="backbone" 
+                      
+                      >backbone</option>
+                    
+                      <option value="all-atoms" 
+                      selected="true"
+                      >all-atoms</option>
+                    
+                      <option value="heavy-atoms" 
+                      
+                      >heavy-atoms</option>
+                    
+                      <option value="side-chain" 
+                      
+                      >side-chain</option>
+                    
+                      <option value="solute" 
+                      
+                      >solute</option>
+                    
+                      <option value="ions" 
+                      
+                      >ions</option>
+                    
+                      <option value="solvent" 
+                      
+                      >solvent</option>
+                    
+                    </param>
+                
+                  <param name="start" type="integer" 
+                      value="1"
+                      min="1" max="100000"
+                           label="start" help="Starting frame for slicing." optional="false"/>
+                
+                  <param name="steps" type="integer" 
+                      value="1"
+                      min="1" max="100000"
+                           label="steps" help="Step for slicing." optional="false"/>
                 
                   <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
                       value="cpptraj"

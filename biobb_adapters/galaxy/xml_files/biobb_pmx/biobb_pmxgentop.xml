@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__split__dq__:${config.split},__dq__scale_mass__dq__:${config.scale_mass},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__pmx_path__dq__:__dq__${config.pmx_path}__dq____cc__"
+            --config "__oc____dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__pmx_path__dq__:__dq__${config.pmx_path}__dq__,__dq__scale_mass__dq__:${config.scale_mass},__dq__split__dq__:${config.split},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq____cc__"
           #end if
         
           #if str($input_top_zip_path) != 'None':
@@ -60,13 +60,13 @@
             </when>
             <when value="option3">
                 
-                  <param name="force_field" type="text" label="force_field" help="Force field to use. If **input_top_zip_path** is a top file, it&#39;s not necessary to specify the forcefield, as it will be determined automatically. If **input_top_zip_path** is an itp file, then it&#39;s needed." optional="false"
-                      value="amber99sb-star-ildn-mut"
-                    />
-                
                   <param name="split" type="boolean" 
                     
                     label="split" help="Write separate topologies for the vdW and charge transformations." />
+                
+                  <param name="force_field" type="text" label="force_field" help="Force field to use. If **input_top_zip_path** is a top file, it&#39;s not necessary to specify the forcefield, as it will be determined automatically. If **input_top_zip_path** is an itp file, then it&#39;s needed." optional="false"
+                      value="amber99sb-star-ildn-mut"
+                    />
                 
                   <param name="scale_mass" type="boolean" 
                     

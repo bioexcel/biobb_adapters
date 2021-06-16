@@ -5,13 +5,13 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_top_path} ${input_top_path}.${input_top_path.ext};
+          ln -f -s ${input_cpin_path} ${input_cpin_path}.${input_cpin_path.ext};
         
-          ln -f -s ${input_crd_path} ${input_crd_path}.${input_crd_path.ext};
+          ln -f -s ${input_top_path} ${input_top_path}.${input_top_path.ext};
         
           ln -f -s ${input_mdin_path} ${input_mdin_path}.${input_mdin_path.ext};
         
-          ln -f -s ${input_cpin_path} ${input_cpin_path}.${input_cpin_path.ext};
+          ln -f -s ${input_crd_path} ${input_crd_path}.${input_crd_path.ext};
         
           ln -f -s ${input_ref_path} ${input_ref_path}.${input_ref_path.ext};
         
@@ -26,23 +26,23 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mdin__dq__:${config.mdin},__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__sander_path__dq__:__dq__${config.sander_path}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
+            --config "__oc____dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__mdin__dq__:${config.mdin},__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__sander_path__dq__:__dq__${config.sander_path}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
+          #end if
+        
+          #if str($input_cpin_path) != 'None':
+            --input_cpin_path ${input_cpin_path}.${input_cpin_path.ext}
           #end if
         
           #if str($input_top_path) != 'None':
             --input_top_path ${input_top_path}.${input_top_path.ext}
           #end if
         
-          #if str($input_crd_path) != 'None':
-            --input_crd_path ${input_crd_path}.${input_crd_path.ext}
-          #end if
-        
           #if str($input_mdin_path) != 'None':
             --input_mdin_path ${input_mdin_path}.${input_mdin_path.ext}
           #end if
         
-          #if str($input_cpin_path) != 'None':
-            --input_cpin_path ${input_cpin_path}.${input_cpin_path.ext}
+          #if str($input_crd_path) != 'None':
+            --input_crd_path ${input_crd_path}.${input_crd_path.ext}
           #end if
         
           #if str($input_ref_path) != 'None':
@@ -50,38 +50,32 @@
           #end if
         
         
-          --output_log_path $__new_file_path__/$outname_output_log_path
-        
-          --output_traj_path $__new_file_path__/$outname_output_traj_path
-        
-          --output_rst_path $__new_file_path__/$outname_output_rst_path
-        
           --output_cpout_path $__new_file_path__/$outname_output_cpout_path
         
           --output_cprst_path $__new_file_path__/$outname_output_cprst_path
         
           --output_mdinfo_path $__new_file_path__/$outname_output_mdinfo_path
+        
+          --output_traj_path $__new_file_path__/$outname_output_traj_path
+        
+          --output_rst_path $__new_file_path__/$outname_output_rst_path
+        
+          --output_log_path $__new_file_path__/$outname_output_log_path
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
           #end if
         
-          rm -f ${input_top_path}.${input_top_path.ext};
+          rm -f ${input_cpin_path}.${input_cpin_path.ext};
         
-          rm -f ${input_crd_path}.${input_crd_path.ext};
+          rm -f ${input_top_path}.${input_top_path.ext};
         
           rm -f ${input_mdin_path}.${input_mdin_path.ext};
         
-          rm -f ${input_cpin_path}.${input_cpin_path.ext};
+          rm -f ${input_crd_path}.${input_crd_path.ext};
         
           rm -f ${input_ref_path}.${input_ref_path.ext};
         
-        
-          if test -f $__new_file_path__/$outname_output_log_path; then mv $__new_file_path__/$outname_output_log_path $output_log_path; fi;
-        
-          if test -f $__new_file_path__/$outname_output_traj_path; then mv $__new_file_path__/$outname_output_traj_path $output_traj_path; fi;
-        
-          if test -f $__new_file_path__/$outname_output_rst_path; then mv $__new_file_path__/$outname_output_rst_path $output_rst_path; fi;
         
           if test -f $__new_file_path__/$outname_output_cpout_path; then mv $__new_file_path__/$outname_output_cpout_path $output_cpout_path; fi;
         
@@ -89,32 +83,38 @@
         
           if test -f $__new_file_path__/$outname_output_mdinfo_path; then mv $__new_file_path__/$outname_output_mdinfo_path $output_mdinfo_path; fi;
         
+          if test -f $__new_file_path__/$outname_output_traj_path; then mv $__new_file_path__/$outname_output_traj_path $output_traj_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_rst_path; then mv $__new_file_path__/$outname_output_rst_path $output_rst_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_log_path; then mv $__new_file_path__/$outname_output_log_path $output_log_path; fi;
+        
     ]]>
     </command>
     <inputs>
         
-          <param name="input_top_path" type="data" format="top,parmtop,prmtop"  optional="False" label="input TOP,PARMTOP,PRMTOP file" help="Input topology file (AMBER ParmTop). Format: [input].[format]"/> 
+          <param name="input_cpin_path" type="data" format="cpin"  optional="True" label="input CPIN file" help="Input constant pH file (AMBER cpin). Format: [input].cpin"/> 
         
-          <param name="input_crd_path" type="data" format="crd,mdcrd,inpcrd"  optional="False" label="input CRD,MDCRD,INPCRD file" help="Input coordinates file (AMBER crd). Format: [input].[format]"/> 
+          <param name="input_top_path" type="data" format="top,parmtop,prmtop"  optional="False" label="input TOP,PARMTOP,PRMTOP file" help="Input topology file (AMBER ParmTop). Format: [input].[format]"/> 
         
           <param name="input_mdin_path" type="data" format="mdin,in,txt"  optional="True" label="input MDIN,IN,TXT file" help="Input configuration file (MD run options) (AMBER mdin). Format: [input].[format]"/> 
         
-          <param name="input_cpin_path" type="data" format="cpin"  optional="True" label="input CPIN file" help="Input constant pH file (AMBER cpin). Format: [input].cpin"/> 
+          <param name="input_crd_path" type="data" format="crd,mdcrd,inpcrd"  optional="False" label="input CRD,MDCRD,INPCRD file" help="Input coordinates file (AMBER crd). Format: [input].[format]"/> 
         
           <param name="input_ref_path" type="data" format="rst,rst7"  optional="True" label="input RST,RST7 file" help="Input reference coordinates for position restraints. Format: [input].[format]"/> 
         
-        
-          <param name="outname_output_log_path" type="text" value="mysander_mdrun.log" optional="False" label="output LOG,OUT,TXT,O name" help="Output log file Format: [output].[format] "/>
-        
-          <param name="outname_output_traj_path" type="text" value="mysander_mdrun.trj" optional="False" label="output TRJ,CRD,MDCRD,X,NETCDF,NC name" help="Output trajectory file Format: [output].[format] "/>
-        
-          <param name="outname_output_rst_path" type="text" value="mysander_mdrun.rst" optional="False" label="output RST,RST7 name" help="Output restart file Format: [output].[format] "/>
         
           <param name="outname_output_cpout_path" type="text" value="mysander_mdrun.cpout" optional="True" label="output CPOUT name" help="Output constant pH file (AMBER cpout) Format: [output].cpout "/>
         
           <param name="outname_output_cprst_path" type="text" value="mysander_mdrun.cprst" optional="True" label="output CPRST,RST,RST7 name" help="Output constant pH restart file (AMBER rstout) Format: [output].[format] "/>
         
           <param name="outname_output_mdinfo_path" type="text" value="mysander_mdrun.mdinfo" optional="True" label="output MDINFO name" help="Output MD info Format: [output].mdinfo "/>
+        
+          <param name="outname_output_traj_path" type="text" value="mysander_mdrun.trj" optional="False" label="output TRJ,CRD,MDCRD,X,NETCDF,NC name" help="Output trajectory file Format: [output].[format] "/>
+        
+          <param name="outname_output_rst_path" type="text" value="mysander_mdrun.rst" optional="False" label="output RST,RST7 name" help="Output restart file Format: [output].[format] "/>
+        
+          <param name="outname_output_log_path" type="text" value="mysander_mdrun.log" optional="False" label="output LOG,OUT,TXT,O name" help="Output log file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -129,8 +129,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="mdin" type="text" label="mdin" help="Sander MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
                 
                   <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
                     
@@ -160,18 +158,20 @@
                     
                     </param>
                 
-                  <param name="sander_path" type="text" label="sander_path" help="sander binary path to be used." optional="false"
-                      value="sander"
-                    />
-                
-                  <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
-                      
-                    />
+                  <param name="mdin" type="text" label="mdin" help="Sander MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
                 
                   <param name="mpi_np" type="integer" 
                       
                       
                            label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
+                
+                  <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
+                      
+                    />
+                
+                  <param name="sander_path" type="text" label="sander_path" help="sander binary path to be used." optional="false"
+                      value="sander"
+                    />
                 
                   <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
                       
@@ -182,17 +182,17 @@
     </inputs>
     <outputs>
         
-        <data name="output_log_path" format="log,out,txt,o" label="${outname_output_log_path}"/>
-        
-        <data name="output_traj_path" format="trj,crd,mdcrd,x,netcdf,nc" label="${outname_output_traj_path}"/>
-        
-        <data name="output_rst_path" format="rst,rst7" label="${outname_output_rst_path}"/>
-        
         <data name="output_cpout_path" format="cpout" label="${outname_output_cpout_path}"/>
         
         <data name="output_cprst_path" format="cprst,rst,rst7" label="${outname_output_cprst_path}"/>
         
         <data name="output_mdinfo_path" format="mdinfo" label="${outname_output_mdinfo_path}"/>
+        
+        <data name="output_traj_path" format="trj,crd,mdcrd,x,netcdf,nc" label="${outname_output_traj_path}"/>
+        
+        <data name="output_rst_path" format="rst,rst7" label="${outname_output_rst_path}"/>
+        
+        <data name="output_log_path" format="log,out,txt,o" label="${outname_output_log_path}"/>
         
     </outputs>
     <tests>
