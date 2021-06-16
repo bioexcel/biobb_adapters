@@ -80,16 +80,6 @@
             </when>
             <when value="option3">
                 
-                  <param name="max_epochs" type="integer" 
-                      value="100"
-                      
-                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
-                
-                  <param name="learning_rate" type="float" 
-                      value="0.02"
-                      
-                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
-                
                   <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
                     
                       <option value="Adadelta" 
@@ -126,10 +116,20 @@
                     
                     </param>
                 
+                  <param name="learning_rate" type="float" 
+                      value="0.02"
+                      
+                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                
                   <param name="batch_size" type="integer" 
                       value="100"
                       
                            label="batch_size" help="Number of samples per gradient update." optional="false"/>
+                
+                  <param name="max_epochs" type="integer" 
+                      value="100"
+                      
+                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
                 
             </when>
         </conditional>

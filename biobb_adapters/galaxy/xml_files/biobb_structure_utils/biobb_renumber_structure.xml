@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__renumber_residues_per_chain__dq__:${config.renumber_residues_per_chain},__dq__renumber_residues__dq__:${config.renumber_residues}__cc__"
+          --config "__oc____dq__renumber_residues__dq__:${config.renumber_residues},__dq__renumber_residues_per_chain__dq__:${config.renumber_residues_per_chain}__cc__"
         #end if
         
         #if str($input_structure_path) != 'None':
@@ -64,13 +64,13 @@
             </when>
             <when value="option3">
                 
-                  <param name="renumber_residues_per_chain" type="boolean" 
-                    checked="true"
-                    label="renumber_residues_per_chain" help="Restart residue enumeration every time a new chain is detected." />
-                
                   <param name="renumber_residues" type="boolean" 
                     checked="true"
                     label="renumber_residues" help="Residue code of the ligand to be removed." />
+                
+                  <param name="renumber_residues_per_chain" type="boolean" 
+                    checked="true"
+                    label="renumber_residues_per_chain" help="Restart residue enumeration every time a new chain is detected." />
                 
             </when>
         </conditional>

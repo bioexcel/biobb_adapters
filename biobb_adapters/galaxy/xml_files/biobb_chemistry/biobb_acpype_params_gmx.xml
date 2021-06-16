@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq__,__dq__charge__dq__:${config.charge}__cc__"
+          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:${config.charge},__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
         #end if
         
         #if str($input_path) != 'None':
@@ -24,11 +24,11 @@
         #end if
         
         
-          --output_path_top $__new_file_path__/$outname_output_path_top
-        
           --output_path_gro $__new_file_path__/$outname_output_path_gro
         
           --output_path_itp $__new_file_path__/$outname_output_path_itp
+        
+          --output_path_top $__new_file_path__/$outname_output_path_top
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -37,11 +37,11 @@
           rm -f ${input_path}.${input_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_path_top; then mv $__new_file_path__/$outname_output_path_top $output_path_top; fi;
-        
           if test -f $__new_file_path__/$outname_output_path_gro; then mv $__new_file_path__/$outname_output_path_gro $output_path_gro; fi;
         
           if test -f $__new_file_path__/$outname_output_path_itp; then mv $__new_file_path__/$outname_output_path_itp $output_path_itp; fi;
+        
+          if test -f $__new_file_path__/$outname_output_path_top; then mv $__new_file_path__/$outname_output_path_top $output_path_top; fi;
         
     ]]>
     </command>
@@ -50,11 +50,11 @@
           <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_path_top" type="text" value="myacpype_params_gmx.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
-        
           <param name="outname_output_path_gro" type="text" value="myacpype_params_gmx.gro" optional="False" label="output GRO name" help="Path to the GRO output file Format: [output].gro "/>
         
           <param name="outname_output_path_itp" type="text" value="myacpype_params_gmx.itp" optional="False" label="output ITP name" help="Path to the ITP output file Format: [output].itp "/>
+        
+          <param name="outname_output_path_top" type="text" value="myacpype_params_gmx.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -88,11 +88,11 @@
     </inputs>
     <outputs>
         
-        <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
-        
         <data name="output_path_gro" format="gro" label="${outname_output_path_gro}"/>
         
         <data name="output_path_itp" format="itp" label="${outname_output_path_itp}"/>
+        
+        <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
         
     </outputs>
     <tests>

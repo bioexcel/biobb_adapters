@@ -5,9 +5,9 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_structure2} ${input_structure2}.${input_structure2.ext};
-        
           ln -f -s ${input_structure1} ${input_structure1}.${input_structure1.ext};
+        
+          ln -f -s ${input_structure2} ${input_structure2}.${input_structure2.ext};
         
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
@@ -21,12 +21,12 @@
           --config "__oc____cc__"
         #end if
         
-        #if str($input_structure2) != 'None':
-          --input_structure2 ${input_structure2}.${input_structure2.ext}
-        #end if
-        
         #if str($input_structure1) != 'None':
           --input_structure1 ${input_structure1}.${input_structure1.ext}
+        #end if
+        
+        #if str($input_structure2) != 'None':
+          --input_structure2 ${input_structure2}.${input_structure2.ext}
         #end if
         
         
@@ -36,9 +36,9 @@
           rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-          rm -f ${input_structure2}.${input_structure2.ext};
-        
           rm -f ${input_structure1}.${input_structure1.ext};
+        
+          rm -f ${input_structure2}.${input_structure2.ext};
         
         
           if test -f $__new_file_path__/$outname_output_structure_path; then mv $__new_file_path__/$outname_output_structure_path $output_structure_path; fi;
@@ -47,9 +47,9 @@
     </command>
     <inputs>
         
-          <param name="input_structure2" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
-        
           <param name="input_structure1" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 1 file path. Format: [input].pdb"/> 
+        
+          <param name="input_structure2" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
         
         
           <param name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" optional="False" label="output PDB name" help="Output protein file path Format: [output].pdb "/>

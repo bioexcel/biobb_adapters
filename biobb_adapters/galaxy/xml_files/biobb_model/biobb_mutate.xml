@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__rebuild__dq__:${config.rebuild},__dq__mutation_list__dq__:__dq__${config.mutation_list}__dq____cc__"
+          --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__rebuild__dq__:${config.rebuild}__cc__"
         #end if
         
         #if str($input_pdb_path) != 'None':
@@ -58,13 +58,13 @@
             </when>
             <when value="option3">
                 
-                  <param name="rebuild" type="boolean" 
-                    
-                    label="rebuild" help="Rebuilds side chain completely using Modeller" />
-                
                   <param name="mutation_list" type="text" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" optional="false"
                       value="A:Val2Ala"
                     />
+                
+                  <param name="rebuild" type="boolean" 
+                    
+                    label="rebuild" help="Rebuilds side chain completely using Modeller" />
                 
             </when>
         </conditional>

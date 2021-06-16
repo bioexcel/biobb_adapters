@@ -20,7 +20,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__output_selection__dq__:__dq__${config.output_selection}__dq__,__dq__cutoff__dq__:${config.cutoff},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__dista__dq__:${config.dista},__dq__fit_selection__dq__:__dq__${config.fit_selection}__dq__,__dq__method__dq__:__dq__${config.method}__dq____cc__"
+          --config "__oc____dq__fit_selection__dq__:__dq__${config.fit_selection}__dq__,__dq__output_selection__dq__:__dq__${config.output_selection}__dq__,__dq__dista__dq__:${config.dista},__dq__method__dq__:__dq__${config.method}__dq__,__dq__cutoff__dq__:${config.cutoff},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
         #if str($input_structure_path) != 'None':
@@ -77,99 +77,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. " multiple="">
-                    
-                      <option value="System" 
-                      selected="true"
-                      >System</option>
-                    
-                      <option value="Protein" 
-                      
-                      >Protein</option>
-                    
-                      <option value="Protein-H" 
-                      
-                      >Protein-H</option>
-                    
-                      <option value="C-alpha" 
-                      
-                      >C-alpha</option>
-                    
-                      <option value="Backbone" 
-                      
-                      >Backbone</option>
-                    
-                      <option value="MainChain" 
-                      
-                      >MainChain</option>
-                    
-                      <option value="MainChain+Cb" 
-                      
-                      >MainChain+Cb</option>
-                    
-                      <option value="MainChain+H" 
-                      
-                      >MainChain+H</option>
-                    
-                      <option value="SideChain" 
-                      
-                      >SideChain</option>
-                    
-                      <option value="SideChain-H" 
-                      
-                      >SideChain-H</option>
-                    
-                      <option value="Prot-Masses" 
-                      
-                      >Prot-Masses</option>
-                    
-                      <option value="non-Protein" 
-                      
-                      >non-Protein</option>
-                    
-                      <option value="Water" 
-                      
-                      >Water</option>
-                    
-                      <option value="SOL" 
-                      
-                      >SOL</option>
-                    
-                      <option value="non-Water" 
-                      
-                      >non-Water</option>
-                    
-                      <option value="Ion" 
-                      
-                      >Ion</option>
-                    
-                      <option value="NA" 
-                      
-                      >NA</option>
-                    
-                      <option value="CL" 
-                      
-                      >CL</option>
-                    
-                      <option value="Water_and_ions" 
-                      
-                      >Water_and_ions</option>
-                    
-                    </param>
-                
-                  <param name="cutoff" type="float" 
-                      value="0.1"
-                      
-                           label="cutoff" help="RMSD cut-off (nm) for two structures to be neighbor." optional="false"/>
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
-                  <param name="dista" type="boolean" 
-                    
-                    label="dista" help="Use RMSD of distances instead of RMS deviation." />
                 
                   <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                     
@@ -251,6 +158,90 @@
                     
                     </param>
                 
+                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. " multiple="">
+                    
+                      <option value="System" 
+                      selected="true"
+                      >System</option>
+                    
+                      <option value="Protein" 
+                      
+                      >Protein</option>
+                    
+                      <option value="Protein-H" 
+                      
+                      >Protein-H</option>
+                    
+                      <option value="C-alpha" 
+                      
+                      >C-alpha</option>
+                    
+                      <option value="Backbone" 
+                      
+                      >Backbone</option>
+                    
+                      <option value="MainChain" 
+                      
+                      >MainChain</option>
+                    
+                      <option value="MainChain+Cb" 
+                      
+                      >MainChain+Cb</option>
+                    
+                      <option value="MainChain+H" 
+                      
+                      >MainChain+H</option>
+                    
+                      <option value="SideChain" 
+                      
+                      >SideChain</option>
+                    
+                      <option value="SideChain-H" 
+                      
+                      >SideChain-H</option>
+                    
+                      <option value="Prot-Masses" 
+                      
+                      >Prot-Masses</option>
+                    
+                      <option value="non-Protein" 
+                      
+                      >non-Protein</option>
+                    
+                      <option value="Water" 
+                      
+                      >Water</option>
+                    
+                      <option value="SOL" 
+                      
+                      >SOL</option>
+                    
+                      <option value="non-Water" 
+                      
+                      >non-Water</option>
+                    
+                      <option value="Ion" 
+                      
+                      >Ion</option>
+                    
+                      <option value="NA" 
+                      
+                      >NA</option>
+                    
+                      <option value="CL" 
+                      
+                      >CL</option>
+                    
+                      <option value="Water_and_ions" 
+                      
+                      >Water_and_ions</option>
+                    
+                    </param>
+                
+                  <param name="dista" type="boolean" 
+                    
+                    label="dista" help="Use RMSD of distances instead of RMS deviation." />
+                
                   <param name="method" type="select" label="method" help="Method for cluster determination. " multiple="">
                     
                       <option value="linkage" 
@@ -274,6 +265,15 @@
                       >gromos</option>
                     
                     </param>
+                
+                  <param name="cutoff" type="float" 
+                      value="0.1"
+                      
+                           label="cutoff" help="RMSD cut-off (nm) for two structures to be neighbor." optional="false"/>
+                
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
+                    />
                 
             </when>
         </conditional>

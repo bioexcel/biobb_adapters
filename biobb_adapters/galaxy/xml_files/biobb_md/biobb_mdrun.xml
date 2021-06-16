@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__num_threads__dq__:${config.num_threads},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__num_threads_omp__dq__:${config.num_threads_omp},__dq__checkpoint_time__dq__:${config.checkpoint_time},__dq__num_threads_mpi__dq__:${config.num_threads_mpi},__dq__use_gpu__dq__:${config.use_gpu},__dq__mpi_np__dq__:${config.mpi_np},__dq__gpu_id__dq__:__dq__${config.gpu_id}__dq__,__dq__num_threads_omp_pme__dq__:${config.num_threads_omp_pme},__dq__gpu_tasks__dq__:__dq__${config.gpu_tasks}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
+          --config "__oc____dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq__,__dq__checkpoint_time__dq__:${config.checkpoint_time},__dq__num_threads__dq__:${config.num_threads},__dq__num_threads_mpi__dq__:${config.num_threads_mpi},__dq__num_threads_omp__dq__:${config.num_threads_omp},__dq__num_threads_omp_pme__dq__:${config.num_threads_omp_pme},__dq__use_gpu__dq__:${config.use_gpu},__dq__gpu_id__dq__:__dq__${config.gpu_id}__dq__,__dq__gpu_tasks__dq__:__dq__${config.gpu_tasks}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
         #if str($input_tpr_path) != 'None':
@@ -30,19 +30,19 @@
         #end if
         
         
-          --output_gro_path $__new_file_path__/$outname_output_gro_path
-        
-          --output_cpt_path $__new_file_path__/$outname_output_cpt_path
-        
-          --output_xtc_path $__new_file_path__/$outname_output_xtc_path
-        
           --output_trr_path $__new_file_path__/$outname_output_trr_path
         
-          --output_dhdl_path $__new_file_path__/$outname_output_dhdl_path
+          --output_gro_path $__new_file_path__/$outname_output_gro_path
         
           --output_edr_path $__new_file_path__/$outname_output_edr_path
         
           --output_log_path $__new_file_path__/$outname_output_log_path
+        
+          --output_xtc_path $__new_file_path__/$outname_output_xtc_path
+        
+          --output_cpt_path $__new_file_path__/$outname_output_cpt_path
+        
+          --output_dhdl_path $__new_file_path__/$outname_output_dhdl_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -53,19 +53,19 @@
           rm -f ${input_cpt_path}.${input_cpt_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_gro_path; then mv $__new_file_path__/$outname_output_gro_path $output_gro_path; fi;
-        
-          if test -f $__new_file_path__/$outname_output_cpt_path; then mv $__new_file_path__/$outname_output_cpt_path $output_cpt_path; fi;
-        
-          if test -f $__new_file_path__/$outname_output_xtc_path; then mv $__new_file_path__/$outname_output_xtc_path $output_xtc_path; fi;
-        
           if test -f $__new_file_path__/$outname_output_trr_path; then mv $__new_file_path__/$outname_output_trr_path $output_trr_path; fi;
         
-          if test -f $__new_file_path__/$outname_output_dhdl_path; then mv $__new_file_path__/$outname_output_dhdl_path $output_dhdl_path; fi;
+          if test -f $__new_file_path__/$outname_output_gro_path; then mv $__new_file_path__/$outname_output_gro_path $output_gro_path; fi;
         
           if test -f $__new_file_path__/$outname_output_edr_path; then mv $__new_file_path__/$outname_output_edr_path $output_edr_path; fi;
         
           if test -f $__new_file_path__/$outname_output_log_path; then mv $__new_file_path__/$outname_output_log_path $output_log_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_xtc_path; then mv $__new_file_path__/$outname_output_xtc_path $output_xtc_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_cpt_path; then mv $__new_file_path__/$outname_output_cpt_path $output_cpt_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_dhdl_path; then mv $__new_file_path__/$outname_output_dhdl_path $output_dhdl_path; fi;
         
     ]]>
     </command>
@@ -76,19 +76,19 @@
           <param name="input_cpt_path" type="data" format="cpt"  optional="True" label="input CPT file" help="Path to the input GROMACS checkpoint file CPT. Format: [input].cpt"/> 
         
         
-          <param name="outname_output_gro_path" type="text" value="mymdrun.gro" optional="False" label="output GRO name" help="Path to the output GROMACS structure GRO file Format: [output].gro "/>
-        
-          <param name="outname_output_cpt_path" type="text" value="mymdrun.cpt" optional="True" label="output CPT name" help="Path to the output GROMACS checkpoint file CPT Format: [output].cpt "/>
-        
-          <param name="outname_output_xtc_path" type="text" value="mymdrun.xtc" optional="True" label="output XTC name" help="Path to the GROMACS compressed trajectory file XTC Format: [output].xtc "/>
-        
           <param name="outname_output_trr_path" type="text" value="mymdrun.trr" optional="False" label="output TRR name" help="Path to the GROMACS uncompressed raw trajectory file TRR Format: [output].trr "/>
         
-          <param name="outname_output_dhdl_path" type="text" value="mymdrun.xvg" optional="True" label="output XVG name" help="Path to the output dhdl.xvg file only used when free energy calculation is turned on Format: [output].xvg "/>
+          <param name="outname_output_gro_path" type="text" value="mymdrun.gro" optional="False" label="output GRO name" help="Path to the output GROMACS structure GRO file Format: [output].gro "/>
         
           <param name="outname_output_edr_path" type="text" value="mymdrun.edr" optional="False" label="output EDR name" help="Path to the output GROMACS portable energy file EDR Format: [output].edr "/>
         
           <param name="outname_output_log_path" type="text" value="mymdrun.log" optional="False" label="output LOG name" help="Path to the output GROMACS trajectory log file LOG Format: [output].log "/>
+        
+          <param name="outname_output_xtc_path" type="text" value="mymdrun.xtc" optional="True" label="output XTC name" help="Path to the GROMACS compressed trajectory file XTC Format: [output].xtc "/>
+        
+          <param name="outname_output_cpt_path" type="text" value="mymdrun.cpt" optional="True" label="output CPT name" help="Path to the output GROMACS checkpoint file CPT Format: [output].cpt "/>
+        
+          <param name="outname_output_dhdl_path" type="text" value="mymdrun.xvg" optional="True" label="output XVG name" help="Path to the output dhdl.xvg file only used when free energy calculation is turned on Format: [output].xvg "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -104,53 +104,53 @@
             </when>
             <when value="option3">
                 
-                  <param name="num_threads" type="integer" 
+                  <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
                       
-                      
-                           label="num_threads" help="Let GROMACS guess. The number of threads that are going to be used." optional="true"/>
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
                     />
-                
-                  <param name="num_threads_omp" type="integer" 
-                      
-                      
-                           label="num_threads_omp" help="Let GROMACS guess. The number of GROMACS OPENMP threads that are going to be used." optional="true"/>
-                
-                  <param name="checkpoint_time" type="integer" 
-                      value="15"
-                      
-                           label="checkpoint_time" help="Checkpoint writing interval in minutes. Only enabled if an output_cpt_path is provided." optional="false"/>
-                
-                  <param name="num_threads_mpi" type="integer" 
-                      
-                      
-                           label="num_threads_mpi" help="Let GROMACS guess. The number of GROMACS MPI threads that are going to be used." optional="true"/>
-                
-                  <param name="use_gpu" type="boolean" 
-                    
-                    label="use_gpu" help="Use settings appropriate for GPU. Adds: -nb gpu -pme gpu" />
                 
                   <param name="mpi_np" type="integer" 
                       
                       
                            label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
                 
-                  <param name="gpu_id" type="text" label="gpu_id" help="List of unique GPU device IDs available to use." optional="true"
+                  <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
                       
                     />
+                
+                  <param name="checkpoint_time" type="integer" 
+                      value="15"
+                      
+                           label="checkpoint_time" help="Checkpoint writing interval in minutes. Only enabled if an output_cpt_path is provided." optional="false"/>
+                
+                  <param name="num_threads" type="integer" 
+                      
+                      
+                           label="num_threads" help="Let GROMACS guess. The number of threads that are going to be used." optional="true"/>
+                
+                  <param name="num_threads_mpi" type="integer" 
+                      
+                      
+                           label="num_threads_mpi" help="Let GROMACS guess. The number of GROMACS MPI threads that are going to be used." optional="true"/>
+                
+                  <param name="num_threads_omp" type="integer" 
+                      
+                      
+                           label="num_threads_omp" help="Let GROMACS guess. The number of GROMACS OPENMP threads that are going to be used." optional="true"/>
                 
                   <param name="num_threads_omp_pme" type="integer" 
                       
                       
                            label="num_threads_omp_pme" help="Let GROMACS guess. The number of GROMACS OPENMP_PME threads that are going to be used." optional="true"/>
                 
-                  <param name="gpu_tasks" type="text" label="gpu_tasks" help="List of GPU device IDs, mapping each PP task on each node to a device." optional="true"
+                  <param name="use_gpu" type="boolean" 
+                    
+                    label="use_gpu" help="Use settings appropriate for GPU. Adds: -nb gpu -pme gpu" />
+                
+                  <param name="gpu_id" type="text" label="gpu_id" help="List of unique GPU device IDs available to use." optional="true"
                       
                     />
                 
-                  <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
+                  <param name="gpu_tasks" type="text" label="gpu_tasks" help="List of GPU device IDs, mapping each PP task on each node to a device." optional="true"
                       
                     />
                 
@@ -158,8 +158,8 @@
                       
                     />
                 
-                  <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
-                      
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
                     />
                 
             </when>
@@ -167,19 +167,19 @@
     </inputs>
     <outputs>
         
-        <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
-        
-        <data name="output_cpt_path" format="cpt" label="${outname_output_cpt_path}"/>
-        
-        <data name="output_xtc_path" format="xtc" label="${outname_output_xtc_path}"/>
-        
         <data name="output_trr_path" format="trr" label="${outname_output_trr_path}"/>
         
-        <data name="output_dhdl_path" format="xvg" label="${outname_output_dhdl_path}"/>
+        <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
         
         <data name="output_edr_path" format="edr" label="${outname_output_edr_path}"/>
         
         <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
+        
+        <data name="output_xtc_path" format="xtc" label="${outname_output_xtc_path}"/>
+        
+        <data name="output_cpt_path" format="cpt" label="${outname_output_cpt_path}"/>
+        
+        <data name="output_dhdl_path" format="xvg" label="${outname_output_dhdl_path}"/>
         
     </outputs>
     <tests>

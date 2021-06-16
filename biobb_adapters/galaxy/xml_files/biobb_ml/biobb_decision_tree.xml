@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__scale__dq__:${config.scale},__dq__target__dq__:${config.target},__dq__weight__dq__:${config.weight},__dq__normalize_cm__dq__:${config.normalize_cm},__dq__criterion__dq__:__dq__${config.criterion}__dq__,__dq__test_size__dq__:${config.test_size},__dq__random_state_method__dq__:${config.random_state_method},__dq__independent_vars__dq__:${config.independent_vars},__dq__random_state_train_test__dq__:${config.random_state_train_test},__dq__max_depth__dq__:${config.max_depth}__cc__"
+          --config "__oc____dq__independent_vars__dq__:${config.independent_vars},__dq__target__dq__:${config.target},__dq__weight__dq__:${config.weight},__dq__criterion__dq__:__dq__${config.criterion}__dq__,__dq__max_depth__dq__:${config.max_depth},__dq__normalize_cm__dq__:${config.normalize_cm},__dq__random_state_method__dq__:${config.random_state_method},__dq__random_state_train_test__dq__:${config.random_state_train_test},__dq__test_size__dq__:${config.test_size},__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
         #if str($input_dataset_path) != 'None':
@@ -70,17 +70,11 @@
             </when>
             <when value="option3">
                 
-                  <param name="scale" type="boolean" 
-                    
-                    label="scale" help="Whether or not to scale the input dataset." />
+                  <param name="independent_vars" type="text" label="independent_vars" help="Independent variables you want to train from your dataset. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
                   <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
                   <param name="weight" type="text" label="weight" help="Weight variable from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-                
-                  <param name="normalize_cm" type="boolean" 
-                    
-                    label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
                 
                   <param name="criterion" type="select" label="criterion" help="The function to measure the quality of a split. " multiple="">
                     
@@ -94,27 +88,33 @@
                     
                     </param>
                 
-                  <param name="test_size" type="float" 
-                      value="0.2"
-                      
-                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
+                  <param name="max_depth" type="integer" 
+                      value="4"
+                      min="1" max="100"
+                           label="max_depth" help="The maximum depth of the model. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples." optional="false"/>
+                
+                  <param name="normalize_cm" type="boolean" 
+                    
+                    label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
                 
                   <param name="random_state_method" type="integer" 
                       value="5"
                       min="1" max="1000"
                            label="random_state_method" help="Controls the randomness of the estimator." optional="false"/>
                 
-                  <param name="independent_vars" type="text" label="independent_vars" help="Independent variables you want to train from your dataset. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-                
                   <param name="random_state_train_test" type="integer" 
                       value="5"
                       min="1" max="1000"
                            label="random_state_train_test" help="Controls the shuffling applied to the data before applying the split." optional="false"/>
                 
-                  <param name="max_depth" type="integer" 
-                      value="4"
-                      min="1" max="100"
-                           label="max_depth" help="The maximum depth of the model. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples." optional="false"/>
+                  <param name="test_size" type="float" 
+                      value="0.2"
+                      
+                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
                 
             </when>
         </conditional>

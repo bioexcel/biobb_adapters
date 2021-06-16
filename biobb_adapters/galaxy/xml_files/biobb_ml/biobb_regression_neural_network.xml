@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__scale__dq__:${config.scale},__dq__hidden_layers__dq__:${config.hidden_layers},__dq__features__dq__:${config.features},__dq__weight__dq__:${config.weight},__dq__learning_rate__dq__:${config.learning_rate},__dq__output_layer_activation__dq__:__dq__${config.output_layer_activation}__dq__,__dq__batch_size__dq__:${config.batch_size},__dq__validation_size__dq__:${config.validation_size},__dq__random_state__dq__:${config.random_state},__dq__max_epochs__dq__:${config.max_epochs},__dq__test_size__dq__:${config.test_size},__dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__target__dq__:${config.target}__cc__"
+          --config "__oc____dq__features__dq__:${config.features},__dq__target__dq__:${config.target},__dq__weight__dq__:${config.weight},__dq__validation_size__dq__:${config.validation_size},__dq__test_size__dq__:${config.test_size},__dq__hidden_layers__dq__:${config.hidden_layers},__dq__output_layer_activation__dq__:__dq__${config.output_layer_activation}__dq__,__dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:${config.learning_rate},__dq__batch_size__dq__:${config.batch_size},__dq__max_epochs__dq__:${config.max_epochs},__dq__random_state__dq__:${config.random_state},__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
         #if str($input_dataset_path) != 'None':
@@ -70,20 +70,23 @@
             </when>
             <when value="option3">
                 
-                  <param name="scale" type="boolean" 
-                    
-                    label="scale" help="Whether or not to scale the input dataset." />
-                
-                  <param name="hidden_layers" type="text" label="hidden_layers" help="List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]. (Json)" value="[]" />
-                
                   <param name="features" type="text" label="features" help="Independent variables or columns from your dataset you want to train. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+                
+                  <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
                   <param name="weight" type="text" label="weight" help="Weight variable from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
-                  <param name="learning_rate" type="float" 
-                      value="0.02"
+                  <param name="validation_size" type="float" 
+                      value="0.2"
                       
-                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                           label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
+                
+                  <param name="test_size" type="float" 
+                      value="0.1"
+                      
+                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
+                
+                  <param name="hidden_layers" type="text" label="hidden_layers" help="List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]. (Json)" value="[]" />
                 
                   <param name="output_layer_activation" type="select" label="output_layer_activation" help="Activation function to use in the output layer. " multiple="">
                     
@@ -104,31 +107,6 @@
                       >softmax</option>
                     
                     </param>
-                
-                  <param name="batch_size" type="integer" 
-                      value="100"
-                      
-                           label="batch_size" help="Number of samples per gradient update." optional="false"/>
-                
-                  <param name="validation_size" type="float" 
-                      value="0.2"
-                      
-                           label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
-                
-                  <param name="random_state" type="integer" 
-                      value="5"
-                      min="1" max="1000"
-                           label="random_state" help="Controls the shuffling applied to the data before applying the split. ." optional="false"/>
-                
-                  <param name="test_size" type="float" 
-                      value="0.1"
-                      
-                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
-                
-                  <param name="max_epochs" type="integer" 
-                      value="100"
-                      
-                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
                 
                   <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
                     
@@ -166,7 +144,29 @@
                     
                     </param>
                 
-                  <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+                  <param name="learning_rate" type="float" 
+                      value="0.02"
+                      
+                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                
+                  <param name="batch_size" type="integer" 
+                      value="100"
+                      
+                           label="batch_size" help="Number of samples per gradient update." optional="false"/>
+                
+                  <param name="max_epochs" type="integer" 
+                      value="100"
+                      
+                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
+                
+                  <param name="random_state" type="integer" 
+                      value="5"
+                      min="1" max="1000"
+                           label="random_state" help="Controls the shuffling applied to the data before applying the split. ." optional="false"/>
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
                 
             </when>
         </conditional>

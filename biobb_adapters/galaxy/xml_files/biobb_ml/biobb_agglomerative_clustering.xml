@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__scale__dq__:${config.scale},__dq__predictors__dq__:${config.predictors},__dq__affinity__dq__:__dq__${config.affinity}__dq__,__dq__plots__dq__:${config.plots},__dq__clusters__dq__:${config.clusters},__dq__linkage__dq__:__dq__${config.linkage}__dq____cc__"
+          --config "__oc____dq__predictors__dq__:${config.predictors},__dq__clusters__dq__:${config.clusters},__dq__affinity__dq__:__dq__${config.affinity}__dq__,__dq__linkage__dq__:__dq__${config.linkage}__dq__,__dq__plots__dq__:${config.plots},__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
         #if str($input_dataset_path) != 'None':
@@ -24,9 +24,9 @@
         #end if
         
         
-          --output_plot_path $__new_file_path__/$outname_output_plot_path
-        
           --output_results_path $__new_file_path__/$outname_output_results_path
+        
+          --output_plot_path $__new_file_path__/$outname_output_plot_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -35,9 +35,9 @@
           rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
-        
           if test -f $__new_file_path__/$outname_output_results_path; then mv $__new_file_path__/$outname_output_results_path $output_results_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
         
     ]]>
     </command>
@@ -46,9 +46,9 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_plot_path" type="text" value="myagglomerative_clustering.png" optional="True" label="output PNG name" help="Path to the clustering plot Format: [output].png "/>
-        
           <param name="outname_output_results_path" type="text" value="myagglomerative_clustering.csv" optional="False" label="output CSV name" help="Path to the clustered dataset Format: [output].csv "/>
+        
+          <param name="outname_output_plot_path" type="text" value="myagglomerative_clustering.png" optional="True" label="output PNG name" help="Path to the clustering plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -64,11 +64,12 @@
             </when>
             <when value="option3">
                 
-                  <param name="scale" type="boolean" 
-                    
-                    label="scale" help="Whether or not to scale the input dataset." />
-                
                   <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of multiple formats, the first one will be picked. (Json)" value="{}" />
+                
+                  <param name="clusters" type="integer" 
+                      value="3"
+                      min="1" max="100"
+                           label="clusters" help="The number of clusters to form as well as the number of centroids to generate." optional="false"/>
                 
                   <param name="affinity" type="select" label="affinity" help="Metric used to compute the linkage. If linkage is &#34;ward&#34;, only &#34;euclidean&#34; is accepted. " multiple="">
                     
@@ -98,13 +99,6 @@
                     
                     </param>
                 
-                  <param name="clusters" type="integer" 
-                      value="3"
-                      min="1" max="100"
-                           label="clusters" help="The number of clusters to form as well as the number of centroids to generate." optional="false"/>
-                
-                  <param name="plots" type="text" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]. (Json)" value="[]" />
-                
                   <param name="linkage" type="select" label="linkage" help="The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion. " multiple="">
                     
                       <option value="ward" 
@@ -125,14 +119,20 @@
                     
                     </param>
                 
+                  <param name="plots" type="text" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]. (Json)" value="[]" />
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
+                
             </when>
         </conditional>
     </inputs>
     <outputs>
         
-        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
-        
         <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
+        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
     </outputs>
     <tests>

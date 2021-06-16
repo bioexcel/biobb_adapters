@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__igb__dq__:__dq__${config.igb}__dq__,__dq__resnames__dq__:__dq__${config.resnames}__dq__,__dq__system__dq__:__dq__${config.system}__dq____cc__"
+          --config "__oc____dq__resnames__dq__:__dq__${config.resnames}__dq__,__dq__igb__dq__:__dq__${config.igb}__dq__,__dq__system__dq__:__dq__${config.system}__dq____cc__"
         #end if
         
         #if str($input_top_path) != 'None':
@@ -24,9 +24,9 @@
         #end if
         
         
-          --output_top_path $__new_file_path__/$outname_output_top_path
-        
           --output_cpin_path $__new_file_path__/$outname_output_cpin_path
+        
+          --output_top_path $__new_file_path__/$outname_output_top_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -35,9 +35,9 @@
           rm -f ${input_top_path}.${input_top_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_top_path; then mv $__new_file_path__/$outname_output_top_path $output_top_path; fi;
-        
           if test -f $__new_file_path__/$outname_output_cpin_path; then mv $__new_file_path__/$outname_output_cpin_path $output_cpin_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_top_path; then mv $__new_file_path__/$outname_output_top_path $output_top_path; fi;
         
     ]]>
     </command>
@@ -46,9 +46,9 @@
           <param name="input_top_path" type="data" format="top,parmtop,prmtop"  optional="False" label="input TOP,PARMTOP,PRMTOP file" help="Input AMBER topology file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_top_path" type="text" value="myparmed_cpinutil.top" optional="True" label="output TOP,PARMTOP,PRMTOP name" help="Output topology file (AMBER ParmTop) Format: [output].[format] "/>
-        
           <param name="outname_output_cpin_path" type="text" value="myparmed_cpinutil.cpin" optional="False" label="output CPIN name" help="Output AMBER constant pH input (CPin) file Format: [output].cpin "/>
+        
+          <param name="outname_output_top_path" type="text" value="myparmed_cpinutil.top" optional="True" label="output TOP,PARMTOP,PRMTOP name" help="Output topology file (AMBER ParmTop) Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -63,30 +63,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. " multiple="">
-                    
-                      <option value="1" 
-                      
-                      >1</option>
-                    
-                      <option value="2" 
-                      selected="true"
-                      >2</option>
-                    
-                      <option value="5" 
-                      
-                      >5</option>
-                    
-                      <option value="7" 
-                      
-                      >7</option>
-                    
-                      <option value="8" 
-                      
-                      >8</option>
-                    
-                    </param>
                 
                   <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. " multiple="">
                     
@@ -116,6 +92,30 @@
                     
                     </param>
                 
+                  <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. " multiple="">
+                    
+                      <option value="1" 
+                      
+                      >1</option>
+                    
+                      <option value="2" 
+                      selected="true"
+                      >2</option>
+                    
+                      <option value="5" 
+                      
+                      >5</option>
+                    
+                      <option value="7" 
+                      
+                      >7</option>
+                    
+                      <option value="8" 
+                      
+                      >8</option>
+                    
+                    </param>
+                
                   <param name="system" type="text" label="system" help="Name of system to titrate." optional="false"
                       value="Unknown"
                     />
@@ -125,9 +125,9 @@
     </inputs>
     <outputs>
         
-        <data name="output_top_path" format="top,parmtop,prmtop" label="${outname_output_top_path}"/>
-        
         <data name="output_cpin_path" format="cpin" label="${outname_output_cpin_path}"/>
+        
+        <data name="output_top_path" format="top,parmtop,prmtop" label="${outname_output_top_path}"/>
         
     </outputs>
     <tests>

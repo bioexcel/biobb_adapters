@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__max_neighbors__dq__:${config.max_neighbors},__dq__target__dq__:__dq__${config.target}__dq__,__dq__metric__dq__:__dq__${config.metric}__dq__,__dq__scale__dq__:${config.scale},__dq__test_size__dq__:${config.test_size},__dq__independent_vars__dq__:${config.independent_vars},__dq__random_state_train_test__dq__:${config.random_state_train_test}__cc__"
+          --config "__oc____dq__independent_vars__dq__:${config.independent_vars},__dq__target__dq__:__dq__${config.target}__dq__,__dq__metric__dq__:__dq__${config.metric}__dq__,__dq__max_neighbors__dq__:${config.max_neighbors},__dq__random_state_train_test__dq__:${config.random_state_train_test},__dq__test_size__dq__:${config.test_size},__dq__scale__dq__:${config.scale}__cc__"
         #end if
         
         #if str($input_dataset_path) != 'None':
@@ -24,9 +24,9 @@
         #end if
         
         
-          --output_plot_path $__new_file_path__/$outname_output_plot_path
-        
           --output_results_path $__new_file_path__/$outname_output_results_path
+        
+          --output_plot_path $__new_file_path__/$outname_output_plot_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -35,9 +35,9 @@
           rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
-        
           if test -f $__new_file_path__/$outname_output_results_path; then mv $__new_file_path__/$outname_output_results_path $output_results_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
         
     ]]>
     </command>
@@ -46,9 +46,9 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_plot_path" type="text" value="myk_neighbors_coefficient.png" optional="True" label="output PNG name" help="Path to the accuracy plot Format: [output].png "/>
-        
           <param name="outname_output_results_path" type="text" value="myk_neighbors_coefficient.csv" optional="False" label="output CSV name" help="Path to the accuracy values list Format: [output].csv "/>
+        
+          <param name="outname_output_plot_path" type="text" value="myk_neighbors_coefficient.png" optional="True" label="output PNG name" help="Path to the accuracy plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -64,10 +64,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="max_neighbors" type="integer" 
-                      value="6"
-                      min="1" max="100"
-                           label="max_neighbors" help="Maximum number of neighbors to use by default for kneighbors queries." optional="false"/>
+                  <param name="independent_vars" type="text" label="independent_vars" help="Independent variables or columns from your dataset you want to train. (Json)" value="[]" />
                 
                   <param name="target" type="text" label="target" help="Dependent variable or column from your dataset you want to predict." optional="true"
                       
@@ -105,30 +102,33 @@
                     
                     </param>
                 
-                  <param name="scale" type="boolean" 
-                    
-                    label="scale" help="Whether or not to scale the input dataset." />
-                
-                  <param name="test_size" type="float" 
-                      value="0.2"
-                      
-                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
-                
-                  <param name="independent_vars" type="text" label="independent_vars" help="Independent variables or columns from your dataset you want to train. (Json)" value="[]" />
+                  <param name="max_neighbors" type="integer" 
+                      value="6"
+                      min="1" max="100"
+                           label="max_neighbors" help="Maximum number of neighbors to use by default for kneighbors queries." optional="false"/>
                 
                   <param name="random_state_train_test" type="integer" 
                       value="5"
                       min="1" max="1000"
                            label="random_state_train_test" help="Controls the shuffling applied to the data before applying the split." optional="false"/>
                 
+                  <param name="test_size" type="float" 
+                      value="0.2"
+                      
+                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
+                
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
+                
             </when>
         </conditional>
     </inputs>
     <outputs>
         
-        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
-        
         <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
+        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
     </outputs>
     <tests>
