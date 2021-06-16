@@ -5,70 +5,72 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_solvent_gro_path} ${input_solvent_gro_path}.${input_solvent_gro_path.ext};
+          ln -f -s ${input_solute_gro_path} ${input_solute_gro_path}.${input_solute_gro_path.ext};
         
           ln -f -s ${input_top_zip_path} ${input_top_zip_path}.${input_top_zip_path.ext};
         
-          ln -f -s ${input_solute_gro_path} ${input_solute_gro_path}.${input_solute_gro_path.ext};
+          ln -f -s ${input_solvent_gro_path} ${input_solvent_gro_path}.${input_solvent_gro_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         solvate
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__shell__dq__:${config.shell},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq____cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__shell__dq__:${config.shell},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          #end if
         
-        #if str($input_solvent_gro_path) != 'None':
-          --input_solvent_gro_path ${input_solvent_gro_path}.${input_solvent_gro_path.ext}
-        #end if
+          #if str($input_solute_gro_path) != 'None':
+            --input_solute_gro_path ${input_solute_gro_path}.${input_solute_gro_path.ext}
+          #end if
         
-        #if str($input_top_zip_path) != 'None':
-          --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
-        #end if
+          #if str($input_top_zip_path) != 'None':
+            --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
+          #end if
         
-        #if str($input_solute_gro_path) != 'None':
-          --input_solute_gro_path ${input_solute_gro_path}.${input_solute_gro_path.ext}
-        #end if
+          #if str($input_solvent_gro_path) != 'None':
+            --input_solvent_gro_path ${input_solvent_gro_path}.${input_solvent_gro_path.ext}
+          #end if
         
-        
-          --output_top_zip_path $__new_file_path__/$outname_output_top_zip_path
         
           --output_gro_path $__new_file_path__/$outname_output_gro_path
+        
+          --output_top_zip_path $__new_file_path__/$outname_output_top_zip_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
-        
-          rm -f ${input_solvent_gro_path}.${input_solvent_gro_path.ext};
-        
-          rm -f ${input_top_zip_path}.${input_top_zip_path.ext};
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_solute_gro_path}.${input_solute_gro_path.ext};
         
+          rm -f ${input_top_zip_path}.${input_top_zip_path.ext};
         
-          if test -f $__new_file_path__/$outname_output_top_zip_path; then mv $__new_file_path__/$outname_output_top_zip_path $output_top_zip_path; fi;
+          rm -f ${input_solvent_gro_path}.${input_solvent_gro_path.ext};
+        
         
           if test -f $__new_file_path__/$outname_output_gro_path; then mv $__new_file_path__/$outname_output_gro_path $output_gro_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_top_zip_path; then mv $__new_file_path__/$outname_output_top_zip_path $output_top_zip_path; fi;
         
     ]]>
     </command>
     <inputs>
         
-          <param name="input_solvent_gro_path" type="data" format="gro"  optional="True" label="input GRO file" help="(spc216.gro) Path to the GRO file containing the structure of the solvent. Format: [input].gro"/> 
+          <param name="input_solute_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Path to the input GRO file. Format: [input].gro"/> 
         
           <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
         
-          <param name="input_solute_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Path to the input GRO file. Format: [input].gro"/> 
+          <param name="input_solvent_gro_path" type="data" format="gro"  optional="True" label="input GRO file" help="(spc216.gro) Path to the GRO file containing the structure of the solvent. Format: [input].gro"/> 
         
-        
-          <param name="outname_output_top_zip_path" type="text" value="mysolvate.zip" optional="False" label="output ZIP name" help="Path the output topology in zip format Format: [output].zip "/>
         
           <param name="outname_output_gro_path" type="text" value="mysolvate.gro" optional="False" label="output GRO name" help="Path to the output GRO file Format: [output].gro "/>
+        
+          <param name="outname_output_top_zip_path" type="text" value="mysolvate.zip" optional="False" label="output ZIP name" help="Path the output topology in zip format Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -84,10 +86,6 @@
             </when>
             <when value="option3">
                 
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
                   <param name="shell" type="float" 
                       
                       
@@ -97,14 +95,18 @@
                       
                     />
                 
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
+                    />
+                
             </when>
         </conditional>
     </inputs>
     <outputs>
         
-        <data name="output_top_zip_path" format="zip" label="${outname_output_top_zip_path}"/>
-        
         <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
+        
+        <data name="output_top_zip_path" format="zip" label="${outname_output_top_zip_path}"/>
         
     </outputs>
     <tests>

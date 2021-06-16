@@ -6,23 +6,25 @@
     <command detect_errors="aggressive"><![CDATA[
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         pdb_variants
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq____cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq____cc__"
+          #end if
         
         
           --output_mutations_list_txt $__new_file_path__/$outname_output_mutations_list_txt
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
         
           if test -f $__new_file_path__/$outname_output_mutations_list_txt; then mv $__new_file_path__/$outname_output_mutations_list_txt $output_mutations_list_txt; fi;

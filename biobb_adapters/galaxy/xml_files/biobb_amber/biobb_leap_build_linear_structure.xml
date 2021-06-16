@@ -6,23 +6,25 @@
     <command detect_errors="aggressive"><![CDATA[
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         leap_build_linear_structure
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__build_library__dq__:${config.build_library},__dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($config.forcefield)}__dq____cb__,__dq__sequence__dq__:__dq__${config.sequence}__dq____cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__sequence__dq__:__dq__${config.sequence}__dq__,__dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($config.forcefield)}__dq____cb__,__dq__build_library__dq__:${config.build_library}__cc__"
+          #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
         
           if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
@@ -52,10 +54,6 @@
                       value="ALA GLY SER PRO ARG ALA PRO GLY"
                     />
                 
-                  <param name="build_library" type="boolean" 
-                    
-                    label="build_library" help="Generate AMBER lib file for the structure." />
-                
                   <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                     
                       <option value="protein.ff14SB" 
@@ -83,6 +81,10 @@
                       >gaff</option>
                     
                     </param>
+                
+                  <param name="build_library" type="boolean" 
+                    
+                    label="build_library" help="Generate AMBER lib file for the structure." />
                 
             </when>
         </conditional>

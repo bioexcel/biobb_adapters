@@ -5,40 +5,42 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_top_zip_path} ${input_top_zip_path}.${input_top_zip_path.ext};
-        
           ln -f -s ${input_ndx_path} ${input_ndx_path}.${input_ndx_path.ext};
         
+          ln -f -s ${input_top_zip_path} ${input_top_zip_path}.${input_top_zip_path.ext};
+        
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         ndx2resttop
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__force_constants__dq__:__dq__${config.force_constants}__dq__,__dq__ref_rest_chain_triplet_list__dq__:__dq__${config.ref_rest_chain_triplet_list}__dq____cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__force_constants__dq__:__dq__${config.force_constants}__dq__,__dq__ref_rest_chain_triplet_list__dq__:__dq__${config.ref_rest_chain_triplet_list}__dq____cc__"
+          #end if
         
-        #if str($input_top_zip_path) != 'None':
-          --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
-        #end if
+          #if str($input_ndx_path) != 'None':
+            --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
+          #end if
         
-        #if str($input_ndx_path) != 'None':
-          --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
-        #end if
+          #if str($input_top_zip_path) != 'None':
+            --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
+          #end if
         
         
           --output_top_zip_path $__new_file_path__/$outname_output_top_zip_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
-        
-          rm -f ${input_top_zip_path}.${input_top_zip_path.ext};
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_ndx_path}.${input_ndx_path.ext};
+        
+          rm -f ${input_top_zip_path}.${input_top_zip_path.ext};
         
         
           if test -f $__new_file_path__/$outname_output_top_zip_path; then mv $__new_file_path__/$outname_output_top_zip_path $output_top_zip_path; fi;
@@ -47,9 +49,9 @@
     </command>
     <inputs>
         
-          <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
-        
           <param name="input_ndx_path" type="data" format="ndx"  optional="False" label="input NDX file" help="Path to the input NDX index file. Format: [input].ndx"/> 
+        
+          <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
         
         
           <param name="outname_output_top_zip_path" type="text" value="myndx2resttop.zip" optional="False" label="output ZIP name" help="Path the output TOP topology in zip format Format: [output].zip "/>

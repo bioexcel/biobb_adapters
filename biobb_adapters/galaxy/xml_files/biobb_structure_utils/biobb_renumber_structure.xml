@@ -8,20 +8,22 @@
           ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        renumber_structure
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__renumber_residues_per_chain__dq__:${config.renumber_residues_per_chain},__dq__renumber_residues__dq__:${config.renumber_residues}__cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_structure_path) != 'None':
-          --input_structure_path ${input_structure_path}.${input_structure_path.ext}
-        #end if
+        renumber_structure
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__renumber_residues__dq__:${config.renumber_residues},__dq__renumber_residues_per_chain__dq__:${config.renumber_residues_per_chain}__cc__"
+          #end if
+        
+          #if str($input_structure_path) != 'None':
+            --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+          #end if
         
         
           --output_structure_path $__new_file_path__/$outname_output_structure_path
@@ -29,8 +31,8 @@
           --output_mapping_json_path $__new_file_path__/$outname_output_mapping_json_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_structure_path}.${input_structure_path.ext};
         
@@ -64,13 +66,13 @@
             </when>
             <when value="option3">
                 
-                  <param name="renumber_residues_per_chain" type="boolean" 
-                    checked="true"
-                    label="renumber_residues_per_chain" help="Restart residue enumeration every time a new chain is detected." />
-                
                   <param name="renumber_residues" type="boolean" 
                     checked="true"
                     label="renumber_residues" help="Residue code of the ligand to be removed." />
+                
+                  <param name="renumber_residues_per_chain" type="boolean" 
+                    checked="true"
+                    label="renumber_residues_per_chain" help="Restart residue enumeration every time a new chain is detected." />
                 
             </when>
         </conditional>

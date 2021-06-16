@@ -10,31 +10,33 @@
           ln -f -s ${input_traj_path} ${input_traj_path}.${input_traj_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         cpptraj_snapshot
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__format__dq__:__dq__${config.format}__dq__,__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__snapshot__dq__:${config.snapshot},__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__snapshot__dq__:${config.snapshot},__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__format__dq__:__dq__${config.format}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
+          #end if
         
-        #if str($input_top_path) != 'None':
-          --input_top_path ${input_top_path}.${input_top_path.ext}
-        #end if
+          #if str($input_top_path) != 'None':
+            --input_top_path ${input_top_path}.${input_top_path.ext}
+          #end if
         
-        #if str($input_traj_path) != 'None':
-          --input_traj_path ${input_traj_path}.${input_traj_path.ext}
-        #end if
+          #if str($input_traj_path) != 'None':
+            --input_traj_path ${input_traj_path}.${input_traj_path.ext}
+          #end if
         
         
           --output_cpptraj_path $__new_file_path__/$outname_output_cpptraj_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_top_path}.${input_top_path.ext};
         
@@ -108,10 +110,6 @@
                       >solvent</option>
                     
                     </param>
-                
-                  <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
-                      value="cpptraj"
-                    />
                 
                   <param name="format" type="select" label="format" help="Output trajectory format. " multiple="">
                     
@@ -196,6 +194,10 @@
                       >conflib</option>
                     
                     </param>
+                
+                  <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
+                      value="cpptraj"
+                    />
                 
             </when>
         </conditional>

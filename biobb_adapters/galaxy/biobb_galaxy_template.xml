@@ -7,28 +7,36 @@
         {% for k in files['input'] %}
           ln -f -s ${{ '{' }}{{ k }}} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext};
         {% endfor %}
-        #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+        {% if props -%}
+          #if $config.sele == "option1":
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        {%- endif %}
+        
         {{ name }}
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "{{config_str|safe}}"
-        #end if
+
+        {% if props -%}
+          #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "{{config_str|safe}}"
+          #end if
+        {%- endif %}
         {% for k in files['input'] %}
-        #if str(${{ k }}) != 'None':
-          --{{ k }} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext}
-        #end if
+          #if str(${{ k }}) != 'None':
+            --{{ k }} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext}
+          #end if
         {% endfor %}
         {% for k in files['output'] %}
           --{{ k }} $__new_file_path__/$outname_{{ k }}
         {% endfor %};          
-        #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+        {% if props -%}
+          #if $config.sele == "option1":
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
+        {%- endif %}
         {% for k in files['input'] %}
           rm -f ${{'{'}}{{ k }}}.${{'{'}}{{ k }}.ext};
         {% endfor %}

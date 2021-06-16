@@ -8,27 +8,29 @@
           ln -f -s ${input_path} ${input_path}.${input_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        babel_minimize
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__cutoff__dq__:${config.cutoff},__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__hydrogens__dq__:${config.hydrogens},__dq__frequency__dq__:${config.frequency},__dq__steps__dq__:${config.steps},__dq__criteria__dq__:${config.criteria},__dq__obminimize_path__dq__:__dq__${config.obminimize_path}__dq__,__dq__method__dq__:__dq__${config.method}__dq__,__dq__rele__dq__:${config.rele},__dq__rvdw__dq__:${config.rvdw}__cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_path) != 'None':
-          --input_path ${input_path}.${input_path.ext}
-        #end if
+        babel_minimize
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__criteria__dq__:${config.criteria},__dq__method__dq__:__dq__${config.method}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__hydrogens__dq__:${config.hydrogens},__dq__steps__dq__:${config.steps},__dq__cutoff__dq__:${config.cutoff},__dq__rvdw__dq__:${config.rvdw},__dq__rele__dq__:${config.rele},__dq__frequency__dq__:${config.frequency},__dq__obminimize_path__dq__:__dq__${config.obminimize_path}__dq____cc__"
+          #end if
+        
+          #if str($input_path) != 'None':
+            --input_path ${input_path}.${input_path.ext}
+          #end if
         
         
           --output_path $__new_file_path__/$outname_output_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_path}.${input_path.ext};
         
@@ -58,9 +60,22 @@
             </when>
             <when value="option3">
                 
-                  <param name="cutoff" type="boolean" 
+                  <param name="criteria" type="float" 
+                      value="1e-06"
+                      
+                           label="criteria" help="Convergence criteria" optional="false"/>
+                
+                  <param name="method" type="select" label="method" help="Method. " multiple="">
                     
-                    label="cutoff" help="Use cut-off." />
+                      <option value="cg" 
+                      selected="true"
+                      >cg</option>
+                    
+                      <option value="sd" 
+                      
+                      >sd</option>
+                    
+                    </param>
                 
                   <param name="force_field" type="select" label="force_field" help="Force field. " multiple="">
                     
@@ -90,46 +105,33 @@
                     
                     label="hydrogens" help="Add hydrogen atoms." />
                 
-                  <param name="frequency" type="integer" 
-                      value="10"
-                      
-                           label="frequency" help="Frequency to update the non-bonded pairs." optional="false"/>
-                
                   <param name="steps" type="integer" 
                       value="2500"
                       
                            label="steps" help="Maximum number of steps." optional="false"/>
                 
-                  <param name="criteria" type="float" 
-                      value="1e-06"
-                      
-                           label="criteria" help="Convergence criteria" optional="false"/>
+                  <param name="cutoff" type="boolean" 
+                    
+                    label="cutoff" help="Use cut-off." />
                 
-                  <param name="obminimize_path" type="text" label="obminimize_path" help="Path to the obminimize executable binary." optional="false"
-                      value="obminimize"
-                    />
-                
-                  <param name="method" type="select" label="method" help="Method. " multiple="">
-                    
-                      <option value="cg" 
-                      selected="true"
-                      >cg</option>
-                    
-                      <option value="sd" 
+                  <param name="rvdw" type="float" 
+                      value="6.0"
                       
-                      >sd</option>
-                    
-                    </param>
+                           label="rvdw" help="VDW cut-off distance." optional="false"/>
                 
                   <param name="rele" type="float" 
                       value="10.0"
                       
                            label="rele" help="Electrostatic cut-off distance." optional="false"/>
                 
-                  <param name="rvdw" type="float" 
-                      value="6.0"
+                  <param name="frequency" type="integer" 
+                      value="10"
                       
-                           label="rvdw" help="VDW cut-off distance." optional="false"/>
+                           label="frequency" help="Frequency to update the non-bonded pairs." optional="false"/>
+                
+                  <param name="obminimize_path" type="text" label="obminimize_path" help="Path to the obminimize executable binary." optional="false"
+                      value="obminimize"
+                    />
                 
             </when>
         </conditional>

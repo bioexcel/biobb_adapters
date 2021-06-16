@@ -9,34 +9,26 @@
         
           ln -f -s ${input_model_path} ${input_model_path}.${input_model_path.ext};
         
-        #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+        
+        
         neural_network_decode
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____cc__"
-        #end if
+
         
-        #if str($input_decode_path) != 'None':
-          --input_decode_path ${input_decode_path}.${input_decode_path.ext}
-        #end if
         
-        #if str($input_model_path) != 'None':
-          --input_model_path ${input_model_path}.${input_model_path.ext}
-        #end if
+          #if str($input_decode_path) != 'None':
+            --input_decode_path ${input_decode_path}.${input_decode_path.ext}
+          #end if
+        
+          #if str($input_model_path) != 'None':
+            --input_model_path ${input_model_path}.${input_model_path.ext}
+          #end if
         
         
           --output_decode_path $__new_file_path__/$outname_output_decode_path
         
           --output_predict_path $__new_file_path__/$outname_output_predict_path
         ;          
-        #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+        
         
           rm -f ${input_decode_path}.${input_decode_path.ext};
         

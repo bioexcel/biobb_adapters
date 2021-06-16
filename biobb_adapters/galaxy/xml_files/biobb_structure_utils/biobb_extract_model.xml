@@ -8,27 +8,29 @@
           ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        extract_model
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__models__dq__:${config.models},__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_structure_path) != 'None':
-          --input_structure_path ${input_structure_path}.${input_structure_path.ext}
-        #end if
+        extract_model
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__models__dq__:${config.models},__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+          #end if
+        
+          #if str($input_structure_path) != 'None':
+            --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+          #end if
         
         
           --output_structure_path $__new_file_path__/$outname_output_structure_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_structure_path}.${input_structure_path.ext};
         

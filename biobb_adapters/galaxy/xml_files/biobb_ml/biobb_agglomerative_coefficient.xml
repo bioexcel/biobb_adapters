@@ -8,36 +8,38 @@
           ln -f -s ${input_dataset_path} ${input_dataset_path}.${input_dataset_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         agglomerative_coefficient
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__scale__dq__:${config.scale},__dq__predictors__dq__:${config.predictors},__dq__affinity__dq__:__dq__${config.affinity}__dq__,__dq__max_clusters__dq__:${config.max_clusters},__dq__linkage__dq__:__dq__${config.linkage}__dq____cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__predictors__dq__:${config.predictors},__dq__max_clusters__dq__:${config.max_clusters},__dq__affinity__dq__:__dq__${config.affinity}__dq__,__dq__linkage__dq__:__dq__${config.linkage}__dq__,__dq__scale__dq__:${config.scale}__cc__"
+          #end if
         
-        #if str($input_dataset_path) != 'None':
-          --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
-        #end if
+          #if str($input_dataset_path) != 'None':
+            --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+          #end if
         
-        
-          --output_plot_path $__new_file_path__/$outname_output_plot_path
         
           --output_results_path $__new_file_path__/$outname_output_results_path
+        
+          --output_plot_path $__new_file_path__/$outname_output_plot_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
-        
           if test -f $__new_file_path__/$outname_output_results_path; then mv $__new_file_path__/$outname_output_results_path $output_results_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
         
     ]]>
     </command>
@@ -46,9 +48,9 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_plot_path" type="text" value="myagglomerative_coefficient.png" optional="True" label="output PNG name" help="Path to the elbow method and gap statistics plot Format: [output].png "/>
-        
           <param name="outname_output_results_path" type="text" value="myagglomerative_coefficient.csv" optional="False" label="output CSV name" help="Path to the gap values list Format: [output].csv "/>
+        
+          <param name="outname_output_plot_path" type="text" value="myagglomerative_coefficient.png" optional="True" label="output PNG name" help="Path to the elbow method and gap statistics plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -64,14 +66,12 @@
             </when>
             <when value="option3">
                 
+                  <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+                
                   <param name="max_clusters" type="integer" 
                       value="6"
                       min="1" max="100"
                            label="max_clusters" help="Maximum number of clusters to use by default for kmeans queries." optional="false"/>
-                
-                  <param name="scale" type="boolean" 
-                    
-                    label="scale" help="Whether or not to scale the input dataset." />
                 
                   <param name="affinity" type="select" label="affinity" help="Metric used to compute the linkage. If linkage is &#34;ward&#34;, only &#34;euclidean&#34; is accepted. " multiple="">
                     
@@ -101,8 +101,6 @@
                     
                     </param>
                 
-                  <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-                
                   <param name="linkage" type="select" label="linkage" help="The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion. " multiple="">
                     
                       <option value="ward" 
@@ -123,14 +121,18 @@
                     
                     </param>
                 
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
+                
             </when>
         </conditional>
     </inputs>
     <outputs>
         
-        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
-        
         <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
+        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
     </outputs>
     <tests>

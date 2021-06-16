@@ -8,27 +8,29 @@
           ln -f -s ${input_path} ${input_path}.${input_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        babel_add_hydrogens
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__obabel_path__dq__:__dq__${config.obabel_path}__dq__,__dq__input_format__dq__:__dq__${config.input_format}__dq__,__dq__output_format__dq__:__dq__${config.output_format}__dq__,__dq__coordinates__dq__:__dq__${config.coordinates}__dq__,__dq__ph__dq__:${config.ph}__cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_path) != 'None':
-          --input_path ${input_path}.${input_path.ext}
-        #end if
+        babel_add_hydrogens
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__input_format__dq__:__dq__${config.input_format}__dq__,__dq__output_format__dq__:__dq__${config.output_format}__dq__,__dq__coordinates__dq__:__dq__${config.coordinates}__dq__,__dq__ph__dq__:${config.ph},__dq__obabel_path__dq__:__dq__${config.obabel_path}__dq____cc__"
+          #end if
+        
+          #if str($input_path) != 'None':
+            --input_path ${input_path}.${input_path.ext}
+          #end if
         
         
           --output_path $__new_file_path__/$outname_output_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_path}.${input_path.ext};
         
@@ -57,98 +59,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
-                      value="obabel"
-                    />
-                
-                  <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. " multiple="">
-                    
-                      <option value="2" 
-                      
-                      >2</option>
-                    
-                      <option value="3" 
-                      
-                      >3</option>
-                    
-                    </param>
-                
-                  <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. " multiple="">
-                    
-                      <option value="ent" 
-                      
-                      >ent</option>
-                    
-                      <option value="fa" 
-                      
-                      >fa</option>
-                    
-                      <option value="fasta" 
-                      
-                      >fasta</option>
-                    
-                      <option value="gro" 
-                      
-                      >gro</option>
-                    
-                      <option value="inp" 
-                      
-                      >inp</option>
-                    
-                      <option value="mcif" 
-                      
-                      >mcif</option>
-                    
-                      <option value="mdl" 
-                      
-                      >mdl</option>
-                    
-                      <option value="mmcif" 
-                      
-                      >mmcif</option>
-                    
-                      <option value="mol" 
-                      
-                      >mol</option>
-                    
-                      <option value="mol2" 
-                      
-                      >mol2</option>
-                    
-                      <option value="pdb" 
-                      
-                      >pdb</option>
-                    
-                      <option value="pdbqt" 
-                      
-                      >pdbqt</option>
-                    
-                      <option value="png" 
-                      
-                      >png</option>
-                    
-                      <option value="sdf" 
-                      
-                      >sdf</option>
-                    
-                      <option value="smi" 
-                      
-                      >smi</option>
-                    
-                      <option value="smiles" 
-                      
-                      >smiles</option>
-                    
-                      <option value="txt" 
-                      
-                      >txt</option>
-                    
-                      <option value="xtc" 
-                      
-                      >xtc</option>
-                    
-                    </param>
                 
                   <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. " multiple="">
                     
@@ -238,10 +148,102 @@
                     
                     </param>
                 
+                  <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. " multiple="">
+                    
+                      <option value="ent" 
+                      
+                      >ent</option>
+                    
+                      <option value="fa" 
+                      
+                      >fa</option>
+                    
+                      <option value="fasta" 
+                      
+                      >fasta</option>
+                    
+                      <option value="gro" 
+                      
+                      >gro</option>
+                    
+                      <option value="inp" 
+                      
+                      >inp</option>
+                    
+                      <option value="mcif" 
+                      
+                      >mcif</option>
+                    
+                      <option value="mdl" 
+                      
+                      >mdl</option>
+                    
+                      <option value="mmcif" 
+                      
+                      >mmcif</option>
+                    
+                      <option value="mol" 
+                      
+                      >mol</option>
+                    
+                      <option value="mol2" 
+                      
+                      >mol2</option>
+                    
+                      <option value="pdb" 
+                      
+                      >pdb</option>
+                    
+                      <option value="pdbqt" 
+                      
+                      >pdbqt</option>
+                    
+                      <option value="png" 
+                      
+                      >png</option>
+                    
+                      <option value="sdf" 
+                      
+                      >sdf</option>
+                    
+                      <option value="smi" 
+                      
+                      >smi</option>
+                    
+                      <option value="smiles" 
+                      
+                      >smiles</option>
+                    
+                      <option value="txt" 
+                      
+                      >txt</option>
+                    
+                      <option value="xtc" 
+                      
+                      >xtc</option>
+                    
+                    </param>
+                
+                  <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. " multiple="">
+                    
+                      <option value="2" 
+                      
+                      >2</option>
+                    
+                      <option value="3" 
+                      
+                      >3</option>
+                    
+                    </param>
+                
                   <param name="ph" type="float" 
                       value="7.4"
                       
                            label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
+                
+                  <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
+                      value="obabel"
+                    />
                 
             </when>
         </conditional>

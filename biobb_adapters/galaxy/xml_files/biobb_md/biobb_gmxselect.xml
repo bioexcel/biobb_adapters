@@ -10,31 +10,33 @@
           ln -f -s ${input_ndx_path} ${input_ndx_path}.${input_ndx_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         gmxselect
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__selection__dq__:__dq__${config.selection}__dq__,__dq__append__dq__:${config.append},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq____cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__selection__dq__:__dq__${config.selection}__dq__,__dq__append__dq__:${config.append},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq____cc__"
+          #end if
         
-        #if str($input_structure_path) != 'None':
-          --input_structure_path ${input_structure_path}.${input_structure_path.ext}
-        #end if
+          #if str($input_structure_path) != 'None':
+            --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+          #end if
         
-        #if str($input_ndx_path) != 'None':
-          --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
-        #end if
+          #if str($input_ndx_path) != 'None':
+            --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
+          #end if
         
         
           --output_ndx_path $__new_file_path__/$outname_output_ndx_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_structure_path}.${input_structure_path.ext};
         
@@ -68,21 +70,21 @@
             </when>
             <when value="option3">
                 
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
                   <param name="selection" type="text" label="selection" help="Heavy atoms. Atom selection string." optional="false"
                       value="a CA C N O"
-                    />
-                
-                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
-                      
                     />
                 
                   <param name="append" type="boolean" 
                     
                     label="append" help="Append the content of the input_ndx_path to the output_ndx_path." />
+                
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
+                    />
+                
+                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+                      
+                    />
                 
             </when>
         </conditional>

@@ -8,27 +8,29 @@
           ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        box
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__box_coordinates__dq__:${config.box_coordinates},__dq__offset__dq__:${config.offset}__cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_pdb_path) != 'None':
-          --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
-        #end if
+        box
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__offset__dq__:${config.offset},__dq__box_coordinates__dq__:${config.box_coordinates}__cc__"
+          #end if
+        
+          #if str($input_pdb_path) != 'None':
+            --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+          #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_pdb_path}.${input_pdb_path.ext};
         
@@ -58,14 +60,14 @@
             </when>
             <when value="option3">
                 
-                  <param name="box_coordinates" type="boolean" 
-                    
-                    label="box_coordinates" help="Add box coordinates as 8 ATOM records." />
-                
                   <param name="offset" type="float" 
                       value="2.0"
                       min="0.1" max="1000.0"
                            label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
+                
+                  <param name="box_coordinates" type="boolean" 
+                    
+                    label="box_coordinates" help="Add box coordinates as 8 ATOM records." />
                 
             </when>
         </conditional>

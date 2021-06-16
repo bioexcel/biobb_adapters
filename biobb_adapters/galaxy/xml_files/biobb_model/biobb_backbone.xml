@@ -8,27 +8,29 @@
           ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        backbone
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__no_recheck__dq__:${config.no_recheck},__dq__fix_chain__dq__:__dq__${config.fix_chain}__dq__,__dq__extra_gap__dq__:${config.extra_gap},__dq__fix_atoms__dq__:__dq__${config.fix_atoms}__dq__,__dq__no_check_clashes__dq__:${config.no_check_clashes},__dq__add_caps__dq__:__dq__${config.add_caps}__dq____cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_pdb_path) != 'None':
-          --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
-        #end if
+        backbone
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__fix_chain__dq__:__dq__${config.fix_chain}__dq__,__dq__extra_gap__dq__:${config.extra_gap},__dq__fix_atoms__dq__:__dq__${config.fix_atoms}__dq__,__dq__add_caps__dq__:__dq__${config.add_caps}__dq__,__dq__no_recheck__dq__:${config.no_recheck},__dq__no_check_clashes__dq__:${config.no_check_clashes}__cc__"
+          #end if
+        
+          #if str($input_pdb_path) != 'None':
+            --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+          #end if
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_pdb_path}.${input_pdb_path.ext};
         
@@ -58,8 +60,6 @@
             </when>
             <when value="option3">
                 
-                  
-                
                   <param name="fix_chain" type="text" label="fix_chain" help="All | none | List - List of Backbone breaks to fix" optional="false"
                       value="All"
                     />
@@ -73,11 +73,13 @@
                       value="All"
                     />
                 
-                  
-                
                   <param name="add_caps" type="text" label="add_caps" help="All | none | Terms | breaks | List - List of residues to cap with ACE or NME, Terms: True Terminal residues, Breaks: Terminals due to backbone breaks" optional="false"
                       value="none"
                     />
+                
+                  
+                
+                  
                 
             </when>
         </conditional>

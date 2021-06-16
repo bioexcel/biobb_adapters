@@ -8,27 +8,29 @@
           ln -f -s ${input_dataset_path} ${input_dataset_path}.${input_dataset_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        scale_columns
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__targets__dq__:${config.targets}__cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_dataset_path) != 'None':
-          --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
-        #end if
+        scale_columns
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__targets__dq__:${config.targets}__cc__"
+          #end if
+        
+          #if str($input_dataset_path) != 'None':
+            --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+          #end if
         
         
           --output_dataset_path $__new_file_path__/$outname_output_dataset_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_dataset_path}.${input_dataset_path.ext};
         

@@ -8,27 +8,29 @@
           ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
-        structure_check
-        #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq__,__dq__features__dq__:__ob____dq__${'__dq__,__dq__'.join($config.features)}__dq____cb____cc__"
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
         
-        #if str($input_structure_path) != 'None':
-          --input_structure_path ${input_structure_path}.${input_structure_path.ext}
-        #end if
+        structure_check
+
+        #if $config.sele == "option1":
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__features__dq__:__ob____dq__${'__dq__,__dq__'.join($config.features)}__dq____cb__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+          #end if
+        
+          #if str($input_structure_path) != 'None':
+            --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+          #end if
         
         
           --output_summary_path $__new_file_path__/$outname_output_summary_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_structure_path}.${input_structure_path.ext};
         
@@ -57,10 +59,6 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
-                      value="check_structure"
-                    />
                 
                   <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. " multiple="True">
                     
@@ -109,6 +107,10 @@
                       >clashes</option>
                     
                     </param>
+                
+                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+                      value="check_structure"
+                    />
                 
             </when>
         </conditional>

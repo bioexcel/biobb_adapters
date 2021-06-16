@@ -10,24 +10,26 @@
           ln -f -s ${input_predict_path} ${input_predict_path}.${input_predict_path.ext};
         
         #if $config.sele == "option1":
-          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
-        #end if
+            ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          #end if
+        
         autoencoder_neural_network
+
         #if $config.sele == "option1":
-          --config ${config.properties}.${config.properties.ext}
-        #else if $config.sele == "option2":
-          --config '${config.jsonstr}'
-        #else if $config.sele == "option3":
-          --config "__oc____dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:${config.learning_rate},__dq__batch_size__dq__:${config.batch_size},__dq__max_epochs__dq__:${config.max_epochs}__cc__"
-        #end if
+            --config ${config.properties}.${config.properties.ext}
+          #else if $config.sele == "option2":
+            --config '${config.jsonstr}'
+          #else if $config.sele == "option3":
+            --config "__oc____dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:${config.learning_rate},__dq__batch_size__dq__:${config.batch_size},__dq__max_epochs__dq__:${config.max_epochs}__cc__"
+          #end if
         
-        #if str($input_decode_path) != 'None':
-          --input_decode_path ${input_decode_path}.${input_decode_path.ext}
-        #end if
+          #if str($input_decode_path) != 'None':
+            --input_decode_path ${input_decode_path}.${input_decode_path.ext}
+          #end if
         
-        #if str($input_predict_path) != 'None':
-          --input_predict_path ${input_predict_path}.${input_predict_path.ext}
-        #end if
+          #if str($input_predict_path) != 'None':
+            --input_predict_path ${input_predict_path}.${input_predict_path.ext}
+          #end if
         
         
           --output_model_path $__new_file_path__/$outname_output_model_path
@@ -37,8 +39,8 @@
           --output_test_predict_path $__new_file_path__/$outname_output_test_predict_path
         ;          
         #if $config.sele == "option1":
-          rm -f ${config.properties}.${config.properties.ext};
-        #end if
+            rm -f ${config.properties}.${config.properties.ext};
+          #end if
         
           rm -f ${input_decode_path}.${input_decode_path.ext};
         
@@ -80,16 +82,6 @@
             </when>
             <when value="option3">
                 
-                  <param name="max_epochs" type="integer" 
-                      value="100"
-                      
-                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
-                
-                  <param name="learning_rate" type="float" 
-                      value="0.02"
-                      
-                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
-                
                   <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
                     
                       <option value="Adadelta" 
@@ -126,10 +118,20 @@
                     
                     </param>
                 
+                  <param name="learning_rate" type="float" 
+                      value="0.02"
+                      
+                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                
                   <param name="batch_size" type="integer" 
                       value="100"
                       
                            label="batch_size" help="Number of samples per gradient update." optional="false"/>
+                
+                  <param name="max_epochs" type="integer" 
+                      value="100"
+                      
+                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
                 
             </when>
         </conditional>
