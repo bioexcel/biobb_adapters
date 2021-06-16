@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__scale__dq__:${config.scale},__dq__features__dq__:${config.features},__dq__optimise__dq__:${config.optimise},__dq__max_components__dq__:${config.max_components},__dq__cv__dq__:${config.cv},__dq__target__dq__:${config.target}__cc__"
+            --config "__oc____dq__features__dq__:${config.features},__dq__target__dq__:${config.target},__dq__optimise__dq__:${config.optimise},__dq__max_components__dq__:${config.max_components},__dq__cv__dq__:${config.cv},__dq__scale__dq__:${config.scale}__cc__"
           #end if
         
           #if str($input_dataset_path) != 'None':
@@ -26,9 +26,9 @@
           #end if
         
         
-          --output_plot_path $__new_file_path__/$outname_output_plot_path
-        
           --output_results_path $__new_file_path__/$outname_output_results_path
+        
+          --output_plot_path $__new_file_path__/$outname_output_plot_path
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
@@ -37,9 +37,9 @@
           rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
-        
           if test -f $__new_file_path__/$outname_output_results_path; then mv $__new_file_path__/$outname_output_results_path $output_results_path; fi;
+        
+          if test -f $__new_file_path__/$outname_output_plot_path; then mv $__new_file_path__/$outname_output_plot_path $output_plot_path; fi;
         
     ]]>
     </command>
@@ -48,9 +48,9 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_plot_path" type="text" value="mypls_components.png" optional="True" label="output PNG name" help="Path to the Mean Square Error plot Format: [output].png "/>
-        
           <param name="outname_output_results_path" type="text" value="mypls_components.csv" optional="False" label="output CSV name" help="Table with R2 and MSE for calibration and cross-validation data for the best number of components Format: [output].csv "/>
+        
+          <param name="outname_output_plot_path" type="text" value="mypls_components.png" optional="True" label="output PNG name" help="Path to the Mean Square Error plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -66,9 +66,7 @@
             </when>
             <when value="option3">
                 
-                  <param name="scale" type="boolean" 
-                    
-                    label="scale" help="Whether or not to scale the input dataset." />
+                  <param name="features" type="text" label="features" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
                   <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                 
@@ -86,16 +84,18 @@
                       min="1" max="10000"
                            label="cv" help="Specify the number of folds in the cross-validation splitting strategy. Value must be between 2 and number of samples in the dataset." optional="false"/>
                 
-                  <param name="features" type="text" label="features" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+                  <param name="scale" type="boolean" 
+                    
+                    label="scale" help="Whether or not to scale the input dataset." />
                 
             </when>
         </conditional>
     </inputs>
     <outputs>
         
-        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
-        
         <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
+        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
     </outputs>
     <tests>

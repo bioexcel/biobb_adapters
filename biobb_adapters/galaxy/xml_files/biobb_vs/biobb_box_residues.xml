@@ -60,6 +60,13 @@
             </when>
             <when value="option3">
                 
+                  <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
+                
+                  <param name="offset" type="float" 
+                      value="2.0"
+                      min="0.1" max="1000.0"
+                           label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
+                
                   <param name="box_coordinates" type="boolean" 
                     
                     label="box_coordinates" help="Add box coordinates as 8 ATOM records." />
@@ -68,13 +75,6 @@
                       
                       
                            label="residue_offset" help="Residue id offset." optional="true"/>
-                
-                  <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
-                
-                  <param name="offset" type="float" 
-                      value="2.0"
-                      min="0.1" max="1000.0"
-                           label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
                 
             </when>
         </conditional>

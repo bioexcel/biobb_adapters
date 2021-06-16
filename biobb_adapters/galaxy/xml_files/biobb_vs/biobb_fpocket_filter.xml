@@ -5,9 +5,9 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_summary} ${input_summary}.${input_summary.ext};
-        
           ln -f -s ${input_pockets_zip} ${input_pockets_zip}.${input_pockets_zip.ext};
+        
+          ln -f -s ${input_summary} ${input_summary}.${input_summary.ext};
         
         #if $config.sele == "option1":
             ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
@@ -20,15 +20,15 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__volume__dq__:${config.volume},__dq__score__dq__:${config.score},__dq__druggability_score__dq__:${config.druggability_score}__cc__"
-          #end if
-        
-          #if str($input_summary) != 'None':
-            --input_summary ${input_summary}.${input_summary.ext}
+            --config "__oc____dq__score__dq__:${config.score},__dq__druggability_score__dq__:${config.druggability_score},__dq__volume__dq__:${config.volume}__cc__"
           #end if
         
           #if str($input_pockets_zip) != 'None':
             --input_pockets_zip ${input_pockets_zip}.${input_pockets_zip.ext}
+          #end if
+        
+          #if str($input_summary) != 'None':
+            --input_summary ${input_summary}.${input_summary.ext}
           #end if
         
         
@@ -38,9 +38,9 @@
             rm -f ${config.properties}.${config.properties.ext};
           #end if
         
-          rm -f ${input_summary}.${input_summary.ext};
-        
           rm -f ${input_pockets_zip}.${input_pockets_zip.ext};
+        
+          rm -f ${input_summary}.${input_summary.ext};
         
         
           if test -f $__new_file_path__/$outname_output_filter_pockets_zip; then mv $__new_file_path__/$outname_output_filter_pockets_zip $output_filter_pockets_zip; fi;
@@ -49,9 +49,9 @@
     </command>
     <inputs>
         
-          <param name="input_summary" type="data" format="json"  optional="False" label="input JSON file" help="Path to the JSON summary file returned by fpocket. Format: [input].json"/> 
-        
           <param name="input_pockets_zip" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to all the pockets found by fpocket. Format: [input].zip"/> 
+        
+          <param name="input_summary" type="data" format="json"  optional="False" label="input JSON file" help="Path to the JSON summary file returned by fpocket. Format: [input].json"/> 
         
         
           <param name="outname_output_filter_pockets_zip" type="text" value="myfpocket_filter.zip" optional="False" label="output ZIP name" help="Path to the selected pockets after filtering Format: [output].zip "/>
@@ -70,11 +70,11 @@
             </when>
             <when value="option3">
                 
-                  <param name="volume" type="text" label="volume" help="List of two float numbers indicating the volume range. Indicates the pocket volume. (Json)" value="[]" />
-                
                   <param name="score" type="text" label="score" help="List of two float numbers between 0 and 1 indicating the score range. Indicates the fpocket score after the evaluation of pocket prediction accuracy as defined in the fpocket paper. (Json)" value="[]" />
                 
                   <param name="druggability_score" type="text" label="druggability_score" help="List of two float numbers between 0 and 1 indicating the druggability_score range. It&#39;s a value between 0 and 1, 0 signifying that the pocket is likely to not bind a drug like molecule and 1, that it is very likely to bind the latter. (Json)" value="[]" />
+                
+                  <param name="volume" type="text" label="volume" help="List of two float numbers indicating the volume range. Indicates the pocket volume. (Json)" value="[]" />
                 
             </when>
         </conditional>

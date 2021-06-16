@@ -5,11 +5,11 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_exp_path} ${input_exp_path}.${input_exp_path.ext};
-        
           ln -f -s ${input_top_path} ${input_top_path}.${input_top_path.ext};
         
           ln -f -s ${input_traj_path} ${input_traj_path}.${input_traj_path.ext};
+        
+          ln -f -s ${input_exp_path} ${input_exp_path}.${input_exp_path.ext};
         
         #if $config.sele == "option1":
             ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
@@ -22,11 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__end__dq__:${config.end},__dq__reference__dq__:__dq__${config.reference}__dq__,__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__start__dq__:${config.start},__dq__steps__dq__:${config.steps},__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
-          #end if
-        
-          #if str($input_exp_path) != 'None':
-            --input_exp_path ${input_exp_path}.${input_exp_path.ext}
+            --config "__oc____dq__start__dq__:${config.start},__dq__end__dq__:${config.end},__dq__steps__dq__:${config.steps},__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__reference__dq__:__dq__${config.reference}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -37,6 +33,10 @@
             --input_traj_path ${input_traj_path}.${input_traj_path.ext}
           #end if
         
+          #if str($input_exp_path) != 'None':
+            --input_exp_path ${input_exp_path}.${input_exp_path.ext}
+          #end if
+        
         
           --output_cpptraj_path $__new_file_path__/$outname_output_cpptraj_path
         ;          
@@ -44,11 +44,11 @@
             rm -f ${config.properties}.${config.properties.ext};
           #end if
         
-          rm -f ${input_exp_path}.${input_exp_path.ext};
-        
           rm -f ${input_top_path}.${input_top_path.ext};
         
           rm -f ${input_traj_path}.${input_traj_path.ext};
+        
+          rm -f ${input_exp_path}.${input_exp_path.ext};
         
         
           if test -f $__new_file_path__/$outname_output_cpptraj_path; then mv $__new_file_path__/$outname_output_cpptraj_path $output_cpptraj_path; fi;
@@ -57,11 +57,11 @@
     </command>
     <inputs>
         
-          <param name="input_exp_path" type="data" format="pdb"  optional="True" label="input PDB file" help="Path to the experimental reference file (required if reference = experimental). Format: [input].pdb"/> 
-        
           <param name="input_top_path" type="data" format="top,pdb,prmtop,parmtop,zip"  optional="False" label="input TOP,PDB,PRMTOP,PARMTOP,ZIP file" help="Path to the input structure or topology file. Format: [input].[format]"/> 
         
           <param name="input_traj_path" type="data" format="mdcrd,crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  optional="False" label="input MDCRD,CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
+        
+          <param name="input_exp_path" type="data" format="pdb"  optional="True" label="input PDB file" help="Path to the experimental reference file (required if reference = experimental). Format: [input].pdb"/> 
         
         
           <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_bfactor.dat" optional="False" label="output DAT,AGR,XMGR,GNU name" help="Path to the output processed analysis Format: [output].[format] "/>
@@ -80,26 +80,20 @@
             </when>
             <when value="option3">
                 
+                  <param name="start" type="integer" 
+                      value="1"
+                      min="1" max="100000"
+                           label="start" help="Starting frame for slicing" optional="false"/>
+                
                   <param name="end" type="integer" 
                       value="-1"
                       min="-1" max="100000"
                            label="end" help="Ending frame for slicing" optional="false"/>
                 
-                  <param name="reference" type="select" label="reference" help="Reference definition. " multiple="">
-                    
-                      <option value="first" 
-                      selected="true"
-                      >first</option>
-                    
-                      <option value="average" 
-                      
-                      >average</option>
-                    
-                      <option value="experimental" 
-                      
-                      >experimental</option>
-                    
-                    </param>
+                  <param name="steps" type="integer" 
+                      value="1"
+                      min="1" max="100000"
+                           label="steps" help="Step for slicing" optional="false"/>
                 
                   <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
                     
@@ -137,15 +131,21 @@
                     
                     </param>
                 
-                  <param name="start" type="integer" 
-                      value="1"
-                      min="1" max="100000"
-                           label="start" help="Starting frame for slicing" optional="false"/>
-                
-                  <param name="steps" type="integer" 
-                      value="1"
-                      min="1" max="100000"
-                           label="steps" help="Step for slicing" optional="false"/>
+                  <param name="reference" type="select" label="reference" help="Reference definition. " multiple="">
+                    
+                      <option value="first" 
+                      selected="true"
+                      >first</option>
+                    
+                      <option value="average" 
+                      
+                      >average</option>
+                    
+                      <option value="experimental" 
+                      
+                      >experimental</option>
+                    
+                    </param>
                 
                   <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
                       value="cpptraj"

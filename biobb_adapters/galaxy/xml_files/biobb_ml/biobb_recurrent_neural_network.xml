@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__window_size__dq__:${config.window_size},__dq__hidden_layers__dq__:${config.hidden_layers},__dq__target__dq__:${config.target},__dq__learning_rate__dq__:${config.learning_rate},__dq__normalize_cm__dq__:${config.normalize_cm},__dq__batch_size__dq__:${config.batch_size},__dq__validation_size__dq__:${config.validation_size},__dq__max_epochs__dq__:${config.max_epochs},__dq__test_size__dq__:${config.test_size},__dq__optimizer__dq__:__dq__${config.optimizer}__dq____cc__"
+            --config "__oc____dq__target__dq__:${config.target},__dq__validation_size__dq__:${config.validation_size},__dq__window_size__dq__:${config.window_size},__dq__test_size__dq__:${config.test_size},__dq__hidden_layers__dq__:${config.hidden_layers},__dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:${config.learning_rate},__dq__batch_size__dq__:${config.batch_size},__dq__max_epochs__dq__:${config.max_epochs},__dq__normalize_cm__dq__:${config.normalize_cm}__cc__"
           #end if
         
           #if str($input_dataset_path) != 'None':
@@ -72,43 +72,24 @@
             </when>
             <when value="option3">
                 
-                  <param name="window_size" type="integer" 
-                      value="5"
-                      
-                           label="window_size" help="Number of steps for each window of training model." optional="false"/>
-                
-                  <param name="hidden_layers" type="text" label="hidden_layers" help="List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]. (Json)" value="[]" />
-                
                   <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-                
-                  <param name="learning_rate" type="float" 
-                      value="0.02"
-                      
-                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
-                
-                  <param name="normalize_cm" type="boolean" 
-                    
-                    label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
-                
-                  <param name="batch_size" type="integer" 
-                      value="100"
-                      
-                           label="batch_size" help="Number of samples per gradient update." optional="false"/>
                 
                   <param name="validation_size" type="float" 
                       value="0.2"
                       
                            label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
                 
+                  <param name="window_size" type="integer" 
+                      value="5"
+                      
+                           label="window_size" help="Number of steps for each window of training model." optional="false"/>
+                
                   <param name="test_size" type="integer" 
                       value="5"
                       
                            label="test_size" help="Represents the number of samples of the dataset to include in the test split." optional="false"/>
                 
-                  <param name="max_epochs" type="integer" 
-                      value="100"
-                      
-                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
+                  <param name="hidden_layers" type="text" label="hidden_layers" help="List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]. (Json)" value="[]" />
                 
                   <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
                     
@@ -145,6 +126,25 @@
                       >SGD</option>
                     
                     </param>
+                
+                  <param name="learning_rate" type="float" 
+                      value="0.02"
+                      
+                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                
+                  <param name="batch_size" type="integer" 
+                      value="100"
+                      
+                           label="batch_size" help="Number of samples per gradient update." optional="false"/>
+                
+                  <param name="max_epochs" type="integer" 
+                      value="100"
+                      
+                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
+                
+                  <param name="normalize_cm" type="boolean" 
+                    
+                    label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
                 
             </when>
         </conditional>
