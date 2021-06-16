@@ -14,7 +14,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__sequence__dq__:__dq__${config.sequence}__dq__,__dq__forcefield__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.forcefield)}__dq____cb__,__dq__build_library__dq__:${config.build_library}__cc__"
+          --config "__oc____dq__build_library__dq__:${config.build_library},__dq__forcefield__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.forcefield)}__dq____cb__,__dq__sequence__dq__:__dq__${config.sequence}__dq____cc__"
         #end if
         
         
@@ -52,6 +52,10 @@
                       value="ALA GLY SER PRO ARG ALA PRO GLY"
                     />
                 
+                  <param name="build_library" type="boolean" 
+                    
+                    label="build_library" help="Generate AMBER lib file for the structure." />
+                
                   <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                     
                       <option value="protein.ff14SB" 
@@ -79,10 +83,6 @@
                       >gaff</option>
                     
                     </param>
-                
-                  <param name="build_library" type="boolean" 
-                    
-                    label="build_library" help="Generate AMBER lib file for the structure." />
                 
             </when>
         </conditional>

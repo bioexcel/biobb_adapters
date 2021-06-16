@@ -5,13 +5,13 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
-        
           ln -f -s ${input_lib_path} ${input_lib_path}.${input_lib_path.ext};
         
-          ln -f -s ${input_frcmod_path} ${input_frcmod_path}.${input_frcmod_path.ext};
+          ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
         
           ln -f -s ${input_params_path} ${input_params_path}.${input_params_path.ext};
+        
+          ln -f -s ${input_frcmod_path} ${input_frcmod_path}.${input_frcmod_path.ext};
         
           ln -f -s ${input_source_path} ${input_source_path}.${input_source_path.ext};
         
@@ -27,20 +27,20 @@
           --config "__oc____dq__forcefield__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.forcefield)}__dq____cb____cc__"
         #end if
         
-        #if str($input_pdb_path) != 'None':
-          --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
-        #end if
-        
         #if str($input_lib_path) != 'None':
           --input_lib_path ${input_lib_path}.${input_lib_path.ext}
         #end if
         
-        #if str($input_frcmod_path) != 'None':
-          --input_frcmod_path ${input_frcmod_path}.${input_frcmod_path.ext}
+        #if str($input_pdb_path) != 'None':
+          --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
         #end if
         
         #if str($input_params_path) != 'None':
           --input_params_path ${input_params_path}.${input_params_path.ext}
+        #end if
+        
+        #if str($input_frcmod_path) != 'None':
+          --input_frcmod_path ${input_frcmod_path}.${input_frcmod_path.ext}
         #end if
         
         #if str($input_source_path) != 'None':
@@ -48,53 +48,53 @@
         #end if
         
         
-          --output_pdb_path $__new_file_path__/$outname_output_pdb_path
-        
           --output_top_path $__new_file_path__/$outname_output_top_path
         
           --output_crd_path $__new_file_path__/$outname_output_crd_path
+        
+          --output_pdb_path $__new_file_path__/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-          rm -f ${input_pdb_path}.${input_pdb_path.ext};
-        
           rm -f ${input_lib_path}.${input_lib_path.ext};
         
-          rm -f ${input_frcmod_path}.${input_frcmod_path.ext};
+          rm -f ${input_pdb_path}.${input_pdb_path.ext};
         
           rm -f ${input_params_path}.${input_params_path.ext};
         
+          rm -f ${input_frcmod_path}.${input_frcmod_path.ext};
+        
           rm -f ${input_source_path}.${input_source_path.ext};
         
-        
-          if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
         
           if test -f $__new_file_path__/$outname_output_top_path; then mv $__new_file_path__/$outname_output_top_path $output_top_path; fi;
         
           if test -f $__new_file_path__/$outname_output_crd_path; then mv $__new_file_path__/$outname_output_crd_path $output_crd_path; fi;
         
+          if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
+        
     ]]>
     </command>
     <inputs>
         
-          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input 3D structure PDB file. Format: [input].pdb"/> 
-        
           <param name="input_lib_path" type="data" format="lib"  optional="True" label="input LIB file" help="Input ligand library parameters file. Format: [input].lib"/> 
         
-          <param name="input_frcmod_path" type="data" format="frcmod"  optional="True" label="input FRCMOD file" help="Input ligand frcmod parameters file. Format: [input].frcmod"/> 
+          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input 3D structure PDB file. Format: [input].pdb"/> 
         
           <param name="input_params_path" type="data" format="in,leapin,txt,zip"  optional="True" label="input IN,LEAPIN,TXT,ZIP file" help="Additional leap parameter files to load with loadAmberParams Leap command. Format: [input].[format]"/> 
+        
+          <param name="input_frcmod_path" type="data" format="frcmod"  optional="True" label="input FRCMOD file" help="Input ligand frcmod parameters file. Format: [input].frcmod"/> 
         
           <param name="input_source_path" type="data" format="in,leapin,txt,zip"  optional="True" label="input IN,LEAPIN,TXT,ZIP file" help="Additional leap command files to load with source Leap command. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="myleap_gen_top.pdb" optional="False" label="output PDB name" help="Output 3D structure PDB file matching the topology file Format: [output].pdb "/>
-        
           <param name="outname_output_top_path" type="text" value="myleap_gen_top.top" optional="False" label="output TOP,PARMTOP,PRMTOP name" help="Output topology file (AMBER ParmTop) Format: [output].[format] "/>
         
           <param name="outname_output_crd_path" type="text" value="myleap_gen_top.crd" optional="False" label="output CRD,MDCRD,INPCRD name" help="Output coordinates file (AMBER crd) Format: [output].[format] "/>
+        
+          <param name="outname_output_pdb_path" type="text" value="myleap_gen_top.pdb" optional="False" label="output PDB name" help="Output 3D structure PDB file matching the topology file Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -143,11 +143,11 @@
     </inputs>
     <outputs>
         
-        <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
-        
         <data name="output_top_path" format="top,parmtop,prmtop" label="${outname_output_top_path}"/>
         
         <data name="output_crd_path" format="crd,mdcrd,inpcrd" label="${outname_output_crd_path}"/>
+        
+        <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
     </outputs>
     <tests>
