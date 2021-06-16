@@ -193,7 +193,6 @@ def main():
     if args.create_dir:
         if not os.path.isdir(XML_DIR + "/" + data['biobb_group']):
             os.mkdir(XML_DIR + "/" + data['biobb_group'])
-
     with open(XML_DIR + "/" + data['biobb_group'] + "/biobb_" + data['name'] + ".xml", "w") as xml_file:
         xml_file.write(templ.render(data))
         
