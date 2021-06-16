@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:${config.charge},__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
+            --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq__,__dq__charge__dq__:${config.charge}__cc__"
           #end if
         
           #if str($input_path) != 'None':
@@ -26,13 +26,13 @@
           #end if
         
         
-          --output_path_frcmod $__new_file_path__/$outname_output_path_frcmod
-        
           --output_path_inpcrd $__new_file_path__/$outname_output_path_inpcrd
+        
+          --output_path_prmtop $__new_file_path__/$outname_output_path_prmtop
         
           --output_path_lib $__new_file_path__/$outname_output_path_lib
         
-          --output_path_prmtop $__new_file_path__/$outname_output_path_prmtop
+          --output_path_frcmod $__new_file_path__/$outname_output_path_frcmod
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
@@ -41,13 +41,13 @@
           rm -f ${input_path}.${input_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_path_frcmod; then mv $__new_file_path__/$outname_output_path_frcmod $output_path_frcmod; fi;
-        
           if test -f $__new_file_path__/$outname_output_path_inpcrd; then mv $__new_file_path__/$outname_output_path_inpcrd $output_path_inpcrd; fi;
+        
+          if test -f $__new_file_path__/$outname_output_path_prmtop; then mv $__new_file_path__/$outname_output_path_prmtop $output_path_prmtop; fi;
         
           if test -f $__new_file_path__/$outname_output_path_lib; then mv $__new_file_path__/$outname_output_path_lib $output_path_lib; fi;
         
-          if test -f $__new_file_path__/$outname_output_path_prmtop; then mv $__new_file_path__/$outname_output_path_prmtop $output_path_prmtop; fi;
+          if test -f $__new_file_path__/$outname_output_path_frcmod; then mv $__new_file_path__/$outname_output_path_frcmod $output_path_frcmod; fi;
         
     ]]>
     </command>
@@ -56,13 +56,13 @@
           <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_path_frcmod" type="text" value="myacpype_params_ac.frcmod" optional="False" label="output FRCMOD name" help="Path to the FRCMOD output file Format: [output].frcmod "/>
-        
           <param name="outname_output_path_inpcrd" type="text" value="myacpype_params_ac.inpcrd" optional="False" label="output INPCRD name" help="Path to the INPCRD output file Format: [output].inpcrd "/>
+        
+          <param name="outname_output_path_prmtop" type="text" value="myacpype_params_ac.prmtop" optional="False" label="output PRMTOP name" help="Path to the PRMTOP output file Format: [output].prmtop "/>
         
           <param name="outname_output_path_lib" type="text" value="myacpype_params_ac.lib" optional="False" label="output LIB name" help="Path to the LIB output file Format: [output].lib "/>
         
-          <param name="outname_output_path_prmtop" type="text" value="myacpype_params_ac.prmtop" optional="False" label="output PRMTOP name" help="Path to the PRMTOP output file Format: [output].prmtop "/>
+          <param name="outname_output_path_frcmod" type="text" value="myacpype_params_ac.frcmod" optional="False" label="output FRCMOD name" help="Path to the FRCMOD output file Format: [output].frcmod "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -96,13 +96,13 @@
     </inputs>
     <outputs>
         
-        <data name="output_path_frcmod" format="frcmod" label="${outname_output_path_frcmod}"/>
-        
         <data name="output_path_inpcrd" format="inpcrd" label="${outname_output_path_inpcrd}"/>
+        
+        <data name="output_path_prmtop" format="prmtop" label="${outname_output_path_prmtop}"/>
         
         <data name="output_path_lib" format="lib" label="${outname_output_path_lib}"/>
         
-        <data name="output_path_prmtop" format="prmtop" label="${outname_output_path_prmtop}"/>
+        <data name="output_path_frcmod" format="frcmod" label="${outname_output_path_frcmod}"/>
         
     </outputs>
     <tests>

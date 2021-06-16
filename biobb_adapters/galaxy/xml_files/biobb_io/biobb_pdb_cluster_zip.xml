@@ -16,7 +16,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__filter__dq__:__dq__${config.filter}__dq__,__dq__cluster__dq__:__dq__${config.cluster}__dq__,__dq__api_id__dq__:__dq__${config.api_id}__dq____cc__"
+            --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__api_id__dq__:__dq__${config.api_id}__dq__,__dq__filter__dq__:__dq__${config.filter}__dq__,__dq__cluster__dq__:__dq__${config.cluster}__dq____cc__"
           #end if
         
         
@@ -50,10 +50,6 @@
             </when>
             <when value="option3">
                 
-                  <param name="pdb_code" type="text" label="pdb_code" help="RSCB PDB code." optional="true"
-                      
-                    />
-                
                   <param name="filter" type="text" label="filter" help="Array of groups to be kept. If value is None or False no filter will be applied. All the possible values are defined in the official PDB specification (http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html)" optional="false"
                       value="[ATOM, MODEL, ENDMDL]"
                     />
@@ -77,6 +73,10 @@
                       >95</option>
                     
                     </param>
+                
+                  <param name="pdb_code" type="text" label="pdb_code" help="RSCB PDB code." optional="true"
+                      
+                    />
                 
                   <param name="api_id" type="select" label="api_id" help="Identifier of the PDB REST API from which the PDB structure will be downloaded. " multiple="">
                     

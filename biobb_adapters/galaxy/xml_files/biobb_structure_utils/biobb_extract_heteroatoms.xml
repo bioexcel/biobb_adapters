@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__heteroatoms__dq__:${config.heteroatoms},__dq__water__dq__:${config.water}__cc__"
+            --config "__oc____dq__water__dq__:${config.water},__dq__heteroatoms__dq__:${config.heteroatoms}__cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -60,11 +60,11 @@
             </when>
             <when value="option3">
                 
-                  <param name="heteroatoms" type="text" label="heteroatoms" help="List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{&#34;name&#34;: &#34;ZZ7&#34;, &#34;res_id&#34;: &#34;302&#34;, &#34;chain&#34;: &#34;B&#34;, &#34;model&#34;: &#34;1&#34;}]. If empty, all the heteroatoms of the structure will be returned. (Json)" value="[]" />
-                
                   <param name="water" type="boolean" 
                     
                     label="water" help="Add or not waters." />
+                
+                  <param name="heteroatoms" type="text" label="heteroatoms" help="List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{&#34;name&#34;: &#34;ZZ7&#34;, &#34;res_id&#34;: &#34;302&#34;, &#34;chain&#34;: &#34;B&#34;, &#34;model&#34;: &#34;1&#34;}]. If empty, all the heteroatoms of the structure will be returned. (Json)" value="[]" />
                 
             </when>
         </conditional>

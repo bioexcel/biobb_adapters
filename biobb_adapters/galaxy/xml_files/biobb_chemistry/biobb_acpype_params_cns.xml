@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:${config.charge},__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
+            --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq__,__dq__charge__dq__:${config.charge}__cc__"
           #end if
         
           #if str($input_path) != 'None':
@@ -26,11 +26,11 @@
           #end if
         
         
+          --output_path_top $__new_file_path__/$outname_output_path_top
+        
           --output_path_par $__new_file_path__/$outname_output_path_par
         
           --output_path_inp $__new_file_path__/$outname_output_path_inp
-        
-          --output_path_top $__new_file_path__/$outname_output_path_top
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
@@ -39,11 +39,11 @@
           rm -f ${input_path}.${input_path.ext};
         
         
+          if test -f $__new_file_path__/$outname_output_path_top; then mv $__new_file_path__/$outname_output_path_top $output_path_top; fi;
+        
           if test -f $__new_file_path__/$outname_output_path_par; then mv $__new_file_path__/$outname_output_path_par $output_path_par; fi;
         
           if test -f $__new_file_path__/$outname_output_path_inp; then mv $__new_file_path__/$outname_output_path_inp $output_path_inp; fi;
-        
-          if test -f $__new_file_path__/$outname_output_path_top; then mv $__new_file_path__/$outname_output_path_top $output_path_top; fi;
         
     ]]>
     </command>
@@ -52,11 +52,11 @@
           <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
         
         
+          <param name="outname_output_path_top" type="text" value="myacpype_params_cns.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
+        
           <param name="outname_output_path_par" type="text" value="myacpype_params_cns.par" optional="False" label="output PAR name" help="Path to the PAR output file Format: [output].par "/>
         
           <param name="outname_output_path_inp" type="text" value="myacpype_params_cns.inp" optional="False" label="output INP name" help="Path to the INP output file Format: [output].inp "/>
-        
-          <param name="outname_output_path_top" type="text" value="myacpype_params_cns.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -90,11 +90,11 @@
     </inputs>
     <outputs>
         
+        <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
+        
         <data name="output_path_par" format="par" label="${outname_output_path_par}"/>
         
         <data name="output_path_inp" format="inp" label="${outname_output_path_inp}"/>
-        
-        <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
         
     </outputs>
     <tests>

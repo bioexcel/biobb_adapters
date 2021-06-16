@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__selection__dq__:__dq__${config.selection}__dq__,__dq__start__dq__:${config.start},__dq__end__dq__:${config.end},__dq__dt__dq__:${config.dt},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+            --config "__oc____dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__selection__dq__:__dq__${config.selection}__dq__,__dq__end__dq__:${config.end},__dq__start__dq__:${config.start},__dq__dt__dq__:${config.dt}__cc__"
           #end if
         
           #if str($input_traj_path) != 'None':
@@ -69,6 +69,15 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
+                
+                  <param name="start" type="integer" 
+                      
+                      
+                           label="start" help="Time of first frame to read from trajectory (default unit ps)." optional="true"/>
+                
+                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                      value="gmx"
+                    />
                 
                   <param name="selection" type="select" label="selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                     
@@ -150,11 +159,6 @@
                     
                     </param>
                 
-                  <param name="start" type="integer" 
-                      
-                      
-                           label="start" help="Time of first frame to read from trajectory (default unit ps)." optional="true"/>
-                
                   <param name="end" type="integer" 
                       
                       
@@ -164,10 +168,6 @@
                       
                       
                            label="dt" help="Only write frame when t MOD dt = first time (ps)." optional="true"/>
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
                 
             </when>
         </conditional>
