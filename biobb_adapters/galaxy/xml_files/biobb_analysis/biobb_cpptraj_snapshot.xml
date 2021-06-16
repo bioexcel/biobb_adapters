@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__snapshot__dq__:${config.snapshot},__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__format__dq__:__dq__${config.format}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
+          --config "__oc____dq__format__dq__:__dq__${config.format}__dq__,__dq__mask__dq__:__dq__${config.mask}__dq__,__dq__snapshot__dq__:${config.snapshot},__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
         #end if
         
         #if str($input_top_path) != 'None':
@@ -109,6 +109,10 @@
                     
                     </param>
                 
+                  <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
+                      value="cpptraj"
+                    />
+                
                   <param name="format" type="select" label="format" help="Output trajectory format. " multiple="">
                     
                       <option value="crd" 
@@ -192,10 +196,6 @@
                       >conflib</option>
                     
                     </param>
-                
-                  <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
-                      value="cpptraj"
-                    />
                 
             </when>
         </conditional>

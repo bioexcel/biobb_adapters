@@ -24,9 +24,9 @@
         #end if
         
         
-          --output_pocket_pdb $__new_file_path__/$outname_output_pocket_pdb
-        
           --output_pocket_pqr $__new_file_path__/$outname_output_pocket_pqr
+        
+          --output_pocket_pdb $__new_file_path__/$outname_output_pocket_pdb
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
@@ -35,9 +35,9 @@
           rm -f ${input_pockets_zip}.${input_pockets_zip.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_pocket_pdb; then mv $__new_file_path__/$outname_output_pocket_pdb $output_pocket_pdb; fi;
-        
           if test -f $__new_file_path__/$outname_output_pocket_pqr; then mv $__new_file_path__/$outname_output_pocket_pqr $output_pocket_pqr; fi;
+        
+          if test -f $__new_file_path__/$outname_output_pocket_pdb; then mv $__new_file_path__/$outname_output_pocket_pdb $output_pocket_pdb; fi;
         
     ]]>
     </command>
@@ -46,9 +46,9 @@
           <param name="input_pockets_zip" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the pockets found by fpocket. Format: [input].zip"/> 
         
         
-          <param name="outname_output_pocket_pdb" type="text" value="myfpocket_select.pdb" optional="False" label="output PDB name" help="Path to the PDB file with the cavity found by fpocket Format: [output].pdb "/>
-        
           <param name="outname_output_pocket_pqr" type="text" value="myfpocket_select.pqr" optional="False" label="output PQR name" help="Path to the PQR file with the pocket found by fpocket Format: [output].pqr "/>
+        
+          <param name="outname_output_pocket_pdb" type="text" value="myfpocket_select.pdb" optional="False" label="output PDB name" help="Path to the PDB file with the cavity found by fpocket Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -74,9 +74,9 @@
     </inputs>
     <outputs>
         
-        <data name="output_pocket_pdb" format="pdb" label="${outname_output_pocket_pdb}"/>
-        
         <data name="output_pocket_pqr" format="pqr" label="${outname_output_pocket_pqr}"/>
+        
+        <data name="output_pocket_pdb" format="pdb" label="${outname_output_pocket_pdb}"/>
         
     </outputs>
     <tests>

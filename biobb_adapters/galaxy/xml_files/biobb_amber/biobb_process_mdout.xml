@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "__oc____dq__terms__dq__:__ob____dq__${&#39;__dq__,__dq__&#39;.join($config.terms)}__dq____cb____cc__"
+          --config "__oc____dq__terms__dq__:__ob____dq__${'__dq__,__dq__'.join($config.terms)}__dq____cb____cc__"
         #end if
         
         #if str($input_log_path) != 'None':

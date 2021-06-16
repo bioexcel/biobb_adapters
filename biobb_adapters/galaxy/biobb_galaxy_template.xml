@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option3":
-          --config "{{config_str}}"
+          --config "{{config_str|safe}}"
         #end if
         {% for k in files['input'] %}
         #if str(${{ k }}) != 'None':
