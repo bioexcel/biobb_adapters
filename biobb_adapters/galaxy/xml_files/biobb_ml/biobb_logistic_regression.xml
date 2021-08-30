@@ -82,23 +82,23 @@
                     
                       <option value="newton-cg" 
                       
-                      >newton-cg</option>
+                      >Recall the motivation for gradient descent step at x: we minimize the quadratic function</option>
                     
                       <option value="lbfgs" 
                       
-                      >lbfgs</option>
+                      >It&#39;s analogue of the Newton&#39;s Method but here the Hessian matrix is approximated using updates specified by gradient evaluations</option>
                     
                       <option value="liblinear" 
                       selected="true"
-                      >liblinear</option>
+                      >It&#39;s a linear classification that supports logistic regression and linear support vector machines</option>
                     
                       <option value="sag" 
                       
-                      >sag</option>
+                      >SAG method optimizes the sum of a finite number of smooth convex functions</option>
                     
                       <option value="saga" 
                       
-                      >saga</option>
+                      >It&#39;s a variant of SAG that also supports the non-smooth penalty=l1 option</option>
                     
                     </param>
                 
@@ -135,9 +135,12 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_model_path" format="pkl" label="${outname_output_model_path}"/>
         
+        
         <data name="output_test_table_path" format="csv" label="${outname_output_test_table_path}"/>
+        
         
         <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
@@ -168,7 +171,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

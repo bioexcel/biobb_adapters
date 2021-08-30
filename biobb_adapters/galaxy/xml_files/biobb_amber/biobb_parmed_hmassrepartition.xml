@@ -40,7 +40,19 @@
     </inputs>
     <outputs>
         
-        <data name="output_top_path" format="top,parmtop,prmtop" label="${outname_output_top_path}"/>
+        <conditional>
+            <data name="output_top_path" format="text" label="${outname_output_top_path}">
+              <change_format>
+                
+                <when input="output_format" value="top" format="top" />
+                
+                <when input="output_format" value="parmtop" format="parmtop" />
+                
+                <when input="output_format" value="prmtop" format="prmtop" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -69,7 +81,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

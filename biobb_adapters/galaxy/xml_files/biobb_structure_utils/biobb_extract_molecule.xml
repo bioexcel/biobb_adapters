@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+            --config "__oc____dq__molecule_type__dq__:__dq__${config.molecule_type}__dq__,__dq__chains__dq__:${config.chains},__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -60,6 +60,36 @@
             </when>
             <when value="option3">
                 
+                  <param name="molecule_type" type="select" label="molecule_type" help="type of molecule to be extracted. If all, only waters and ligands will be removed from the original structure. " multiple="">
+                    
+                      <option value="all" 
+                      selected="true"
+                      >None</option>
+                    
+                      <option value="protein" 
+                      
+                      >None</option>
+                    
+                      <option value="na" 
+                      
+                      >None</option>
+                    
+                      <option value="dna" 
+                      
+                      >None</option>
+                    
+                      <option value="rna" 
+                      
+                      >None</option>
+                    
+                      <option value="chains" 
+                      
+                      >None</option>
+                    
+                    </param>
+                
+                  <param name="chains" type="text" label="chains" help="if chains selected in **molecule_type**, specify them here, e.g: [&#34;A&#34;, &#34;C&#34;, &#34;N&#34;]. (Json)" value="[]" />
+                
                   <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
                       value="check_structure"
                     />
@@ -68,6 +98,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_molecule_path" format="pdb" label="${outname_output_molecule_path}"/>
         
@@ -98,7 +129,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

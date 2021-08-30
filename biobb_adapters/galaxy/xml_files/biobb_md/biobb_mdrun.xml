@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq__,__dq__checkpoint_time__dq__:${config.checkpoint_time},__dq__num_threads__dq__:${config.num_threads},__dq__num_threads_mpi__dq__:${config.num_threads_mpi},__dq__num_threads_omp__dq__:${config.num_threads_omp},__dq__num_threads_omp_pme__dq__:${config.num_threads_omp_pme},__dq__use_gpu__dq__:${config.use_gpu},__dq__gpu_id__dq__:__dq__${config.gpu_id}__dq__,__dq__gpu_tasks__dq__:__dq__${config.gpu_tasks}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+            --config "__oc____dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_flags__dq__:__dq__${config.mpi_flags}__dq__,__dq__checkpoint_time__dq__:${config.checkpoint_time},__dq__num_threads__dq__:${config.num_threads},__dq__num_threads_mpi__dq__:${config.num_threads_mpi},__dq__num_threads_omp__dq__:${config.num_threads_omp},__dq__num_threads_omp_pme__dq__:${config.num_threads_omp_pme},__dq__use_gpu__dq__:${config.use_gpu},__dq__gpu_id__dq__:__dq__${config.gpu_id}__dq__,__dq__gpu_tasks__dq__:__dq__${config.gpu_tasks}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_tpr_path) != 'None':
@@ -115,7 +115,7 @@
                       
                            label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
                 
-                  <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
+                  <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
                       
                     />
                 
@@ -169,17 +169,24 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_trr_path" format="trr" label="${outname_output_trr_path}"/>
+        
         
         <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
         
+        
         <data name="output_edr_path" format="edr" label="${outname_output_edr_path}"/>
+        
         
         <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
         
+        
         <data name="output_xtc_path" format="xtc" label="${outname_output_xtc_path}"/>
         
+        
         <data name="output_cpt_path" format="cpt" label="${outname_output_cpt_path}"/>
+        
         
         <data name="output_dhdl_path" format="xvg" label="${outname_output_dhdl_path}"/>
         
@@ -210,7 +217,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

@@ -1,0 +1,129 @@
+{
+	'files': {
+		'input': {
+			'input_path': {
+				'name': 'input_path', 
+				'file_types': ['dat', 'ent', 'fa', 'fasta', 'gro', 'inp', 'log', 'mcif', 'mdl', 'mmcif', 'mol', 'mol2', 'pdb', 'pdbqt', 'png', 'sdf', 'smi', 'smiles', 'txt', 'xml', 'xtc'], 
+				'description': 'Path to the input file', 
+				'optional': False, 
+				'format': 'dat,ent,fa,fasta,gro,inp,log,mcif,mdl,mmcif,mol,mol2,pdb,pdbqt,png,sdf,smi,smiles,txt,xml,xtc', 
+				'help_format': '[format]', 
+				'multiple_format': 'output_format', 
+				'label': 'input DAT,ENT,FA,FASTA,GRO,INP,LOG,MCIF,MDL,MMCIF,MOL,MOL2,PDB,PDBQT,PNG,SDF,SMI,SMILES,TXT,XML,XTC'
+			}
+		}, 
+		'output': {
+			'output_path': {
+				'name': 'output_path', 
+				'file_types': ['ent', 'fa', 'fasta', 'gro', 'inp', 'mcif', 'mdl', 'mmcif', 'mol', 'mol2', 'pdb', 'pdbqt', 'png', 'sdf', 'smi', 'smiles', 'txt'], 
+				'description': 'Path to the output file', 
+				'optional': False, 
+				'format': 'ent,fa,fasta,gro,inp,mcif,mdl,mmcif,mol,mol2,pdb,pdbqt,png,sdf,smi,smiles,txt', 
+				'help_format': '[format]', 
+				'multiple_format': 'output_format', 
+				'label': 'output ENT,FA,FASTA,GRO,INP,MCIF,MDL,MMCIF,MOL,MOL2,PDB,PDBQT,PNG,SDF,SMI,SMILES,TXT'
+			}
+		}
+	}, 
+	'props': {
+		'input_format': {
+			'type': 'select', 
+			'default': None, 
+			'wf_prop': False, 
+			'description': 'Format of input file. If not provided, input_path extension will be taken. ', 
+			'enum': ['dat', 'ent', 'fa', 'fasta', 'gro', 'inp', 'log', 'mcif', 'mdl', 'mmcif', 'mol', 'mol2', 'pdb', 'pdbqt', 'png', 'sdf', 'smi', 'smiles', 'txt', 'xml', 'xtc'], 
+			'property_formats': [
+				{'name': 'dat', 'description': 'Information represented in a data record'}, 
+				{'name': 'ent', 'description': 'Protein Data Bank format'}, 
+				{'name': 'fa', 'description': 'FASTA sequence format'}, 
+				{'name': 'fasta', 'description': 'FASTA sequence format'}, 
+				{'name': 'gro', 'description': 'GROMACS structure'}, 
+				{'name': 'inp', 'description': 'AMBER trajectory format'}, 
+				{'name': 'log', 'description': 'Events file'}, 
+				{'name': 'mcif', 'description': 'Entry format of PDB database in mmCIF format'}, 
+				{'name': 'mdl', 'description': 'file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule'}, 
+				{'name': 'mmcif', 'description': 'Entry format of PDB database in mmCIF format'}, 
+				{'name': 'mol', 'description': 'file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule'}, 
+				{'name': 'mol2', 'description': 'Complete and portable representation of a SYBYL molecule'}, 
+				{'name': 'pdb', 'description': 'Protein Data Bank format'}, 
+				{'name': 'pdbqt', 'description': 'Protein Data Bank format with charges'}, 
+				{'name': 'png', 'description': 'File format for image compression'}, 
+				{'name': 'sdf', 'description': 'One of a family of chemical-data file formats developed by MDL Information Systems'}, 
+				{'name': 'smi', 'description': 'Chemical structure specified in Simplified Molecular Input Line Entry System line notation.'}, 
+				{'name': 'smiles', 'description': 'Chemical structure specified in Simplified Molecular Input Line Entry System line notation.'}, 
+				{'name': 'txt', 'description': 'Textual format'}, 
+				{'name': 'xml', 'description': 'eXtensible Markup Language'}, 
+				{'name': 'xtc', 'description': 'Portable binary format for trajectories produced by GROMACS package'}
+			], 
+			'values': ['dat', 'ent', 'fa', 'fasta', 'gro', 'inp', 'log', 'mcif', 'mdl', 'mmcif', 'mol', 'mol2', 'pdb', 'pdbqt', 'png', 'sdf', 'smi', 'smiles', 'txt', 'xml', 'xtc'], 
+			'optional': 'true'
+		}, 
+		'output_format': {
+			'type': 'select', 
+			'default': None, 
+			'wf_prop': False, 
+			'description': 'Format of output file. If not provided, output_path extension will be taken. ', 
+			'enum': ['ent', 'fa', 'fasta', 'gro', 'inp', 'mcif', 'mdl', 'mmcif', 'mol', 'mol2', 'pdb', 'pdbqt', 'png', 'sdf', 'smi', 'smiles', 'txt', 'xtc'], 
+			'property_formats': [
+				{'name': 'ent', 'description': 'Protein Data Bank format'}, 
+				{'name': 'fa', 'description': 'FASTA sequence format'}, 
+				{'name': 'fasta', 'description': 'FASTA sequence format'}, 
+				{'name': 'gro', 'description': 'GROMACS structure'}, 
+				{'name': 'inp', 'description': 'AMBER trajectory format'}, 
+				{'name': 'mcif', 'description': 'Entry format of PDB database in mmCIF format'}, 
+				{'name': 'mdl', 'description': 'file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule'}, 
+				{'name': 'mmcif', 'description': 'Entry format of PDB database in mmCIF format'}, 
+				{'name': 'mol', 'description': 'file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule'}, 
+				{'name': 'mol2', 'description': 'Complete and portable representation of a SYBYL molecule'}, 
+				{'name': 'pdb', 'description': 'Protein Data Bank format'}, 
+				{'name': 'pdbqt', 'description': 'Protein Data Bank format with charges'}, 
+				{'name': 'png', 'description': 'File format for image compression'}, 
+				{'name': 'sdf', 'description': 'One of a family of chemical-data file formats developed by MDL Information Systems'}, 
+				{'name': 'smi', 'description': 'Chemical structure specified in Simplified Molecular Input Line Entry System line notation.'}, 
+				{'name': 'smiles', 'description': 'Chemical structure specified in Simplified Molecular Input Line Entry System line notation.'}, 
+				{'name': 'txt', 'description': 'Textual format'}, 
+				{'name': 'xtc', 'description': 'Portable binary format for trajectories produced by GROMACS package'}
+			], 
+			'values': ['ent', 'fa', 'fasta', 'gro', 'inp', 'mcif', 'mdl', 'mmcif', 'mol', 'mol2', 'pdb', 'pdbqt', 'png', 'sdf', 'smi', 'smiles', 'txt', 'xtc'], 
+			'optional': 'true'
+		}, 
+		'coordinates': {
+			'type': 'select', 
+			'default': None, 
+			'wf_prop': False, 
+			'description': 'Type of coordinates: 2D or 3D. ', 
+			'enum': [2, 3], 
+			'property_formats': [
+				{'name': 2, 'description': '2D coordinates'}, 
+				{'name': 3, 'description': '3D coordinates'}		
+			], 
+			'values': [2, 3], 
+			'optional': 'true'
+		}, 
+		'ph': {
+			'type': 'float', 
+			'default': 7.4, 
+			'wf_prop': False, 
+			'description': 'Add hydrogens appropriate for pH.', 
+			'min': 0.0, 
+			'max': 14.0, 
+			'step': 0.1, 
+			'optional': 'false'	
+		}, 
+		'obabel_path': {
+			'type': 'string', 
+			'default': 'obabel', 
+			'wf_prop': False, 
+			'description': 'Path to the obabel executable binary.', 
+			'optional': 'false'
+		}
+	}, 
+	'name': 'babel_convert', 
+	'display_name': 'BabelConvert', 
+	'biobb_group': 'biobb_chemistry', 
+	'tool_id': 'biobb_chemistry_babel_convert', 
+	'container_id': 'quay.io/biocontainers/biobb_chemistry:3.0.0--py_0', 
+	'version': '3.0.0', 
+	'description': 'This class is a wrapper of the Open Babel tool.', 
+	'config_str': '__oc____dq__input_format__dq__:__dq__${config.input_format}__dq__,__dq__output_format__dq__:__dq__${config.output_format}__dq__,__dq__coordinates__dq__:__dq__${config.coordinates}__dq__,__dq__ph__dq__:${config.ph},__dq__obabel_path__dq__:__dq__${config.obabel_path}__dq____cc__'
+}

@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mdin__dq__:${config.mdin},__dq__pmemd_path__dq__:__dq__${config.pmemd_path}__dq__,__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
+            --config "__oc____dq__mdin__dq__:${config.mdin},__dq__pmemd_path__dq__:__dq__${config.pmemd_path}__dq__,__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_flags__dq__:__dq__${config.mpi_flags}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -95,20 +95,20 @@
         
           <param name="input_top_path" type="data" format="top,parmtop,prmtop"  optional="False" label="input TOP,PARMTOP,PRMTOP file" help="Input topology file (AMBER ParmTop). Format: [input].[format]"/> 
         
-          <param name="input_crd_path" type="data" format="crd,mdcrd,inpcrd,rst,rst7"  optional="False" label="input CRD,MDCRD,INPCRD,RST,RST7 file" help="Input coordinates file (AMBER crd). Format: [input].[format]"/> 
+          <param name="input_crd_path" type="data" format="crd,mdcrd,inpcrd,rst,rst7,netcdf,nc,ncrst"  optional="False" label="input CRD,MDCRD,INPCRD,RST,RST7,NETCDF,NC,NCRST file" help="Input coordinates file (AMBER crd). Format: [input].[format]"/> 
         
           <param name="input_mdin_path" type="data" format="mdin,in,txt"  optional="True" label="input MDIN,IN,TXT file" help="Input configuration file (MD run options) (AMBER mdin). Format: [input].[format]"/> 
         
           <param name="input_cpin_path" type="data" format="cpin"  optional="True" label="input CPIN file" help="Input constant pH file (AMBER cpin). Format: [input].cpin"/> 
         
-          <param name="input_ref_path" type="data" format="crd,mdcrd,inpcrd,rst,rst7"  optional="True" label="input CRD,MDCRD,INPCRD,RST,RST7 file" help="Input reference coordinates for position restraints. Format: [input].[format]"/> 
+          <param name="input_ref_path" type="data" format="crd,mdcrd,inpcrd,rst,rst7,netcdf,nc,ncrst"  optional="True" label="input CRD,MDCRD,INPCRD,RST,RST7,NETCDF,NC,NCRST file" help="Input reference coordinates for position restraints. Format: [input].[format]"/> 
         
         
           <param name="outname_output_log_path" type="text" value="mypmemd_mdrun.log" optional="False" label="output LOG,OUT,TXT,O name" help="Output log file Format: [output].[format] "/>
         
           <param name="outname_output_traj_path" type="text" value="mypmemd_mdrun.trj" optional="False" label="output TRJ,CRD,MDCRD,X,NETCDF,NC name" help="Output trajectory file Format: [output].[format] "/>
         
-          <param name="outname_output_rst_path" type="text" value="mypmemd_mdrun.rst" optional="False" label="output RST,RST7 name" help="Output restart file Format: [output].[format] "/>
+          <param name="outname_output_rst_path" type="text" value="mypmemd_mdrun.rst" optional="False" label="output RST,RST7,NETCDF,NC,NCRST name" help="Output restart file Format: [output].[format] "/>
         
           <param name="outname_output_cpout_path" type="text" value="mypmemd_mdrun.cpout" optional="True" label="output CPOUT name" help="Output constant pH file (AMBER cpout) Format: [output].cpout "/>
         
@@ -140,23 +140,23 @@
                     
                       <option value="minimization" 
                       selected="true"
-                      >minimization</option>
+                      >Runs an energy minimization</option>
                     
                       <option value="min_vacuo" 
                       
-                      >min_vacuo</option>
+                      >Runs an energy minimization in vacuo</option>
                     
                       <option value="NVT" 
                       
-                      >NVT</option>
+                      >Runs an NVT equilibration</option>
                     
                       <option value="npt" 
                       
-                      >npt</option>
+                      >Runs an NPT equilibration</option>
                     
                       <option value="free" 
                       
-                      >free</option>
+                      >Runs a MD simulation</option>
                     
                     </param>
                 
@@ -169,7 +169,7 @@
                       
                            label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
                 
-                  <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
+                  <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
                       
                     />
                 
@@ -178,15 +178,77 @@
     </inputs>
     <outputs>
         
-        <data name="output_log_path" format="log,out,txt,o" label="${outname_output_log_path}"/>
+        <conditional>
+            <data name="output_log_path" format="text" label="${outname_output_log_path}">
+              <change_format>
+                
+                <when input="output_format" value="log" format="log" />
+                
+                <when input="output_format" value="out" format="out" />
+                
+                <when input="output_format" value="txt" format="txt" />
+                
+                <when input="output_format" value="o" format="o" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
-        <data name="output_traj_path" format="trj,crd,mdcrd,x,netcdf,nc" label="${outname_output_traj_path}"/>
+        <conditional>
+            <data name="output_traj_path" format="text" label="${outname_output_traj_path}">
+              <change_format>
+                
+                <when input="output_format" value="trj" format="trj" />
+                
+                <when input="output_format" value="crd" format="crd" />
+                
+                <when input="output_format" value="mdcrd" format="mdcrd" />
+                
+                <when input="output_format" value="x" format="x" />
+                
+                <when input="output_format" value="netcdf" format="netcdf" />
+                
+                <when input="output_format" value="nc" format="nc" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
-        <data name="output_rst_path" format="rst,rst7" label="${outname_output_rst_path}"/>
+        <conditional>
+            <data name="output_rst_path" format="text" label="${outname_output_rst_path}">
+              <change_format>
+                
+                <when input="output_format" value="rst" format="rst" />
+                
+                <when input="output_format" value="rst7" format="rst7" />
+                
+                <when input="output_format" value="netcdf" format="netcdf" />
+                
+                <when input="output_format" value="nc" format="nc" />
+                
+                <when input="output_format" value="ncrst" format="ncrst" />
+                
+              </change_format>
+           </data>
+        </conditional>
+        
         
         <data name="output_cpout_path" format="cpout" label="${outname_output_cpout_path}"/>
         
-        <data name="output_cprst_path" format="cprst,rst,rst7" label="${outname_output_cprst_path}"/>
+        <conditional>
+            <data name="output_cprst_path" format="text" label="${outname_output_cprst_path}">
+              <change_format>
+                
+                <when input="output_format" value="cprst" format="cprst" />
+                
+                <when input="output_format" value="rst" format="rst" />
+                
+                <when input="output_format" value="rst7" format="rst7" />
+                
+              </change_format>
+           </data>
+        </conditional>
+        
         
         <data name="output_mdinfo_path" format="mdinfo" label="${outname_output_mdinfo_path}"/>
         
@@ -217,7 +279,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

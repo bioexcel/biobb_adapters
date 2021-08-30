@@ -69,7 +69,17 @@
     </inputs>
     <outputs>
         
-        <data name="output_structure_path" format="pdb,gro" label="${outname_output_structure_path}"/>
+        <conditional>
+            <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
+              <change_format>
+                
+                <when input="output_format" value="pdb" format="pdb" />
+                
+                <when input="output_format" value="gro" format="gro" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -98,7 +108,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

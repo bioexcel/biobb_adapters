@@ -64,15 +64,15 @@
                     
                       <option value="xmgrace" 
                       
-                      >xmgrace</option>
+                      >None</option>
                     
                       <option value="xmgr" 
                       
-                      >xmgr</option>
+                      >None</option>
                     
                       <option value="none" 
                       selected="true"
-                      >none</option>
+                      >None</option>
                     
                     </param>
                 
@@ -80,207 +80,207 @@
                     
                       <option value="Angle" 
                       
-                      >Angle</option>
+                      >None</option>
                     
                       <option value="Proper-Dih." 
                       
-                      >Proper-Dih.</option>
+                      >None</option>
                     
                       <option value="Improper-Dih." 
                       
-                      >Improper-Dih.</option>
+                      >None</option>
                     
                       <option value="LJ-14" 
                       
-                      >LJ-14</option>
+                      >None</option>
                     
                       <option value="Coulomb-14" 
                       
-                      >Coulomb-14</option>
+                      >None</option>
                     
                       <option value="LJ-(SR)" 
                       
-                      >LJ-(SR)</option>
+                      >None</option>
                     
                       <option value="Coulomb-(SR)" 
                       
-                      >Coulomb-(SR)</option>
+                      >None</option>
                     
                       <option value="Coul.-recip." 
                       
-                      >Coul.-recip.</option>
+                      >None</option>
                     
                       <option value="Position-Rest." 
                       
-                      >Position-Rest.</option>
+                      >None</option>
                     
                       <option value="Potential" 
                       
-                      >Potential</option>
+                      >None</option>
                     
                       <option value="Kinetic-En." 
                       
-                      >Kinetic-En.</option>
+                      >None</option>
                     
                       <option value="Total-Energy" 
                       
-                      >Total-Energy</option>
+                      >None</option>
                     
                       <option value="Temperature" 
                       
-                      >Temperature</option>
+                      >None</option>
                     
                       <option value="Pressure" 
                       
-                      >Pressure</option>
+                      >None</option>
                     
                       <option value="Constr.-rmsd" 
                       
-                      >Constr.-rmsd</option>
+                      >None</option>
                     
                       <option value="Box-X" 
                       
-                      >Box-X</option>
+                      >None</option>
                     
                       <option value="Box-Y" 
                       
-                      >Box-Y</option>
+                      >None</option>
                     
                       <option value="Box-Z" 
                       
-                      >Box-Z</option>
+                      >None</option>
                     
                       <option value="Volume" 
                       
-                      >Volume</option>
+                      >None</option>
                     
                       <option value="Density" 
                       
-                      >Density</option>
+                      >None</option>
                     
                       <option value="pV" 
                       
-                      >pV</option>
+                      >None</option>
                     
                       <option value="Enthalpy" 
                       
-                      >Enthalpy</option>
+                      >None</option>
                     
                       <option value="Vir-XX" 
                       
-                      >Vir-XX</option>
+                      >None</option>
                     
                       <option value="Vir-XY" 
                       
-                      >Vir-XY</option>
+                      >None</option>
                     
                       <option value="Vir-XZ" 
                       
-                      >Vir-XZ</option>
+                      >None</option>
                     
                       <option value="Vir-YX" 
                       
-                      >Vir-YX</option>
+                      >None</option>
                     
                       <option value="Vir-YY" 
                       
-                      >Vir-YY</option>
+                      >None</option>
                     
                       <option value="Vir-YZ" 
                       
-                      >Vir-YZ</option>
+                      >None</option>
                     
                       <option value="Vir-ZX" 
                       
-                      >Vir-ZX</option>
+                      >None</option>
                     
                       <option value="Vir-ZY" 
                       
-                      >Vir-ZY</option>
+                      >None</option>
                     
                       <option value="Vir-ZZ" 
                       
-                      >Vir-ZZ</option>
+                      >None</option>
                     
                       <option value="Pres-XX" 
                       
-                      >Pres-XX</option>
+                      >None</option>
                     
                       <option value="Pres-XY" 
                       
-                      >Pres-XY</option>
+                      >None</option>
                     
                       <option value="Pres-XZ" 
                       
-                      >Pres-XZ</option>
+                      >None</option>
                     
                       <option value="Pres-YX" 
                       
-                      >Pres-YX</option>
+                      >None</option>
                     
                       <option value="Pres-YY" 
                       
-                      >Pres-YY</option>
+                      >None</option>
                     
                       <option value="Pres-YZ" 
                       
-                      >Pres-YZ</option>
+                      >None</option>
                     
                       <option value="Pres-ZX" 
                       
-                      >Pres-ZX</option>
+                      >None</option>
                     
                       <option value="Pres-ZY" 
                       
-                      >Pres-ZY</option>
+                      >None</option>
                     
                       <option value="Pres-ZZ" 
                       
-                      >Pres-ZZ</option>
+                      >None</option>
                     
                       <option value="#Surf*SurfTen" 
                       
-                      >#Surf*SurfTen</option>
+                      >None</option>
                     
                       <option value="Box-Vel-XX" 
                       
-                      >Box-Vel-XX</option>
+                      >None</option>
                     
                       <option value="Box-Vel-YY" 
                       
-                      >Box-Vel-YY</option>
+                      >None</option>
                     
                       <option value="Box-Vel-ZZ" 
                       
-                      >Box-Vel-ZZ</option>
+                      >None</option>
                     
                       <option value="Mu-X" 
                       
-                      >Mu-X</option>
+                      >None</option>
                     
                       <option value="Mu-Y" 
                       
-                      >Mu-Y</option>
+                      >None</option>
                     
                       <option value="Mu-Z" 
                       
-                      >Mu-Z</option>
+                      >None</option>
                     
                       <option value="T-Protein" 
                       
-                      >T-Protein</option>
+                      >None</option>
                     
                       <option value="T-non-Protein" 
                       
-                      >T-non-Protein</option>
+                      >None</option>
                     
                       <option value="Lamb-Protein" 
                       
-                      >Lamb-Protein</option>
+                      >None</option>
                     
                       <option value="Lamb-non-Protein" 
                       
-                      >Lamb-non-Protein</option>
+                      >None</option>
                     
                     </param>
                 
@@ -292,6 +292,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_xvg_path" format="xvg" label="${outname_output_xvg_path}"/>
         
@@ -322,7 +323,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

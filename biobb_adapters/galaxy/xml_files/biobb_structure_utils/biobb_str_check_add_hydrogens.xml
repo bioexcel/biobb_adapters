@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__charges__dq__:${config.charges},__dq__mode__dq__:__dq__${config.mode}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+            --config "__oc____dq__charges__dq__:${config.charges},__dq__mode__dq__:__dq__${config.mode}__dq__,__dq__ph__dq__:${config.ph},__dq__list__dq__:__dq__${config.list}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -68,25 +68,26 @@
                     
                       <option value="auto" 
                       
-                      >auto</option>
+                      >None</option>
                     
                       <option value="list" 
                       
-                      >list</option>
+                      >None</option>
                     
                       <option value="ph" 
                       
-                      >ph</option>
-                    
-                      <option value="int" 
-                      
-                      >int</option>
-                    
-                      <option value="int_his" 
-                      
-                      >int_his</option>
+                      >None</option>
                     
                     </param>
+                
+                  <param name="ph" type="float" 
+                      value="7.4"
+                      
+                           label="ph" help="Add hydrogens appropriate for pH. Only in case mode ph selected." optional="false"/>
+                
+                  <param name="list" type="text" label="list" help="List of residues to modify separated by commas (i.e HISA234HID,HISB33HIE). Only in case mode list selected." optional="true"
+                      
+                    />
                 
                   <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
                       value="check_structure"
@@ -97,7 +98,17 @@
     </inputs>
     <outputs>
         
-        <data name="output_structure_path" format="pdb,pdbqt" label="${outname_output_structure_path}"/>
+        <conditional>
+            <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
+              <change_format>
+                
+                <when input="output_format" value="pdb" format="pdb" />
+                
+                <when input="output_format" value="pdbqt" format="pdbqt" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -126,7 +137,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

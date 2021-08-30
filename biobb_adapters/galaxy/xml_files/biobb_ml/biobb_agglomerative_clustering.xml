@@ -77,27 +77,27 @@
                     
                       <option value="euclidean" 
                       selected="true"
-                      >euclidean</option>
+                      >Computes the Euclidean distance between two 1-D arrays</option>
                     
                       <option value="l1" 
                       
-                      >l1</option>
+                      >None</option>
                     
                       <option value="l2" 
                       
-                      >l2</option>
+                      >None</option>
                     
                       <option value="manhattan" 
                       
-                      >manhattan</option>
+                      >Compute the Manhattan distance</option>
                     
                       <option value="cosine" 
                       
-                      >cosine</option>
+                      >Compute the Cosine distance between 1-D arrays</option>
                     
                       <option value="precomputed" 
                       
-                      >precomputed</option>
+                      >means that the flatten array containing the upper triangular of the distance matrix of the original data is used</option>
                     
                     </param>
                 
@@ -105,19 +105,19 @@
                     
                       <option value="ward" 
                       selected="true"
-                      >ward</option>
+                      >minimizes the variance of the clusters being merged</option>
                     
                       <option value="complete" 
                       
-                      >complete</option>
+                      >uses the maximum distances between all observations of the two sets</option>
                     
                       <option value="average" 
                       
-                      >average</option>
+                      >uses the average of the distances of each observation of the two sets</option>
                     
                       <option value="single" 
                       
-                      >single</option>
+                      >uses the minimum of the distances between all observations of the two sets</option>
                     
                     </param>
                 
@@ -132,7 +132,9 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
         
         <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
@@ -163,7 +165,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

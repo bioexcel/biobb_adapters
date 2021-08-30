@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($config.forcefield)}__dq____cb__,__dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__box_type__dq__:__dq__${config.box_type}__dq__,__dq__ions_type__dq__:__dq__${config.ions_type}__dq__,__dq__neutralise__dq__:${config.neutralise},__dq__iso__dq__:${config.iso},__dq__positive_ions_number__dq__:${config.positive_ions_number},__dq__negative_ions_number__dq__:${config.negative_ions_number},__dq__positive_ions_type__dq__:__dq__${config.positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${config.negative_ions_type}__dq__,__dq__distance_to_molecule__dq__:${config.distance_to_molecule}__cc__"
+            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($config.forcefield)}__dq____cb__,__dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__box_type__dq__:__dq__${config.box_type}__dq__,__dq__ions_type__dq__:__dq__${config.ions_type}__dq__,__dq__neutralise__dq__:${config.neutralise},__dq__iso__dq__:${config.iso},__dq__positive_ions_number__dq__:${config.positive_ions_number},__dq__negative_ions_number__dq__:${config.negative_ions_number},__dq__positive_ions_type__dq__:__dq__${config.positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${config.negative_ions_type}__dq__,__dq__distance_to_molecule__dq__:${config.distance_to_molecule},__dq__closeness__dq__:${config.closeness}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -116,27 +116,27 @@
                     
                       <option value="protein.ff14SB" 
                       
-                      >protein.ff14SB</option>
+                      >None</option>
                     
                       <option value="protein.ff19SB" 
                       
-                      >protein.ff19SB</option>
+                      >None</option>
                     
                       <option value="DNA.bsc1" 
                       
-                      >DNA.bsc1</option>
+                      >None</option>
                     
                       <option value="DNA.OL15" 
                       
-                      >DNA.OL15</option>
+                      >None</option>
                     
                       <option value="RNA.OL3" 
                       
-                      >RNA.OL3</option>
+                      >None</option>
                     
                       <option value="gaff" 
                       
-                      >gaff</option>
+                      >None</option>
                     
                     </param>
                 
@@ -144,47 +144,47 @@
                     
                       <option value="POL3BOX" 
                       
-                      >POL3BOX</option>
+                      >None</option>
                     
                       <option value="QSPCFWBOX" 
                       
-                      >QSPCFWBOX</option>
+                      >None</option>
                     
                       <option value="SPCBOX" 
                       
-                      >SPCBOX</option>
+                      >None</option>
                     
                       <option value="SPCFWBOX" 
                       
-                      >SPCFWBOX</option>
+                      >None</option>
                     
                       <option value="TIP3PBOX" 
                       selected="true"
-                      >TIP3PBOX</option>
+                      >None</option>
                     
                       <option value="TIP3PFBOX" 
                       
-                      >TIP3PFBOX</option>
+                      >None</option>
                     
                       <option value="TIP4PBOX" 
                       
-                      >TIP4PBOX</option>
+                      >None</option>
                     
                       <option value="TIP4PEWBOX" 
                       
-                      >TIP4PEWBOX</option>
+                      >None</option>
                     
                       <option value="OPCBOX" 
                       
-                      >OPCBOX</option>
+                      >None</option>
                     
                       <option value="OPC3BOX" 
                       
-                      >OPC3BOX</option>
+                      >None</option>
                     
                       <option value="TIP5PBOX" 
                       
-                      >TIP5PBOX</option>
+                      >None</option>
                     
                     </param>
                 
@@ -192,11 +192,11 @@
                     
                       <option value="cubic" 
                       
-                      >cubic</option>
+                      >None</option>
                     
                       <option value="truncated_octahedron" 
                       selected="true"
-                      >truncated_octahedron</option>
+                      >None</option>
                     
                     </param>
                 
@@ -204,23 +204,23 @@
                     
                       <option value="ionsjc_tip3p" 
                       selected="true"
-                      >ionsjc_tip3p</option>
+                      >None</option>
                     
                       <option value="ionsjc_spce" 
                       
-                      >ionsjc_spce</option>
+                      >None</option>
                     
                       <option value="ionsff99_tip3p" 
                       
-                      >ionsff99_tip3p</option>
+                      >None</option>
                     
                       <option value="ions_charmm22" 
                       
-                      >ions_charmm22</option>
+                      >None</option>
                     
                       <option value="ionsjc_tip4pew" 
                       
-                      >ionsjc_tip4pew</option>
+                      >None</option>
                     
                       <option value="None" 
                       
@@ -250,11 +250,11 @@
                     
                       <option value="Na+" 
                       selected="true"
-                      >Na+</option>
+                      >None</option>
                     
                       <option value="K+" 
                       
-                      >K+</option>
+                      >None</option>
                     
                     </param>
                 
@@ -262,25 +262,55 @@
                     
                       <option value="Cl-" 
                       selected="true"
-                      >Cl-</option>
+                      >None</option>
                     
                     </param>
                 
                   <param name="distance_to_molecule" type="float" 
                       value="8.0"
                       
-                           label="distance_to_molecule" help="Size for the MD system box, defined such as the minimum distance between any atom originally present in solute and the edge of the periodic box is given by this distance parameter." optional="false"/>
+                           label="distance_to_molecule" help="Size for the MD system box -in Angstroms-, defined such as the minimum distance between any atom originally present in solute and the edge of the periodic box is given by this distance parameter." optional="false"/>
+                
+                  <param name="closeness" type="float" 
+                      value="1.0"
+                      
+                           label="closeness" help="How close, in Å, solvent ATOMs may come to solute ATOMs." optional="false"/>
                 
             </when>
         </conditional>
     </inputs>
     <outputs>
         
+        
         <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
-        <data name="output_top_path" format="top,parmtop,prmtop" label="${outname_output_top_path}"/>
+        <conditional>
+            <data name="output_top_path" format="text" label="${outname_output_top_path}">
+              <change_format>
+                
+                <when input="output_format" value="top" format="top" />
+                
+                <when input="output_format" value="parmtop" format="parmtop" />
+                
+                <when input="output_format" value="prmtop" format="prmtop" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
-        <data name="output_crd_path" format="crd,mdcrd,inpcrd" label="${outname_output_crd_path}"/>
+        <conditional>
+            <data name="output_crd_path" format="text" label="${outname_output_crd_path}">
+              <change_format>
+                
+                <when input="output_format" value="crd" format="crd" />
+                
+                <when input="output_format" value="mdcrd" format="mdcrd" />
+                
+                <when input="output_format" value="inpcrd" format="inpcrd" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -309,7 +339,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

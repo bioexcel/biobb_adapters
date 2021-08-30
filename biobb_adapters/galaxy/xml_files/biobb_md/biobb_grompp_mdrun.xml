@@ -142,27 +142,27 @@
                     
                       <option value="minimization" 
                       selected="true"
-                      >minimization</option>
+                      >Energy minimization using steepest descent algorithm is used</option>
                     
                       <option value="nvt" 
                       
-                      >nvt</option>
+                      >substance N Volume V and Temperature T are conserved</option>
                     
                       <option value="npt" 
                       
-                      >npt</option>
+                      >substance N pressure P and Temperature T are conserved</option>
                     
                       <option value="free" 
                       
-                      >free</option>
+                      >No design constraints applied; Free MD</option>
                     
                       <option value="ions" 
                       
-                      >ions</option>
+                      >Synonym of minimization</option>
                     
                       <option value="index" 
                       
-                      >index</option>
+                      >Creates an empty mdp file</option>
                     
                     </param>
                 
@@ -213,17 +213,24 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_trr_path" format="trr" label="${outname_output_trr_path}"/>
+        
         
         <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
         
+        
         <data name="output_edr_path" format="edr" label="${outname_output_edr_path}"/>
+        
         
         <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
         
+        
         <data name="output_xtc_path" format="xtc" label="${outname_output_xtc_path}"/>
         
+        
         <data name="output_cpt_path" format="cpt" label="${outname_output_cpt_path}"/>
+        
         
         <data name="output_dhdl_path" format="xvg" label="${outname_output_dhdl_path}"/>
         
@@ -254,7 +261,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

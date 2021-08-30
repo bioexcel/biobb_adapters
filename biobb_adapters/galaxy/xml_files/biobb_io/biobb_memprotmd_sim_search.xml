@@ -58,123 +58,123 @@
                     
                       <option value="porin" 
                       
-                      >porin</option>
+                      >None</option>
                     
                       <option value="outer membrane protein" 
                       
-                      >outer membrane protein</option>
+                      >None</option>
                     
                       <option value="membrane protein" 
                       
-                      >membrane protein</option>
+                      >None</option>
                     
                       <option value="gpcr" 
                       
-                      >gpcr</option>
+                      >7-transmembrane domain receptors transducing extracellular signals into cells</option>
                     
                       <option value="ion channels" 
                       
-                      >ion channels</option>
+                      >None</option>
                     
                       <option value="rhodopsin" 
                       
-                      >rhodopsin</option>
+                      >The most famous GPCRs</option>
                     
                       <option value="abc" 
                       
-                      >abc</option>
+                      >None</option>
                     
                       <option value="mip" 
                       
-                      >mip</option>
+                      >Major Intrinsic Protein (MIP)/FNT superfamily: specific for the transport of water and small neutral solutes</option>
                     
                       <option value="ligand-gated" 
                       
-                      >ligand-gated</option>
+                      >Ligand-dependent signal conversion from chemical signals to electric signals</option>
                     
                       <option value="ammonia" 
                       
-                      >ammonia</option>
+                      >Regulating transepithelial ammonia secretion</option>
                     
                       <option value="mapeg" 
                       
-                      >mapeg</option>
+                      >Eicosanoid and Glutathione metabolism proteins</option>
                     
                       <option value="transmembrane" 
                       
-                      >transmembrane</option>
+                      >Heme biosynthesis</option>
                     
                       <option value="protein" 
                       
-                      >protein</option>
+                      >None</option>
                     
                       <option value="kinase" 
                       
-                      >kinase</option>
+                      >Tyrosine-protein kinases: regulate central nervous system; gene transcription and cell differentiation</option>
                     
                       <option value="glycoprotein" 
                       
-                      >glycoprotein</option>
+                      >Expression of TCR complex</option>
                     
                       <option value="immunoglobulin" 
                       
-                      >immunoglobulin</option>
+                      >Recognition; binding and adhesion process of cells</option>
                     
                       <option value="integrin" 
                       
-                      >integrin</option>
+                      >Bridges for cell-cell and cell-extracellular matrix interaction</option>
                     
                       <option value="bnip3" 
                       
-                      >bnip3</option>
+                      >BNip3 protein family: protect cell from apoptosis</option>
                     
                       <option value="bcl-2" 
                       
-                      >bcl-2</option>
+                      >Regulating cell-death; either induce apoptotic or inhibit apoptosis</option>
                     
                       <option value="atpase" 
                       
-                      >atpase</option>
+                      >ATPase regulators; P-P-bond hydrolysis-driven transporter</option>
                     
                       <option value="cytochrome" 
                       
-                      >cytochrome</option>
+                      >Terminal oxidase enzyme in electron transfer chain</option>
                     
                       <option value="nadp" 
                       
-                      >nadp</option>
+                      >Transmembrane proteins with NAD(P)-binding Rossmann-fold domains: monoamine oxidase; deaminates norepinephrine; epinephrine; serotonin and dopamine</option>
                     
                       <option value="a4" 
                       
-                      >a4</option>
+                      >Amyloid beta A4 protein; involved in alzheimer&#39;s diseases</option>
                     
                       <option value="lysosome" 
                       
-                      >lysosome</option>
+                      >Lysosome-associated membrane glycoprotein: specific to lysosomes; CD107</option>
                     
                       <option value="necrosis" 
                       
-                      >necrosis</option>
+                      >Tumor necrosis factor recepto: binding with TNF and NGF; interacting with a variety of signal molecules; highly associated with apoptosis</option>
                     
                       <option value="oxidoreductase" 
                       
-                      >oxidoreductase</option>
+                      >DHODH; biosynthesis of orotate</option>
                     
                       <option value="ceramidase" 
                       
-                      >ceramidase</option>
+                      >Neutral/alkaline ceramidase: converting sphingolipid to sphingosine</option>
                     
                       <option value="dehydrogenase" 
                       
-                      >dehydrogenase</option>
+                      >Aldehyde dehydrogenase:ALDH; Oxidation of aldehydes</option>
                     
                       <option value="mitochondrial" 
                       
-                      >mitochondrial</option>
+                      >None</option>
                     
                       <option value="plastid" 
                       
-                      >plastid</option>
+                      >None</option>
                     
                     </param>
                 
@@ -182,6 +182,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_simulations" format="json" label="${outname_output_simulations}"/>
         
@@ -212,7 +213,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

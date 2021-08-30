@@ -102,38 +102,38 @@
                 
                   <param name="mdp" type="text" label="mdp" help="MDP options specification. (Json)" value="{}" />
                 
-                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each creates a different mdp file. " multiple="">
+                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each one creates a different mdp file. " multiple="">
                     
                       <option value="minimization" 
                       selected="true"
-                      >minimization</option>
+                      >Energy minimization using steepest descent algorithm is used</option>
                     
                       <option value="nvt" 
                       
-                      >nvt</option>
+                      >substance N Volume V and Temperature T are conserved</option>
                     
                       <option value="npt" 
                       
-                      >npt</option>
+                      >substance N pressure P and Temperature T are conserved</option>
                     
                       <option value="free" 
                       
-                      >free</option>
+                      >No design constraints applied; Free MD</option>
                     
                       <option value="ions" 
                       
-                      >ions</option>
+                      >Synonym of minimization</option>
                     
                       <option value="index" 
                       
-                      >index</option>
+                      >Creates an empty mdp file</option>
                     
                     </param>
                 
                   <param name="maxwarn" type="integer" 
-                      value="10"
                       
-                           label="maxwarn" help="Maximum number of allowed warnings." optional="false"/>
+                      
+                           label="maxwarn" help="Maximum number of allowed warnings. If simulation_type is index default is 10." optional="true"/>
                 
                   <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
                       
@@ -147,6 +147,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_tpr_path" format="tpr" label="${outname_output_tpr_path}"/>
         
@@ -177,7 +178,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

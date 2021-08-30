@@ -84,79 +84,79 @@
                     
                       <option value="System" 
                       selected="true"
-                      >System</option>
+                      >all atoms in the system</option>
                     
                       <option value="Protein" 
                       
-                      >Protein</option>
+                      >all protein atoms</option>
                     
                       <option value="Protein-H" 
                       
-                      >Protein-H</option>
+                      >protein atoms excluding hydrogens</option>
                     
                       <option value="C-alpha" 
                       
-                      >C-alpha</option>
+                      >C-alpha atoms</option>
                     
                       <option value="Backbone" 
                       
-                      >Backbone</option>
+                      >protein backbone atoms: N; C-alpha and C</option>
                     
                       <option value="MainChain" 
                       
-                      >MainChain</option>
+                      >protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
                     
                       <option value="MainChain+Cb" 
                       
-                      >MainChain+Cb</option>
+                      >protein main chain atoms including C-beta</option>
                     
                       <option value="MainChain+H" 
                       
-                      >MainChain+H</option>
+                      >protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
                     
                       <option value="SideChain" 
                       
-                      >SideChain</option>
+                      >protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
                     
                       <option value="SideChain-H" 
                       
-                      >SideChain-H</option>
+                      >protein side chain atoms excluding all hydrogens</option>
                     
                       <option value="Prot-Masses" 
                       
-                      >Prot-Masses</option>
+                      >protein atoms excluding dummy masses</option>
                     
                       <option value="non-Protein" 
                       
-                      >non-Protein</option>
+                      >all non-protein atoms</option>
                     
                       <option value="Water" 
                       
-                      >Water</option>
+                      >water molecules</option>
                     
                       <option value="SOL" 
                       
-                      >SOL</option>
+                      >water molecules</option>
                     
                       <option value="non-Water" 
                       
-                      >non-Water</option>
+                      >anything not covered by the Water group</option>
                     
                       <option value="Ion" 
                       
-                      >Ion</option>
+                      >any name matching an Ion entry in residuetypes.dat</option>
                     
                       <option value="NA" 
                       
-                      >NA</option>
+                      >all NA atoms</option>
                     
                       <option value="CL" 
                       
-                      >CL</option>
+                      >all CL atoms</option>
                     
                       <option value="Water_and_ions" 
                       
-                      >Water_and_ions</option>
+                      >combination of the Water and Ions groups</option>
                     
                     </param>
                 
@@ -169,7 +169,27 @@
     </inputs>
     <outputs>
         
-        <data name="output_str_path" format="xtc,trr,cpt,gro,g96,pdb,tng" label="${outname_output_str_path}"/>
+        <conditional>
+            <data name="output_str_path" format="text" label="${outname_output_str_path}">
+              <change_format>
+                
+                <when input="output_format" value="xtc" format="xtc" />
+                
+                <when input="output_format" value="trr" format="trr" />
+                
+                <when input="output_format" value="cpt" format="cpt" />
+                
+                <when input="output_format" value="gro" format="gro" />
+                
+                <when input="output_format" value="g96" format="g96" />
+                
+                <when input="output_format" value="pdb" format="pdb" />
+                
+                <when input="output_format" value="tng" format="tng" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -198,7 +218,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

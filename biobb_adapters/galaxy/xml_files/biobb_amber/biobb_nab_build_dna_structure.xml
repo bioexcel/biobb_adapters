@@ -58,51 +58,27 @@
                     
                       <option value="arna" 
                       
-                      >arna</option>
-                    
-                      <option value="Arnott" 
-                      
-                      >Arnott</option>
+                      >Right Handed A-RNA - Arnott</option>
                     
                       <option value="aprna" 
                       
-                      >aprna</option>
-                    
-                      <option value="Arnott" 
-                      
-                      >Arnott</option>
+                      >Right Handed A’-RNA - Arnott</option>
                     
                       <option value="lbdna" 
                       selected="true"
-                      >lbdna</option>
-                    
-                      <option value="Langridge" 
-                      
-                      >Langridge</option>
+                      >Right Handed B-DNA - Langridge</option>
                     
                       <option value="abdna" 
                       
-                      >abdna</option>
-                    
-                      <option value="Arnott" 
-                      
-                      >Arnott</option>
+                      >Right Handed B-DNA - Arnott</option>
                     
                       <option value="sbdna" 
                       
-                      >sbdna</option>
-                    
-                      <option value="Sasisekharan" 
-                      
-                      >Sasisekharan</option>
+                      >Left Handed B-DNA - Sasisekharan</option>
                     
                       <option value="adna" 
                       
-                      >adna</option>
-                    
-                      <option value="Arnott" 
-                      
-                      >Arnott</option>
+                      >Right Handed A-DNA - Arnott</option>
                     
                     </param>
                 
@@ -118,6 +94,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
@@ -148,7 +125,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

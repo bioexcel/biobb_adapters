@@ -99,35 +99,35 @@
                     
                       <option value="c-alpha" 
                       
-                      >c-alpha</option>
+                      >All c-alpha atoms; protein only</option>
                     
                       <option value="backbone" 
                       
-                      >backbone</option>
+                      >Backbone atoms</option>
                     
                       <option value="all-atoms" 
                       selected="true"
-                      >all-atoms</option>
+                      >All system atoms</option>
                     
                       <option value="heavy-atoms" 
                       
-                      >heavy-atoms</option>
+                      >System heavy atoms; not hydrogen</option>
                     
                       <option value="side-chain" 
                       
-                      >side-chain</option>
+                      >All not backbone atoms</option>
                     
                       <option value="solute" 
                       
-                      >solute</option>
+                      >All system atoms except solvent atoms</option>
                     
                       <option value="ions" 
                       
-                      >ions</option>
+                      >All ion molecules</option>
                     
                       <option value="solvent" 
                       
-                      >solvent</option>
+                      >All solvent atoms</option>
                     
                     </param>
                 
@@ -135,15 +135,15 @@
                     
                       <option value="first" 
                       selected="true"
-                      >first</option>
+                      >Use the first trajectory frame as reference</option>
                     
                       <option value="average" 
                       
-                      >average</option>
+                      >Use the average of all trajectory frames as reference</option>
                     
                       <option value="experimental" 
                       
-                      >experimental</option>
+                      >Use the experimental structure as reference</option>
                     
                     </param>
                 
@@ -156,7 +156,21 @@
     </inputs>
     <outputs>
         
-        <data name="output_cpptraj_path" format="dat,agr,xmgr,gnu" label="${outname_output_cpptraj_path}"/>
+        <conditional>
+            <data name="output_cpptraj_path" format="text" label="${outname_output_cpptraj_path}">
+              <change_format>
+                
+                <when input="output_format" value="dat" format="dat" />
+                
+                <when input="output_format" value="agr" format="agr" />
+                
+                <when input="output_format" value="xmgr" format="xmgr" />
+                
+                <when input="output_format" value="gnu" format="gnu" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -185,7 +199,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

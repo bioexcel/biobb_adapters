@@ -64,31 +64,31 @@
                     
                       <option value="random" 
                       
-                      >random</option>
+                      >RandomUnderSampler: Under-sample the majority classes by randomly picking samples with or without replacement</option>
                     
                       <option value="nearmiss" 
                       
-                      >nearmiss</option>
+                      >NearMiss: Class to perform under-sampling based on NearMiss methods</option>
                     
                       <option value="cnn" 
                       
-                      >cnn</option>
+                      >CondensedNearestNeighbour: Class to perform under-sampling based on the condensed nearest neighbour method</option>
                     
                       <option value="tomeklinks" 
                       
-                      >tomeklinks</option>
+                      >TomekLinks: Class to perform under-sampling by removing Tomek&#39;s links</option>
                     
                       <option value="enn" 
                       
-                      >enn</option>
+                      >EditedNearestNeighbours: Class to perform under-sampling based on the edited nearest neighbour method</option>
                     
                       <option value="ncr" 
                       
-                      >ncr</option>
+                      >NeighbourhoodCleaningRule: Class performing under-sampling based on the neighbourhood cleaning rule</option>
                     
                       <option value="cluster" 
                       
-                      >cluster</option>
+                      >ClusterCentroids: Method that under samples the majority class by replacing a cluster of majority samples by the cluster centroid of a KMeans algorithm</option>
                     
                     </param>
                 
@@ -96,11 +96,11 @@
                     
                       <option value="regression" 
                       
-                      >regression</option>
+                      >the oversampling will be applied on a continuous dataset</option>
                     
                       <option value="classification" 
                       
-                      >classification</option>
+                      >the oversampling will be applied on a classified dataset</option>
                     
                     </param>
                 
@@ -135,15 +135,15 @@
                     
                       <option value="1" 
                       selected="true"
-                      >1</option>
+                      >selects samples of the majority class that their average distances to three closest instances of the minority class are the smallest</option>
                     
                       <option value="2" 
                       
-                      >2</option>
+                      >uses three farthest samples of the minority class</option>
                     
                       <option value="3" 
                       
-                      >3</option>
+                      >selects a given number of the closest samples of the majority class for each sample of the minority class</option>
                     
                     </param>
                 
@@ -171,6 +171,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_dataset_path" format="csv" label="${outname_output_dataset_path}"/>
         
@@ -201,7 +202,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

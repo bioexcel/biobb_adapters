@@ -62,19 +62,19 @@
                     
                       <option value="50" 
                       
-                      >50</option>
+                      >structures having less than 50% sequence identity to each other</option>
                     
                       <option value="70" 
                       
-                      >70</option>
+                      >structures having less than 70% sequence identity to each other</option>
                     
                       <option value="90" 
                       selected="true"
-                      >90</option>
+                      >structures having less than 90% sequence identity to each other</option>
                     
                       <option value="95" 
                       
-                      >95</option>
+                      >structures having less than 95% sequence identity to each other</option>
                     
                     </param>
                 
@@ -82,15 +82,15 @@
                     
                       <option value="pdbe" 
                       selected="true"
-                      >pdbe</option>
+                      >PDB in Europe REST API</option>
                     
                       <option value="pdb" 
                       
-                      >pdb</option>
+                      >RCSB PDB REST API</option>
                     
                       <option value="mmb" 
                       
-                      >mmb</option>
+                      >MMB PDB mirror API</option>
                     
                     </param>
                 
@@ -98,6 +98,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_pdb_zip_path" format="zip" label="${outname_output_pdb_zip_path}"/>
         
@@ -128,7 +129,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

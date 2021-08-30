@@ -64,47 +64,47 @@
                     
                       <option value="VOLUME" 
                       
-                      >VOLUME</option>
+                      >None</option>
                     
                       <option value="TSOLVENT" 
                       
-                      >TSOLVENT</option>
+                      >None</option>
                     
                       <option value="TSOLUTE" 
                       
-                      >TSOLUTE</option>
+                      >None</option>
                     
                       <option value="TEMP" 
                       
-                      >TEMP</option>
+                      >None</option>
                     
                       <option value="PRES" 
                       
-                      >PRES</option>
+                      >None</option>
                     
                       <option value="ETOT" 
                       
-                      >ETOT</option>
+                      >None</option>
                     
                       <option value="ESCF" 
                       
-                      >ESCF</option>
+                      >None</option>
                     
                       <option value="EPTOT" 
                       
-                      >EPTOT</option>
+                      >None</option>
                     
                       <option value="EKTOT" 
                       
-                      >EKTOT</option>
+                      >None</option>
                     
                       <option value="EKCMT" 
                       
-                      >EKCMT</option>
+                      >None</option>
                     
                       <option value="DENSITY" 
                       
-                      >DENSITY</option>
+                      >None</option>
                     
                     </param>
                 
@@ -113,7 +113,19 @@
     </inputs>
     <outputs>
         
-        <data name="output_dat_path" format="dat,txt,csv" label="${outname_output_dat_path}"/>
+        <conditional>
+            <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
+              <change_format>
+                
+                <when input="output_format" value="dat" format="dat" />
+                
+                <when input="output_format" value="txt" format="txt" />
+                
+                <when input="output_format" value="csv" format="csv" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -142,7 +154,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

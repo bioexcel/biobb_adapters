@@ -69,11 +69,11 @@
                     
                       <option value="cg" 
                       selected="true"
-                      >cg</option>
+                      >conjugate gradients algorithm</option>
                     
                       <option value="sd" 
                       
-                      >sd</option>
+                      >steepest descent algorithm</option>
                     
                     </param>
                 
@@ -81,23 +81,23 @@
                     
                       <option value="GAFF" 
                       
-                      >GAFF</option>
+                      >General Amber Force Field</option>
                     
                       <option value="Ghemical" 
                       
-                      >Ghemical</option>
+                      >Ghemical force field</option>
                     
                       <option value="MMFF94" 
                       
-                      >MMFF94</option>
+                      >MMFF94 force field</option>
                     
                       <option value="MMFF94s" 
                       
-                      >MMFF94s</option>
+                      >MMFF94s force field</option>
                     
                       <option value="UFF" 
                       
-                      >UFF</option>
+                      >Universal Force Field</option>
                     
                     </param>
                 
@@ -138,7 +138,17 @@
     </inputs>
     <outputs>
         
-        <data name="output_path" format="pdb,mol2" label="${outname_output_path}"/>
+        <conditional>
+            <data name="output_path" format="text" label="${outname_output_path}">
+              <change_format>
+                
+                <when input="output_format" value="pdb" format="pdb" />
+                
+                <when input="output_format" value="mol2" format="mol2" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -167,7 +177,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

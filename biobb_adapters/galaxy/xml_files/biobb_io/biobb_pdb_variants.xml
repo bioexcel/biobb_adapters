@@ -59,6 +59,7 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_mutations_list_txt" format="txt" label="${outname_output_mutations_list_txt}"/>
         
     </outputs>
@@ -88,7 +89,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

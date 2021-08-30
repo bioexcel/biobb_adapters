@@ -85,15 +85,15 @@
                     
                       <option value="druggability_score" 
                       selected="true"
-                      >druggability_score</option>
+                      >this score intends to assess the likeliness of the pocket to bind a small drug like molecule</option>
                     
                       <option value="score" 
                       
-                      >score</option>
+                      >fpocket score as defined in the fpocket paper</option>
                     
                       <option value="volume" 
                       
-                      >volume</option>
+                      >volume of the pocket</option>
                     
                     </param>
                 
@@ -106,7 +106,9 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_pockets_zip" format="zip" label="${outname_output_pockets_zip}"/>
+        
         
         <data name="output_summary" format="json" label="${outname_output_summary}"/>
         
@@ -137,7 +139,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

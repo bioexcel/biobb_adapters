@@ -64,63 +64,63 @@
                     
                       <option value="ANGLE" 
                       
-                      >ANGLE</option>
+                      >None</option>
                     
                       <option value="BOND" 
                       
-                      >BOND</option>
+                      >None</option>
                     
                       <option value="DIHEDRAL" 
                       
-                      >DIHEDRAL</option>
+                      >None</option>
                     
                       <option value="EEL" 
                       
-                      >EEL</option>
+                      >None</option>
                     
                       <option value="EEL14" 
                       
-                      >EEL14</option>
+                      >None</option>
                     
                       <option value="ENERGY" 
                       
-                      >ENERGY</option>
+                      >None</option>
                     
                       <option value="GMAX" 
                       
-                      >GMAX</option>
+                      >None</option>
                     
                       <option value="HBOND" 
                       
-                      >HBOND</option>
+                      >None</option>
                     
                       <option value="NAME" 
                       
-                      >NAME</option>
+                      >None</option>
                     
                       <option value="NSTEP" 
                       
-                      >NSTEP</option>
+                      >None</option>
                     
                       <option value="NUMBER" 
                       
-                      >NUMBER</option>
+                      >None</option>
                     
                       <option value="RESTRAINT" 
                       
-                      >RESTRAINT</option>
+                      >None</option>
                     
                       <option value="RMS" 
                       
-                      >RMS</option>
+                      >None</option>
                     
                       <option value="VDW14" 
                       
-                      >VDW14</option>
+                      >None</option>
                     
                       <option value="VDWAALS" 
                       
-                      >VDWAALS</option>
+                      >None</option>
                     
                     </param>
                 
@@ -129,7 +129,19 @@
     </inputs>
     <outputs>
         
-        <data name="output_dat_path" format="dat,txt,csv" label="${outname_output_dat_path}"/>
+        <conditional>
+            <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
+              <change_format>
+                
+                <when input="output_format" value="dat" format="dat" />
+                
+                <when input="output_format" value="txt" format="txt" />
+                
+                <when input="output_format" value="csv" format="csv" />
+                
+              </change_format>
+           </data>
+        </conditional>
         
     </outputs>
     <tests>
@@ -158,7 +170,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

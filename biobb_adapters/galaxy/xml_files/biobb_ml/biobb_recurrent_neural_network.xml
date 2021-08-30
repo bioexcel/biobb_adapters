@@ -95,35 +95,35 @@
                     
                       <option value="Adadelta" 
                       
-                      >Adadelta</option>
+                      >Adadelta optimization is a stochastic gradient descent method that is based on adaptive learning rate per dimension to address two drawbacks: the continual decay of learning rates throughout training and the need for a manually selected global learning rate</option>
                     
                       <option value="Adagrad" 
                       
-                      >Adagrad</option>
+                      >Adagrad is an optimizer with parameter-specific learning rates; which are adapted relative to how frequently a parameter gets updated during training. The more updates a parameter receives; the smaller the updates</option>
                     
                       <option value="Adam" 
                       selected="true"
-                      >Adam</option>
+                      >Adam optimization is a stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments</option>
                     
                       <option value="Adamax" 
                       
-                      >Adamax</option>
+                      >It is a variant of Adam based on the infinity norm. Default parameters follow those provided in the paper. Adamax is sometimes superior to adam; specially in models with embeddings</option>
                     
                       <option value="Ftrl" 
                       
-                      >Ftrl</option>
+                      >Optimizer that implements the FTRL algorithm</option>
                     
                       <option value="Nadam" 
                       
-                      >Nadam</option>
+                      >Much like Adam is essentially RMSprop with momentum; Nadam is Adam with Nesterov momentum</option>
                     
                       <option value="RMSprop" 
                       
-                      >RMSprop</option>
+                      >Optimizer that implements the RMSprop algorithm</option>
                     
                       <option value="SGD" 
                       
-                      >SGD</option>
+                      >Gradient descent -with momentum- optimizer</option>
                     
                     </param>
                 
@@ -151,9 +151,12 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_model_path" format="h5" label="${outname_output_model_path}"/>
         
+        
         <data name="output_test_table_path" format="csv" label="${outname_output_test_table_path}"/>
+        
         
         <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
@@ -184,7 +187,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

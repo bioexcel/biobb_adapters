@@ -82,95 +82,95 @@
                     
                       <option value="cityblock" 
                       
-                      >cityblock</option>
+                      >Compute the City Block -Manhattan- distance</option>
                     
                       <option value="cosine" 
                       
-                      >cosine</option>
+                      >Compute the Cosine distance between 1-D arrays</option>
                     
                       <option value="euclidean" 
                       selected="true"
-                      >euclidean</option>
+                      >Computes the Euclidean distance between two 1-D arrays</option>
                     
                       <option value="l1" 
                       
-                      >l1</option>
+                      >None</option>
                     
                       <option value="l2" 
                       
-                      >l2</option>
+                      >None</option>
                     
                       <option value="manhattan" 
                       
-                      >manhattan</option>
+                      >Compute the Manhattan distance</option>
                     
                       <option value="braycurtis" 
                       
-                      >braycurtis</option>
+                      >Compute the Bray-Curtis distance between two 1-D arrays</option>
                     
                       <option value="canberra" 
                       
-                      >canberra</option>
+                      >Compute the Canberra distance between two 1-D arrays</option>
                     
                       <option value="chebyshev" 
                       
-                      >chebyshev</option>
+                      >Compute the Chebyshev distance</option>
                     
                       <option value="correlation" 
                       
-                      >correlation</option>
+                      >Compute the correlation distance between two 1-D arrays</option>
                     
                       <option value="dice" 
                       
-                      >dice</option>
+                      >Compute the Dice dissimilarity between two boolean 1-D arrays</option>
                     
                       <option value="hamming" 
                       
-                      >hamming</option>
+                      >Compute the Hamming distance between two 1-D arrays</option>
                     
                       <option value="jaccard" 
                       
-                      >jaccard</option>
+                      >Compute the Jaccard-Needham dissimilarity between two boolean 1-D arrays</option>
                     
                       <option value="kulsinski" 
                       
-                      >kulsinski</option>
+                      >Compute the Kulsinski dissimilarity between two boolean 1-D arrays</option>
                     
                       <option value="mahalanobis" 
                       
-                      >mahalanobis</option>
+                      >Compute the Mahalanobis distance between two 1-D arrays</option>
                     
                       <option value="minkowski" 
                       
-                      >minkowski</option>
+                      >Compute the Minkowski distance between two 1-D arrays</option>
                     
                       <option value="rogerstanimoto" 
                       
-                      >rogerstanimoto</option>
+                      >Compute the Rogers-Tanimoto dissimilarity between two boolean 1-D arrays</option>
                     
                       <option value="russellrao" 
                       
-                      >russellrao</option>
+                      >Compute the Russell-Rao dissimilarity between two boolean 1-D arrays</option>
                     
                       <option value="seuclidean" 
                       
-                      >seuclidean</option>
+                      >Return the standardized Euclidean distance between two 1-D arrays</option>
                     
                       <option value="sokalmichener" 
                       
-                      >sokalmichener</option>
+                      >Compute the Sokal-Michener dissimilarity between two boolean 1-D arrays</option>
                     
                       <option value="sokalsneath" 
                       
-                      >sokalsneath</option>
+                      >Compute the Sokal-Sneath dissimilarity between two boolean 1-D arrays</option>
                     
                       <option value="sqeuclidean" 
                       
-                      >sqeuclidean</option>
+                      >Compute the squared Euclidean distance between two 1-D arrays</option>
                     
                       <option value="yule" 
                       
-                      >yule</option>
+                      >Compute the Yule dissimilarity between two boolean 1-D arrays</option>
                     
                     </param>
                 
@@ -185,7 +185,9 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
         
         <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
@@ -216,7 +218,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

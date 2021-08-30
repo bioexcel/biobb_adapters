@@ -88,163 +88,163 @@
                     
                       <option value="benner6" 
                       
-                      >benner6</option>
+                      >None</option>
                     
                       <option value="benner22" 
                       
-                      >benner22</option>
+                      >None</option>
                     
                       <option value="benner74" 
                       
-                      >benner74</option>
+                      >None</option>
                     
                       <option value="blosum100" 
                       
-                      >blosum100</option>
+                      >None</option>
                     
                       <option value="blosum30" 
                       
-                      >blosum30</option>
+                      >None</option>
                     
                       <option value="blosum35" 
                       
-                      >blosum35</option>
+                      >None</option>
                     
                       <option value="blosum40" 
                       
-                      >blosum40</option>
+                      >None</option>
                     
                       <option value="blosum45" 
                       
-                      >blosum45</option>
+                      >None</option>
                     
                       <option value="blosum50" 
                       
-                      >blosum50</option>
+                      >None</option>
                     
                       <option value="blosum55" 
                       
-                      >blosum55</option>
+                      >None</option>
                     
                       <option value="blosum60" 
                       
-                      >blosum60</option>
+                      >None</option>
                     
                       <option value="blosum62" 
                       selected="true"
-                      >blosum62</option>
+                      >None</option>
                     
                       <option value="blosum65" 
                       
-                      >blosum65</option>
+                      >None</option>
                     
                       <option value="blosum70" 
                       
-                      >blosum70</option>
+                      >None</option>
                     
                       <option value="blosum75" 
                       
-                      >blosum75</option>
+                      >None</option>
                     
                       <option value="blosum80" 
                       
-                      >blosum80</option>
+                      >None</option>
                     
                       <option value="blosum85" 
                       
-                      >blosum85</option>
+                      >None</option>
                     
                       <option value="blosum90" 
                       
-                      >blosum90</option>
+                      >None</option>
                     
                       <option value="blosum95" 
                       
-                      >blosum95</option>
+                      >None</option>
                     
                       <option value="feng" 
                       
-                      >feng</option>
+                      >None</option>
                     
                       <option value="fitch" 
                       
-                      >fitch</option>
+                      >None</option>
                     
                       <option value="genetic" 
                       
-                      >genetic</option>
+                      >None</option>
                     
                       <option value="gonnet" 
                       
-                      >gonnet</option>
+                      >None</option>
                     
                       <option value="grant" 
                       
-                      >grant</option>
+                      >None</option>
                     
                       <option value="ident" 
                       
-                      >ident</option>
+                      >None</option>
                     
                       <option value="johnson" 
                       
-                      >johnson</option>
+                      >None</option>
                     
                       <option value="levin" 
                       
-                      >levin</option>
+                      >None</option>
                     
                       <option value="mclach" 
                       
-                      >mclach</option>
+                      >None</option>
                     
                       <option value="miyata" 
                       
-                      >miyata</option>
+                      >None</option>
                     
                       <option value="nwsgappep" 
                       
-                      >nwsgappep</option>
+                      >None</option>
                     
                       <option value="pam120" 
                       
-                      >pam120</option>
+                      >None</option>
                     
                       <option value="pam180" 
                       
-                      >pam180</option>
+                      >None</option>
                     
                       <option value="pam250" 
                       
-                      >pam250</option>
+                      >None</option>
                     
                       <option value="pam30" 
                       
-                      >pam30</option>
+                      >None</option>
                     
                       <option value="pam300" 
                       
-                      >pam300</option>
+                      >None</option>
                     
                       <option value="pam60" 
                       
-                      >pam60</option>
+                      >None</option>
                     
                       <option value="pam90" 
                       
-                      >pam90</option>
+                      >None</option>
                     
                       <option value="rao" 
                       
-                      >rao</option>
+                      >None</option>
                     
                       <option value="risler" 
                       
-                      >risler</option>
+                      >None</option>
                     
                       <option value="structure" 
                       
-                      >structure</option>
+                      >None</option>
                     
                     </param>
                 
@@ -262,6 +262,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
@@ -292,7 +293,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

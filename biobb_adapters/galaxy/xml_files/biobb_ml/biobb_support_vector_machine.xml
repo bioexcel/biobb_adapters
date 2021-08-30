@@ -82,23 +82,23 @@
                     
                       <option value="linear" 
                       
-                      >linear</option>
+                      >It&#39;s used when the data is Linearly separable; that is; it can be separated using a single Line</option>
                     
                       <option value="poly" 
                       
-                      >poly</option>
+                      >Represents the similarity of vectors -training samples- in a feature space over polynomials of the original variables; allowing learning of non-linear models</option>
                     
                       <option value="rbf" 
                       selected="true"
-                      >rbf</option>
+                      >It&#39;s a function whose value depends on the distance from the origin or from some point</option>
                     
                       <option value="sigmoid" 
                       
-                      >sigmoid</option>
+                      >In Neural Networks field the bipolar sigmoid function is often used as an activation function for artificial neurons</option>
                     
                       <option value="precomputed" 
                       
-                      >precomputed</option>
+                      >Precomputed kernel</option>
                     
                     </param>
                 
@@ -130,9 +130,12 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_model_path" format="pkl" label="${outname_output_model_path}"/>
         
+        
         <data name="output_test_table_path" format="csv" label="${outname_output_test_table_path}"/>
+        
         
         <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
@@ -163,7 +166,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

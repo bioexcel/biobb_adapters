@@ -77,19 +77,19 @@
                     
                       <option value="nearest_neighbors" 
                       
-                      >nearest_neighbors</option>
+                      >construct the affinity matrix by computing a graph of nearest neighbors</option>
                     
                       <option value="rbf" 
                       selected="true"
-                      >rbf</option>
+                      >construct the affinity matrix using a radial basis function -RBF- kernel</option>
                     
                       <option value="precomputed" 
                       
-                      >precomputed</option>
+                      >interpret X as a precomputed affinity matrix</option>
                     
                       <option value="precomputed_nearest_neighbors" 
                       
-                      >precomputed_nearest_neighbors</option>
+                      >interpret X as a sparse graph of precomputed nearest neighbors and constructs the affinity matrix by selecting the n_neighbors nearest neighbors</option>
                     
                     </param>
                 
@@ -109,7 +109,9 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
         
         <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
@@ -140,7 +142,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

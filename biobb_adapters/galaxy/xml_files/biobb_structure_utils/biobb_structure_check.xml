@@ -64,47 +64,47 @@
                     
                       <option value="models" 
                       
-                      >models</option>
+                      >multiple molecules or coordinate sets in a single file</option>
                     
                       <option value="chains" 
                       
-                      >chains</option>
+                      >multiple chains in a single file</option>
                     
                       <option value="altloc" 
                       
-                      >altloc</option>
+                      >atom alternative conformation given an alternate location indicator and occupancy</option>
                     
                       <option value="metals" 
                       
-                      >metals</option>
+                      >metals present in the structure</option>
                     
                       <option value="ligands" 
                       
-                      >ligands</option>
+                      >heteroatoms present in the structure</option>
                     
                       <option value="chiral" 
                       
-                      >chiral</option>
+                      >to say that a structure is chiral is to say that its mirror image is not the same as it self</option>
                     
                       <option value="getss" 
                       
-                      >getss</option>
+                      >detect SS bonds or disulfides</option>
                     
                       <option value="cistransbck" 
                       
-                      >cistransbck</option>
+                      >detact cis/trans backbone</option>
                     
                       <option value="backbone" 
                       
-                      >backbone</option>
+                      >detect backbone breaks</option>
                     
                       <option value="amide" 
                       
-                      >amide</option>
+                      >detect too close amides</option>
                     
                       <option value="clashes" 
                       
-                      >clashes</option>
+                      >detect clashes</option>
                     
                     </param>
                 
@@ -116,6 +116,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_summary_path" format="json" label="${outname_output_summary_path}"/>
         
@@ -146,7 +147,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

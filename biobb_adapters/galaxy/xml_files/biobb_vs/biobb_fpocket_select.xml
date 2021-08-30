@@ -76,7 +76,9 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_pocket_pdb" format="pdb" label="${outname_output_pocket_pdb}"/>
+        
         
         <data name="output_pocket_pqr" format="pqr" label="${outname_output_pocket_pqr}"/>
         
@@ -107,7 +109,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

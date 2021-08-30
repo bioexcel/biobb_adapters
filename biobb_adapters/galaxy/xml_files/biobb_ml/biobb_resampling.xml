@@ -64,11 +64,11 @@
                     
                       <option value="smotetomek" 
                       
-                      >smotetomek</option>
+                      >SMOTETomek: Class to perform over-sampling using SMOTE and cleaning using Tomek links</option>
                     
                       <option value="smotenn" 
                       
-                      >smotenn</option>
+                      >SMOTEENN: Class to perform over-sampling using SMOTE and cleaning using ENN</option>
                     
                     </param>
                 
@@ -76,11 +76,11 @@
                     
                       <option value="regression" 
                       
-                      >regression</option>
+                      >the oversampling will be applied on a continuous dataset</option>
                     
                       <option value="classification" 
                       
-                      >classification</option>
+                      >the oversampling will be applied on a classified dataset</option>
                     
                     </param>
                 
@@ -128,6 +128,7 @@
     </inputs>
     <outputs>
         
+        
         <data name="output_dataset_path" format="csv" label="${outname_output_dataset_path}"/>
         
     </outputs>
@@ -157,7 +158,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

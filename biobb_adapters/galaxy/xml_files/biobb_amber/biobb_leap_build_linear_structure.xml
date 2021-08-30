@@ -58,27 +58,27 @@
                     
                       <option value="protein.ff14SB" 
                       
-                      >protein.ff14SB</option>
+                      >None</option>
                     
                       <option value="protein.ff19SB" 
                       
-                      >protein.ff19SB</option>
+                      >None</option>
                     
                       <option value="DNA.bsc1" 
                       
-                      >DNA.bsc1</option>
+                      >None</option>
                     
                       <option value="DNA.OL15" 
                       
-                      >DNA.OL15</option>
+                      >None</option>
                     
                       <option value="RNA.OL3" 
                       
-                      >RNA.OL3</option>
+                      >None</option>
                     
                       <option value="gaff" 
                       
-                      >gaff</option>
+                      >None</option>
                     
                     </param>
                 
@@ -90,6 +90,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
@@ -120,7 +121,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},

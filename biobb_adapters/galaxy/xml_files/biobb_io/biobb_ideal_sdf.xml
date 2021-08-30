@@ -58,11 +58,11 @@
                     
                       <option value="pdbe" 
                       selected="true"
-                      >pdbe</option>
+                      >PDB in Europe REST API</option>
                     
                       <option value="pdb" 
                       
-                      >pdb</option>
+                      >RCSB PDB REST API</option>
                     
                     </param>
                 
@@ -70,6 +70,7 @@
         </conditional>
     </inputs>
     <outputs>
+        
         
         <data name="output_sdf_path" format="sdf" label="${outname_output_sdf_path}"/>
         
@@ -100,7 +101,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         <citation type="bibtex">
             @misc{githubbiobb,
             author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-            year = {2019-20},
+            year = {2019-21},
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
