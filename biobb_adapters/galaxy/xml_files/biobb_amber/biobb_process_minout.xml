@@ -64,63 +64,63 @@
                     
                       <option value="ANGLE" 
                       
-                      >None</option>
+                      >ANGLE - None</option>
                     
                       <option value="BOND" 
                       
-                      >None</option>
+                      >BOND - None</option>
                     
                       <option value="DIHEDRAL" 
                       
-                      >None</option>
+                      >DIHEDRAL - None</option>
                     
                       <option value="EEL" 
                       
-                      >None</option>
+                      >EEL - None</option>
                     
                       <option value="EEL14" 
                       
-                      >None</option>
+                      >EEL14 - None</option>
                     
                       <option value="ENERGY" 
                       
-                      >None</option>
+                      >ENERGY - None</option>
                     
                       <option value="GMAX" 
                       
-                      >None</option>
+                      >GMAX - None</option>
                     
                       <option value="HBOND" 
                       
-                      >None</option>
+                      >HBOND - None</option>
                     
                       <option value="NAME" 
                       
-                      >None</option>
+                      >NAME - None</option>
                     
                       <option value="NSTEP" 
                       
-                      >None</option>
+                      >NSTEP - None</option>
                     
                       <option value="NUMBER" 
                       
-                      >None</option>
+                      >NUMBER - None</option>
                     
                       <option value="RESTRAINT" 
                       
-                      >None</option>
+                      >RESTRAINT - None</option>
                     
                       <option value="RMS" 
                       
-                      >None</option>
+                      >RMS - None</option>
                     
                       <option value="VDW14" 
                       
-                      >None</option>
+                      >VDW14 - None</option>
                     
                       <option value="VDWAALS" 
                       
-                      >None</option>
+                      >VDWAALS - None</option>
                     
                     </param>
                 

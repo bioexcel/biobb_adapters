@@ -140,23 +140,23 @@
                     
                       <option value="minimization" 
                       selected="true"
-                      >Runs an energy minimization</option>
+                      >minimization - Runs an energy minimization</option>
                     
                       <option value="min_vacuo" 
                       
-                      >Runs an energy minimization in vacuo</option>
+                      >min_vacuo - Runs an energy minimization in vacuo</option>
                     
                       <option value="NVT" 
                       
-                      >Runs an NVT equilibration</option>
+                      >NVT - Runs an NVT equilibration</option>
                     
                       <option value="npt" 
                       
-                      >Runs an NPT equilibration</option>
+                      >npt - Runs an NPT equilibration</option>
                     
                       <option value="free" 
                       
-                      >Runs a MD simulation</option>
+                      >free - Runs a MD simulation</option>
                     
                     </param>
                 

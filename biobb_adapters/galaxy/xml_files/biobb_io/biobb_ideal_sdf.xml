@@ -58,11 +58,11 @@
                     
                       <option value="pdbe" 
                       selected="true"
-                      >PDB in Europe REST API</option>
+                      >pdbe - PDB in Europe REST API</option>
                     
                       <option value="pdb" 
                       
-                      >RCSB PDB REST API</option>
+                      >pdb - RCSB PDB REST API</option>
                     
                     </param>
                 

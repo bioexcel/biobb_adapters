@@ -58,11 +58,11 @@
                     
                       <option value="pdbe" 
                       selected="true"
-                      >PDB in Europe REST API</option>
+                      >pdbe - PDB in Europe REST API</option>
                     
                       <option value="mmb" 
                       
-                      >MMB PDB mirror API</option>
+                      >mmb - MMB PDB mirror API</option>
                     
                     </param>
                 

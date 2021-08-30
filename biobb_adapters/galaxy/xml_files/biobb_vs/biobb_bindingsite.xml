@@ -88,163 +88,163 @@
                     
                       <option value="benner6" 
                       
-                      >None</option>
+                      >benner6 - None</option>
                     
                       <option value="benner22" 
                       
-                      >None</option>
+                      >benner22 - None</option>
                     
                       <option value="benner74" 
                       
-                      >None</option>
+                      >benner74 - None</option>
                     
                       <option value="blosum100" 
                       
-                      >None</option>
+                      >blosum100 - None</option>
                     
                       <option value="blosum30" 
                       
-                      >None</option>
+                      >blosum30 - None</option>
                     
                       <option value="blosum35" 
                       
-                      >None</option>
+                      >blosum35 - None</option>
                     
                       <option value="blosum40" 
                       
-                      >None</option>
+                      >blosum40 - None</option>
                     
                       <option value="blosum45" 
                       
-                      >None</option>
+                      >blosum45 - None</option>
                     
                       <option value="blosum50" 
                       
-                      >None</option>
+                      >blosum50 - None</option>
                     
                       <option value="blosum55" 
                       
-                      >None</option>
+                      >blosum55 - None</option>
                     
                       <option value="blosum60" 
                       
-                      >None</option>
+                      >blosum60 - None</option>
                     
                       <option value="blosum62" 
                       selected="true"
-                      >None</option>
+                      >blosum62 - None</option>
                     
                       <option value="blosum65" 
                       
-                      >None</option>
+                      >blosum65 - None</option>
                     
                       <option value="blosum70" 
                       
-                      >None</option>
+                      >blosum70 - None</option>
                     
                       <option value="blosum75" 
                       
-                      >None</option>
+                      >blosum75 - None</option>
                     
                       <option value="blosum80" 
                       
-                      >None</option>
+                      >blosum80 - None</option>
                     
                       <option value="blosum85" 
                       
-                      >None</option>
+                      >blosum85 - None</option>
                     
                       <option value="blosum90" 
                       
-                      >None</option>
+                      >blosum90 - None</option>
                     
                       <option value="blosum95" 
                       
-                      >None</option>
+                      >blosum95 - None</option>
                     
                       <option value="feng" 
                       
-                      >None</option>
+                      >feng - None</option>
                     
                       <option value="fitch" 
                       
-                      >None</option>
+                      >fitch - None</option>
                     
                       <option value="genetic" 
                       
-                      >None</option>
+                      >genetic - None</option>
                     
                       <option value="gonnet" 
                       
-                      >None</option>
+                      >gonnet - None</option>
                     
                       <option value="grant" 
                       
-                      >None</option>
+                      >grant - None</option>
                     
                       <option value="ident" 
                       
-                      >None</option>
+                      >ident - None</option>
                     
                       <option value="johnson" 
                       
-                      >None</option>
+                      >johnson - None</option>
                     
                       <option value="levin" 
                       
-                      >None</option>
+                      >levin - None</option>
                     
                       <option value="mclach" 
                       
-                      >None</option>
+                      >mclach - None</option>
                     
                       <option value="miyata" 
                       
-                      >None</option>
+                      >miyata - None</option>
                     
                       <option value="nwsgappep" 
                       
-                      >None</option>
+                      >nwsgappep - None</option>
                     
                       <option value="pam120" 
                       
-                      >None</option>
+                      >pam120 - None</option>
                     
                       <option value="pam180" 
                       
-                      >None</option>
+                      >pam180 - None</option>
                     
                       <option value="pam250" 
                       
-                      >None</option>
+                      >pam250 - None</option>
                     
                       <option value="pam30" 
                       
-                      >None</option>
+                      >pam30 - None</option>
                     
                       <option value="pam300" 
                       
-                      >None</option>
+                      >pam300 - None</option>
                     
                       <option value="pam60" 
                       
-                      >None</option>
+                      >pam60 - None</option>
                     
                       <option value="pam90" 
                       
-                      >None</option>
+                      >pam90 - None</option>
                     
                       <option value="rao" 
                       
-                      >None</option>
+                      >rao - None</option>
                     
                       <option value="risler" 
                       
-                      >None</option>
+                      >risler - None</option>
                     
                       <option value="structure" 
                       
-                      >None</option>
+                      >structure - None</option>
                     
                     </param>
                 

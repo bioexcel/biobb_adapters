@@ -77,27 +77,27 @@
                     
                       <option value="euclidean" 
                       selected="true"
-                      >Computes the Euclidean distance between two 1-D arrays</option>
+                      >euclidean - Computes the Euclidean distance between two 1-D arrays</option>
                     
                       <option value="l1" 
                       
-                      >None</option>
+                      >l1 - None</option>
                     
                       <option value="l2" 
                       
-                      >None</option>
+                      >l2 - None</option>
                     
                       <option value="manhattan" 
                       
-                      >Compute the Manhattan distance</option>
+                      >manhattan - Compute the Manhattan distance</option>
                     
                       <option value="cosine" 
                       
-                      >Compute the Cosine distance between 1-D arrays</option>
+                      >cosine - Compute the Cosine distance between 1-D arrays</option>
                     
                       <option value="precomputed" 
                       
-                      >means that the flatten array containing the upper triangular of the distance matrix of the original data is used</option>
+                      >precomputed - means that the flatten array containing the upper triangular of the distance matrix of the original data is used</option>
                     
                     </param>
                 
@@ -105,19 +105,19 @@
                     
                       <option value="ward" 
                       selected="true"
-                      >minimizes the variance of the clusters being merged</option>
+                      >ward - minimizes the variance of the clusters being merged</option>
                     
                       <option value="complete" 
                       
-                      >uses the maximum distances between all observations of the two sets</option>
+                      >complete - uses the maximum distances between all observations of the two sets</option>
                     
                       <option value="average" 
                       
-                      >uses the average of the distances of each observation of the two sets</option>
+                      >average - uses the average of the distances of each observation of the two sets</option>
                     
                       <option value="single" 
                       
-                      >uses the minimum of the distances between all observations of the two sets</option>
+                      >single - uses the minimum of the distances between all observations of the two sets</option>
                     
                     </param>
                 

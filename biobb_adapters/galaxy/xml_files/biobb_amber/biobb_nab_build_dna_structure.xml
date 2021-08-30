@@ -58,27 +58,27 @@
                     
                       <option value="arna" 
                       
-                      >Right Handed A-RNA - Arnott</option>
+                      >arna - Right Handed A-RNA - Arnott</option>
                     
                       <option value="aprna" 
                       
-                      >Right Handed A’-RNA - Arnott</option>
+                      >aprna - Right Handed A’-RNA - Arnott</option>
                     
                       <option value="lbdna" 
                       selected="true"
-                      >Right Handed B-DNA - Langridge</option>
+                      >lbdna - Right Handed B-DNA - Langridge</option>
                     
                       <option value="abdna" 
                       
-                      >Right Handed B-DNA - Arnott</option>
+                      >abdna - Right Handed B-DNA - Arnott</option>
                     
                       <option value="sbdna" 
                       
-                      >Left Handed B-DNA - Sasisekharan</option>
+                      >sbdna - Left Handed B-DNA - Sasisekharan</option>
                     
                       <option value="adna" 
                       
-                      >Right Handed A-DNA - Arnott</option>
+                      >adna - Right Handed A-DNA - Arnott</option>
                     
                     </param>
                 

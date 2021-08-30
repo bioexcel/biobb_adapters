@@ -85,15 +85,15 @@
                     
                       <option value="druggability_score" 
                       selected="true"
-                      >this score intends to assess the likeliness of the pocket to bind a small drug like molecule</option>
+                      >druggability_score - this score intends to assess the likeliness of the pocket to bind a small drug like molecule</option>
                     
                       <option value="score" 
                       
-                      >fpocket score as defined in the fpocket paper</option>
+                      >score - fpocket score as defined in the fpocket paper</option>
                     
                       <option value="volume" 
                       
-                      >volume of the pocket</option>
+                      >volume - volume of the pocket</option>
                     
                     </param>
                 

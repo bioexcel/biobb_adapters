@@ -116,27 +116,27 @@
                     
                       <option value="protein.ff14SB" 
                       
-                      >None</option>
+                      >protein.ff14SB - None</option>
                     
                       <option value="protein.ff19SB" 
                       
-                      >None</option>
+                      >protein.ff19SB - None</option>
                     
                       <option value="DNA.bsc1" 
                       
-                      >None</option>
+                      >DNA.bsc1 - None</option>
                     
                       <option value="DNA.OL15" 
                       
-                      >None</option>
+                      >DNA.OL15 - None</option>
                     
                       <option value="RNA.OL3" 
                       
-                      >None</option>
+                      >RNA.OL3 - None</option>
                     
                       <option value="gaff" 
                       
-                      >None</option>
+                      >gaff - None</option>
                     
                     </param>
                 

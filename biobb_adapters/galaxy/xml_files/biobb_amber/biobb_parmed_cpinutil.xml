@@ -70,27 +70,27 @@
                     
                       <option value="AS4" 
                       
-                      >None</option>
+                      >AS4 - None</option>
                     
                       <option value="GL4" 
                       
-                      >None</option>
+                      >GL4 - None</option>
                     
                       <option value="HIP" 
                       
-                      >None</option>
+                      >HIP - None</option>
                     
                       <option value="CYS" 
                       
-                      >None</option>
+                      >CYS - None</option>
                     
                       <option value="LYS" 
                       
-                      >None</option>
+                      >LYS - None</option>
                     
                       <option value="TYR" 
                       
-                      >None</option>
+                      >TYR - None</option>
                     
                     </param>
                 
@@ -98,23 +98,23 @@
                     
                       <option value="1" 
                       
-                      >None</option>
+                      >1 - None</option>
                     
                       <option value="2" 
                       selected="true"
-                      >None</option>
+                      >2 - None</option>
                     
                       <option value="5" 
                       
-                      >None</option>
+                      >5 - None</option>
                     
                       <option value="7" 
                       
-                      >None</option>
+                      >7 - None</option>
                     
                       <option value="8" 
                       
-                      >None</option>
+                      >8 - None</option>
                     
                     </param>
                 

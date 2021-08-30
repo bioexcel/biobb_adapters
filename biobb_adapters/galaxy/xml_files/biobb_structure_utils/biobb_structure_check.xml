@@ -64,47 +64,47 @@
                     
                       <option value="models" 
                       
-                      >multiple molecules or coordinate sets in a single file</option>
+                      >models - multiple molecules or coordinate sets in a single file</option>
                     
                       <option value="chains" 
                       
-                      >multiple chains in a single file</option>
+                      >chains - multiple chains in a single file</option>
                     
                       <option value="altloc" 
                       
-                      >atom alternative conformation given an alternate location indicator and occupancy</option>
+                      >altloc - atom alternative conformation given an alternate location indicator and occupancy</option>
                     
                       <option value="metals" 
                       
-                      >metals present in the structure</option>
+                      >metals - metals present in the structure</option>
                     
                       <option value="ligands" 
                       
-                      >heteroatoms present in the structure</option>
+                      >ligands - heteroatoms present in the structure</option>
                     
                       <option value="chiral" 
                       
-                      >to say that a structure is chiral is to say that its mirror image is not the same as it self</option>
+                      >chiral - to say that a structure is chiral is to say that its mirror image is not the same as it self</option>
                     
                       <option value="getss" 
                       
-                      >detect SS bonds or disulfides</option>
+                      >getss - detect SS bonds or disulfides</option>
                     
                       <option value="cistransbck" 
                       
-                      >detact cis/trans backbone</option>
+                      >cistransbck - detact cis/trans backbone</option>
                     
                       <option value="backbone" 
                       
-                      >detect backbone breaks</option>
+                      >backbone - detect backbone breaks</option>
                     
                       <option value="amide" 
                       
-                      >detect too close amides</option>
+                      >amide - detect too close amides</option>
                     
                       <option value="clashes" 
                       
-                      >detect clashes</option>
+                      >clashes - detect clashes</option>
                     
                     </param>
                 

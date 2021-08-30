@@ -68,15 +68,15 @@
                     
                       <option value="auto" 
                       
-                      >None</option>
+                      >auto - None</option>
                     
                       <option value="list" 
                       
-                      >None</option>
+                      >list - None</option>
                     
                       <option value="ph" 
                       
-                      >None</option>
+                      >ph - None</option>
                     
                     </param>
                 

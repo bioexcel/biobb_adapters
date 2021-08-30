@@ -64,27 +64,27 @@
                     
                       <option value="all" 
                       selected="true"
-                      >None</option>
+                      >all - None</option>
                     
                       <option value="protein" 
                       
-                      >None</option>
+                      >protein - None</option>
                     
                       <option value="na" 
                       
-                      >None</option>
+                      >na - None</option>
                     
                       <option value="dna" 
                       
-                      >None</option>
+                      >dna - None</option>
                     
                       <option value="rna" 
                       
-                      >None</option>
+                      >rna - None</option>
                     
                       <option value="chains" 
                       
-                      >None</option>
+                      >chains - None</option>
                     
                     </param>
                 

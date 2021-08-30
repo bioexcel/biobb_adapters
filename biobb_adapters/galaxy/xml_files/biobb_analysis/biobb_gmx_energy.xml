@@ -64,15 +64,15 @@
                     
                       <option value="xmgrace" 
                       
-                      >None</option>
+                      >xmgrace - None</option>
                     
                       <option value="xmgr" 
                       
-                      >None</option>
+                      >xmgr - None</option>
                     
                       <option value="none" 
                       selected="true"
-                      >None</option>
+                      >none - None</option>
                     
                     </param>
                 
@@ -80,207 +80,207 @@
                     
                       <option value="Angle" 
                       
-                      >None</option>
+                      >Angle - None</option>
                     
                       <option value="Proper-Dih." 
                       
-                      >None</option>
+                      >Proper-Dih. - None</option>
                     
                       <option value="Improper-Dih." 
                       
-                      >None</option>
+                      >Improper-Dih. - None</option>
                     
                       <option value="LJ-14" 
                       
-                      >None</option>
+                      >LJ-14 - None</option>
                     
                       <option value="Coulomb-14" 
                       
-                      >None</option>
+                      >Coulomb-14 - None</option>
                     
                       <option value="LJ-(SR)" 
                       
-                      >None</option>
+                      >LJ-(SR) - None</option>
                     
                       <option value="Coulomb-(SR)" 
                       
-                      >None</option>
+                      >Coulomb-(SR) - None</option>
                     
                       <option value="Coul.-recip." 
                       
-                      >None</option>
+                      >Coul.-recip. - None</option>
                     
                       <option value="Position-Rest." 
                       
-                      >None</option>
+                      >Position-Rest. - None</option>
                     
                       <option value="Potential" 
                       
-                      >None</option>
+                      >Potential - None</option>
                     
                       <option value="Kinetic-En." 
                       
-                      >None</option>
+                      >Kinetic-En. - None</option>
                     
                       <option value="Total-Energy" 
                       
-                      >None</option>
+                      >Total-Energy - None</option>
                     
                       <option value="Temperature" 
                       
-                      >None</option>
+                      >Temperature - None</option>
                     
                       <option value="Pressure" 
                       
-                      >None</option>
+                      >Pressure - None</option>
                     
                       <option value="Constr.-rmsd" 
                       
-                      >None</option>
+                      >Constr.-rmsd - None</option>
                     
                       <option value="Box-X" 
                       
-                      >None</option>
+                      >Box-X - None</option>
                     
                       <option value="Box-Y" 
                       
-                      >None</option>
+                      >Box-Y - None</option>
                     
                       <option value="Box-Z" 
                       
-                      >None</option>
+                      >Box-Z - None</option>
                     
                       <option value="Volume" 
                       
-                      >None</option>
+                      >Volume - None</option>
                     
                       <option value="Density" 
                       
-                      >None</option>
+                      >Density - None</option>
                     
                       <option value="pV" 
                       
-                      >None</option>
+                      >pV - None</option>
                     
                       <option value="Enthalpy" 
                       
-                      >None</option>
+                      >Enthalpy - None</option>
                     
                       <option value="Vir-XX" 
                       
-                      >None</option>
+                      >Vir-XX - None</option>
                     
                       <option value="Vir-XY" 
                       
-                      >None</option>
+                      >Vir-XY - None</option>
                     
                       <option value="Vir-XZ" 
                       
-                      >None</option>
+                      >Vir-XZ - None</option>
                     
                       <option value="Vir-YX" 
                       
-                      >None</option>
+                      >Vir-YX - None</option>
                     
                       <option value="Vir-YY" 
                       
-                      >None</option>
+                      >Vir-YY - None</option>
                     
                       <option value="Vir-YZ" 
                       
-                      >None</option>
+                      >Vir-YZ - None</option>
                     
                       <option value="Vir-ZX" 
                       
-                      >None</option>
+                      >Vir-ZX - None</option>
                     
                       <option value="Vir-ZY" 
                       
-                      >None</option>
+                      >Vir-ZY - None</option>
                     
                       <option value="Vir-ZZ" 
                       
-                      >None</option>
+                      >Vir-ZZ - None</option>
                     
                       <option value="Pres-XX" 
                       
-                      >None</option>
+                      >Pres-XX - None</option>
                     
                       <option value="Pres-XY" 
                       
-                      >None</option>
+                      >Pres-XY - None</option>
                     
                       <option value="Pres-XZ" 
                       
-                      >None</option>
+                      >Pres-XZ - None</option>
                     
                       <option value="Pres-YX" 
                       
-                      >None</option>
+                      >Pres-YX - None</option>
                     
                       <option value="Pres-YY" 
                       
-                      >None</option>
+                      >Pres-YY - None</option>
                     
                       <option value="Pres-YZ" 
                       
-                      >None</option>
+                      >Pres-YZ - None</option>
                     
                       <option value="Pres-ZX" 
                       
-                      >None</option>
+                      >Pres-ZX - None</option>
                     
                       <option value="Pres-ZY" 
                       
-                      >None</option>
+                      >Pres-ZY - None</option>
                     
                       <option value="Pres-ZZ" 
                       
-                      >None</option>
+                      >Pres-ZZ - None</option>
                     
                       <option value="#Surf*SurfTen" 
                       
-                      >None</option>
+                      >#Surf*SurfTen - None</option>
                     
                       <option value="Box-Vel-XX" 
                       
-                      >None</option>
+                      >Box-Vel-XX - None</option>
                     
                       <option value="Box-Vel-YY" 
                       
-                      >None</option>
+                      >Box-Vel-YY - None</option>
                     
                       <option value="Box-Vel-ZZ" 
                       
-                      >None</option>
+                      >Box-Vel-ZZ - None</option>
                     
                       <option value="Mu-X" 
                       
-                      >None</option>
+                      >Mu-X - None</option>
                     
                       <option value="Mu-Y" 
                       
-                      >None</option>
+                      >Mu-Y - None</option>
                     
                       <option value="Mu-Z" 
                       
-                      >None</option>
+                      >Mu-Z - None</option>
                     
                       <option value="T-Protein" 
                       
-                      >None</option>
+                      >T-Protein - None</option>
                     
                       <option value="T-non-Protein" 
                       
-                      >None</option>
+                      >T-non-Protein - None</option>
                     
                       <option value="Lamb-Protein" 
                       
-                      >None</option>
+                      >Lamb-Protein - None</option>
                     
                       <option value="Lamb-non-Protein" 
                       
-                      >None</option>
+                      >Lamb-non-Protein - None</option>
                     
                     </param>
                 
