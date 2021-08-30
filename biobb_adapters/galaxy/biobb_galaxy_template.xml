@@ -89,7 +89,7 @@
                       {% if opt == v['default'] -%}
                         selected="true"
                       {%- endif %}
-                      >{{ opt }}</option>
+                      >{{ v['property_formats'][opt] }}</option>
                     {% endfor %}
                     </param>
                   {%- elif v['type'] == 'boolean' -%}
@@ -110,7 +110,19 @@
     </inputs>
     <outputs>
         {% for k, v in files['output'].items() %}
+        {% if not v['multiple_format'] %}
         <data name="{{ k }}" format="{{ v['format'] }}" label="${outname_{{ k }}}"/>
+        {%- else -%}
+          <conditional>
+            <data name="{{ k }}" format="text" label="${outname_{{ k }}}">
+              <change_format>
+                {% for f in v['format'].split(',') %}
+                <when input="{{ v['multiple_format'] }}" value="{{ f }}" format="{{ f }}" />
+                {% endfor %}
+              </change_format>
+           </data>
+        </conditional>
+        {%- endif %}
         {% endfor %}
     </outputs>
     <tests>

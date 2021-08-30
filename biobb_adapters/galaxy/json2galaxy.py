@@ -106,7 +106,6 @@ def main():
         data['version'] = cont_lst[data['biobb_group']]['version']
         
     data['description'] = schema_data['title']
-    
     for f in schema_data['properties']:
         if f != 'properties':
             # Parsing input and output files
@@ -122,10 +121,12 @@ def main():
                     m = re.search(r"\w+", v)
                     tool_data['file_types'].append(m.group(0))
         
+            
             tool_data['format'] = ','.join(tool_data['file_types'])
             
             if len(tool_data['file_types']) > 1:
                 tool_data['help_format'] = '[format]'
+                tool_data['multiple_format'] = "output_format"
             else:
                 tool_data['help_format'] = tool_data['format']
             
@@ -166,7 +167,13 @@ def main():
                     v['optional'] = "false"
                 if v['type'] == 'number':
                     v['type'] = 'float'
+                if 'property_formats' in v:
+                    dum = {}
+                    for fmt in v['property_formats']:
+                        dum[fmt['name']] = fmt['description']
+                    v['property_formats'] = dum
                 data['props'][k] = v
+                #
                 
                 # Generating "galaxyfied" Json string for config parameter
                 if v['type'] in ('string', 'select'):
@@ -183,7 +190,6 @@ def main():
             
             data['config_str'] = "__oc__" + ",".join(props_str) + "__cc__"
             #print(data)
-
     env = Environment(
         loader=FileSystemLoader(template_dir),
         autoescape=select_autoescape(['xml'])
