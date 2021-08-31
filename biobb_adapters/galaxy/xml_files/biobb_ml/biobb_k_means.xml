@@ -96,13 +96,13 @@
     <outputs>
         
         
-        <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+          <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
         
         
-        <data name="output_model_path" format="pkl" label="${outname_output_model_path}"/>
+          <data name="output_model_path" format="pkl" label="${outname_output_model_path}"/>
         
         
-        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
+          <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
     </outputs>
     <tests>

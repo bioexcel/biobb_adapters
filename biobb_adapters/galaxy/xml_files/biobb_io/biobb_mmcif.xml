@@ -75,17 +75,15 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_mmcif_path" format="text" label="${outname_output_mmcif_path}">
-              <change_format>
-                
-                <when input="output_format" value="cif" format="cif" />
-                
-                <when input="output_format" value="mmcif" format="mmcif" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_mmcif_path" format="text" label="${outname_output_mmcif_path}">
+            <change_format>
+            
+            <when input="output_format" value="cif" format="cif" />
+            
+            <when input="output_format" value="mmcif" format="mmcif" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

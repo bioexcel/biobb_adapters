@@ -100,7 +100,7 @@
     <outputs>
         
         
-        <data name="output_molecule_path" format="pdb" label="${outname_output_molecule_path}"/>
+          <data name="output_molecule_path" format="pdb" label="${outname_output_molecule_path}"/>
         
     </outputs>
     <tests>

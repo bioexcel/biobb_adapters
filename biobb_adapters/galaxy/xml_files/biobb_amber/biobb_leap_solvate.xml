@@ -282,35 +282,31 @@
     <outputs>
         
         
-        <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
+          <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
-        <conditional>
-            <data name="output_top_path" format="text" label="${outname_output_top_path}">
-              <change_format>
-                
-                <when input="output_format" value="top" format="top" />
-                
-                <when input="output_format" value="parmtop" format="parmtop" />
-                
-                <when input="output_format" value="prmtop" format="prmtop" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_top_path" format="text" label="${outname_output_top_path}">
+            <change_format>
+            
+            <when input="output_format" value="top" format="top" />
+            
+            <when input="output_format" value="parmtop" format="parmtop" />
+            
+            <when input="output_format" value="prmtop" format="prmtop" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_crd_path" format="text" label="${outname_output_crd_path}">
-              <change_format>
-                
-                <when input="output_format" value="crd" format="crd" />
-                
-                <when input="output_format" value="mdcrd" format="mdcrd" />
-                
-                <when input="output_format" value="inpcrd" format="inpcrd" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_crd_path" format="text" label="${outname_output_crd_path}">
+            <change_format>
+            
+            <when input="output_format" value="crd" format="crd" />
+            
+            <when input="output_format" value="mdcrd" format="mdcrd" />
+            
+            <when input="output_format" value="inpcrd" format="inpcrd" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

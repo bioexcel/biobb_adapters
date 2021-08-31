@@ -92,7 +92,7 @@
     <outputs>
         
         
-        <data name="output_ndx_path" format="ndx" label="${outname_output_ndx_path}"/>
+          <data name="output_ndx_path" format="ndx" label="${outname_output_ndx_path}"/>
         
     </outputs>
     <tests>

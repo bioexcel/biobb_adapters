@@ -98,17 +98,15 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
-              <change_format>
-                
-                <when input="output_format" value="pdb" format="pdb" />
-                
-                <when input="output_format" value="pdbqt" format="pdbqt" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
+            <change_format>
+            
+            <when input="output_format" value="pdb" format="pdb" />
+            
+            <when input="output_format" value="pdbqt" format="pdbqt" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

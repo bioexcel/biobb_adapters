@@ -100,7 +100,7 @@
     <outputs>
         
         
-        <data name="output_pdb_zip_path" format="zip" label="${outname_output_pdb_zip_path}"/>
+          <data name="output_pdb_zip_path" format="zip" label="${outname_output_pdb_zip_path}"/>
         
     </outputs>
     <tests>

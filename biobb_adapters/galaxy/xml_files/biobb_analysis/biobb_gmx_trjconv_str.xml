@@ -169,27 +169,25 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_str_path" format="text" label="${outname_output_str_path}">
-              <change_format>
-                
-                <when input="output_format" value="xtc" format="xtc" />
-                
-                <when input="output_format" value="trr" format="trr" />
-                
-                <when input="output_format" value="cpt" format="cpt" />
-                
-                <when input="output_format" value="gro" format="gro" />
-                
-                <when input="output_format" value="g96" format="g96" />
-                
-                <when input="output_format" value="pdb" format="pdb" />
-                
-                <when input="output_format" value="tng" format="tng" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_str_path" format="text" label="${outname_output_str_path}">
+            <change_format>
+            
+            <when input="output_format" value="xtc" format="xtc" />
+            
+            <when input="output_format" value="trr" format="trr" />
+            
+            <when input="output_format" value="cpt" format="cpt" />
+            
+            <when input="output_format" value="gro" format="gro" />
+            
+            <when input="output_format" value="g96" format="g96" />
+            
+            <when input="output_format" value="pdb" format="pdb" />
+            
+            <when input="output_format" value="tng" format="tng" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

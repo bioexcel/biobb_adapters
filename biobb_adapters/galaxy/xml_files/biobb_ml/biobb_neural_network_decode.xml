@@ -57,10 +57,10 @@
     <outputs>
         
         
-        <data name="output_decode_path" format="csv" label="${outname_output_decode_path}"/>
+          <data name="output_decode_path" format="csv" label="${outname_output_decode_path}"/>
         
         
-        <data name="output_predict_path" format="csv" label="${outname_output_predict_path}"/>
+          <data name="output_predict_path" format="csv" label="${outname_output_predict_path}"/>
         
     </outputs>
     <tests>

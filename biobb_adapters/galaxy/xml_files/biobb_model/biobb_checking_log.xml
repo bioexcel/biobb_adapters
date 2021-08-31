@@ -41,7 +41,7 @@
     <outputs>
         
         
-        <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
+          <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
         
     </outputs>
     <tests>

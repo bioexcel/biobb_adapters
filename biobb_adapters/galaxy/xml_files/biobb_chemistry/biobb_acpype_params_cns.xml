@@ -91,13 +91,13 @@
     <outputs>
         
         
-        <data name="output_path_par" format="par" label="${outname_output_path_par}"/>
+          <data name="output_path_par" format="par" label="${outname_output_path_par}"/>
         
         
-        <data name="output_path_inp" format="inp" label="${outname_output_path_inp}"/>
+          <data name="output_path_inp" format="inp" label="${outname_output_path_inp}"/>
         
         
-        <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
+          <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
         
     </outputs>
     <tests>

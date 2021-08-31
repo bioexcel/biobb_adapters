@@ -250,47 +250,45 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_path" format="text" label="${outname_output_path}">
-              <change_format>
-                
-                <when input="output_format" value="ent" format="ent" />
-                
-                <when input="output_format" value="fa" format="fa" />
-                
-                <when input="output_format" value="fasta" format="fasta" />
-                
-                <when input="output_format" value="gro" format="gro" />
-                
-                <when input="output_format" value="inp" format="inp" />
-                
-                <when input="output_format" value="mcif" format="mcif" />
-                
-                <when input="output_format" value="mdl" format="mdl" />
-                
-                <when input="output_format" value="mmcif" format="mmcif" />
-                
-                <when input="output_format" value="mol" format="mol" />
-                
-                <when input="output_format" value="mol2" format="mol2" />
-                
-                <when input="output_format" value="pdb" format="pdb" />
-                
-                <when input="output_format" value="pdbqt" format="pdbqt" />
-                
-                <when input="output_format" value="png" format="png" />
-                
-                <when input="output_format" value="sdf" format="sdf" />
-                
-                <when input="output_format" value="smi" format="smi" />
-                
-                <when input="output_format" value="smiles" format="smiles" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_path" format="text" label="${outname_output_path}">
+            <change_format>
+            
+            <when input="output_format" value="ent" format="ent" />
+            
+            <when input="output_format" value="fa" format="fa" />
+            
+            <when input="output_format" value="fasta" format="fasta" />
+            
+            <when input="output_format" value="gro" format="gro" />
+            
+            <when input="output_format" value="inp" format="inp" />
+            
+            <when input="output_format" value="mcif" format="mcif" />
+            
+            <when input="output_format" value="mdl" format="mdl" />
+            
+            <when input="output_format" value="mmcif" format="mmcif" />
+            
+            <when input="output_format" value="mol" format="mol" />
+            
+            <when input="output_format" value="mol2" format="mol2" />
+            
+            <when input="output_format" value="pdb" format="pdb" />
+            
+            <when input="output_format" value="pdbqt" format="pdbqt" />
+            
+            <when input="output_format" value="png" format="png" />
+            
+            <when input="output_format" value="sdf" format="sdf" />
+            
+            <when input="output_format" value="smi" format="smi" />
+            
+            <when input="output_format" value="smiles" format="smiles" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

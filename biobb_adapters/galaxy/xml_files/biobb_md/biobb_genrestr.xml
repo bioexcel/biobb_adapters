@@ -92,7 +92,7 @@
     <outputs>
         
         
-        <data name="output_itp_path" format="itp" label="${outname_output_itp_path}"/>
+          <data name="output_itp_path" format="itp" label="${outname_output_itp_path}"/>
         
     </outputs>
     <tests>

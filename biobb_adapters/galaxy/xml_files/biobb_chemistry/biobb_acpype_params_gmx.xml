@@ -91,13 +91,13 @@
     <outputs>
         
         
-        <data name="output_path_gro" format="gro" label="${outname_output_path_gro}"/>
+          <data name="output_path_gro" format="gro" label="${outname_output_path_gro}"/>
         
         
-        <data name="output_path_itp" format="itp" label="${outname_output_path_itp}"/>
+          <data name="output_path_itp" format="itp" label="${outname_output_path_itp}"/>
         
         
-        <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
+          <data name="output_path_top" format="top" label="${outname_output_path_top}"/>
         
     </outputs>
     <tests>

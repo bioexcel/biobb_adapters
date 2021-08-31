@@ -107,10 +107,10 @@
     <outputs>
         
         
-        <data name="output_pockets_zip" format="zip" label="${outname_output_pockets_zip}"/>
+          <data name="output_pockets_zip" format="zip" label="${outname_output_pockets_zip}"/>
         
         
-        <data name="output_summary" format="json" label="${outname_output_summary}"/>
+          <data name="output_summary" format="json" label="${outname_output_summary}"/>
         
     </outputs>
     <tests>

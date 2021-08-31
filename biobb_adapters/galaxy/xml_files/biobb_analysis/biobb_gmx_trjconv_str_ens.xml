@@ -210,7 +210,7 @@
     <outputs>
         
         
-        <data name="output_str_ens_path" format="zip" label="${outname_output_str_ens_path}"/>
+          <data name="output_str_ens_path" format="zip" label="${outname_output_str_ens_path}"/>
         
     </outputs>
     <tests>

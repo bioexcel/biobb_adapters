@@ -51,7 +51,7 @@
     <outputs>
         
         
-        <data name="output_structure_path" format="pdb" label="${outname_output_structure_path}"/>
+          <data name="output_structure_path" format="pdb" label="${outname_output_structure_path}"/>
         
     </outputs>
     <tests>

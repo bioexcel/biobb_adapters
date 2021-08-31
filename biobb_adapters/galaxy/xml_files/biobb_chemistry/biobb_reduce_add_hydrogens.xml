@@ -138,7 +138,7 @@
     <outputs>
         
         
-        <data name="output_path" format="pdb" label="${outname_output_path}"/>
+          <data name="output_path" format="pdb" label="${outname_output_path}"/>
         
     </outputs>
     <tests>

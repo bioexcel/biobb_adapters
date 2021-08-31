@@ -68,7 +68,7 @@
     <outputs>
         
         
-        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
+          <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
     </outputs>
     <tests>

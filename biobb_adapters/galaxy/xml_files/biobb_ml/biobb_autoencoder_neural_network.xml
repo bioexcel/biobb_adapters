@@ -139,13 +139,13 @@
     <outputs>
         
         
-        <data name="output_model_path" format="h5" label="${outname_output_model_path}"/>
+          <data name="output_model_path" format="h5" label="${outname_output_model_path}"/>
         
         
-        <data name="output_test_decode_path" format="csv" label="${outname_output_test_decode_path}"/>
+          <data name="output_test_decode_path" format="csv" label="${outname_output_test_decode_path}"/>
         
         
-        <data name="output_test_predict_path" format="csv" label="${outname_output_test_predict_path}"/>
+          <data name="output_test_predict_path" format="csv" label="${outname_output_test_predict_path}"/>
         
     </outputs>
     <tests>

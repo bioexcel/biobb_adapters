@@ -153,101 +153,89 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="out" format="out" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="o" format="o" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="out" format="out" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="o" format="o" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_population_path" format="text" label="${outname_output_population_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="out" format="out" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="o" format="o" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_population_path" format="text" label="${outname_output_population_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="out" format="out" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="o" format="o" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_chunk_path" format="text" label="${outname_output_chunk_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="out" format="out" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="o" format="o" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_chunk_path" format="text" label="${outname_output_chunk_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="out" format="out" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="o" format="o" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_cumulative_path" format="text" label="${outname_output_cumulative_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="out" format="out" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="o" format="o" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_cumulative_path" format="text" label="${outname_output_cumulative_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="out" format="out" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="o" format="o" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_conditional_path" format="text" label="${outname_output_conditional_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="out" format="out" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="o" format="o" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_conditional_path" format="text" label="${outname_output_conditional_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="out" format="out" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="o" format="o" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_chunk_conditional_path" format="text" label="${outname_output_chunk_conditional_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="out" format="out" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="o" format="o" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_chunk_conditional_path" format="text" label="${outname_output_chunk_conditional_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="out" format="out" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="o" format="o" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

@@ -149,7 +149,7 @@
     <outputs>
         
         
-        <data name="output_tpr_path" format="tpr" label="${outname_output_tpr_path}"/>
+          <data name="output_tpr_path" format="tpr" label="${outname_output_tpr_path}"/>
         
     </outputs>
     <tests>

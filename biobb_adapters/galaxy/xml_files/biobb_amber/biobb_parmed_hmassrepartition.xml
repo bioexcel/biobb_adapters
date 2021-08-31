@@ -40,19 +40,17 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_top_path" format="text" label="${outname_output_top_path}">
-              <change_format>
-                
-                <when input="output_format" value="top" format="top" />
-                
-                <when input="output_format" value="parmtop" format="parmtop" />
-                
-                <when input="output_format" value="prmtop" format="prmtop" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_top_path" format="text" label="${outname_output_top_path}">
+            <change_format>
+            
+            <when input="output_format" value="top" format="top" />
+            
+            <when input="output_format" value="parmtop" format="parmtop" />
+            
+            <when input="output_format" value="prmtop" format="prmtop" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

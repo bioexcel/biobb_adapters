@@ -170,25 +170,25 @@
     <outputs>
         
         
-        <data name="output_trr_path" format="trr" label="${outname_output_trr_path}"/>
+          <data name="output_trr_path" format="trr" label="${outname_output_trr_path}"/>
         
         
-        <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
+          <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
         
         
-        <data name="output_edr_path" format="edr" label="${outname_output_edr_path}"/>
+          <data name="output_edr_path" format="edr" label="${outname_output_edr_path}"/>
         
         
-        <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
+          <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
         
         
-        <data name="output_xtc_path" format="xtc" label="${outname_output_xtc_path}"/>
+          <data name="output_xtc_path" format="xtc" label="${outname_output_xtc_path}"/>
         
         
-        <data name="output_cpt_path" format="cpt" label="${outname_output_cpt_path}"/>
+          <data name="output_cpt_path" format="cpt" label="${outname_output_cpt_path}"/>
         
         
-        <data name="output_dhdl_path" format="xvg" label="${outname_output_dhdl_path}"/>
+          <data name="output_dhdl_path" format="xvg" label="${outname_output_dhdl_path}"/>
         
     </outputs>
     <tests>

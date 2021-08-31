@@ -182,79 +182,71 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_log_path" format="text" label="${outname_output_log_path}">
-              <change_format>
-                
-                <when input="output_format" value="log" format="log" />
-                
-                <when input="output_format" value="out" format="out" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="o" format="o" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_log_path" format="text" label="${outname_output_log_path}">
+            <change_format>
+            
+            <when input="output_format" value="log" format="log" />
+            
+            <when input="output_format" value="out" format="out" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="o" format="o" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_traj_path" format="text" label="${outname_output_traj_path}">
-              <change_format>
-                
-                <when input="output_format" value="trj" format="trj" />
-                
-                <when input="output_format" value="crd" format="crd" />
-                
-                <when input="output_format" value="mdcrd" format="mdcrd" />
-                
-                <when input="output_format" value="x" format="x" />
-                
-                <when input="output_format" value="netcdf" format="netcdf" />
-                
-                <when input="output_format" value="nc" format="nc" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_traj_path" format="text" label="${outname_output_traj_path}">
+            <change_format>
+            
+            <when input="output_format" value="trj" format="trj" />
+            
+            <when input="output_format" value="crd" format="crd" />
+            
+            <when input="output_format" value="mdcrd" format="mdcrd" />
+            
+            <when input="output_format" value="x" format="x" />
+            
+            <when input="output_format" value="netcdf" format="netcdf" />
+            
+            <when input="output_format" value="nc" format="nc" />
+            
+            </change_format>
+          </data>
         
-        <conditional>
-            <data name="output_rst_path" format="text" label="${outname_output_rst_path}">
-              <change_format>
-                
-                <when input="output_format" value="rst" format="rst" />
-                
-                <when input="output_format" value="rst7" format="rst7" />
-                
-                <when input="output_format" value="netcdf" format="netcdf" />
-                
-                <when input="output_format" value="nc" format="nc" />
-                
-                <when input="output_format" value="ncrst" format="ncrst" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_rst_path" format="text" label="${outname_output_rst_path}">
+            <change_format>
+            
+            <when input="output_format" value="rst" format="rst" />
+            
+            <when input="output_format" value="rst7" format="rst7" />
+            
+            <when input="output_format" value="netcdf" format="netcdf" />
+            
+            <when input="output_format" value="nc" format="nc" />
+            
+            <when input="output_format" value="ncrst" format="ncrst" />
+            
+            </change_format>
+          </data>
         
         
-        <data name="output_cpout_path" format="cpout" label="${outname_output_cpout_path}"/>
+          <data name="output_cpout_path" format="cpout" label="${outname_output_cpout_path}"/>
         
-        <conditional>
-            <data name="output_cprst_path" format="text" label="${outname_output_cprst_path}">
-              <change_format>
-                
-                <when input="output_format" value="cprst" format="cprst" />
-                
-                <when input="output_format" value="rst" format="rst" />
-                
-                <when input="output_format" value="rst7" format="rst7" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_cprst_path" format="text" label="${outname_output_cprst_path}">
+            <change_format>
+            
+            <when input="output_format" value="cprst" format="cprst" />
+            
+            <when input="output_format" value="rst" format="rst" />
+            
+            <when input="output_format" value="rst7" format="rst7" />
+            
+            </change_format>
+          </data>
         
         
-        <data name="output_mdinfo_path" format="mdinfo" label="${outname_output_mdinfo_path}"/>
+          <data name="output_mdinfo_path" format="mdinfo" label="${outname_output_mdinfo_path}"/>
         
     </outputs>
     <tests>

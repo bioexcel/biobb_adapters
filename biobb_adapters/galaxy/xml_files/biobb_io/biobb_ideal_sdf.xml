@@ -72,7 +72,7 @@
     <outputs>
         
         
-        <data name="output_sdf_path" format="sdf" label="${outname_output_sdf_path}"/>
+          <data name="output_sdf_path" format="sdf" label="${outname_output_sdf_path}"/>
         
     </outputs>
     <tests>

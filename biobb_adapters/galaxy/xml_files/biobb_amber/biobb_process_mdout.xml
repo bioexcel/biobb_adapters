@@ -113,19 +113,17 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="txt" format="txt" />
-                
-                <when input="output_format" value="csv" format="csv" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="txt" format="txt" />
+            
+            <when input="output_format" value="csv" format="csv" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

@@ -173,7 +173,7 @@
     <outputs>
         
         
-        <data name="output_dataset_path" format="csv" label="${outname_output_dataset_path}"/>
+          <data name="output_dataset_path" format="csv" label="${outname_output_dataset_path}"/>
         
     </outputs>
     <tests>

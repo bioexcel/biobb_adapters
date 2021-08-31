@@ -68,7 +68,7 @@
     <outputs>
         
         
-        <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
+          <data name="output_gro_path" format="gro" label="${outname_output_gro_path}"/>
         
     </outputs>
     <tests>

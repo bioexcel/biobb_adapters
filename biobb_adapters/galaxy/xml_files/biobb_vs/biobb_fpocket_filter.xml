@@ -82,7 +82,7 @@
     <outputs>
         
         
-        <data name="output_filter_pockets_zip" format="zip" label="${outname_output_filter_pockets_zip}"/>
+          <data name="output_filter_pockets_zip" format="zip" label="${outname_output_filter_pockets_zip}"/>
         
     </outputs>
     <tests>

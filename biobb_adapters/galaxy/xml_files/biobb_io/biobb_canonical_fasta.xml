@@ -76,7 +76,7 @@
     <outputs>
         
         
-        <data name="output_fasta_path" format="fasta" label="${outname_output_fasta_path}"/>
+          <data name="output_fasta_path" format="fasta" label="${outname_output_fasta_path}"/>
         
     </outputs>
     <tests>

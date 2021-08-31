@@ -60,7 +60,7 @@
     <outputs>
         
         
-        <data name="output_simulation" format="zip" label="${outname_output_simulation}"/>
+          <data name="output_simulation" format="zip" label="${outname_output_simulation}"/>
         
     </outputs>
     <tests>

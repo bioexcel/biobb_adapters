@@ -78,7 +78,7 @@
     <outputs>
         
         
-        <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+          <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
         
     </outputs>
     <tests>

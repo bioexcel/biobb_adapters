@@ -60,7 +60,7 @@
     <outputs>
         
         
-        <data name="output_json_path" format="json" label="${outname_output_json_path}"/>
+          <data name="output_json_path" format="json" label="${outname_output_json_path}"/>
         
     </outputs>
     <tests>

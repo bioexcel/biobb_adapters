@@ -60,7 +60,7 @@
     <outputs>
         
         
-        <data name="output_mutations_list_txt" format="txt" label="${outname_output_mutations_list_txt}"/>
+          <data name="output_mutations_list_txt" format="txt" label="${outname_output_mutations_list_txt}"/>
         
     </outputs>
     <tests>

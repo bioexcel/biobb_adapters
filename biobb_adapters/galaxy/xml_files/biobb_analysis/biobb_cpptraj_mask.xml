@@ -214,37 +214,35 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_cpptraj_path" format="text" label="${outname_output_cpptraj_path}">
-              <change_format>
-                
-                <when input="output_format" value="mdcrd" format="mdcrd" />
-                
-                <when input="output_format" value="crd" format="crd" />
-                
-                <when input="output_format" value="netcdf" format="netcdf" />
-                
-                <when input="output_format" value="rst7" format="rst7" />
-                
-                <when input="output_format" value="ncrst" format="ncrst" />
-                
-                <when input="output_format" value="dcd" format="dcd" />
-                
-                <when input="output_format" value="pdb" format="pdb" />
-                
-                <when input="output_format" value="mol2" format="mol2" />
-                
-                <when input="output_format" value="binpos" format="binpos" />
-                
-                <when input="output_format" value="trr" format="trr" />
-                
-                <when input="output_format" value="xtc" format="xtc" />
-                
-                <when input="output_format" value="sqm" format="sqm" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_cpptraj_path" format="text" label="${outname_output_cpptraj_path}">
+            <change_format>
+            
+            <when input="output_format" value="mdcrd" format="mdcrd" />
+            
+            <when input="output_format" value="crd" format="crd" />
+            
+            <when input="output_format" value="netcdf" format="netcdf" />
+            
+            <when input="output_format" value="rst7" format="rst7" />
+            
+            <when input="output_format" value="ncrst" format="ncrst" />
+            
+            <when input="output_format" value="dcd" format="dcd" />
+            
+            <when input="output_format" value="pdb" format="pdb" />
+            
+            <when input="output_format" value="mol2" format="mol2" />
+            
+            <when input="output_format" value="binpos" format="binpos" />
+            
+            <when input="output_format" value="trr" format="trr" />
+            
+            <when input="output_format" value="xtc" format="xtc" />
+            
+            <when input="output_format" value="sqm" format="sqm" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

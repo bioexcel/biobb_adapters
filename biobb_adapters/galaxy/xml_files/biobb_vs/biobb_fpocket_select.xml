@@ -77,10 +77,10 @@
     <outputs>
         
         
-        <data name="output_pocket_pdb" format="pdb" label="${outname_output_pocket_pdb}"/>
+          <data name="output_pocket_pdb" format="pdb" label="${outname_output_pocket_pdb}"/>
         
         
-        <data name="output_pocket_pqr" format="pqr" label="${outname_output_pocket_pqr}"/>
+          <data name="output_pocket_pqr" format="pqr" label="${outname_output_pocket_pqr}"/>
         
     </outputs>
     <tests>

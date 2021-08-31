@@ -74,7 +74,7 @@
     <outputs>
         
         
-        <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
+          <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
         
     </outputs>
     <tests>

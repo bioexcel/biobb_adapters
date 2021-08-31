@@ -118,7 +118,7 @@
     <outputs>
         
         
-        <data name="output_summary_path" format="json" label="${outname_output_summary_path}"/>
+          <data name="output_summary_path" format="json" label="${outname_output_summary_path}"/>
         
     </outputs>
     <tests>

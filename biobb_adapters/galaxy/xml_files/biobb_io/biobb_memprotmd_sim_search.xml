@@ -184,7 +184,7 @@
     <outputs>
         
         
-        <data name="output_simulations" format="json" label="${outname_output_simulations}"/>
+          <data name="output_simulations" format="json" label="${outname_output_simulations}"/>
         
     </outputs>
     <tests>

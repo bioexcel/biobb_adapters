@@ -178,10 +178,10 @@
     <outputs>
         
         
-        <data name="output_result_path" format="txt" label="${outname_output_result_path}"/>
+          <data name="output_result_path" format="txt" label="${outname_output_result_path}"/>
         
         
-        <data name="output_work_plot_path" format="png" label="${outname_output_work_plot_path}"/>
+          <data name="output_work_plot_path" format="png" label="${outname_output_work_plot_path}"/>
         
     </outputs>
     <tests>

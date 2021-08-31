@@ -138,17 +138,15 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_path" format="text" label="${outname_output_path}">
-              <change_format>
-                
-                <when input="output_format" value="pdb" format="pdb" />
-                
-                <when input="output_format" value="mol2" format="mol2" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_path" format="text" label="${outname_output_path}">
+            <change_format>
+            
+            <when input="output_format" value="pdb" format="pdb" />
+            
+            <when input="output_format" value="mol2" format="mol2" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>

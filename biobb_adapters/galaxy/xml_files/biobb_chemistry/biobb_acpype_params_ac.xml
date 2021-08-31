@@ -97,16 +97,16 @@
     <outputs>
         
         
-        <data name="output_path_frcmod" format="frcmod" label="${outname_output_path_frcmod}"/>
+          <data name="output_path_frcmod" format="frcmod" label="${outname_output_path_frcmod}"/>
         
         
-        <data name="output_path_inpcrd" format="inpcrd" label="${outname_output_path_inpcrd}"/>
+          <data name="output_path_inpcrd" format="inpcrd" label="${outname_output_path_inpcrd}"/>
         
         
-        <data name="output_path_lib" format="lib" label="${outname_output_path_lib}"/>
+          <data name="output_path_lib" format="lib" label="${outname_output_path_lib}"/>
         
         
-        <data name="output_path_prmtop" format="prmtop" label="${outname_output_path_prmtop}"/>
+          <data name="output_path_prmtop" format="prmtop" label="${outname_output_path_prmtop}"/>
         
     </outputs>
     <tests>

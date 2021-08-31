@@ -90,7 +90,7 @@
     <outputs>
         
         
-        <data name="output_top_zip_path" format="zip" label="${outname_output_top_zip_path}"/>
+          <data name="output_top_zip_path" format="zip" label="${outname_output_top_zip_path}"/>
         
     </outputs>
     <tests>

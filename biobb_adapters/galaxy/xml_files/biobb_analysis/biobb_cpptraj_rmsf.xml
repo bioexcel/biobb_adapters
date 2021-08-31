@@ -156,21 +156,19 @@
     </inputs>
     <outputs>
         
-        <conditional>
-            <data name="output_cpptraj_path" format="text" label="${outname_output_cpptraj_path}">
-              <change_format>
-                
-                <when input="output_format" value="dat" format="dat" />
-                
-                <when input="output_format" value="agr" format="agr" />
-                
-                <when input="output_format" value="xmgr" format="xmgr" />
-                
-                <when input="output_format" value="gnu" format="gnu" />
-                
-              </change_format>
-           </data>
-        </conditional>
+        <data name="output_cpptraj_path" format="text" label="${outname_output_cpptraj_path}">
+            <change_format>
+            
+            <when input="output_format" value="dat" format="dat" />
+            
+            <when input="output_format" value="agr" format="agr" />
+            
+            <when input="output_format" value="xmgr" format="xmgr" />
+            
+            <when input="output_format" value="gnu" format="gnu" />
+            
+            </change_format>
+          </data>
         
     </outputs>
     <tests>
