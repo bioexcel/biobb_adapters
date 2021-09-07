@@ -172,6 +172,8 @@ def main():
                     for fmt in v['property_formats']:
                         dum[fmt['name']] = fmt['description']
                     v['property_formats'] = dum
+                else:
+                    v['property_formats'] = []
                 data['props'][k] = v
                 #
                 
