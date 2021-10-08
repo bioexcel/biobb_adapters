@@ -1,4 +1,4 @@
-<tool id="biobb_amber_process_mdout_ext" name="ProcessMdout" version="" >
+<tool id="biobb_amber_process_mdout_ext" name="ProcessMdout" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) process_mdout tool module.</description>
     <requirements>
         <requirement type="package">biobb_amber</requirement>

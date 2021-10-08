@@ -1,4 +1,4 @@
-<tool id="biobb_ml_principal_component_ext" name="PrincipalComponent" version="3.0.1" >
+<tool id="biobb_ml_principal_component_ext" name="PrincipalComponent" version="3.6.1" >
     <description>: Wrapper of the scikit-learn PCA method.</description>
     <requirements>
         <requirement type="package">biobb_ml</requirement>

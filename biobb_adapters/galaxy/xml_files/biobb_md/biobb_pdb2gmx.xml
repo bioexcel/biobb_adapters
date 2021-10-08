@@ -1,4 +1,4 @@
-<tool id="biobb_md_pdb2gmx_ext" name="Pdb2gmx" version="3.0.0" >
+<tool id="biobb_md_pdb2gmx_ext" name="Pdb2gmx" version="3.6.0" >
     <description>: Wrapper class for the GROMACS pdb2gmx module.</description>
     <requirements>
         <requirement type="package">biobb_md</requirement>
@@ -66,95 +66,95 @@
             </when>
             <when value="option3">
                 
-                  <param name="water_type" type="select" label="water_type" help="Water molecule type." multiple="">
+                  <param name="water_type" type="select" label="water_type" help="Water molecule type. " multiple="">
                     
                       <option value="spc" 
                       
-                      >spc - </option>
+                      >spc - None</option>
                     
                       <option value="spce" 
                       selected="true"
-                      >spce - </option>
+                      >spce - None</option>
                     
                       <option value="tip3p" 
                       
-                      >tip3p - </option>
+                      >tip3p - None</option>
                     
                       <option value="tip4p" 
                       
-                      >tip4p - </option>
+                      >tip4p - None</option>
                     
                       <option value="tip5p" 
                       
-                      >tip5p - </option>
+                      >tip5p - None</option>
                     
                       <option value="tips3p" 
                       
-                      >tips3p - </option>
+                      >tips3p - None</option>
                     
                     </param>
                 
-                  <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion." multiple="">
+                  <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion.  " multiple="">
                     
                       <option value="gromos45a3" 
                       
-                      >gromos45a3 - </option>
+                      >gromos45a3 - None</option>
                     
                       <option value="charmm27" 
                       
-                      >charmm27 - </option>
+                      >charmm27 - None</option>
                     
                       <option value="gromos53a6" 
                       
-                      >gromos53a6 - </option>
+                      >gromos53a6 - None</option>
                     
                       <option value="amber96" 
                       
-                      >amber96 - </option>
+                      >amber96 - None</option>
                     
                       <option value="amber99" 
                       
-                      >amber99 - </option>
+                      >amber99 - None</option>
                     
                       <option value="gromos43a2" 
                       
-                      >gromos43a2 - </option>
+                      >gromos43a2 - None</option>
                     
                       <option value="gromos54a7" 
                       
-                      >gromos54a7 - </option>
+                      >gromos54a7 - None</option>
                     
                       <option value="gromos43a1" 
                       
-                      >gromos43a1 - </option>
+                      >gromos43a1 - None</option>
                     
                       <option value="amberGS" 
                       
-                      >amberGS - </option>
+                      >amberGS - None</option>
                     
                       <option value="gromos53a5" 
                       
-                      >gromos53a5 - </option>
+                      >gromos53a5 - None</option>
                     
                       <option value="amber99sb" 
                       
-                      >amber99sb - </option>
+                      >amber99sb - None</option>
                     
                       <option value="amber03" 
                       
-                      >amber03 - </option>
+                      >amber03 - None</option>
                     
                       <option value="amber99sb-ildn" 
                       selected="true"
-                      >amber99sb-ildn - </option>
+                      >amber99sb-ildn - None</option>
                     
                       <option value="oplsaa" 
                       
-                      >oplsaa - </option>
+                      >oplsaa - None</option>
                     
                       <option value="amber94" 
                       
-                      >amber94 - </option>
+                      >amber94 - None</option>
                     
                     </param>
                 

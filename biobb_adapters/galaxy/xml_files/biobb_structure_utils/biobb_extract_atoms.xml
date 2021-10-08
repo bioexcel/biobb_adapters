@@ -1,4 +1,4 @@
-<tool id="biobb_structure_utils_extract_atoms_ext" name="ExtractAtoms" version="3.0.0" >
+<tool id="biobb_structure_utils_extract_atoms_ext" name="ExtractAtoms" version="3.6.1" >
     <description>: Class to extract atoms from a 3D structure.</description>
     <requirements>
         <requirement type="package">biobb_structure_utils</requirement>

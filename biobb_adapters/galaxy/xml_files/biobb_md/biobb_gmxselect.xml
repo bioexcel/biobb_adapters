@@ -1,4 +1,4 @@
-<tool id="biobb_md_gmxselect_ext" name="Gmxselect" version="3.0.0" >
+<tool id="biobb_md_gmxselect_ext" name="Gmxselect" version="3.6.0" >
     <description>: Wrapper of the GROMACS select module.</description>
     <requirements>
         <requirement type="package">biobb_md</requirement>

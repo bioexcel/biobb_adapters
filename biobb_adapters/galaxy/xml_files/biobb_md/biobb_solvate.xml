@@ -1,4 +1,4 @@
-<tool id="biobb_md_solvate_ext" name="Solvate" version="3.0.0" >
+<tool id="biobb_md_solvate_ext" name="Solvate" version="3.6.0" >
     <description>: Wrapper of the GROMACS solvate module.</description>
     <requirements>
         <requirement type="package">biobb_md</requirement>

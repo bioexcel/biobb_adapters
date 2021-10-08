@@ -1,4 +1,4 @@
-<tool id="biobb_io_structure_info_ext" name="StructureInfo" version="3.0.0" >
+<tool id="biobb_io_structure_info_ext" name="StructureInfo" version="3.6.0" >
     <description>: This class is a wrapper for getting all the available information of a structure from the Protein Data Bank.</description>
     <requirements>
         <requirement type="package">biobb_io</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_amber_pmemd_mdrun_ext" name="PmemdMdrun" version="" >
+<tool id="biobb_amber_pmemd_mdrun_ext" name="PmemdMdrun" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) pmemd tool module.</description>
     <requirements>
         <requirement type="package">biobb_amber</requirement>

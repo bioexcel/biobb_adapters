@@ -1,4 +1,4 @@
-<tool id="biobb_md_genion_ext" name="Genion" version="3.0.0" >
+<tool id="biobb_md_genion_ext" name="Genion" version="3.6.0" >
     <description>: Wrapper class for the GROMACS genion module.</description>
     <requirements>
         <requirement type="package">biobb_md</requirement>

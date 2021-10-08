@@ -1,4 +1,4 @@
-<tool id="biobb_amber_leap_add_ions_ext" name="LeapAddIons" version="" >
+<tool id="biobb_amber_leap_add_ions_ext" name="LeapAddIons" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) leap tool module.</description>
     <requirements>
         <requirement type="package">biobb_amber</requirement>

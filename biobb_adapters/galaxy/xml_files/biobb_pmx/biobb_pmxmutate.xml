@@ -1,4 +1,4 @@
-<tool id="biobb_pmx_pmxmutate_ext" name="Pmxmutate" version="3.0.1" >
+<tool id="biobb_pmx_pmxmutate_ext" name="Pmxmutate" version="3.6.0" >
     <description>: Wrapper class for the PMX mutate module.</description>
     <requirements>
         <requirement type="package">biobb_pmx</requirement>

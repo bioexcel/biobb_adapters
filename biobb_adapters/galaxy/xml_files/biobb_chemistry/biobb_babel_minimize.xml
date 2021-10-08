@@ -1,4 +1,4 @@
-<tool id="biobb_chemistry_babel_minimize_ext" name="BabelMinimize" version="3.0.0" >
+<tool id="biobb_chemistry_babel_minimize_ext" name="BabelMinimize" version="3.6.0" >
     <description>: This class is a wrapper of the Open Babel tool.</description>
     <requirements>
         <requirement type="package">biobb_chemistry</requirement>

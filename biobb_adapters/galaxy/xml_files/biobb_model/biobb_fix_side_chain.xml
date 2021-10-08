@@ -1,4 +1,4 @@
-<tool id="biobb_model_fix_side_chain_ext" name="FixSideChain" version="3.0.1" >
+<tool id="biobb_model_fix_side_chain_ext" name="FixSideChain" version="3.6.0" >
     <description>: Class to model the missing atoms in amino acid side chains of a PDB.</description>
     <requirements>
         <requirement type="package">biobb_model</requirement>

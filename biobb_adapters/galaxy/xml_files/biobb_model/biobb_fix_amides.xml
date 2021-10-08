@@ -1,4 +1,4 @@
-<tool id="biobb_model_fix_amides_ext" name="FixAmides" version="3.0.1" >
+<tool id="biobb_model_fix_amides_ext" name="FixAmides" version="3.6.0" >
     <description>: Fix amide groups from residues.</description>
     <requirements>
         <requirement type="package">biobb_model</requirement>

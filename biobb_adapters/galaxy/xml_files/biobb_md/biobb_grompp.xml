@@ -1,4 +1,4 @@
-<tool id="biobb_md_grompp_ext" name="Grompp" version="3.0.0" >
+<tool id="biobb_md_grompp_ext" name="Grompp" version="3.6.0" >
     <description>: Wrapper of the GROMACS grompp module.</description>
     <requirements>
         <requirement type="package">biobb_md</requirement>
@@ -105,7 +105,7 @@
                   <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each one creates a different mdp file. " multiple="">
                     
                       <option value="minimization" 
-                      selected="true"
+                      
                       >minimization - Energy minimization using steepest descent algorithm is used</option>
                     
                       <option value="nvt" 

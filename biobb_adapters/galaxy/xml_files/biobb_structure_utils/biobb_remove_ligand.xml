@@ -1,4 +1,4 @@
-<tool id="biobb_structure_utils_remove_ligand_ext" name="RemoveLigand" version="3.0.0" >
+<tool id="biobb_structure_utils_remove_ligand_ext" name="RemoveLigand" version="3.6.1" >
     <description>: Class to remove the selected ligand atoms from a 3D structure.</description>
     <requirements>
         <requirement type="package">biobb_structure_utils</requirement>

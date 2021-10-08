@@ -1,4 +1,4 @@
-<tool id="biobb_md_make_ndx_ext" name="MakeNdx" version="3.0.0" >
+<tool id="biobb_md_make_ndx_ext" name="MakeNdx" version="3.6.0" >
     <description>: Wrapper of the GROMACS make_ndx module.</description>
     <requirements>
         <requirement type="package">biobb_md</requirement>

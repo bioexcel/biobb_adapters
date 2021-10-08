@@ -1,4 +1,4 @@
-<tool id="biobb_ml_map_variables_ext" name="MapVariables" version="3.0.1" >
+<tool id="biobb_ml_map_variables_ext" name="MapVariables" version="3.6.1" >
     <description>: Maps the values of a given dataset.</description>
     <requirements>
         <requirement type="package">biobb_ml</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_amber_leap_gen_top_ext" name="LeapGenTop" version="" >
+<tool id="biobb_amber_leap_gen_top_ext" name="LeapGenTop" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) leap tool module.</description>
     <requirements>
         <requirement type="package">biobb_amber</requirement>

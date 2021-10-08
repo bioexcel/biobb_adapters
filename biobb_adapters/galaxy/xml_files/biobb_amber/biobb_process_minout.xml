@@ -1,4 +1,4 @@
-<tool id="biobb_amber_process_minout_ext" name="ProcessMinout" version="" >
+<tool id="biobb_amber_process_minout_ext" name="ProcessMinout" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) process_minout tool module.</description>
     <requirements>
         <requirement type="package">biobb_amber</requirement>

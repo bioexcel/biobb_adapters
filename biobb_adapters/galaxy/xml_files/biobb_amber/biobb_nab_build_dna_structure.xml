@@ -1,4 +1,4 @@
-<tool id="biobb_amber_nab_build_dna_structure_ext" name="NabBuildDnaStructure" version="" >
+<tool id="biobb_amber_nab_build_dna_structure_ext" name="NabBuildDnaStructure" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) nab tool module.</description>
     <requirements>
         <requirement type="package">biobb_amber</requirement>

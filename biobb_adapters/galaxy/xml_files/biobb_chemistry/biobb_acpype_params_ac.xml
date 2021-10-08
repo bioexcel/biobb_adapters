@@ -1,4 +1,4 @@
-<tool id="biobb_chemistry_acpype_params_ac_ext" name="AcpypeParamsAc" version="3.0.0" >
+<tool id="biobb_chemistry_acpype_params_ac_ext" name="AcpypeParamsAc" version="3.6.0" >
     <description>: This class is a wrapper of Acpype tool for small molecule parameterization for AMBER MD package.</description>
     <requirements>
         <requirement type="package">biobb_chemistry</requirement>

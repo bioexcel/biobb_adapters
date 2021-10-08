@@ -1,4 +1,4 @@
-<tool id="biobb_ml_drop_columns_ext" name="DropColumns" version="3.0.1" >
+<tool id="biobb_ml_drop_columns_ext" name="DropColumns" version="3.6.1" >
     <description>: Drops columns from a given dataset.</description>
     <requirements>
         <requirement type="package">biobb_ml</requirement>

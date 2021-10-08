@@ -1,4 +1,4 @@
-<tool id="biobb_vs_box_ext" name="Box" version="3.0.0" >
+<tool id="biobb_vs_box_ext" name="Box" version="3.6.0" >
     <description>: This class sets the center and the size of a rectangular parallelepiped box around a set of residues or a pocket.</description>
     <requirements>
         <requirement type="package">biobb_vs</requirement>

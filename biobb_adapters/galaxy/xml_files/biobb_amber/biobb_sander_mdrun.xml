@@ -1,4 +1,4 @@
-<tool id="biobb_amber_sander_mdrun_ext" name="SanderMdrun" version="" >
+<tool id="biobb_amber_sander_mdrun_ext" name="SanderMdrun" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) sander tool module.</description>
     <requirements>
         <requirement type="package">biobb_amber</requirement>

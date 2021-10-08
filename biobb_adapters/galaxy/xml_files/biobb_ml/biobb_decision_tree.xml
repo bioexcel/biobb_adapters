@@ -1,4 +1,4 @@
-<tool id="biobb_ml_decision_tree_ext" name="DecisionTree" version="3.0.1" >
+<tool id="biobb_ml_decision_tree_ext" name="DecisionTree" version="3.6.1" >
     <description>: Wrapper of the scikit-learn DecisionTreeClassifier method.</description>
     <requirements>
         <requirement type="package">biobb_ml</requirement>

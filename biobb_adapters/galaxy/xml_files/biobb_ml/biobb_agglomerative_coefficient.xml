@@ -1,4 +1,4 @@
-<tool id="biobb_ml_agglomerative_coefficient_ext" name="AgglomerativeCoefficient" version="3.0.1" >
+<tool id="biobb_ml_agglomerative_coefficient_ext" name="AgglomerativeCoefficient" version="3.6.1" >
     <description>: Wrapper of the scikit-learn AgglomerativeClustering method.</description>
     <requirements>
         <requirement type="package">biobb_ml</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_io_ligand_ext" name="Ligand" version="3.0.0" >
+<tool id="biobb_io_ligand_ext" name="Ligand" version="3.6.0" >
     <description>: This class is a wrapper for downloading a PDB ligand from the Protein Data Bank.</description>
     <requirements>
         <requirement type="package">biobb_io</requirement>

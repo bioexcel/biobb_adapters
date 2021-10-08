@@ -1,4 +1,4 @@
-<tool id="biobb_structure_utils_renumber_structure_ext" name="RenumberStructure" version="3.0.0" >
+<tool id="biobb_structure_utils_renumber_structure_ext" name="RenumberStructure" version="3.6.1" >
     <description>: Class to renumber atomic indexes from a 3D structure.</description>
     <requirements>
         <requirement type="package">biobb_structure_utils</requirement>

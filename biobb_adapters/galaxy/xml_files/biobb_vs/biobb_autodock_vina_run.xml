@@ -1,4 +1,4 @@
-<tool id="biobb_vs_autodock_vina_run_ext" name="AutodockVinaRun" version="3.0.0" >
+<tool id="biobb_vs_autodock_vina_run_ext" name="AutodockVinaRun" version="3.6.0" >
     <description>: Wrapper of the AutoDock Vina software.</description>
     <requirements>
         <requirement type="package">biobb_vs</requirement>

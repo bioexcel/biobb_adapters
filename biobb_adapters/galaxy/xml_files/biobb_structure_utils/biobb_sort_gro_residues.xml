@@ -1,4 +1,4 @@
-<tool id="biobb_structure_utils_sort_gro_residues_ext" name="SortGroResidues" version="3.0.0" >
+<tool id="biobb_structure_utils_sort_gro_residues_ext" name="SortGroResidues" version="3.6.1" >
     <description>: Class to sort the selected residues from a GRO 3D structure.</description>
     <requirements>
         <requirement type="package">biobb_structure_utils</requirement>

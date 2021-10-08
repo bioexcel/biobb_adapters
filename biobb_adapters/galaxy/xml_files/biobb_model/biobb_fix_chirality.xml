@@ -1,4 +1,4 @@
-<tool id="biobb_model_fix_chirality_ext" name="FixChirality" version="3.0.1" >
+<tool id="biobb_model_fix_chirality_ext" name="FixChirality" version="3.6.0" >
     <description>: Fix chirality errors of residues.</description>
     <requirements>
         <requirement type="package">biobb_model</requirement>
