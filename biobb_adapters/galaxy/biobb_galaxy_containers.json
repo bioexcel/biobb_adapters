@@ -1,42 +1,46 @@
 {
     "biobb_analysis" : {
-        "docker_image" : "quay.io/biocontainers/biobb_analysis",
-        "version": "3.0.0"
+        "docker_image" : "quay.io/biocontainers/biobb_analysis:3.6.0--pyhdfd78af_0",
+        "version": "3.6.0"
     },
     "biobb_chemistry" : {
         "docker_image" : "quay.io/biocontainers/biobb_chemistry",
-        "version": "3.0.0"
+        "version": "3.6.0"
+    },
+    "biobb_dna" : {
+        "docker_image" : "quay.io/biocontainers/biobb_dna",
+        "version": "3.6.2"
     },
     "biobb_io" : {
         "docker_image" : "quay.io/biocontainers/biobb_io",
-        "version": "3.0.0"
+        "version": "3.6.0"
     },
     "biobb_md" : {
         "docker_image" : "quay.io/biocontainers/biobb_md",
-        "version": "3.0.0"
+        "version": "3.6.0"
     },
     "biobb_ml" : {
         "docker_image" : "quay.io/biocontainers/biobb_ml",
-        "version": "3.0.1"
+        "version": "3.6.1"
     },
     "biobb_model" : {
         "docker_image" : "quay.io/biocontainers/biobb_model",
-        "version": "3.0.1"
+        "version": "3.6.0"
     },
     "biobb_pmx" : {
         "docker_image" : "quay.io/biocontainers/biobb_pmx",
-        "version": "3.0.1"
+        "version": "3.6.0"
     },
     "biobb_structure_utils" : {
         "docker_image" : "quay.io/biocontainers/biobb_structure_utils",
-        "version": "3.0.0"
+        "version": "3.6.1"
     },
     "biobb_vs" : {
         "docker_image" : "quay.io/biocontainers/biobb_vs",
-        "version": "3.0.0"
+        "version": "3.6.0"
     },
     "biobb_amber": {
-        "docker_image" : "",
-        "version": ""
+        "docker_image" : "quay.io/biocontainers/biobb_amber:3.6.2--pyhdfd78af_0",
+        "version": "3.6.2"
     }
 }
