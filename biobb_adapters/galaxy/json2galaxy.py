@@ -94,16 +94,20 @@ def main():
         data['tool_id'] = args.id
     else:
         data['tool_id'] = data['biobb_group'] + "_" + data['name']
-    
-    data['container_id'] = "{}:{}--py_0".format(
-        cont_lst[data['biobb_group']]['docker_image'],
-        cont_lst[data['biobb_group']]['version']
-    )
+    if data['biobb_group'] in cont_lst:
+        data['container_id'] = "{}:{}--py_0".format(
+            cont_lst[data['biobb_group']]['docker_image'],
+            cont_lst[data['biobb_group']]['version']
+        )
+    else:
+        data['container_id'] = ''        
     
     if 'version' in schema_data:
         data['version'] = schema_data['version']
-    else:
+    elif data['biobb_group'] in cont_lst:
         data['version'] = cont_lst[data['biobb_group']]['version']
+    else:
+        data['version'] = '0.1.0'
         
     data['description'] = schema_data['title']
     for f in schema_data['properties']:
