@@ -54,36 +54,35 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="basename" type="text" label="basename" help="A basename for the project (folder and output files)." optional="false"
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="basename" type="text" label="basename" help="A basename for the project (folder and output files)." optional="false"
                   value="BBB"
                 />
-          
-            <param name="charge" type="integer" 
+            
+              <param name="charge" type="integer" 
                   
                   min="-20" max="20"
-                      label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="true"/>
-          
-            <param name="acpype_path" type="text" label="acpype_path" help="Path to the acpype executable binary." optional="false"
+                  label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="true"/>
+            
+              <param name="acpype_path" type="text" label="acpype_path" help="Path to the acpype executable binary." optional="false"
                   value="acpype"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

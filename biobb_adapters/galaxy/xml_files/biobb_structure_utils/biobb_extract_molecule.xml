@@ -48,23 +48,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="molecule_type" type="select" label="molecule_type" help="type of molecule to be extracted. If all, only waters and ligands will be removed from the original structure. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="molecule_type" type="select" label="molecule_type" help="type of molecule to be extracted. If all, only waters and ligands will be removed from the original structure. " multiple="">
                   
                     <option value="all" 
                       selected="true"
@@ -91,14 +90,14 @@
                     >chains - None</option>
                   
                 </param>
-          
-            <param name="chains" type="text" label="chains" help="if chains selected in **molecule_type**, specify them here, e.g: [&#34;A&#34;, &#34;C&#34;, &#34;N&#34;]. (Json)" value="[]" />
-          
-            <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+            
+              <param name="chains" type="text" label="chains" help="if chains selected in **molecule_type**, specify them here, e.g: [&#34;A&#34;, &#34;C&#34;, &#34;N&#34;]. (Json)" value="[]" />
+            
+              <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
                   value="check_structure"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

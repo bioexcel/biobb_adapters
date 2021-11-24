@@ -53,7 +53,6 @@
           <param name="outname_output_predict_path" type="text" value="myneural_network_decode.csv" optional="True" label="output CSV name" help="Path to the output predict file Format: [output].csv "/>
         
         
-       </section>
     </inputs>
     <outputs>
         

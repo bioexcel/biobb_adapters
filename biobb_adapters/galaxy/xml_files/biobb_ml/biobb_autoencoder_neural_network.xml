@@ -70,23 +70,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
                   
                     <option value="Adadelta" 
                       
@@ -121,23 +120,23 @@
                     >SGD - Gradient descent -with momentum- optimizer</option>
                   
                 </param>
-          
-            <param name="learning_rate" type="float" 
+            
+              <param name="learning_rate" type="float" 
                   value="0.02"
                   
-                      label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
-          
-            <param name="batch_size" type="integer" 
+                  label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+            
+              <param name="batch_size" type="integer" 
                   value="100"
                   
-                      label="batch_size" help="Number of samples per gradient update." optional="false"/>
-          
-            <param name="max_epochs" type="integer" 
+                  label="batch_size" help="Number of samples per gradient update." optional="false"/>
+            
+              <param name="max_epochs" type="integer" 
                   value="100"
                   
-                      label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
-          
-       </section>
+                  label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
+                    
+          </section>
     </inputs>
     <outputs>
         

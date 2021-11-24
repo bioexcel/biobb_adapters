@@ -102,23 +102,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="execution_type" type="select" label="execution_type" help="Default options for the params file. Each one creates a different params file. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="execution_type" type="select" label="execution_type" help="Default options for the params file. Each one creates a different params file. " multiple="">
                   
                     <option value="mip" 
                       selected="true"
@@ -141,14 +140,14 @@
                     >docking_rst - Docking from restart file</option>
                   
                 </param>
-          
-            <param name="params" type="text" label="params" help="CMIP options specification. (Json)" value="{}" />
-          
-            <param name="cmip_path" type="text" label="cmip_path" help="Path to the CMIP cmip executable binary." optional="false"
+            
+              <param name="params" type="text" label="params" help="CMIP options specification. (Json)" value="{}" />
+            
+              <param name="cmip_path" type="text" label="cmip_path" help="Path to the CMIP cmip executable binary." optional="false"
                   value="cmip"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

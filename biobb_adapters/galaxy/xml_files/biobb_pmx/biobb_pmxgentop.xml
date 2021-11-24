@@ -48,43 +48,44 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="force_field" type="text" label="force_field" help="Force field to use. If **input_top_zip_path** is a top file, it&#39;s not necessary to specify the forcefield, as it will be determined automatically. If **input_top_zip_path** is an itp file, then it&#39;s needed." optional="false"
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="force_field" type="text" label="force_field" help="Force field to use. If **input_top_zip_path** is a top file, it&#39;s not necessary to specify the forcefield, as it will be determined automatically. If **input_top_zip_path** is an itp file, then it&#39;s needed." optional="false"
                   value="amber99sb-star-ildn-mut"
                 />
-          
-            <param name="split" type="boolean" 
+            
+              <param name="split" type="boolean" 
                   
-                  label="split" help="Write separate topologies for the vdW and charge transformations." />
-          
-            <param name="scale_mass" type="boolean" 
+                  label="split" help="Write separate topologies for the vdW and charge transformations." 
+                />
+            
+              <param name="scale_mass" type="boolean" 
                   
-                  label="scale_mass" help="Scale the masses of morphing atoms so that dummies have a mass of 1." />
-          
-            <param name="gmx_lib" type="text" label="gmx_lib" help="Path to the GMXLIB folder in your computer." optional="false"
+                  label="scale_mass" help="Scale the masses of morphing atoms so that dummies have a mass of 1." 
+                />
+            
+              <param name="gmx_lib" type="text" label="gmx_lib" help="Path to the GMXLIB folder in your computer." optional="false"
                   value="$CONDA_PREFIX/lib/python3.7/site-packages/pmx/data/mutff45/"
                 />
-          
-            <param name="pmx_path" type="text" label="pmx_path" help="Path to the PMX command line interface." optional="false"
+            
+              <param name="pmx_path" type="text" label="pmx_path" help="Path to the PMX command line interface." optional="false"
                   value="pmx"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

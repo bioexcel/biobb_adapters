@@ -100,23 +100,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                   
                     <option value="protein.ff14SB" 
                       
@@ -143,8 +142,8 @@
                     >gaff - None</option>
                   
                 </param>
-          
-            <param name="water_type" type="select" label="water_type" help="Water molecule parameters to be used for the topology. " multiple="">
+            
+              <param name="water_type" type="select" label="water_type" help="Water molecule parameters to be used for the topology. " multiple="">
                   
                     <option value="POL3BOX" 
                       
@@ -191,8 +190,8 @@
                     >TIP5PBOX - None</option>
                   
                 </param>
-          
-            <param name="box_type" type="select" label="box_type" help="Type for the MD system box. " multiple="">
+            
+              <param name="box_type" type="select" label="box_type" help="Type for the MD system box. " multiple="">
                   
                     <option value="cubic" 
                       
@@ -203,8 +202,8 @@
                     >truncated_octahedron - None</option>
                   
                 </param>
-          
-            <param name="ions_type" type="select" label="ions_type" help="Ions type. " multiple="">
+            
+              <param name="ions_type" type="select" label="ions_type" help="Ions type. " multiple="">
                   
                     <option value="ionsjc_tip3p" 
                       selected="true"
@@ -231,27 +230,28 @@
                     >None - None</option>
                   
                 </param>
-          
-            <param name="neutralise" type="boolean" 
+            
+              <param name="neutralise" type="boolean" 
                   checked="true"
-                  label="neutralise" help="Energetically neutralise the system adding the necessary counterions." />
-          
-            <param name="ionic_concentration" type="float" 
+                  label="neutralise" help="Energetically neutralise the system adding the necessary counterions." 
+                />
+            
+              <param name="ionic_concentration" type="float" 
                   value="50.0"
                   
-                      label="ionic_concentration" help="Additional ionic concentration to include in the system box. Units in Mol/L." optional="false"/>
-          
-            <param name="positive_ions_number" type="integer" 
+                  label="ionic_concentration" help="Additional ionic concentration to include in the system box. Units in Mol/L." optional="false"/>
+            
+              <param name="positive_ions_number" type="integer" 
                   
                   
-                      label="positive_ions_number" help="Number of additional positive ions to include in the system box." optional="true"/>
-          
-            <param name="negative_ions_number" type="integer" 
+                  label="positive_ions_number" help="Number of additional positive ions to include in the system box." optional="true"/>
+            
+              <param name="negative_ions_number" type="integer" 
                   
                   
-                      label="negative_ions_number" help="Number of additional negative ions to include in the system box." optional="true"/>
-          
-            <param name="positive_ions_type" type="select" label="positive_ions_type" help="Type of additional positive ions to include in the system box. " multiple="">
+                  label="negative_ions_number" help="Number of additional negative ions to include in the system box." optional="true"/>
+            
+              <param name="positive_ions_type" type="select" label="positive_ions_type" help="Type of additional positive ions to include in the system box. " multiple="">
                   
                     <option value="Na+" 
                       selected="true"
@@ -262,16 +262,16 @@
                     >K+ - None</option>
                   
                 </param>
-          
-            <param name="negative_ions_type" type="select" label="negative_ions_type" help="Type of additional negative ions to include in the system box. " multiple="">
+            
+              <param name="negative_ions_type" type="select" label="negative_ions_type" help="Type of additional negative ions to include in the system box. " multiple="">
                   
                     <option value="Cl-" 
                       selected="true"
                     >Cl- - None</option>
                   
                 </param>
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

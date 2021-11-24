@@ -58,37 +58,36 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="ligand" type="text" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, the largest one will be selected, if more than one." optional="true"
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="ligand" type="text" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, the largest one will be selected, if more than one." optional="true"
                   
                 />
-          
-            <param name="radius" type="float" 
+            
+              <param name="radius" type="float" 
                   value="5.0"
                   min="0.1" max="1000.0"
-                      label="radius" help="Cut-off distance (Ångstroms) around ligand atoms to consider a protein atom as a binding site atom." optional="false"/>
-          
-            <param name="max_num_ligands" type="integer" 
+                  label="radius" help="Cut-off distance (Ångstroms) around ligand atoms to consider a protein atom as a binding site atom." optional="false"/>
+            
+              <param name="max_num_ligands" type="integer" 
                   value="15"
                   
-                      label="max_num_ligands" help="Total number of superimposed ligands to be extracted from the identity cluster. For populated clusters, the restriction avoids to superimpose redundant structures. If 0, all ligands extracted will be considered." optional="false"/>
-          
-            <param name="matrix_name" type="select" label="matrix_name" help="Substitution matrices for use in alignments. " multiple="">
+                  label="max_num_ligands" help="Total number of superimposed ligands to be extracted from the identity cluster. For populated clusters, the restriction avoids to superimpose redundant structures. If 0, all ligands extracted will be considered." optional="false"/>
+            
+              <param name="matrix_name" type="select" label="matrix_name" help="Substitution matrices for use in alignments. " multiple="">
                   
                     <option value="benner6" 
                       
@@ -251,18 +250,18 @@
                     >structure - None</option>
                   
                 </param>
-          
-            <param name="gap_open" type="float" 
+            
+              <param name="gap_open" type="float" 
                   value="-10.0"
                   min="-1000.0" max="1000.0"
-                      label="gap_open" help="Gap open penalty." optional="false"/>
-          
-            <param name="gap_extend" type="float" 
+                  label="gap_open" help="Gap open penalty." optional="false"/>
+            
+              <param name="gap_extend" type="float" 
                   value="-0.5"
                   min="-1000.0" max="1000.0"
-                      label="gap_extend" help="Gap extend penalty." optional="false"/>
-          
-       </section>
+                  label="gap_extend" help="Gap extend penalty." optional="false"/>
+                    
+          </section>
     </inputs>
     <outputs>
         

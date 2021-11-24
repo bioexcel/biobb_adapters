@@ -118,29 +118,28 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="mdin" type="text" label="mdin" help="pmemd MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
-          
-            <param name="pmemd_path" type="text" label="pmemd_path" help="pmemd binary path to be used." optional="false"
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="mdin" type="text" label="mdin" help="pmemd MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
+            
+              <param name="pmemd_path" type="text" label="pmemd_path" help="pmemd binary path to be used." optional="false"
                   value="pmemd"
                 />
-          
-            <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
+            
+              <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
                   
                     <option value="minimization" 
                       selected="true"
@@ -163,21 +162,21 @@
                     >free - Runs a MD simulation</option>
                   
                 </param>
-          
-            <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
+            
+              <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
                   
                 />
-          
-            <param name="mpi_np" type="integer" 
+            
+              <param name="mpi_np" type="integer" 
                   
                   
-                      label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
-          
-            <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
+                  label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
+            
+              <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
                   
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

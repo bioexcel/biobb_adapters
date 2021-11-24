@@ -53,40 +53,39 @@
           <param name="outname_{{ k }}" type="text" value="my{{name}}.{{v['file_types'][0]}}" optional="{{v['optional']}}" label="{{v['label']}} name" help="{{v['description']}} Format: [output].{{v['help_format']}} "/>
         {% endfor %}
         {% if props -%}
-        <conditional name="config">
+          <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        {% for k, v in props.items() %}
-            {% if v['type'] == 'string' or v['type'] == 'list' -%}
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            {% for k, v in props.items() %}
+              {% if v['type'] == 'string' or v['type'] == 'list' -%}
                 <param name="{{ k }}" type="text" label="{{ k }}" help="{{ v['description'] }}" optional="{{v['optional']}}"
                   {% if v['default'] -%}
                     value="{{ v['default']}}" 
                   {%- endif %}
                 /> 
-            {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
+              {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
                 <param name="{{ k }}" type="{{v['type']}}" 
                   {% if v['default'] -%}
                     value="{{ v['default']}}" 
                   {%- endif %}
                   {% if v['min'] -%}
-                      min="{{ v['min'] }}" max="{{ v['max'] }}" 
+                    min="{{ v['min'] }}" max="{{ v['max'] }}" 
                   {%- endif %}
-                      label="{{ k }}" help="{{ v['description']}}" optional="{{v['optional']}}"/> 
-            {%- elif v['type'] == 'select' -%}
+                  label="{{ k }}" help="{{ v['description']}}" optional="{{v['optional']}}"/> 
+              {%- elif v['type'] == 'select' -%}
                 <param name="{{ k }}" type="select" label="{{ k }}" help="{{ v['description'] }}" multiple="{{v['multiple']}}">
                   {% for opt in v['values'] %}
                     <option value="{{ opt }}" 
@@ -96,20 +95,21 @@
                     >{{ opt }} - {{ v['property_formats'][opt] }}</option>
                   {% endfor %}
                 </param>
-            {%- elif v['type'] == 'boolean' -%}
+              {%- elif v['type'] == 'boolean' -%}
                 <param name="{{ k }}" type="boolean" 
                   {% if v['default'] == True -%}
                     checked="true"
                   {%- endif%}
-                  label="{{ k }}" help="{{ v['description'] }}" /> 
-            {%- elif v['type'] == 'object'-%}
+                  label="{{ k }}" help="{{ v['description'] }}" 
+                /> 
+              {%- elif v['type'] == 'object'-%}
                 <param name="{{ k }}" type="text" label="{{ k }}" help="{{ v['description'] }} (Json)" value="{}" /> 
-            {%- elif v['type'] == 'array' -%}
+              {%- elif v['type'] == 'array' -%}
                 <param name="{{ k }}" type="text" label="{{ k }}" help="{{ v['description'] }} (Json)" value="[]" /> 
-            {%- endif %}
-          {% endfor %}        
+              {%- endif %}
+            {% endfor %}        
+          </section>
        {%- endif %}
-       </section>
     </inputs>
     <outputs>
         {% for k, v in files['output'].items() %}

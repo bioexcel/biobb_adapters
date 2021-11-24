@@ -47,7 +47,6 @@
           <param name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" optional="False" label="output PDB name" help="Output protein file path Format: [output].pdb "/>
         
         
-       </section>
     </inputs>
     <outputs>
         

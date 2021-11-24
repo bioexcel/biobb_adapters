@@ -37,7 +37,6 @@
           <param name="outname_output_top_path" type="text" value="myparmed_hmassrepartition.top" optional="False" label="output TOP,PARMTOP,PRMTOP name" help="Output topology file (AMBER ParmTop) Format: [output].[format] "/>
         
         
-       </section>
     </inputs>
     <outputs>
         

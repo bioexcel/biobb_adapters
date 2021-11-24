@@ -60,41 +60,40 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="features" type="text" label="features" help="Independent variables or columns from your dataset you want to train. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-          
-            <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-          
-            <param name="weight" type="text" label="weight" help="Weight variable from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of multiple formats, the first one will be picked. (Json)" value="{}" />
-          
-            <param name="validation_size" type="float" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="features" type="text" label="features" help="Independent variables or columns from your dataset you want to train. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+            
+              <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+            
+              <param name="weight" type="text" label="weight" help="Weight variable from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of multiple formats, the first one will be picked. (Json)" value="{}" />
+            
+              <param name="validation_size" type="float" 
                   value="0.2"
                   
-                      label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
-          
-            <param name="test_size" type="float" 
+                  label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
+            
+              <param name="test_size" type="float" 
                   value="0.1"
                   
-                      label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
-          
-            <param name="hidden_layers" type="text" label="hidden_layers" help="List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]. (Json)" value="[]" />
-          
-            <param name="output_layer_activation" type="select" label="output_layer_activation" help="Activation function to use in the output layer. " multiple="">
+                  label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
+            
+              <param name="hidden_layers" type="text" label="hidden_layers" help="List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]. (Json)" value="[]" />
+            
+              <param name="output_layer_activation" type="select" label="output_layer_activation" help="Activation function to use in the output layer. " multiple="">
                   
                     <option value="sigmoid" 
                       
@@ -113,8 +112,8 @@
                     >softmax - Softmax converts a real vector to a vector of categorical probabilities</option>
                   
                 </param>
-          
-            <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
+            
+              <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
                   
                     <option value="Adadelta" 
                       
@@ -149,36 +148,38 @@
                     >SGD - Gradient descent -with momentum- optimizer</option>
                   
                 </param>
-          
-            <param name="learning_rate" type="float" 
+            
+              <param name="learning_rate" type="float" 
                   value="0.02"
                   
-                      label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
-          
-            <param name="batch_size" type="integer" 
+                  label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+            
+              <param name="batch_size" type="integer" 
                   value="100"
                   
-                      label="batch_size" help="Number of samples per gradient update." optional="false"/>
-          
-            <param name="max_epochs" type="integer" 
+                  label="batch_size" help="Number of samples per gradient update." optional="false"/>
+            
+              <param name="max_epochs" type="integer" 
                   value="100"
                   
-                      label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
-          
-            <param name="normalize_cm" type="boolean" 
+                  label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
+            
+              <param name="normalize_cm" type="boolean" 
                   
-                  label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
-          
-            <param name="random_state" type="integer" 
+                  label="normalize_cm" help="Whether or not to normalize the confusion matrix." 
+                />
+            
+              <param name="random_state" type="integer" 
                   value="5"
                   min="1" max="1000"
-                      label="random_state" help="Controls the shuffling applied to the data before applying the split. ." optional="false"/>
-          
-            <param name="scale" type="boolean" 
+                  label="random_state" help="Controls the shuffling applied to the data before applying the split. ." optional="false"/>
+            
+              <param name="scale" type="boolean" 
                   
-                  label="scale" help="Whether or not to scale the input dataset." />
-          
-       </section>
+                  label="scale" help="Whether or not to scale the input dataset." 
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

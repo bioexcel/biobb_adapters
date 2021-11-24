@@ -88,71 +88,75 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="timestep" type="float" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="timestep" type="float" 
                   value="0.002"
                   
-                      label="timestep" help="Simulation time step -in ps-, used to print data as a function of time." optional="false"/>
-          
-            <param name="verbose" type="boolean" 
+                  label="timestep" help="Simulation time step -in ps-, used to print data as a function of time." optional="false"/>
+            
+              <param name="verbose" type="boolean" 
                   
-                  label="verbose" help="Controls how much information is printed to the calcpka-style output file. Options are: False - Just print fraction protonated. True - Print everything calcpka prints." />
-          
-            <param name="interval" type="integer" 
+                  label="verbose" help="Controls how much information is printed to the calcpka-style output file. Options are: False - Just print fraction protonated. True - Print everything calcpka prints." 
+                />
+            
+              <param name="interval" type="integer" 
                   value="1000"
                   
-                      label="interval" help="Interval between which to print out time series data like chunks, cumulative data, and running averages. It is also used as the window of the conditional probability time series." optional="false"/>
-          
-            <param name="protonated" type="boolean" 
+                  label="interval" help="Interval between which to print out time series data like chunks, cumulative data, and running averages. It is also used as the window of the conditional probability time series." optional="false"/>
+            
+              <param name="protonated" type="boolean" 
                   checked="true"
-                  label="protonated" help="Print out protonation fraction instead of deprotonation fraction in time series data." />
-          
-            <param name="pka" type="boolean" 
+                  label="protonated" help="Print out protonation fraction instead of deprotonation fraction in time series data." 
+                />
+            
+              <param name="pka" type="boolean" 
                   
-                  label="pka" help="Print predicted pKas -via Henderson-Hasselbalch equation- in place of fraction -de-protonated." />
-          
-            <param name="calcpka" type="boolean" 
+                  label="pka" help="Print predicted pKas -via Henderson-Hasselbalch equation- in place of fraction -de-protonated." 
+                />
+            
+              <param name="calcpka" type="boolean" 
                   checked="true"
-                  label="calcpka" help="Triggers the calcpka-style output." />
-          
-            <param name="running_avg_window" type="integer" 
+                  label="calcpka" help="Triggers the calcpka-style output." 
+                />
+            
+              <param name="running_avg_window" type="integer" 
                   value="100"
                   
-                      label="running_avg_window" help="Defines a window size -in MD steps- for a moving, running average time series." optional="false"/>
-          
-            <param name="chunk_window" type="integer" 
+                  label="running_avg_window" help="Defines a window size -in MD steps- for a moving, running average time series." optional="false"/>
+            
+              <param name="chunk_window" type="integer" 
                   value="100"
                   
-                      label="chunk_window" help="Computes the time series data over a chunk of the simulation of this specified size -window- time steps." optional="false"/>
-          
-            <param name="cumulative" type="boolean" 
+                  label="chunk_window" help="Computes the time series data over a chunk of the simulation of this specified size -window- time steps." optional="false"/>
+            
+              <param name="cumulative" type="boolean" 
                   
-                  label="cumulative" help="Computes the cumulative average time series data over the course of the trajectory." />
-          
-            <param name="fix_remd" type="text" label="fix_remd" help="This option will trigger cphstats to reassemble the titration data into pH-specific ensembles. This is an exclusive mode of the program, no other analyses will be done." optional="true"
+                  label="cumulative" help="Computes the cumulative average time series data over the course of the trajectory." 
+                />
+            
+              <param name="fix_remd" type="text" label="fix_remd" help="This option will trigger cphstats to reassemble the titration data into pH-specific ensembles. This is an exclusive mode of the program, no other analyses will be done." optional="true"
                   
                 />
-          
-            <param name="conditional" type="text" label="conditional" help="Evaluates conditional probabilities. CONDITIONAL should be a string of the format: &lt;resid&gt;:&lt;state&gt;,&lt;resid&gt;:&lt;state&gt;,... or &lt;resid&gt;:PROT,&lt;resid&gt;:DEPROT,... or &lt;resid&gt;:&lt;state1&gt;;&lt;state2&gt;,&lt;resid&gt;:PROT,... where &lt;resid&gt; is the residue number in the prmtop and &lt;state&gt; is either the state number or -p-rotonated or -d-eprotonated, case-insensitive." optional="true"
+            
+              <param name="conditional" type="text" label="conditional" help="Evaluates conditional probabilities. CONDITIONAL should be a string of the format: &lt;resid&gt;:&lt;state&gt;,&lt;resid&gt;:&lt;state&gt;,... or &lt;resid&gt;:PROT,&lt;resid&gt;:DEPROT,... or &lt;resid&gt;:&lt;state1&gt;;&lt;state2&gt;,&lt;resid&gt;:PROT,... where &lt;resid&gt; is the residue number in the prmtop and &lt;state&gt; is either the state number or -p-rotonated or -d-eprotonated, case-insensitive." optional="true"
                   
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

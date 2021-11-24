@@ -37,7 +37,6 @@
           <param name="outname_output_pdb_path" type="text" value="myfix_amides.pdb" optional="False" label="output PDB name" help="Output PDB file path Format: [output].pdb "/>
         
         
-       </section>
     </inputs>
     <outputs>
         

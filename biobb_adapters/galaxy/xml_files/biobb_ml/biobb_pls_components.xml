@@ -54,45 +54,46 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="features" type="text" label="features" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-          
-            <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-          
-            <param name="optimise" type="boolean" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="features" type="text" label="features" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+            
+              <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+            
+              <param name="optimise" type="boolean" 
                   
-                  label="optimise" help="Whether or not optimise the process of MSE calculation. Beware, if True selected, the process can take a long time depending on the **max_components** value." />
-          
-            <param name="max_components" type="integer" 
+                  label="optimise" help="Whether or not optimise the process of MSE calculation. Beware, if True selected, the process can take a long time depending on the **max_components** value." 
+                />
+            
+              <param name="max_components" type="integer" 
                   value="10"
                   min="1" max="1000"
-                      label="max_components" help="Maximum number of components to use by default for PLS queries." optional="false"/>
-          
-            <param name="cv" type="integer" 
+                  label="max_components" help="Maximum number of components to use by default for PLS queries." optional="false"/>
+            
+              <param name="cv" type="integer" 
                   value="10"
                   min="1" max="10000"
-                      label="cv" help="Specify the number of folds in the cross-validation splitting strategy. Value must be between 2 and number of samples in the dataset." optional="false"/>
-          
-            <param name="scale" type="boolean" 
+                  label="cv" help="Specify the number of folds in the cross-validation splitting strategy. Value must be between 2 and number of samples in the dataset." optional="false"/>
+            
+              <param name="scale" type="boolean" 
                   
-                  label="scale" help="Whether or not to scale the input dataset." />
-          
-       </section>
+                  label="scale" help="Whether or not to scale the input dataset." 
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

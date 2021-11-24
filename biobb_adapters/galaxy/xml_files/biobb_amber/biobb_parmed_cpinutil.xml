@@ -54,23 +54,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. " multiple="">
                   
                     <option value="AS4" 
                       
@@ -97,8 +96,8 @@
                     >TYR - None</option>
                   
                 </param>
-          
-            <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. " multiple="">
+            
+              <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. " multiple="">
                   
                     <option value="1" 
                       
@@ -121,12 +120,12 @@
                     >8 - None</option>
                   
                 </param>
-          
-            <param name="system" type="text" label="system" help="Name of system to titrate." optional="false"
+            
+              <param name="system" type="text" label="system" help="Name of system to titrate." optional="false"
                   value="Unknown"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

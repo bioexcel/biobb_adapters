@@ -47,7 +47,6 @@
           <param name="outname_output_pdb_path" type="text" value="myamber_to_pdb.pdb" optional="False" label="output PDB name" help="Structure PDB file Format: [output].pdb "/>
         
         
-       </section>
     </inputs>
     <outputs>
         

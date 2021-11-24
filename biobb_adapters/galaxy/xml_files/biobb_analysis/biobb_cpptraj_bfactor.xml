@@ -68,38 +68,37 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="start" type="integer" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="start" type="integer" 
                   value="1"
                   min="1" max="100000"
-                      label="start" help="Starting frame for slicing" optional="false"/>
-          
-            <param name="end" type="integer" 
+                  label="start" help="Starting frame for slicing" optional="false"/>
+            
+              <param name="end" type="integer" 
                   value="-1"
                   min="-1" max="100000"
-                      label="end" help="Ending frame for slicing" optional="false"/>
-          
-            <param name="steps" type="integer" 
+                  label="end" help="Ending frame for slicing" optional="false"/>
+            
+              <param name="steps" type="integer" 
                   value="1"
                   min="1" max="100000"
-                      label="steps" help="Step for slicing" optional="false"/>
-          
-            <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
+                  label="steps" help="Step for slicing" optional="false"/>
+            
+              <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
                   
                     <option value="c-alpha" 
                       
@@ -134,8 +133,8 @@
                     >solvent - All solvent atoms</option>
                   
                 </param>
-          
-            <param name="reference" type="select" label="reference" help="Reference definition. " multiple="">
+            
+              <param name="reference" type="select" label="reference" help="Reference definition. " multiple="">
                   
                     <option value="first" 
                       selected="true"
@@ -150,12 +149,12 @@
                     >experimental - Use the experimental structure as reference</option>
                   
                 </param>
-          
-            <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
+            
+              <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
                   value="cpptraj"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

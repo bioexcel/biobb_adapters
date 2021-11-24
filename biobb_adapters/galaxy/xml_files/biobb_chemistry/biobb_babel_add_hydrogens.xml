@@ -48,23 +48,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. " multiple="">
                   
                     <option value="dat" 
                       
@@ -151,8 +150,8 @@
                     >xtc - Portable binary format for trajectories produced by GROMACS package</option>
                   
                 </param>
-          
-            <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. " multiple="">
+            
+              <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. " multiple="">
                   
                     <option value="ent" 
                       
@@ -227,8 +226,8 @@
                     >xtc - Portable binary format for trajectories produced by GROMACS package</option>
                   
                 </param>
-          
-            <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. " multiple="">
+            
+              <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. " multiple="">
                   
                     <option value="2" 
                       
@@ -239,17 +238,17 @@
                     >3 - 3D coordinates</option>
                   
                 </param>
-          
-            <param name="ph" type="float" 
+            
+              <param name="ph" type="float" 
                   value="7.4"
                   
-                      label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
-          
-            <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
+                  label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
+            
+              <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
                   value="obabel"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

@@ -48,95 +48,111 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="flip" type="boolean" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="flip" type="boolean" 
                   
-                  label="flip" help="add H and rotate and flip NQH groups" />
-          
-            <param name="noflip" type="boolean" 
+                  label="flip" help="add H and rotate and flip NQH groups" 
+                />
+            
+              <param name="noflip" type="boolean" 
                   
-                  label="noflip" help="add H and rotate groups with no NQH flips" />
-          
-            <param name="nuclear" type="boolean" 
+                  label="noflip" help="add H and rotate groups with no NQH flips" 
+                />
+            
+              <param name="nuclear" type="boolean" 
                   
-                  label="nuclear" help="use nuclear X-H distances rather than default electron cloud distances" />
-          
-            <param name="nooh" type="boolean" 
+                  label="nuclear" help="use nuclear X-H distances rather than default electron cloud distances" 
+                />
+            
+              <param name="nooh" type="boolean" 
                   
-                  label="nooh" help="remove hydrogens on OH and SH groups" />
-          
-            <param name="oh" type="boolean" 
+                  label="nooh" help="remove hydrogens on OH and SH groups" 
+                />
+            
+              <param name="oh" type="boolean" 
                   checked="true"
-                  label="oh" help="add hydrogens on OH and SH groups (default)" />
-          
-            <param name="his" type="boolean" 
+                  label="oh" help="add hydrogens on OH and SH groups (default)" 
+                />
+            
+              <param name="his" type="boolean" 
                   
-                  label="his" help="create NH hydrogens on HIS rings (usually used with -HIS)" />
-          
-            <param name="noheth" type="boolean" 
+                  label="his" help="create NH hydrogens on HIS rings (usually used with -HIS)" 
+                />
+            
+              <param name="noheth" type="boolean" 
                   
-                  label="noheth" help="do not attempt to add NH proton on Het groups" />
-          
-            <param name="rotnh3" type="boolean" 
+                  label="noheth" help="do not attempt to add NH proton on Het groups" 
+                />
+            
+              <param name="rotnh3" type="boolean" 
                   checked="true"
-                  label="rotnh3" help="allow lysine NH3 to rotate (default)" />
-          
-            <param name="norotnh3" type="boolean" 
+                  label="rotnh3" help="allow lysine NH3 to rotate (default)" 
+                />
+            
+              <param name="norotnh3" type="boolean" 
                   
-                  label="norotnh3" help="do not allow lysine NH3 to rotate" />
-          
-            <param name="rotexist" type="boolean" 
+                  label="norotnh3" help="do not allow lysine NH3 to rotate" 
+                />
+            
+              <param name="rotexist" type="boolean" 
                   
-                  label="rotexist" help="allow existing rotatable groups (OH, SH, Met-CH3) to rotate" />
-          
-            <param name="rotexoh" type="boolean" 
+                  label="rotexist" help="allow existing rotatable groups (OH, SH, Met-CH3) to rotate" 
+                />
+            
+              <param name="rotexoh" type="boolean" 
                   
-                  label="rotexoh" help="allow existing OH &amp; SH groups to rotate" />
-          
-            <param name="allalt" type="boolean" 
+                  label="rotexoh" help="allow existing OH &amp; SH groups to rotate" 
+                />
+            
+              <param name="allalt" type="boolean" 
                   checked="true"
-                  label="allalt" help="process adjustments for all conformations (default)" />
-          
-            <param name="onlya" type="boolean" 
+                  label="allalt" help="process adjustments for all conformations (default)" 
+                />
+            
+              <param name="onlya" type="boolean" 
                   
-                  label="onlya" help="only adjust &#39;A&#39; conformations" />
-          
-            <param name="charges" type="boolean" 
+                  label="onlya" help="only adjust &#39;A&#39; conformations" 
+                />
+            
+              <param name="charges" type="boolean" 
                   
-                  label="charges" help="output charge state for appropriate hydrogen records" />
-          
-            <param name="dorotmet" type="boolean" 
+                  label="charges" help="output charge state for appropriate hydrogen records" 
+                />
+            
+              <param name="dorotmet" type="boolean" 
                   
-                  label="dorotmet" help="allow methionine methyl groups to rotate (not recommended)" />
-          
-            <param name="noadjust" type="boolean" 
+                  label="dorotmet" help="allow methionine methyl groups to rotate (not recommended)" 
+                />
+            
+              <param name="noadjust" type="boolean" 
                   
-                  label="noadjust" help="do not process any rot or flip adjustments" />
-          
-            <param name="build" type="boolean" 
+                  label="noadjust" help="do not process any rot or flip adjustments" 
+                />
+            
+              <param name="build" type="boolean" 
                   
-                  label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
-          
-            <param name="reduce_path" type="text" label="reduce_path" help="Path to the reduce executable binary." optional="false"
+                  label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" 
+                />
+            
+              <param name="reduce_path" type="text" label="reduce_path" help="Path to the reduce executable binary." optional="false"
                   value="reduce"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

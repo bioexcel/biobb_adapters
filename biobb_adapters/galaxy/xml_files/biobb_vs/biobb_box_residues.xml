@@ -48,39 +48,39 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
-          
-            <param name="offset" type="float" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
+            
+              <param name="offset" type="float" 
                   value="2.0"
                   min="0.1" max="1000.0"
-                      label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
-          
-            <param name="box_coordinates" type="boolean" 
+                  label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
+            
+              <param name="box_coordinates" type="boolean" 
                   
-                  label="box_coordinates" help="Add box coordinates as 8 ATOM records." />
-          
-            <param name="residue_offset" type="integer" 
+                  label="box_coordinates" help="Add box coordinates as 8 ATOM records." 
+                />
+            
+              <param name="residue_offset" type="integer" 
                   
                   
-                      label="residue_offset" help="Residue id offset." optional="true"/>
-          
-       </section>
+                  label="residue_offset" help="Residue id offset." optional="true"/>
+                    
+          </section>
     </inputs>
     <outputs>
         

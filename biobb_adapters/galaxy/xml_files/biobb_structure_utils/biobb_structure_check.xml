@@ -48,23 +48,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. " multiple="True">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. " multiple="True">
                   
                     <option value="models" 
                       
@@ -111,12 +110,12 @@
                     >clashes - detect clashes</option>
                   
                 </param>
-          
-            <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+            
+              <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
                   value="check_structure"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

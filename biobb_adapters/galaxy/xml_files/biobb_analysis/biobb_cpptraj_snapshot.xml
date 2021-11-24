@@ -58,28 +58,27 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="snapshot" type="integer" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="snapshot" type="integer" 
                   value="1"
                   min="1" max="100000"
-                      label="snapshot" help="Frame to be captured for snapshot" optional="false"/>
-          
-            <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
+                  label="snapshot" help="Frame to be captured for snapshot" optional="false"/>
+            
+              <param name="mask" type="select" label="mask" help="Mask definition. " multiple="">
                   
                     <option value="c-alpha" 
                       
@@ -114,8 +113,8 @@
                     >solvent - All solvent atoms</option>
                   
                 </param>
-          
-            <param name="format" type="select" label="format" help="Output trajectory format. " multiple="">
+            
+              <param name="format" type="select" label="format" help="Output trajectory format. " multiple="">
                   
                     <option value="crd" 
                       
@@ -198,12 +197,12 @@
                     >conflib - LMOD Conflib</option>
                   
                 </param>
-          
-            <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
+            
+              <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
                   value="cpptraj"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

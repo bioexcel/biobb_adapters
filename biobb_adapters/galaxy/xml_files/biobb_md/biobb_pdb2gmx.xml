@@ -54,23 +54,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="water_type" type="select" label="water_type" help="Water molecule type. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="water_type" type="select" label="water_type" help="Water molecule type. " multiple="">
                   
                     <option value="spc" 
                       
@@ -97,8 +96,8 @@
                     >tips3p - None</option>
                   
                 </param>
-          
-            <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion.  " multiple="">
+            
+              <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion.  " multiple="">
                   
                     <option value="gromos45a3" 
                       
@@ -161,28 +160,30 @@
                     >amber94 - None</option>
                   
                 </param>
-          
-            <param name="ignh" type="boolean" 
+            
+              <param name="ignh" type="boolean" 
                   
-                  label="ignh" help="Should pdb2gmx ignore the hidrogens in the original structure." />
-          
-            <param name="his" type="text" label="his" help="Histidine protonation array." optional="true"
+                  label="ignh" help="Should pdb2gmx ignore the hidrogens in the original structure." 
+                />
+            
+              <param name="his" type="text" label="his" help="Histidine protonation array." optional="true"
                   
                 />
-          
-            <param name="merge" type="boolean" 
+            
+              <param name="merge" type="boolean" 
                   
-                  label="merge" help="Merge all chains into a single molecule." />
-          
-            <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+                  label="merge" help="Merge all chains into a single molecule." 
+                />
+            
+              <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
                   
                 />
-          
-            <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+            
+              <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
                   value="gmx"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

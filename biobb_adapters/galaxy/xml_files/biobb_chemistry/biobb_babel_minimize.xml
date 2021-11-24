@@ -48,28 +48,27 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="criteria" type="float" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="criteria" type="float" 
                   value="1e-06"
                   
-                      label="criteria" help="Convergence criteria" optional="false"/>
-          
-            <param name="method" type="select" label="method" help="Method. " multiple="">
+                  label="criteria" help="Convergence criteria" optional="false"/>
+            
+              <param name="method" type="select" label="method" help="Method. " multiple="">
                   
                     <option value="cg" 
                       selected="true"
@@ -80,8 +79,8 @@
                     >sd - steepest descent algorithm</option>
                   
                 </param>
-          
-            <param name="force_field" type="select" label="force_field" help="Force field. " multiple="">
+            
+              <param name="force_field" type="select" label="force_field" help="Force field. " multiple="">
                   
                     <option value="GAFF" 
                       
@@ -104,40 +103,42 @@
                     >UFF - Universal Force Field</option>
                   
                 </param>
-          
-            <param name="hydrogens" type="boolean" 
+            
+              <param name="hydrogens" type="boolean" 
                   
-                  label="hydrogens" help="Add hydrogen atoms." />
-          
-            <param name="steps" type="integer" 
+                  label="hydrogens" help="Add hydrogen atoms." 
+                />
+            
+              <param name="steps" type="integer" 
                   value="2500"
                   
-                      label="steps" help="Maximum number of steps." optional="false"/>
-          
-            <param name="cutoff" type="boolean" 
+                  label="steps" help="Maximum number of steps." optional="false"/>
+            
+              <param name="cutoff" type="boolean" 
                   
-                  label="cutoff" help="Use cut-off." />
-          
-            <param name="rvdw" type="float" 
+                  label="cutoff" help="Use cut-off." 
+                />
+            
+              <param name="rvdw" type="float" 
                   value="6.0"
                   
-                      label="rvdw" help="VDW cut-off distance." optional="false"/>
-          
-            <param name="rele" type="float" 
+                  label="rvdw" help="VDW cut-off distance." optional="false"/>
+            
+              <param name="rele" type="float" 
                   value="10.0"
                   
-                      label="rele" help="Electrostatic cut-off distance." optional="false"/>
-          
-            <param name="frequency" type="integer" 
+                  label="rele" help="Electrostatic cut-off distance." optional="false"/>
+            
+              <param name="frequency" type="integer" 
                   value="10"
                   
-                      label="frequency" help="Frequency to update the non-bonded pairs." optional="false"/>
-          
-            <param name="obminimize_path" type="text" label="obminimize_path" help="Path to the obminimize executable binary." optional="false"
+                  label="frequency" help="Frequency to update the non-bonded pairs." optional="false"/>
+            
+              <param name="obminimize_path" type="text" label="obminimize_path" help="Path to the obminimize executable binary." optional="false"
                   value="obminimize"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

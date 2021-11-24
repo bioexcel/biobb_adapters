@@ -74,49 +74,49 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="replaced_group" type="text" label="replaced_group" help="Group of molecules that will be replaced by the solvent." optional="false"
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="replaced_group" type="text" label="replaced_group" help="Group of molecules that will be replaced by the solvent." optional="false"
                   value="SOL"
                 />
-          
-            <param name="neutral" type="boolean" 
+            
+              <param name="neutral" type="boolean" 
                   
-                  label="neutral" help="Neutralize the charge of the system." />
-          
-            <param name="concentration" type="float" 
+                  label="neutral" help="Neutralize the charge of the system." 
+                />
+            
+              <param name="concentration" type="float" 
                   value="0.05"
                   
-                      label="concentration" help="Concentration of the ions in (mol/liter)." optional="false"/>
-          
-            <param name="seed" type="integer" 
+                  label="concentration" help="Concentration of the ions in (mol/liter)." optional="false"/>
+            
+              <param name="seed" type="integer" 
                   value="1993"
                   
-                      label="seed" help="Seed for random number generator." optional="false"/>
-          
-            <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+                  label="seed" help="Seed for random number generator." optional="false"/>
+            
+              <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
                   
                 />
-          
-            <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+            
+              <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
                   value="gmx"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

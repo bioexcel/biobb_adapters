@@ -54,30 +54,29 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
-          
-            <param name="clusters" type="integer" 
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="predictors" type="text" label="predictors" help="Features or columns from your dataset you want to use for fitting. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
+            
+              <param name="clusters" type="integer" 
                   value="3"
                   min="1" max="100"
-                      label="clusters" help="The number of clusters to form as well as the number of centroids to generate." optional="false"/>
-          
-            <param name="affinity" type="select" label="affinity" help="How to construct the affinity matrix. " multiple="">
+                  label="clusters" help="The number of clusters to form as well as the number of centroids to generate." optional="false"/>
+            
+              <param name="affinity" type="select" label="affinity" help="How to construct the affinity matrix. " multiple="">
                   
                     <option value="nearest_neighbors" 
                       
@@ -96,19 +95,20 @@
                     >precomputed_nearest_neighbors - interpret X as a sparse graph of precomputed nearest neighbors and constructs the affinity matrix by selecting the n_neighbors nearest neighbors</option>
                   
                 </param>
-          
-            <param name="plots" type="text" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]. (Json)" value="[]" />
-          
-            <param name="random_state_method" type="integer" 
+            
+              <param name="plots" type="text" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]. (Json)" value="[]" />
+            
+              <param name="random_state_method" type="integer" 
                   value="5"
                   min="1" max="1000"
-                      label="random_state_method" help="A pseudo random number generator used for the initialization of the lobpcg eigen vectors decomposition when *eigen_solver=&#39;amg&#39;* and by the K-Means initialization." optional="false"/>
-          
-            <param name="scale" type="boolean" 
+                  label="random_state_method" help="A pseudo random number generator used for the initialization of the lobpcg eigen vectors decomposition when *eigen_solver=&#39;amg&#39;* and by the K-Means initialization." optional="false"/>
+            
+              <param name="scale" type="boolean" 
                   
-                  label="scale" help="Whether or not to scale the input dataset." />
-          
-       </section>
+                  label="scale" help="Whether or not to scale the input dataset." 
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

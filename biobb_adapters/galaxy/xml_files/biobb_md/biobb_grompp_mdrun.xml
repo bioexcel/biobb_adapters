@@ -124,25 +124,24 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="mdp" type="text" label="mdp" help="MDP options specification. (Json)" value="{}" />
-          
-            <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each creates a different mdp file. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="mdp" type="text" label="mdp" help="MDP options specification. (Json)" value="{}" />
+            
+              <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each creates a different mdp file. " multiple="">
                   
                     <option value="minimization" 
                       selected="true"
@@ -169,50 +168,51 @@
                     >index - Creates an empty mdp file</option>
                   
                 </param>
-          
-            <param name="maxwarn" type="integer" 
+            
+              <param name="maxwarn" type="integer" 
                   value="10"
                   
-                      label="maxwarn" help="Maximum number of allowed warnings." optional="false"/>
-          
-            <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
+                  label="maxwarn" help="Maximum number of allowed warnings." optional="false"/>
+            
+              <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
                   
                 />
-          
-            <param name="mpi_np" type="text" label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"
+            
+              <param name="mpi_np" type="text" label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"
                   
                 />
-          
-            <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
+            
+              <param name="mpi_hostlist" type="text" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"
                   
                 />
-          
-            <param name="checkpoint_time" type="integer" 
+            
+              <param name="checkpoint_time" type="integer" 
                   value="15"
                   
-                      label="checkpoint_time" help="Checkpoint writing interval in minutes. Only enabled if an output_cpt_path is provided." optional="false"/>
-          
-            <param name="use_gpu" type="boolean" 
+                  label="checkpoint_time" help="Checkpoint writing interval in minutes. Only enabled if an output_cpt_path is provided." optional="false"/>
+            
+              <param name="use_gpu" type="boolean" 
                   
-                  label="use_gpu" help="Use settings appropriate for GPU. Adds: -nb gpu -pme gpu" />
-          
-            <param name="gpu_id" type="text" label="gpu_id" help="List of unique GPU device IDs available to use." optional="true"
+                  label="use_gpu" help="Use settings appropriate for GPU. Adds: -nb gpu -pme gpu" 
+                />
+            
+              <param name="gpu_id" type="text" label="gpu_id" help="List of unique GPU device IDs available to use." optional="true"
                   
                 />
-          
-            <param name="gpu_tasks" type="text" label="gpu_tasks" help="List of GPU device IDs, mapping each PP task on each node to a device." optional="true"
+            
+              <param name="gpu_tasks" type="text" label="gpu_tasks" help="List of GPU device IDs, mapping each PP task on each node to a device." optional="true"
                   
                 />
-          
-            <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+            
+              <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
                   
                 />
-          
-            <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+            
+              <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
                   value="gmx"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         

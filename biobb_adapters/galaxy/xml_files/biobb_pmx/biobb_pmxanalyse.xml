@@ -64,23 +64,22 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option3">Manual Input</option>
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-      
             </when>
-        </conditional>
-        <section name="Properties" title="Manual Input">
-        
-            <param name="method" type="select" label="method" help="Choose one or more estimators to use. " multiple="">
+          </conditional>
+          <section name="Properties" title="Manual Input">
+            
+              <param name="method" type="select" label="method" help="Choose one or more estimators to use. " multiple="">
                   
                     <option value="CGI" 
                       
@@ -95,54 +94,56 @@
                     >JARZ - Jarzynski&#39;s estimator</option>
                   
                 </param>
-          
-            <param name="temperature" type="float" 
+            
+              <param name="temperature" type="float" 
                   value="298.15"
                   
-                      label="temperature" help="Temperature in Kelvin." optional="false"/>
-          
-            <param name="nboots" type="integer" 
+                  label="temperature" help="Temperature in Kelvin." optional="false"/>
+            
+              <param name="nboots" type="integer" 
                   
                   
-                      label="nboots" help="Number of bootstrap samples to use for the bootstrap estimate of the standard errors." optional="true"/>
-          
-            <param name="nblocks" type="integer" 
+                  label="nboots" help="Number of bootstrap samples to use for the bootstrap estimate of the standard errors." optional="true"/>
+            
+              <param name="nblocks" type="integer" 
                   value="1"
                   
-                      label="nblocks" help="Number of blocks to divide the data into for an estimate of the standard error." optional="false"/>
-          
-            <param name="integ_only" type="boolean" 
+                  label="nblocks" help="Number of blocks to divide the data into for an estimate of the standard error." optional="false"/>
+            
+              <param name="integ_only" type="boolean" 
                   
-                  label="integ_only" help="Whether to do integration only." />
-          
-            <param name="reverseB" type="boolean" 
+                  label="integ_only" help="Whether to do integration only." 
+                />
+            
+              <param name="reverseB" type="boolean" 
                   
-                  label="reverseB" help="Whether to reverse the work values for the backward (B-&gt;A) transformation." />
-          
-            <param name="skip" type="integer" 
+                  label="reverseB" help="Whether to reverse the work values for the backward (B-&gt;A) transformation." 
+                />
+            
+              <param name="skip" type="integer" 
                   value="1"
                   
-                      label="skip" help="Skip files." optional="false"/>
-          
-            <param name="slice" type="text" label="slice" help="Subset of trajectories to analyze. Provide list slice, e.g. &#34;10 50&#34; will result in selecting dhdl_files[10:50]." optional="true"
+                  label="skip" help="Skip files." optional="false"/>
+            
+              <param name="slice" type="text" label="slice" help="Subset of trajectories to analyze. Provide list slice, e.g. &#34;10 50&#34; will result in selecting dhdl_files[10:50]." optional="true"
                   
                 />
-          
-            <param name="rand" type="integer" 
+            
+              <param name="rand" type="integer" 
                   
                   
-                      label="rand" help="Take a random subset of trajectories. Default is None (do not take random subset)." optional="true"/>
-          
-            <param name="index" type="text" label="index" help="Zero-based index of files to analyze (e.g. &#34;0 10 20 50 60&#34;). It keeps the dhdl.xvg files according to their position in the list, sorted according to the filenames." optional="true"
+                  label="rand" help="Take a random subset of trajectories. Default is None (do not take random subset)." optional="true"/>
+            
+              <param name="index" type="text" label="index" help="Zero-based index of files to analyze (e.g. &#34;0 10 20 50 60&#34;). It keeps the dhdl.xvg files according to their position in the list, sorted according to the filenames." optional="true"
                   
                 />
-          
-            <param name="prec" type="integer" 
+            
+              <param name="prec" type="integer" 
                   value="2"
                   
-                      label="prec" help="The decimal precision of the screen/file output." optional="false"/>
-          
-            <param name="units" type="select" label="units" help="The units of the output. " multiple="">
+                  label="prec" help="The decimal precision of the screen/file output." optional="false"/>
+            
+              <param name="units" type="select" label="units" help="The units of the output. " multiple="">
                   
                     <option value="kJ" 
                       selected="true"
@@ -157,26 +158,27 @@
                     >kT - the product of the Boltzmann constant k and the temperature</option>
                   
                 </param>
-          
-            <param name="no_ks" type="boolean" 
+            
+              <param name="no_ks" type="boolean" 
                   
-                  label="no_ks" help="Whether to do a Kolmogorov-Smirnov test to check whether the Gaussian assumption for CGI holds." />
-          
-            <param name="nbins" type="integer" 
+                  label="no_ks" help="Whether to do a Kolmogorov-Smirnov test to check whether the Gaussian assumption for CGI holds." 
+                />
+            
+              <param name="nbins" type="integer" 
                   value="20"
                   
-                      label="nbins" help="Number of histograms bins for the plot." optional="false"/>
-          
-            <param name="dpi" type="integer" 
+                  label="nbins" help="Number of histograms bins for the plot." optional="false"/>
+            
+              <param name="dpi" type="integer" 
                   value="300"
                   min="72" max="2048"
-                      label="dpi" help="Resolution of the plot." optional="false"/>
-          
-            <param name="pmx_path" type="text" label="pmx_path" help="Path to the PMX command line interface." optional="false"
+                  label="dpi" help="Resolution of the plot." optional="false"/>
+            
+              <param name="pmx_path" type="text" label="pmx_path" help="Path to the PMX command line interface." optional="false"
                   value="pmx"
                 />
-          
-       </section>
+                    
+          </section>
     </inputs>
     <outputs>
         
