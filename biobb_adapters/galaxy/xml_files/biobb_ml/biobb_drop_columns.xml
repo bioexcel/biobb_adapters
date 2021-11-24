@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__targets__dq__:${targets}__cc__"
+            --config "__oc____dq__targets__dq__:${properties.targets}__cc__"
           #end if
         
           #if str($input_dataset_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="targets" type="text" label="targets" help="Independent variables or columns from your dataset you want to drop. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                     

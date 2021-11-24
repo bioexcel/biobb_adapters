@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__restrained_group__dq__:__dq__${restrained_group}__dq__,__dq__force_constants__dq__:__dq__${force_constants}__dq__,__dq__gmx_lib__dq__:__dq__${gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${gmx_path}__dq____cc__"
+            --config "__oc____dq__restrained_group__dq__:__dq__${properties.restrained_group}__dq__,__dq__force_constants__dq__:__dq__${properties.force_constants}__dq__,__dq__gmx_lib__dq__:__dq__${properties.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${properties.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -71,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="restrained_group" type="text" label="restrained_group" help="Index group that will be restrained." optional="false"
                   value="system"

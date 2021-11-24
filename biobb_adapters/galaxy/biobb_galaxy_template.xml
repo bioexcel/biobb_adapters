@@ -68,7 +68,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             {% for k, v in props.items() %}
               {% if v['type'] == 'string' or v['type'] == 'list' -%}
                 <param name="{{ k }}" type="text" label="{{ k }}" help="{{ v['description'] }}" optional="{{v['optional']}}"
@@ -119,7 +119,7 @@
           <data name="{{ k }}" format="text" label="${outname_{{ k }}}">
             <change_format>
             {% for f in v['format'].split(',') %}
-            <when input="{{ v['multiple_format'] }}" value="{{ f }}" format="{{ f }}" />
+            <when input="properties.{{ v['multiple_format'] }}" value="{{ f }}" format="{{ f }}" />
             {% endfor %}
             </change_format>
           </data>

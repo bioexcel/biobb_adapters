@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__ligand__dq__:__dq__${ligand}__dq____cc__"
+            --config "__oc____dq__ligand__dq__:__dq__${properties.ligand}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="ligand" type="text" label="ligand" help="Residue code of the ligand to be removed." optional="false"
                   value="AQ4"
@@ -74,9 +74,9 @@
         <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
             <change_format>
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="gro" format="gro" />
+            <when input="properties.output_format" value="gro" format="gro" />
             
             </change_format>
           </data>

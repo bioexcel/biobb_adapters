@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($forcefield)}__dq____cb____cc__"
+            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($properties.forcefield)}__dq____cb____cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -113,7 +113,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                   
@@ -153,11 +153,11 @@
         <data name="output_top_path" format="text" label="${outname_output_top_path}">
             <change_format>
             
-            <when input="output_format" value="top" format="top" />
+            <when input="properties.output_format" value="top" format="top" />
             
-            <when input="output_format" value="parmtop" format="parmtop" />
+            <when input="properties.output_format" value="parmtop" format="parmtop" />
             
-            <when input="output_format" value="prmtop" format="prmtop" />
+            <when input="properties.output_format" value="prmtop" format="prmtop" />
             
             </change_format>
           </data>
@@ -165,11 +165,11 @@
         <data name="output_crd_path" format="text" label="${outname_output_crd_path}">
             <change_format>
             
-            <when input="output_format" value="crd" format="crd" />
+            <when input="properties.output_format" value="crd" format="crd" />
             
-            <when input="output_format" value="mdcrd" format="mdcrd" />
+            <when input="properties.output_format" value="mdcrd" format="mdcrd" />
             
-            <when input="output_format" value="inpcrd" format="inpcrd" />
+            <when input="properties.output_format" value="inpcrd" format="inpcrd" />
             
             </change_format>
           </data>

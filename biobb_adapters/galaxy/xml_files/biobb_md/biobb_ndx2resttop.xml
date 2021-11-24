@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__force_constants__dq__:__dq__${force_constants}__dq__,__dq__ref_rest_chain_triplet_list__dq__:__dq__${ref_rest_chain_triplet_list}__dq____cc__"
+            --config "__oc____dq__force_constants__dq__:__dq__${properties.force_constants}__dq__,__dq__ref_rest_chain_triplet_list__dq__:__dq__${properties.ref_rest_chain_triplet_list}__dq____cc__"
           #end if
         
           #if str($input_ndx_path) != 'None':
@@ -71,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="force_constants" type="text" label="force_constants" help="Array of three floats defining the force constants." optional="false"
                   value="500 500 500"

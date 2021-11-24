@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__selection__dq__:__dq__${selection}__dq__,__dq__gmx_path__dq__:__dq__${gmx_path}__dq____cc__"
+            --config "__oc____dq__selection__dq__:__dq__${properties.selection}__dq__,__dq__gmx_path__dq__:__dq__${properties.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -81,7 +81,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="selection" type="select" label="selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                   
@@ -174,19 +174,19 @@
         <data name="output_str_path" format="text" label="${outname_output_str_path}">
             <change_format>
             
-            <when input="output_format" value="xtc" format="xtc" />
+            <when input="properties.output_format" value="xtc" format="xtc" />
             
-            <when input="output_format" value="trr" format="trr" />
+            <when input="properties.output_format" value="trr" format="trr" />
             
-            <when input="output_format" value="cpt" format="cpt" />
+            <when input="properties.output_format" value="cpt" format="cpt" />
             
-            <when input="output_format" value="gro" format="gro" />
+            <when input="properties.output_format" value="gro" format="gro" />
             
-            <when input="output_format" value="g96" format="g96" />
+            <when input="properties.output_format" value="g96" format="g96" />
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="tng" format="tng" />
+            <when input="properties.output_format" value="tng" format="tng" />
             
             </change_format>
           </data>

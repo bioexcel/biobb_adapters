@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__params__dq__:${params},__dq__num_wats__dq__:${num_wats},__dq__neutral__dq__:${neutral},__dq__num_positive_ions__dq__:${num_positive_ions},__dq__num_negative_ions__dq__:${num_negative_ions},__dq__titration_path__dq__:__dq__${titration_path}__dq____cc__"
+            --config "__oc____dq__params__dq__:${properties.params},__dq__num_wats__dq__:${properties.num_wats},__dq__neutral__dq__:${properties.neutral},__dq__num_positive_ions__dq__:${properties.num_positive_ions},__dq__num_negative_ions__dq__:${properties.num_negative_ions},__dq__titration_path__dq__:__dq__${properties.titration_path}__dq____cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -87,7 +87,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="params" type="text" label="params" help="CMIP options specification. (Json)" value="{}" />
             

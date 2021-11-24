@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__terms__dq__:__ob____dq__${'__dq__,__dq__'.join($terms)}__dq____cb____cc__"
+            --config "__oc____dq__terms__dq__:__ob____dq__${'__dq__,__dq__'.join($properties.terms)}__dq____cb____cc__"
           #end if
         
           #if str($input_log_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="terms" type="select" label="terms" help="Statistics descriptors. " multiple="True">
                   
@@ -134,11 +134,11 @@
         <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="csv" format="csv" />
+            <when input="properties.output_format" value="csv" format="csv" />
             
             </change_format>
           </data>

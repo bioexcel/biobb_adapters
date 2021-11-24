@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__ligand__dq__:__dq__${ligand}__dq__,__dq__radius__dq__:${radius},__dq__max_num_ligands__dq__:${max_num_ligands},__dq__matrix_name__dq__:__dq__${matrix_name}__dq__,__dq__gap_open__dq__:${gap_open},__dq__gap_extend__dq__:${gap_extend}__cc__"
+            --config "__oc____dq__ligand__dq__:__dq__${properties.ligand}__dq__,__dq__radius__dq__:${properties.radius},__dq__max_num_ligands__dq__:${properties.max_num_ligands},__dq__matrix_name__dq__:__dq__${properties.matrix_name}__dq__,__dq__gap_open__dq__:${properties.gap_open},__dq__gap_extend__dq__:${properties.gap_extend}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -71,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="ligand" type="text" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, the largest one will be selected, if more than one." optional="true"
                   

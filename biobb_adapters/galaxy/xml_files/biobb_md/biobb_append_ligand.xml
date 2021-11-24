@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__posres_name__dq__:__dq__${posres_name}__dq____cc__"
+            --config "__oc____dq__posres_name__dq__:__dq__${properties.posres_name}__dq____cc__"
           #end if
         
           #if str($input_top_zip_path) != 'None':
@@ -81,7 +81,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="posres_name" type="text" label="posres_name" help="String to be included in the ifdef clause." optional="false"
                   value="POSRES_LIGAND"

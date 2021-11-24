@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__independent_vars__dq__:${independent_vars},__dq__target__dq__:${target},__dq__weight__dq__:${weight},__dq__solver__dq__:__dq__${solver}__dq__,__dq__c_parameter__dq__:${c_parameter},__dq__normalize_cm__dq__:${normalize_cm},__dq__random_state_method__dq__:${random_state_method},__dq__random_state_train_test__dq__:${random_state_train_test},__dq__test_size__dq__:${test_size},__dq__scale__dq__:${scale}__cc__"
+            --config "__oc____dq__independent_vars__dq__:${properties.independent_vars},__dq__target__dq__:${properties.target},__dq__weight__dq__:${properties.weight},__dq__solver__dq__:__dq__${properties.solver}__dq__,__dq__c_parameter__dq__:${properties.c_parameter},__dq__normalize_cm__dq__:${properties.normalize_cm},__dq__random_state_method__dq__:${properties.random_state_method},__dq__random_state_train_test__dq__:${properties.random_state_train_test},__dq__test_size__dq__:${properties.test_size},__dq__scale__dq__:${properties.scale}__cc__"
           #end if
         
           #if str($input_dataset_path) != 'None':
@@ -73,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="independent_vars" type="text" label="independent_vars" help="Independent variables you want to train from your dataset. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
             

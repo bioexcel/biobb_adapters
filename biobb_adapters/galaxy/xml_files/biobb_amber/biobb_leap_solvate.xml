@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($forcefield)}__dq____cb__,__dq__water_type__dq__:__dq__${water_type}__dq__,__dq__box_type__dq__:__dq__${box_type}__dq__,__dq__ions_type__dq__:__dq__${ions_type}__dq__,__dq__neutralise__dq__:${neutralise},__dq__iso__dq__:${iso},__dq__positive_ions_number__dq__:${positive_ions_number},__dq__negative_ions_number__dq__:${negative_ions_number},__dq__positive_ions_type__dq__:__dq__${positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${negative_ions_type}__dq__,__dq__distance_to_molecule__dq__:${distance_to_molecule},__dq__closeness__dq__:${closeness}__cc__"
+            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($properties.forcefield)}__dq____cb__,__dq__water_type__dq__:__dq__${properties.water_type}__dq__,__dq__box_type__dq__:__dq__${properties.box_type}__dq__,__dq__ions_type__dq__:__dq__${properties.ions_type}__dq__,__dq__neutralise__dq__:${properties.neutralise},__dq__iso__dq__:${properties.iso},__dq__positive_ions_number__dq__:${properties.positive_ions_number},__dq__negative_ions_number__dq__:${properties.negative_ions_number},__dq__positive_ions_type__dq__:__dq__${properties.positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${properties.negative_ions_type}__dq__,__dq__distance_to_molecule__dq__:${properties.distance_to_molecule},__dq__closeness__dq__:${properties.closeness}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -113,7 +113,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
                   
@@ -291,11 +291,11 @@
         <data name="output_top_path" format="text" label="${outname_output_top_path}">
             <change_format>
             
-            <when input="output_format" value="top" format="top" />
+            <when input="properties.output_format" value="top" format="top" />
             
-            <when input="output_format" value="parmtop" format="parmtop" />
+            <when input="properties.output_format" value="parmtop" format="parmtop" />
             
-            <when input="output_format" value="prmtop" format="prmtop" />
+            <when input="properties.output_format" value="prmtop" format="prmtop" />
             
             </change_format>
           </data>
@@ -303,11 +303,11 @@
         <data name="output_crd_path" format="text" label="${outname_output_crd_path}">
             <change_format>
             
-            <when input="output_format" value="crd" format="crd" />
+            <when input="properties.output_format" value="crd" format="crd" />
             
-            <when input="output_format" value="mdcrd" format="mdcrd" />
+            <when input="properties.output_format" value="mdcrd" format="mdcrd" />
             
-            <when input="output_format" value="inpcrd" format="inpcrd" />
+            <when input="properties.output_format" value="inpcrd" format="inpcrd" />
             
             </change_format>
           </data>

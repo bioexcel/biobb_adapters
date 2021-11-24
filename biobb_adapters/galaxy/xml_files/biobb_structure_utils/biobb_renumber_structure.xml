@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__renumber_residues__dq__:${renumber_residues},__dq__renumber_residues_per_chain__dq__:${renumber_residues_per_chain}__cc__"
+            --config "__oc____dq__renumber_residues__dq__:${properties.renumber_residues},__dq__renumber_residues_per_chain__dq__:${properties.renumber_residues_per_chain}__cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -67,7 +67,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="renumber_residues" type="boolean" 
                   checked="true"
@@ -86,9 +86,9 @@
         <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
             <change_format>
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="gro" format="gro" />
+            <when input="properties.output_format" value="gro" format="gro" />
             
             </change_format>
           </data>

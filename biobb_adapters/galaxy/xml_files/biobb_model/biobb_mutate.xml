@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mutation_list__dq__:__dq__${mutation_list}__dq__,__dq__use_modeller__dq__:${use_modeller}__cc__"
+            --config "__oc____dq__mutation_list__dq__:__dq__${properties.mutation_list}__dq__,__dq__use_modeller__dq__:${properties.use_modeller}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="mutation_list" type="text" label="mutation_list" help="Mutation list in the format &#34;Chain:WT_AA_ThreeLeterCode Resnum MUT_AA_ThreeLeterCode&#34; (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" optional="false"
                   value="A:Val2Ala"

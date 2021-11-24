@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__fit_selection__dq__:__dq__${fit_selection}__dq__,__dq__output_selection__dq__:__dq__${output_selection}__dq__,__dq__dista__dq__:${dista},__dq__method__dq__:__dq__${method}__dq__,__dq__cutoff__dq__:${cutoff},__dq__gmx_path__dq__:__dq__${gmx_path}__dq____cc__"
+            --config "__oc____dq__fit_selection__dq__:__dq__${properties.fit_selection}__dq__,__dq__output_selection__dq__:__dq__${properties.output_selection}__dq__,__dq__dista__dq__:${properties.dista},__dq__method__dq__:__dq__${properties.method}__dq__,__dq__cutoff__dq__:${properties.cutoff},__dq__gmx_path__dq__:__dq__${properties.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -81,7 +81,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                   
@@ -288,19 +288,19 @@
         <data name="output_pdb_path" format="text" label="${outname_output_pdb_path}">
             <change_format>
             
-            <when input="output_format" value="xtc" format="xtc" />
+            <when input="properties.output_format" value="xtc" format="xtc" />
             
-            <when input="output_format" value="trr" format="trr" />
+            <when input="properties.output_format" value="trr" format="trr" />
             
-            <when input="output_format" value="cpt" format="cpt" />
+            <when input="properties.output_format" value="cpt" format="cpt" />
             
-            <when input="output_format" value="gro" format="gro" />
+            <when input="properties.output_format" value="gro" format="gro" />
             
-            <when input="output_format" value="g96" format="g96" />
+            <when input="properties.output_format" value="g96" format="g96" />
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="tng" format="tng" />
+            <when input="properties.output_format" value="tng" format="tng" />
             
             </change_format>
           </data>

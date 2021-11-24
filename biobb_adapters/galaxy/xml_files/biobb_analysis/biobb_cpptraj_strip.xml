@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__start__dq__:${start},__dq__end__dq__:${end},__dq__steps__dq__:${steps},__dq__mask__dq__:__dq__${mask}__dq__,__dq__format__dq__:__dq__${format}__dq__,__dq__cpptraj_path__dq__:__dq__${cpptraj_path}__dq____cc__"
+            --config "__oc____dq__start__dq__:${properties.start},__dq__end__dq__:${properties.end},__dq__steps__dq__:${properties.steps},__dq__mask__dq__:__dq__${properties.mask}__dq__,__dq__format__dq__:__dq__${properties.format}__dq__,__dq__cpptraj_path__dq__:__dq__${properties.cpptraj_path}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -71,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="start" type="integer" 
                   value="1"
@@ -219,29 +219,29 @@
         <data name="output_cpptraj_path" format="text" label="${outname_output_cpptraj_path}">
             <change_format>
             
-            <when input="output_format" value="mdcrd" format="mdcrd" />
+            <when input="properties.output_format" value="mdcrd" format="mdcrd" />
             
-            <when input="output_format" value="crd" format="crd" />
+            <when input="properties.output_format" value="crd" format="crd" />
             
-            <when input="output_format" value="netcdf" format="netcdf" />
+            <when input="properties.output_format" value="netcdf" format="netcdf" />
             
-            <when input="output_format" value="rst7" format="rst7" />
+            <when input="properties.output_format" value="rst7" format="rst7" />
             
-            <when input="output_format" value="ncrst" format="ncrst" />
+            <when input="properties.output_format" value="ncrst" format="ncrst" />
             
-            <when input="output_format" value="dcd" format="dcd" />
+            <when input="properties.output_format" value="dcd" format="dcd" />
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="mol2" format="mol2" />
+            <when input="properties.output_format" value="mol2" format="mol2" />
             
-            <when input="output_format" value="binpos" format="binpos" />
+            <when input="properties.output_format" value="binpos" format="binpos" />
             
-            <when input="output_format" value="trr" format="trr" />
+            <when input="properties.output_format" value="trr" format="trr" />
             
-            <when input="output_format" value="xtc" format="xtc" />
+            <when input="properties.output_format" value="xtc" format="xtc" />
             
-            <when input="output_format" value="sqm" format="sqm" />
+            <when input="properties.output_format" value="sqm" format="sqm" />
             
             </change_format>
           </data>

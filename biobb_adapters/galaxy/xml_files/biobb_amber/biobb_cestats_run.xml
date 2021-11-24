@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__timestep__dq__:${timestep},__dq__verbose__dq__:${verbose},__dq__interval__dq__:${interval},__dq__reduced__dq__:${reduced},__dq__eos__dq__:${eos},__dq__calceo__dq__:${calceo},__dq__running_avg_window__dq__:${running_avg_window},__dq__chunk_window__dq__:${chunk_window},__dq__cumulative__dq__:${cumulative},__dq__fix_remd__dq__:__dq__${fix_remd}__dq__,__dq__conditional__dq__:__dq__${conditional}__dq____cc__"
+            --config "__oc____dq__timestep__dq__:${properties.timestep},__dq__verbose__dq__:${properties.verbose},__dq__interval__dq__:${properties.interval},__dq__reduced__dq__:${properties.reduced},__dq__eos__dq__:${properties.eos},__dq__calceo__dq__:${properties.calceo},__dq__running_avg_window__dq__:${properties.running_avg_window},__dq__chunk_window__dq__:${properties.chunk_window},__dq__cumulative__dq__:${properties.cumulative},__dq__fix_remd__dq__:__dq__${properties.fix_remd}__dq__,__dq__conditional__dq__:__dq__${properties.conditional}__dq____cc__"
           #end if
         
           #if str($input_cein_path) != 'None':
@@ -101,7 +101,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="timestep" type="float" 
                   value="0.002"
@@ -163,13 +163,13 @@
         <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -177,13 +177,13 @@
         <data name="output_population_path" format="text" label="${outname_output_population_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -191,13 +191,13 @@
         <data name="output_chunk_path" format="text" label="${outname_output_chunk_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -205,13 +205,13 @@
         <data name="output_cumulative_path" format="text" label="${outname_output_cumulative_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -219,13 +219,13 @@
         <data name="output_conditional_path" format="text" label="${outname_output_conditional_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -233,13 +233,13 @@
         <data name="output_chunk_conditional_path" format="text" label="${outname_output_chunk_conditional_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>

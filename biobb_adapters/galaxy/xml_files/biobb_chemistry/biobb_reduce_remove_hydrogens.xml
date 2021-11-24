@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__reduce_path__dq__:__dq__${reduce_path}__dq____cc__"
+            --config "__oc____dq__reduce_path__dq__:__dq__${properties.reduce_path}__dq____cc__"
           #end if
         
           #if str($input_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="reduce_path" type="text" label="reduce_path" help="Path to the reduce executable binary." optional="false"
                   value="reduce"

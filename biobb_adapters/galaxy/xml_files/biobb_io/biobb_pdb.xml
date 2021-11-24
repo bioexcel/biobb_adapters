@@ -16,7 +16,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__pdb_code__dq__:__dq__${pdb_code}__dq__,__dq__filter__dq__:__dq__${filter}__dq__,__dq__api_id__dq__:__dq__${api_id}__dq____cc__"
+            --config "__oc____dq__pdb_code__dq__:__dq__${properties.pdb_code}__dq__,__dq__filter__dq__:__dq__${properties.filter}__dq__,__dq__api_id__dq__:__dq__${properties.api_id}__dq____cc__"
           #end if
         
         
@@ -51,7 +51,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="pdb_code" type="text" label="pdb_code" help="RSCB PDB code." optional="true"
                   

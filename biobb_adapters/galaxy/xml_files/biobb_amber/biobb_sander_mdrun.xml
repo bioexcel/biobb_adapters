@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mdin__dq__:${mdin},__dq__simulation_type__dq__:__dq__${simulation_type}__dq__,__dq__sander_path__dq__:__dq__${sander_path}__dq__,__dq__mpi_bin__dq__:__dq__${mpi_bin}__dq__,__dq__mpi_np__dq__:${mpi_np},__dq__mpi_flags__dq__:__dq__${mpi_flags}__dq____cc__"
+            --config "__oc____dq__mdin__dq__:${properties.mdin},__dq__simulation_type__dq__:__dq__${properties.simulation_type}__dq__,__dq__sander_path__dq__:__dq__${properties.sander_path}__dq__,__dq__mpi_bin__dq__:__dq__${properties.mpi_bin}__dq__,__dq__mpi_np__dq__:${properties.mpi_np},__dq__mpi_flags__dq__:__dq__${properties.mpi_flags}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -131,7 +131,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="mdin" type="text" label="mdin" help="Sander MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
             
@@ -187,13 +187,13 @@
         <data name="output_log_path" format="text" label="${outname_output_log_path}">
             <change_format>
             
-            <when input="output_format" value="log" format="log" />
+            <when input="properties.output_format" value="log" format="log" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -201,17 +201,17 @@
         <data name="output_traj_path" format="text" label="${outname_output_traj_path}">
             <change_format>
             
-            <when input="output_format" value="trj" format="trj" />
+            <when input="properties.output_format" value="trj" format="trj" />
             
-            <when input="output_format" value="crd" format="crd" />
+            <when input="properties.output_format" value="crd" format="crd" />
             
-            <when input="output_format" value="mdcrd" format="mdcrd" />
+            <when input="properties.output_format" value="mdcrd" format="mdcrd" />
             
-            <when input="output_format" value="x" format="x" />
+            <when input="properties.output_format" value="x" format="x" />
             
-            <when input="output_format" value="netcdf" format="netcdf" />
+            <when input="properties.output_format" value="netcdf" format="netcdf" />
             
-            <when input="output_format" value="nc" format="nc" />
+            <when input="properties.output_format" value="nc" format="nc" />
             
             </change_format>
           </data>
@@ -219,15 +219,15 @@
         <data name="output_rst_path" format="text" label="${outname_output_rst_path}">
             <change_format>
             
-            <when input="output_format" value="rst" format="rst" />
+            <when input="properties.output_format" value="rst" format="rst" />
             
-            <when input="output_format" value="rst7" format="rst7" />
+            <when input="properties.output_format" value="rst7" format="rst7" />
             
-            <when input="output_format" value="netcdf" format="netcdf" />
+            <when input="properties.output_format" value="netcdf" format="netcdf" />
             
-            <when input="output_format" value="nc" format="nc" />
+            <when input="properties.output_format" value="nc" format="nc" />
             
-            <when input="output_format" value="ncrst" format="ncrst" />
+            <when input="properties.output_format" value="ncrst" format="ncrst" />
             
             </change_format>
           </data>
@@ -238,11 +238,11 @@
         <data name="output_cprst_path" format="text" label="${outname_output_cprst_path}">
             <change_format>
             
-            <when input="output_format" value="cprst" format="cprst" />
+            <when input="properties.output_format" value="cprst" format="cprst" />
             
-            <when input="output_format" value="rst" format="rst" />
+            <when input="properties.output_format" value="rst" format="rst" />
             
-            <when input="output_format" value="rst7" format="rst7" />
+            <when input="properties.output_format" value="rst7" format="rst7" />
             
             </change_format>
           </data>

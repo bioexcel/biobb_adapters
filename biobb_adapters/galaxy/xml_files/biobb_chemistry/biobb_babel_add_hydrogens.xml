@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__input_format__dq__:__dq__${input_format}__dq__,__dq__output_format__dq__:__dq__${output_format}__dq__,__dq__coordinates__dq__:__dq__${coordinates}__dq__,__dq__ph__dq__:${ph},__dq__obabel_path__dq__:__dq__${obabel_path}__dq____cc__"
+            --config "__oc____dq__input_format__dq__:__dq__${properties.input_format}__dq__,__dq__output_format__dq__:__dq__${properties.output_format}__dq__,__dq__coordinates__dq__:__dq__${properties.coordinates}__dq__,__dq__ph__dq__:${properties.ph},__dq__obabel_path__dq__:__dq__${properties.obabel_path}__dq____cc__"
           #end if
         
           #if str($input_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. " multiple="">
                   
@@ -255,39 +255,39 @@
         <data name="output_path" format="text" label="${outname_output_path}">
             <change_format>
             
-            <when input="output_format" value="ent" format="ent" />
+            <when input="properties.output_format" value="ent" format="ent" />
             
-            <when input="output_format" value="fa" format="fa" />
+            <when input="properties.output_format" value="fa" format="fa" />
             
-            <when input="output_format" value="fasta" format="fasta" />
+            <when input="properties.output_format" value="fasta" format="fasta" />
             
-            <when input="output_format" value="gro" format="gro" />
+            <when input="properties.output_format" value="gro" format="gro" />
             
-            <when input="output_format" value="inp" format="inp" />
+            <when input="properties.output_format" value="inp" format="inp" />
             
-            <when input="output_format" value="mcif" format="mcif" />
+            <when input="properties.output_format" value="mcif" format="mcif" />
             
-            <when input="output_format" value="mdl" format="mdl" />
+            <when input="properties.output_format" value="mdl" format="mdl" />
             
-            <when input="output_format" value="mmcif" format="mmcif" />
+            <when input="properties.output_format" value="mmcif" format="mmcif" />
             
-            <when input="output_format" value="mol" format="mol" />
+            <when input="properties.output_format" value="mol" format="mol" />
             
-            <when input="output_format" value="mol2" format="mol2" />
+            <when input="properties.output_format" value="mol2" format="mol2" />
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="pdbqt" format="pdbqt" />
+            <when input="properties.output_format" value="pdbqt" format="pdbqt" />
             
-            <when input="output_format" value="png" format="png" />
+            <when input="properties.output_format" value="png" format="png" />
             
-            <when input="output_format" value="sdf" format="sdf" />
+            <when input="properties.output_format" value="sdf" format="sdf" />
             
-            <when input="output_format" value="smi" format="smi" />
+            <when input="properties.output_format" value="smi" format="smi" />
             
-            <when input="output_format" value="smiles" format="smiles" />
+            <when input="properties.output_format" value="smiles" format="smiles" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
             </change_format>
           </data>

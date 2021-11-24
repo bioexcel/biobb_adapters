@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__force_field__dq__:__dq__${force_field}__dq__,__dq__split__dq__:${split},__dq__scale_mass__dq__:${scale_mass},__dq__gmx_lib__dq__:__dq__${gmx_lib}__dq__,__dq__pmx_path__dq__:__dq__${pmx_path}__dq____cc__"
+            --config "__oc____dq__force_field__dq__:__dq__${properties.force_field}__dq__,__dq__split__dq__:${properties.split},__dq__scale_mass__dq__:${properties.scale_mass},__dq__gmx_lib__dq__:__dq__${properties.gmx_lib}__dq__,__dq__pmx_path__dq__:__dq__${properties.pmx_path}__dq____cc__"
           #end if
         
           #if str($input_top_zip_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="force_field" type="text" label="force_field" help="Force field to use. If **input_top_zip_path** is a top file, it&#39;s not necessary to specify the forcefield, as it will be determined automatically. If **input_top_zip_path** is an itp file, then it&#39;s needed." optional="false"
                   value="amber99sb-star-ildn-mut"

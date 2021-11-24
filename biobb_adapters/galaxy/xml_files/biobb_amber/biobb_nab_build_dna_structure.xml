@@ -16,7 +16,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__sequence__dq__:__dq__${sequence}__dq__,__dq__helix_type__dq__:__dq__${helix_type}__dq__,__dq__compiler__dq__:__dq__${compiler}__dq__,__dq__linker__dq__:__dq__${linker}__dq____cc__"
+            --config "__oc____dq__sequence__dq__:__dq__${properties.sequence}__dq__,__dq__helix_type__dq__:__dq__${properties.helix_type}__dq__,__dq__compiler__dq__:__dq__${properties.compiler}__dq__,__dq__linker__dq__:__dq__${properties.linker}__dq____cc__"
           #end if
         
         
@@ -51,7 +51,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="sequence" type="text" label="sequence" help="Nucleotide sequence to convert to a 3D structure. Nucleotides should be written in 1-letter code, with no spaces between them." optional="false"
                   value="GCGCGGCTGATAAACGAAAGC"

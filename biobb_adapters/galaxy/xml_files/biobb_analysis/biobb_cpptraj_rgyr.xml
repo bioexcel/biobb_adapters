@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__start__dq__:${start},__dq__end__dq__:${end},__dq__steps__dq__:${steps},__dq__mask__dq__:__dq__${mask}__dq__,__dq__cpptraj_path__dq__:__dq__${cpptraj_path}__dq____cc__"
+            --config "__oc____dq__start__dq__:${properties.start},__dq__end__dq__:${properties.end},__dq__steps__dq__:${properties.steps},__dq__mask__dq__:__dq__${properties.mask}__dq__,__dq__cpptraj_path__dq__:__dq__${properties.cpptraj_path}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -71,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="start" type="integer" 
                   value="1"
@@ -135,13 +135,13 @@
         <data name="output_cpptraj_path" format="text" label="${outname_output_cpptraj_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="agr" format="agr" />
+            <when input="properties.output_format" value="agr" format="agr" />
             
-            <when input="output_format" value="xmgr" format="xmgr" />
+            <when input="properties.output_format" value="xmgr" format="xmgr" />
             
-            <when input="output_format" value="gnu" format="gnu" />
+            <when input="properties.output_format" value="gnu" format="gnu" />
             
             </change_format>
           </data>

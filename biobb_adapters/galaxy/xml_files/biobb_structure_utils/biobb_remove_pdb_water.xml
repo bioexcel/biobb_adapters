@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__check_structure_path__dq__:__dq__${check_structure_path}__dq____cc__"
+            --config "__oc____dq__check_structure_path__dq__:__dq__${properties.check_structure_path}__dq____cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
                   value="check_structure"

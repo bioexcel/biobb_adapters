@@ -16,7 +16,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__drugbank_id__dq__:__dq__${drugbank_id}__dq____cc__"
+            --config "__oc____dq__drugbank_id__dq__:__dq__${properties.drugbank_id}__dq____cc__"
           #end if
         
         
@@ -51,7 +51,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="drugbank_id" type="text" label="drugbank_id" help="Drugbank component id." optional="true"
                   

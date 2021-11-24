@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__vina_path__dq__:__dq__${vina_path}__dq____cc__"
+            --config "__oc____dq__vina_path__dq__:__dq__${properties.vina_path}__dq____cc__"
           #end if
         
           #if str($input_ligand_pdbqt_path) != 'None':
@@ -87,7 +87,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="vina_path" type="text" label="vina_path" help="path to vina in your local computer." optional="false"
                   value="vina"

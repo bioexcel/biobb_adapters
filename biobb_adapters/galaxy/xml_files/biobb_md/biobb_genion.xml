@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__replaced_group__dq__:__dq__${replaced_group}__dq__,__dq__neutral__dq__:${neutral},__dq__concentration__dq__:${concentration},__dq__seed__dq__:${seed},__dq__gmx_lib__dq__:__dq__${gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${gmx_path}__dq____cc__"
+            --config "__oc____dq__replaced_group__dq__:__dq__${properties.replaced_group}__dq__,__dq__neutral__dq__:${properties.neutral},__dq__concentration__dq__:${properties.concentration},__dq__seed__dq__:${properties.seed},__dq__gmx_lib__dq__:__dq__${properties.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${properties.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_tpr_path) != 'None':
@@ -87,7 +87,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="replaced_group" type="text" label="replaced_group" help="Group of molecules that will be replaced by the solvent." optional="false"
                   value="SOL"

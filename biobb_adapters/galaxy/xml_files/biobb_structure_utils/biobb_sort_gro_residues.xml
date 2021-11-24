@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__residue_name_list__dq__:${residue_name_list}__cc__"
+            --config "__oc____dq__residue_name_list__dq__:${properties.residue_name_list}__cc__"
           #end if
         
           #if str($input_gro_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="residue_name_list" type="text" label="residue_name_list" help="Ordered residue name list. (Json)" value="[]" />
                     

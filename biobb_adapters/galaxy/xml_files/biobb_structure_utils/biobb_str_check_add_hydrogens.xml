@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__charges__dq__:${charges},__dq__mode__dq__:__dq__${mode}__dq__,__dq__ph__dq__:${ph},__dq__list__dq__:__dq__${list}__dq__,__dq__check_structure_path__dq__:__dq__${check_structure_path}__dq____cc__"
+            --config "__oc____dq__charges__dq__:${properties.charges},__dq__mode__dq__:__dq__${properties.mode}__dq__,__dq__ph__dq__:${properties.ph},__dq__list__dq__:__dq__${properties.list}__dq__,__dq__check_structure_path__dq__:__dq__${properties.check_structure_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -61,7 +61,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="Properties" title="Manual Input">
+          <section name="properties" title="Properties">
             
               <param name="charges" type="boolean" 
                   
@@ -104,9 +104,9 @@
         <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
             <change_format>
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="pdbqt" format="pdbqt" />
+            <when input="properties.output_format" value="pdbqt" format="pdbqt" />
             
             </change_format>
           </data>
