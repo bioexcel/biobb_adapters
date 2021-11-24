@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:${config.learning_rate},__dq__batch_size__dq__:${config.batch_size},__dq__max_epochs__dq__:${config.max_epochs}__cc__"
+            --config "__oc____dq__optimizer__dq__:__dq__${optimizer}__dq__,__dq__learning_rate__dq__:${learning_rate},__dq__batch_size__dq__:${batch_size},__dq__max_epochs__dq__:${max_epochs}__cc__"
           #end if
         
           #if str($input_decode_path) != 'None':
@@ -70,9 +70,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -81,60 +81,63 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
-                    
-                      <option value="Adadelta" 
-                      
-                      >Adadelta - Adadelta optimization is a stochastic gradient descent method that is based on adaptive learning rate per dimension to address two drawbacks: the continual decay of learning rates throughout training and the need for a manually selected global learning rate</option>
-                    
-                      <option value="Adagrad" 
-                      
-                      >Adagrad - Adagrad is an optimizer with parameter-specific learning rates; which are adapted relative to how frequently a parameter gets updated during training. The more updates a parameter receives; the smaller the updates</option>
-                    
-                      <option value="Adam" 
-                      selected="true"
-                      >Adam - Adam optimization is a stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments</option>
-                    
-                      <option value="Adamax" 
-                      
-                      >Adamax - It is a variant of Adam based on the infinity norm. Default parameters follow those provided in the paper. Adamax is sometimes superior to adam; specially in models with embeddings</option>
-                    
-                      <option value="Ftrl" 
-                      
-                      >Ftrl - Optimizer that implements the FTRL algorithm</option>
-                    
-                      <option value="Nadam" 
-                      
-                      >Nadam - Much like Adam is essentially RMSprop with momentum; Nadam is Adam with Nesterov momentum</option>
-                    
-                      <option value="RMSprop" 
-                      
-                      >RMSprop - Optimizer that implements the RMSprop algorithm</option>
-                    
-                      <option value="SGD" 
-                      
-                      >SGD - Gradient descent -with momentum- optimizer</option>
-                    
-                    </param>
-                
-                  <param name="learning_rate" type="float" 
-                      value="0.02"
-                      
-                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
-                
-                  <param name="batch_size" type="integer" 
-                      value="100"
-                      
-                           label="batch_size" help="Number of samples per gradient update." optional="false"/>
-                
-                  <param name="max_epochs" type="integer" 
-                      value="100"
-                      
-                           label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
+                  
+                    <option value="Adadelta" 
+                      
+                    >Adadelta - Adadelta optimization is a stochastic gradient descent method that is based on adaptive learning rate per dimension to address two drawbacks: the continual decay of learning rates throughout training and the need for a manually selected global learning rate</option>
+                  
+                    <option value="Adagrad" 
+                      
+                    >Adagrad - Adagrad is an optimizer with parameter-specific learning rates; which are adapted relative to how frequently a parameter gets updated during training. The more updates a parameter receives; the smaller the updates</option>
+                  
+                    <option value="Adam" 
+                      selected="true"
+                    >Adam - Adam optimization is a stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments</option>
+                  
+                    <option value="Adamax" 
+                      
+                    >Adamax - It is a variant of Adam based on the infinity norm. Default parameters follow those provided in the paper. Adamax is sometimes superior to adam; specially in models with embeddings</option>
+                  
+                    <option value="Ftrl" 
+                      
+                    >Ftrl - Optimizer that implements the FTRL algorithm</option>
+                  
+                    <option value="Nadam" 
+                      
+                    >Nadam - Much like Adam is essentially RMSprop with momentum; Nadam is Adam with Nesterov momentum</option>
+                  
+                    <option value="RMSprop" 
+                      
+                    >RMSprop - Optimizer that implements the RMSprop algorithm</option>
+                  
+                    <option value="SGD" 
+                      
+                    >SGD - Gradient descent -with momentum- optimizer</option>
+                  
+                </param>
+          
+            <param name="learning_rate" type="float" 
+                  value="0.02"
+                  
+                      label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+          
+            <param name="batch_size" type="integer" 
+                  value="100"
+                  
+                      label="batch_size" help="Number of samples per gradient update." optional="false"/>
+          
+            <param name="max_epochs" type="integer" 
+                  value="100"
+                  
+                      label="max_epochs" help="Number of epochs to train the model. As the early stopping is enabled, this is a maximum." optional="false"/>
+          
+       </section>
     </inputs>
     <outputs>
         

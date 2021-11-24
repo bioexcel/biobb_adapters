@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__score__dq__:${config.score},__dq__druggability_score__dq__:${config.druggability_score},__dq__volume__dq__:${config.volume}__cc__"
+            --config "__oc____dq__score__dq__:${score},__dq__druggability_score__dq__:${druggability_score},__dq__volume__dq__:${volume}__cc__"
           #end if
         
           #if str($input_pockets_zip) != 'None':
@@ -58,9 +58,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -69,15 +69,18 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="score" type="text" label="score" help="List of two float numbers between 0 and 1 indicating the score range. Indicates the fpocket score after the evaluation of pocket prediction accuracy as defined in the fpocket paper. (Json)" value="[]" />
-                
-                  <param name="druggability_score" type="text" label="druggability_score" help="List of two float numbers between 0 and 1 indicating the druggability_score range. It&#39;s a value between 0 and 1, 0 signifying that the pocket is likely to not bind a drug like molecule and 1, that it is very likely to bind the latter. (Json)" value="[]" />
-                
-                  <param name="volume" type="text" label="volume" help="List of two float numbers indicating the volume range. Indicates the pocket volume. (Json)" value="[]" />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="score" type="text" label="score" help="List of two float numbers between 0 and 1 indicating the score range. Indicates the fpocket score after the evaluation of pocket prediction accuracy as defined in the fpocket paper. (Json)" value="[]" />
+          
+            <param name="druggability_score" type="text" label="druggability_score" help="List of two float numbers between 0 and 1 indicating the druggability_score range. It&#39;s a value between 0 and 1, 0 signifying that the pocket is likely to not bind a drug like molecule and 1, that it is very likely to bind the latter. (Json)" value="[]" />
+          
+            <param name="volume" type="text" label="volume" help="List of two float numbers indicating the volume range. Indicates the pocket volume. (Json)" value="[]" />
+          
+       </section>
     </inputs>
     <outputs>
         

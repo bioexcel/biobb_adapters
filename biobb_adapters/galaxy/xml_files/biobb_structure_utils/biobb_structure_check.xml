@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__features__dq__:__ob____dq__${'__dq__,__dq__'.join($config.features)}__dq____cb__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+            --config "__oc____dq__features__dq__:__ob____dq__${'__dq__,__dq__'.join($features)}__dq____cb__,__dq__check_structure_path__dq__:__dq__${check_structure_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -48,9 +48,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,61 +59,64 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. " multiple="True">
-                    
-                      <option value="models" 
-                      
-                      >models - multiple molecules or coordinate sets in a single file</option>
-                    
-                      <option value="chains" 
-                      
-                      >chains - multiple chains in a single file</option>
-                    
-                      <option value="altloc" 
-                      
-                      >altloc - atom alternative conformation given an alternate location indicator and occupancy</option>
-                    
-                      <option value="metals" 
-                      
-                      >metals - metals present in the structure</option>
-                    
-                      <option value="ligands" 
-                      
-                      >ligands - heteroatoms present in the structure</option>
-                    
-                      <option value="chiral" 
-                      
-                      >chiral - to say that a structure is chiral is to say that its mirror image is not the same as it self</option>
-                    
-                      <option value="getss" 
-                      
-                      >getss - detect SS bonds or disulfides</option>
-                    
-                      <option value="cistransbck" 
-                      
-                      >cistransbck - detact cis/trans backbone</option>
-                    
-                      <option value="backbone" 
-                      
-                      >backbone - detect backbone breaks</option>
-                    
-                      <option value="amide" 
-                      
-                      >amide - detect too close amides</option>
-                    
-                      <option value="clashes" 
-                      
-                      >clashes - detect clashes</option>
-                    
-                    </param>
-                
-                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
-                      value="check_structure"
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="features" type="select" label="features" help="Features to summarize. If None, all the features will be computed. " multiple="True">
+                  
+                    <option value="models" 
+                      
+                    >models - multiple molecules or coordinate sets in a single file</option>
+                  
+                    <option value="chains" 
+                      
+                    >chains - multiple chains in a single file</option>
+                  
+                    <option value="altloc" 
+                      
+                    >altloc - atom alternative conformation given an alternate location indicator and occupancy</option>
+                  
+                    <option value="metals" 
+                      
+                    >metals - metals present in the structure</option>
+                  
+                    <option value="ligands" 
+                      
+                    >ligands - heteroatoms present in the structure</option>
+                  
+                    <option value="chiral" 
+                      
+                    >chiral - to say that a structure is chiral is to say that its mirror image is not the same as it self</option>
+                  
+                    <option value="getss" 
+                      
+                    >getss - detect SS bonds or disulfides</option>
+                  
+                    <option value="cistransbck" 
+                      
+                    >cistransbck - detact cis/trans backbone</option>
+                  
+                    <option value="backbone" 
+                      
+                    >backbone - detect backbone breaks</option>
+                  
+                    <option value="amide" 
+                      
+                    >amide - detect too close amides</option>
+                  
+                    <option value="clashes" 
+                      
+                    >clashes - detect clashes</option>
+                  
+                </param>
+          
+            <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+                  value="check_structure"
+                />
+          
+       </section>
     </inputs>
     <outputs>
         

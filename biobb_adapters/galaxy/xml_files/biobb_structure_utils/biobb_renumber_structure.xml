@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__renumber_residues__dq__:${config.renumber_residues},__dq__renumber_residues_per_chain__dq__:${config.renumber_residues_per_chain}__cc__"
+            --config "__oc____dq__renumber_residues__dq__:${renumber_residues},__dq__renumber_residues_per_chain__dq__:${renumber_residues_per_chain}__cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -54,9 +54,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -65,17 +65,20 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="renumber_residues" type="boolean" 
-                    checked="true"
-                    label="renumber_residues" help="Residue code of the ligand to be removed." />
-                
-                  <param name="renumber_residues_per_chain" type="boolean" 
-                    checked="true"
-                    label="renumber_residues_per_chain" help="Restart residue enumeration every time a new chain is detected." />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="renumber_residues" type="boolean" 
+                  checked="true"
+                  label="renumber_residues" help="Residue code of the ligand to be removed." />
+          
+            <param name="renumber_residues_per_chain" type="boolean" 
+                  checked="true"
+                  label="renumber_residues_per_chain" help="Restart residue enumeration every time a new chain is detected." />
+          
+       </section>
     </inputs>
     <outputs>
         

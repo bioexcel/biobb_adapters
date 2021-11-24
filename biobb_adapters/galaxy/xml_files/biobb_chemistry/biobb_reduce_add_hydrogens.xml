@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__flip__dq__:${config.flip},__dq__noflip__dq__:${config.noflip},__dq__nuclear__dq__:${config.nuclear},__dq__nooh__dq__:${config.nooh},__dq__oh__dq__:${config.oh},__dq__his__dq__:${config.his},__dq__noheth__dq__:${config.noheth},__dq__rotnh3__dq__:${config.rotnh3},__dq__norotnh3__dq__:${config.norotnh3},__dq__rotexist__dq__:${config.rotexist},__dq__rotexoh__dq__:${config.rotexoh},__dq__allalt__dq__:${config.allalt},__dq__onlya__dq__:${config.onlya},__dq__charges__dq__:${config.charges},__dq__dorotmet__dq__:${config.dorotmet},__dq__noadjust__dq__:${config.noadjust},__dq__build__dq__:${config.build},__dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
+            --config "__oc____dq__flip__dq__:${flip},__dq__noflip__dq__:${noflip},__dq__nuclear__dq__:${nuclear},__dq__nooh__dq__:${nooh},__dq__oh__dq__:${oh},__dq__his__dq__:${his},__dq__noheth__dq__:${noheth},__dq__rotnh3__dq__:${rotnh3},__dq__norotnh3__dq__:${norotnh3},__dq__rotexist__dq__:${rotexist},__dq__rotexoh__dq__:${rotexoh},__dq__allalt__dq__:${allalt},__dq__onlya__dq__:${onlya},__dq__charges__dq__:${charges},__dq__dorotmet__dq__:${dorotmet},__dq__noadjust__dq__:${noadjust},__dq__build__dq__:${build},__dq__reduce_path__dq__:__dq__${reduce_path}__dq____cc__"
           #end if
         
           #if str($input_path) != 'None':
@@ -48,9 +48,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,81 +59,84 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="flip" type="boolean" 
-                    
-                    label="flip" help="add H and rotate and flip NQH groups" />
-                
-                  <param name="noflip" type="boolean" 
-                    
-                    label="noflip" help="add H and rotate groups with no NQH flips" />
-                
-                  <param name="nuclear" type="boolean" 
-                    
-                    label="nuclear" help="use nuclear X-H distances rather than default electron cloud distances" />
-                
-                  <param name="nooh" type="boolean" 
-                    
-                    label="nooh" help="remove hydrogens on OH and SH groups" />
-                
-                  <param name="oh" type="boolean" 
-                    checked="true"
-                    label="oh" help="add hydrogens on OH and SH groups (default)" />
-                
-                  <param name="his" type="boolean" 
-                    
-                    label="his" help="create NH hydrogens on HIS rings (usually used with -HIS)" />
-                
-                  <param name="noheth" type="boolean" 
-                    
-                    label="noheth" help="do not attempt to add NH proton on Het groups" />
-                
-                  <param name="rotnh3" type="boolean" 
-                    checked="true"
-                    label="rotnh3" help="allow lysine NH3 to rotate (default)" />
-                
-                  <param name="norotnh3" type="boolean" 
-                    
-                    label="norotnh3" help="do not allow lysine NH3 to rotate" />
-                
-                  <param name="rotexist" type="boolean" 
-                    
-                    label="rotexist" help="allow existing rotatable groups (OH, SH, Met-CH3) to rotate" />
-                
-                  <param name="rotexoh" type="boolean" 
-                    
-                    label="rotexoh" help="allow existing OH &amp; SH groups to rotate" />
-                
-                  <param name="allalt" type="boolean" 
-                    checked="true"
-                    label="allalt" help="process adjustments for all conformations (default)" />
-                
-                  <param name="onlya" type="boolean" 
-                    
-                    label="onlya" help="only adjust &#39;A&#39; conformations" />
-                
-                  <param name="charges" type="boolean" 
-                    
-                    label="charges" help="output charge state for appropriate hydrogen records" />
-                
-                  <param name="dorotmet" type="boolean" 
-                    
-                    label="dorotmet" help="allow methionine methyl groups to rotate (not recommended)" />
-                
-                  <param name="noadjust" type="boolean" 
-                    
-                    label="noadjust" help="do not process any rot or flip adjustments" />
-                
-                  <param name="build" type="boolean" 
-                    
-                    label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
-                
-                  <param name="reduce_path" type="text" label="reduce_path" help="Path to the reduce executable binary." optional="false"
-                      value="reduce"
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="flip" type="boolean" 
+                  
+                  label="flip" help="add H and rotate and flip NQH groups" />
+          
+            <param name="noflip" type="boolean" 
+                  
+                  label="noflip" help="add H and rotate groups with no NQH flips" />
+          
+            <param name="nuclear" type="boolean" 
+                  
+                  label="nuclear" help="use nuclear X-H distances rather than default electron cloud distances" />
+          
+            <param name="nooh" type="boolean" 
+                  
+                  label="nooh" help="remove hydrogens on OH and SH groups" />
+          
+            <param name="oh" type="boolean" 
+                  checked="true"
+                  label="oh" help="add hydrogens on OH and SH groups (default)" />
+          
+            <param name="his" type="boolean" 
+                  
+                  label="his" help="create NH hydrogens on HIS rings (usually used with -HIS)" />
+          
+            <param name="noheth" type="boolean" 
+                  
+                  label="noheth" help="do not attempt to add NH proton on Het groups" />
+          
+            <param name="rotnh3" type="boolean" 
+                  checked="true"
+                  label="rotnh3" help="allow lysine NH3 to rotate (default)" />
+          
+            <param name="norotnh3" type="boolean" 
+                  
+                  label="norotnh3" help="do not allow lysine NH3 to rotate" />
+          
+            <param name="rotexist" type="boolean" 
+                  
+                  label="rotexist" help="allow existing rotatable groups (OH, SH, Met-CH3) to rotate" />
+          
+            <param name="rotexoh" type="boolean" 
+                  
+                  label="rotexoh" help="allow existing OH &amp; SH groups to rotate" />
+          
+            <param name="allalt" type="boolean" 
+                  checked="true"
+                  label="allalt" help="process adjustments for all conformations (default)" />
+          
+            <param name="onlya" type="boolean" 
+                  
+                  label="onlya" help="only adjust &#39;A&#39; conformations" />
+          
+            <param name="charges" type="boolean" 
+                  
+                  label="charges" help="output charge state for appropriate hydrogen records" />
+          
+            <param name="dorotmet" type="boolean" 
+                  
+                  label="dorotmet" help="allow methionine methyl groups to rotate (not recommended)" />
+          
+            <param name="noadjust" type="boolean" 
+                  
+                  label="noadjust" help="do not process any rot or flip adjustments" />
+          
+            <param name="build" type="boolean" 
+                  
+                  label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
+          
+            <param name="reduce_path" type="text" label="reduce_path" help="Path to the reduce executable binary." optional="false"
+                  value="reduce"
+                />
+          
+       </section>
     </inputs>
     <outputs>
         

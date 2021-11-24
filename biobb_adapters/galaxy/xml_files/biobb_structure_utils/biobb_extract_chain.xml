@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__chains__dq__:${config.chains},__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+            --config "__oc____dq__chains__dq__:${chains},__dq__check_structure_path__dq__:__dq__${check_structure_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -48,9 +48,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,15 +59,18 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="chains" type="text" label="chains" help="List of chains to be extracted from the input_structure_path file. If empty, all the chains of the structure will be returned. (Json)" value="[]" />
-                
-                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
-                      value="check_structure"
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="chains" type="text" label="chains" help="List of chains to be extracted from the input_structure_path file. If empty, all the chains of the structure will be returned. (Json)" value="[]" />
+          
+            <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+                  value="check_structure"
+                />
+          
+       </section>
     </inputs>
     <outputs>
         

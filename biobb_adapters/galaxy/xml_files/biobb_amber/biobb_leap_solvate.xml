@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($config.forcefield)}__dq____cb__,__dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__box_type__dq__:__dq__${config.box_type}__dq__,__dq__ions_type__dq__:__dq__${config.ions_type}__dq__,__dq__neutralise__dq__:${config.neutralise},__dq__iso__dq__:${config.iso},__dq__positive_ions_number__dq__:${config.positive_ions_number},__dq__negative_ions_number__dq__:${config.negative_ions_number},__dq__positive_ions_type__dq__:__dq__${config.positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${config.negative_ions_type}__dq__,__dq__distance_to_molecule__dq__:${config.distance_to_molecule},__dq__closeness__dq__:${config.closeness}__cc__"
+            --config "__oc____dq__forcefield__dq__:__ob____dq__${'__dq__,__dq__'.join($forcefield)}__dq____cb__,__dq__water_type__dq__:__dq__${water_type}__dq__,__dq__box_type__dq__:__dq__${box_type}__dq__,__dq__ions_type__dq__:__dq__${ions_type}__dq__,__dq__neutralise__dq__:${neutralise},__dq__iso__dq__:${iso},__dq__positive_ions_number__dq__:${positive_ions_number},__dq__negative_ions_number__dq__:${negative_ions_number},__dq__positive_ions_type__dq__:__dq__${positive_ions_type}__dq__,__dq__negative_ions_type__dq__:__dq__${negative_ions_type}__dq__,__dq__distance_to_molecule__dq__:${distance_to_molecule},__dq__closeness__dq__:${closeness}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -100,9 +100,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -111,173 +111,176 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
-                    
-                      <option value="protein.ff14SB" 
-                      
-                      >protein.ff14SB - None</option>
-                    
-                      <option value="protein.ff19SB" 
-                      
-                      >protein.ff19SB - None</option>
-                    
-                      <option value="DNA.bsc1" 
-                      
-                      >DNA.bsc1 - None</option>
-                    
-                      <option value="DNA.OL15" 
-                      
-                      >DNA.OL15 - None</option>
-                    
-                      <option value="RNA.OL3" 
-                      
-                      >RNA.OL3 - None</option>
-                    
-                      <option value="gaff" 
-                      
-                      >gaff - None</option>
-                    
-                    </param>
-                
-                  <param name="water_type" type="select" label="water_type" help="Water molecule parameters to be used for the topology. " multiple="">
-                    
-                      <option value="POL3BOX" 
-                      
-                      >POL3BOX - None</option>
-                    
-                      <option value="QSPCFWBOX" 
-                      
-                      >QSPCFWBOX - None</option>
-                    
-                      <option value="SPCBOX" 
-                      
-                      >SPCBOX - None</option>
-                    
-                      <option value="SPCFWBOX" 
-                      
-                      >SPCFWBOX - None</option>
-                    
-                      <option value="TIP3PBOX" 
-                      selected="true"
-                      >TIP3PBOX - None</option>
-                    
-                      <option value="TIP3PFBOX" 
-                      
-                      >TIP3PFBOX - None</option>
-                    
-                      <option value="TIP4PBOX" 
-                      
-                      >TIP4PBOX - None</option>
-                    
-                      <option value="TIP4PEWBOX" 
-                      
-                      >TIP4PEWBOX - None</option>
-                    
-                      <option value="OPCBOX" 
-                      
-                      >OPCBOX - None</option>
-                    
-                      <option value="OPC3BOX" 
-                      
-                      >OPC3BOX - None</option>
-                    
-                      <option value="TIP5PBOX" 
-                      
-                      >TIP5PBOX - None</option>
-                    
-                    </param>
-                
-                  <param name="box_type" type="select" label="box_type" help="Type for the MD system box. " multiple="">
-                    
-                      <option value="cubic" 
-                      
-                      >cubic - None</option>
-                    
-                      <option value="truncated_octahedron" 
-                      selected="true"
-                      >truncated_octahedron - None</option>
-                    
-                    </param>
-                
-                  <param name="ions_type" type="select" label="ions_type" help="Ions type. " multiple="">
-                    
-                      <option value="ionsjc_tip3p" 
-                      selected="true"
-                      >ionsjc_tip3p - None</option>
-                    
-                      <option value="ionsjc_spce" 
-                      
-                      >ionsjc_spce - None</option>
-                    
-                      <option value="ionsff99_tip3p" 
-                      
-                      >ionsff99_tip3p - None</option>
-                    
-                      <option value="ions_charmm22" 
-                      
-                      >ions_charmm22 - None</option>
-                    
-                      <option value="ionsjc_tip4pew" 
-                      
-                      >ionsjc_tip4pew - None</option>
-                    
-                      <option value="None" 
-                      
-                      >None - None</option>
-                    
-                    </param>
-                
-                  <param name="neutralise" type="boolean" 
-                    
-                    label="neutralise" help="Energetically neutralise the system adding the necessary counterions." />
-                
-                  <param name="iso" type="boolean" 
-                    
-                    label="iso" help="Make the box isometric." />
-                
-                  <param name="positive_ions_number" type="integer" 
-                      
-                      
-                           label="positive_ions_number" help="Number of additional positive ions to include in the system box." optional="true"/>
-                
-                  <param name="negative_ions_number" type="integer" 
-                      
-                      
-                           label="negative_ions_number" help="Number of additional negative ions to include in the system box." optional="true"/>
-                
-                  <param name="positive_ions_type" type="select" label="positive_ions_type" help="Type of additional positive ions to include in the system box. " multiple="">
-                    
-                      <option value="Na+" 
-                      selected="true"
-                      >Na+ - None</option>
-                    
-                      <option value="K+" 
-                      
-                      >K+ - None</option>
-                    
-                    </param>
-                
-                  <param name="negative_ions_type" type="select" label="negative_ions_type" help="Type of additional negative ions to include in the system box. " multiple="">
-                    
-                      <option value="Cl-" 
-                      selected="true"
-                      >Cl- - None</option>
-                    
-                    </param>
-                
-                  <param name="distance_to_molecule" type="float" 
-                      value="8.0"
-                      
-                           label="distance_to_molecule" help="Size for the MD system box -in Angstroms-, defined such as the minimum distance between any atom originally present in solute and the edge of the periodic box is given by this distance parameter." optional="false"/>
-                
-                  <param name="closeness" type="float" 
-                      value="1.0"
-                      
-                           label="closeness" help="How close, in Å, solvent ATOMs may come to solute ATOMs." optional="false"/>
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="forcefield" type="select" label="forcefield" help="Forcefield to be used for the structure generation. " multiple="True">
+                  
+                    <option value="protein.ff14SB" 
+                      
+                    >protein.ff14SB - None</option>
+                  
+                    <option value="protein.ff19SB" 
+                      
+                    >protein.ff19SB - None</option>
+                  
+                    <option value="DNA.bsc1" 
+                      
+                    >DNA.bsc1 - None</option>
+                  
+                    <option value="DNA.OL15" 
+                      
+                    >DNA.OL15 - None</option>
+                  
+                    <option value="RNA.OL3" 
+                      
+                    >RNA.OL3 - None</option>
+                  
+                    <option value="gaff" 
+                      
+                    >gaff - None</option>
+                  
+                </param>
+          
+            <param name="water_type" type="select" label="water_type" help="Water molecule parameters to be used for the topology. " multiple="">
+                  
+                    <option value="POL3BOX" 
+                      
+                    >POL3BOX - None</option>
+                  
+                    <option value="QSPCFWBOX" 
+                      
+                    >QSPCFWBOX - None</option>
+                  
+                    <option value="SPCBOX" 
+                      
+                    >SPCBOX - None</option>
+                  
+                    <option value="SPCFWBOX" 
+                      
+                    >SPCFWBOX - None</option>
+                  
+                    <option value="TIP3PBOX" 
+                      selected="true"
+                    >TIP3PBOX - None</option>
+                  
+                    <option value="TIP3PFBOX" 
+                      
+                    >TIP3PFBOX - None</option>
+                  
+                    <option value="TIP4PBOX" 
+                      
+                    >TIP4PBOX - None</option>
+                  
+                    <option value="TIP4PEWBOX" 
+                      
+                    >TIP4PEWBOX - None</option>
+                  
+                    <option value="OPCBOX" 
+                      
+                    >OPCBOX - None</option>
+                  
+                    <option value="OPC3BOX" 
+                      
+                    >OPC3BOX - None</option>
+                  
+                    <option value="TIP5PBOX" 
+                      
+                    >TIP5PBOX - None</option>
+                  
+                </param>
+          
+            <param name="box_type" type="select" label="box_type" help="Type for the MD system box. " multiple="">
+                  
+                    <option value="cubic" 
+                      
+                    >cubic - None</option>
+                  
+                    <option value="truncated_octahedron" 
+                      selected="true"
+                    >truncated_octahedron - None</option>
+                  
+                </param>
+          
+            <param name="ions_type" type="select" label="ions_type" help="Ions type. " multiple="">
+                  
+                    <option value="ionsjc_tip3p" 
+                      selected="true"
+                    >ionsjc_tip3p - None</option>
+                  
+                    <option value="ionsjc_spce" 
+                      
+                    >ionsjc_spce - None</option>
+                  
+                    <option value="ionsff99_tip3p" 
+                      
+                    >ionsff99_tip3p - None</option>
+                  
+                    <option value="ions_charmm22" 
+                      
+                    >ions_charmm22 - None</option>
+                  
+                    <option value="ionsjc_tip4pew" 
+                      
+                    >ionsjc_tip4pew - None</option>
+                  
+                    <option value="None" 
+                      
+                    >None - None</option>
+                  
+                </param>
+          
+            <param name="neutralise" type="boolean" 
+                  
+                  label="neutralise" help="Energetically neutralise the system adding the necessary counterions." />
+          
+            <param name="iso" type="boolean" 
+                  
+                  label="iso" help="Make the box isometric." />
+          
+            <param name="positive_ions_number" type="integer" 
+                  
+                  
+                      label="positive_ions_number" help="Number of additional positive ions to include in the system box." optional="true"/>
+          
+            <param name="negative_ions_number" type="integer" 
+                  
+                  
+                      label="negative_ions_number" help="Number of additional negative ions to include in the system box." optional="true"/>
+          
+            <param name="positive_ions_type" type="select" label="positive_ions_type" help="Type of additional positive ions to include in the system box. " multiple="">
+                  
+                    <option value="Na+" 
+                      selected="true"
+                    >Na+ - None</option>
+                  
+                    <option value="K+" 
+                      
+                    >K+ - None</option>
+                  
+                </param>
+          
+            <param name="negative_ions_type" type="select" label="negative_ions_type" help="Type of additional negative ions to include in the system box. " multiple="">
+                  
+                    <option value="Cl-" 
+                      selected="true"
+                    >Cl- - None</option>
+                  
+                </param>
+          
+            <param name="distance_to_molecule" type="float" 
+                  value="8.0"
+                  
+                      label="distance_to_molecule" help="Size for the MD system box -in Angstroms-, defined such as the minimum distance between any atom originally present in solute and the edge of the periodic box is given by this distance parameter." optional="false"/>
+          
+            <param name="closeness" type="float" 
+                  value="1.0"
+                  
+                      label="closeness" help="How close, in Å, solvent ATOMs may come to solute ATOMs." optional="false"/>
+          
+       </section>
     </inputs>
     <outputs>
         

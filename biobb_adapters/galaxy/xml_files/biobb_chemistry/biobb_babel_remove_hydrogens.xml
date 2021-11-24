@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__input_format__dq__:__dq__${config.input_format}__dq__,__dq__output_format__dq__:__dq__${config.output_format}__dq__,__dq__coordinates__dq__:__dq__${config.coordinates}__dq__,__dq__ph__dq__:${config.ph},__dq__obabel_path__dq__:__dq__${config.obabel_path}__dq____cc__"
+            --config "__oc____dq__input_format__dq__:__dq__${input_format}__dq__,__dq__output_format__dq__:__dq__${output_format}__dq__,__dq__coordinates__dq__:__dq__${coordinates}__dq__,__dq__ph__dq__:${ph},__dq__obabel_path__dq__:__dq__${obabel_path}__dq____cc__"
           #end if
         
           #if str($input_path) != 'None':
@@ -48,9 +48,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,194 +59,197 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. " multiple="">
-                    
-                      <option value="dat" 
-                      
-                      >dat - Information represented in a data record</option>
-                    
-                      <option value="ent" 
-                      
-                      >ent - Protein Data Bank format</option>
-                    
-                      <option value="fa" 
-                      
-                      >fa - FASTA sequence format</option>
-                    
-                      <option value="fasta" 
-                      
-                      >fasta - FASTA sequence format</option>
-                    
-                      <option value="gro" 
-                      
-                      >gro - GROMACS structure</option>
-                    
-                      <option value="inp" 
-                      
-                      >inp - AMBER trajectory format</option>
-                    
-                      <option value="log" 
-                      
-                      >log - Events file</option>
-                    
-                      <option value="mcif" 
-                      
-                      >mcif - Entry format of PDB database in mmCIF format</option>
-                    
-                      <option value="mdl" 
-                      
-                      >mdl - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
-                    
-                      <option value="mmcif" 
-                      
-                      >mmcif - Entry format of PDB database in mmCIF format</option>
-                    
-                      <option value="mol" 
-                      
-                      >mol - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
-                    
-                      <option value="mol2" 
-                      
-                      >mol2 - Complete and portable representation of a SYBYL molecule</option>
-                    
-                      <option value="pdb" 
-                      
-                      >pdb - Protein Data Bank format</option>
-                    
-                      <option value="pdbqt" 
-                      
-                      >pdbqt - Protein Data Bank format with charges</option>
-                    
-                      <option value="png" 
-                      
-                      >png - File format for image compression</option>
-                    
-                      <option value="sdf" 
-                      
-                      >sdf - One of a family of chemical-data file formats developed by MDL Information Systems</option>
-                    
-                      <option value="smi" 
-                      
-                      >smi - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
-                    
-                      <option value="smiles" 
-                      
-                      >smiles - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
-                    
-                      <option value="txt" 
-                      
-                      >txt - Textual format</option>
-                    
-                      <option value="xml" 
-                      
-                      >xml - eXtensible Markup Language</option>
-                    
-                      <option value="xtc" 
-                      
-                      >xtc - Portable binary format for trajectories produced by GROMACS package</option>
-                    
-                    </param>
-                
-                  <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. " multiple="">
-                    
-                      <option value="ent" 
-                      
-                      >ent - Protein Data Bank format</option>
-                    
-                      <option value="fa" 
-                      
-                      >fa - FASTA sequence format</option>
-                    
-                      <option value="fasta" 
-                      
-                      >fasta - FASTA sequence format</option>
-                    
-                      <option value="gro" 
-                      
-                      >gro - GROMACS structure</option>
-                    
-                      <option value="inp" 
-                      
-                      >inp - AMBER trajectory format</option>
-                    
-                      <option value="mcif" 
-                      
-                      >mcif - Entry format of PDB database in mmCIF format</option>
-                    
-                      <option value="mdl" 
-                      
-                      >mdl - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
-                    
-                      <option value="mmcif" 
-                      
-                      >mmcif - Entry format of PDB database in mmCIF format</option>
-                    
-                      <option value="mol" 
-                      
-                      >mol - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
-                    
-                      <option value="mol2" 
-                      
-                      >mol2 - Complete and portable representation of a SYBYL molecule</option>
-                    
-                      <option value="pdb" 
-                      
-                      >pdb - Protein Data Bank format</option>
-                    
-                      <option value="pdbqt" 
-                      
-                      >pdbqt - Protein Data Bank format with charges</option>
-                    
-                      <option value="png" 
-                      
-                      >png - File format for image compression</option>
-                    
-                      <option value="sdf" 
-                      
-                      >sdf - One of a family of chemical-data file formats developed by MDL Information Systems</option>
-                    
-                      <option value="smi" 
-                      
-                      >smi - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
-                    
-                      <option value="smiles" 
-                      
-                      >smiles - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
-                    
-                      <option value="txt" 
-                      
-                      >txt - Textual format</option>
-                    
-                      <option value="xtc" 
-                      
-                      >xtc - Portable binary format for trajectories produced by GROMACS package</option>
-                    
-                    </param>
-                
-                  <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. " multiple="">
-                    
-                      <option value="2" 
-                      
-                      >2 - 2D coordinates</option>
-                    
-                      <option value="3" 
-                      
-                      >3 - 3D coordinates</option>
-                    
-                    </param>
-                
-                  <param name="ph" type="float" 
-                      value="7.4"
-                      
-                           label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
-                
-                  <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
-                      value="obabel"
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="input_format" type="select" label="input_format" help="Format of input file. If not provided, input_path extension will be taken. " multiple="">
+                  
+                    <option value="dat" 
+                      
+                    >dat - Information represented in a data record</option>
+                  
+                    <option value="ent" 
+                      
+                    >ent - Protein Data Bank format</option>
+                  
+                    <option value="fa" 
+                      
+                    >fa - FASTA sequence format</option>
+                  
+                    <option value="fasta" 
+                      
+                    >fasta - FASTA sequence format</option>
+                  
+                    <option value="gro" 
+                      
+                    >gro - GROMACS structure</option>
+                  
+                    <option value="inp" 
+                      
+                    >inp - AMBER trajectory format</option>
+                  
+                    <option value="log" 
+                      
+                    >log - Events file</option>
+                  
+                    <option value="mcif" 
+                      
+                    >mcif - Entry format of PDB database in mmCIF format</option>
+                  
+                    <option value="mdl" 
+                      
+                    >mdl - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
+                  
+                    <option value="mmcif" 
+                      
+                    >mmcif - Entry format of PDB database in mmCIF format</option>
+                  
+                    <option value="mol" 
+                      
+                    >mol - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
+                  
+                    <option value="mol2" 
+                      
+                    >mol2 - Complete and portable representation of a SYBYL molecule</option>
+                  
+                    <option value="pdb" 
+                      
+                    >pdb - Protein Data Bank format</option>
+                  
+                    <option value="pdbqt" 
+                      
+                    >pdbqt - Protein Data Bank format with charges</option>
+                  
+                    <option value="png" 
+                      
+                    >png - File format for image compression</option>
+                  
+                    <option value="sdf" 
+                      
+                    >sdf - One of a family of chemical-data file formats developed by MDL Information Systems</option>
+                  
+                    <option value="smi" 
+                      
+                    >smi - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
+                  
+                    <option value="smiles" 
+                      
+                    >smiles - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
+                  
+                    <option value="txt" 
+                      
+                    >txt - Textual format</option>
+                  
+                    <option value="xml" 
+                      
+                    >xml - eXtensible Markup Language</option>
+                  
+                    <option value="xtc" 
+                      
+                    >xtc - Portable binary format for trajectories produced by GROMACS package</option>
+                  
+                </param>
+          
+            <param name="output_format" type="select" label="output_format" help="Format of output file. If not provided, output_path extension will be taken. " multiple="">
+                  
+                    <option value="ent" 
+                      
+                    >ent - Protein Data Bank format</option>
+                  
+                    <option value="fa" 
+                      
+                    >fa - FASTA sequence format</option>
+                  
+                    <option value="fasta" 
+                      
+                    >fasta - FASTA sequence format</option>
+                  
+                    <option value="gro" 
+                      
+                    >gro - GROMACS structure</option>
+                  
+                    <option value="inp" 
+                      
+                    >inp - AMBER trajectory format</option>
+                  
+                    <option value="mcif" 
+                      
+                    >mcif - Entry format of PDB database in mmCIF format</option>
+                  
+                    <option value="mdl" 
+                      
+                    >mdl - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
+                  
+                    <option value="mmcif" 
+                      
+                    >mmcif - Entry format of PDB database in mmCIF format</option>
+                  
+                    <option value="mol" 
+                      
+                    >mol - file format for holding information about the atoms; bonds; connectivity and coordinates of a molecule</option>
+                  
+                    <option value="mol2" 
+                      
+                    >mol2 - Complete and portable representation of a SYBYL molecule</option>
+                  
+                    <option value="pdb" 
+                      
+                    >pdb - Protein Data Bank format</option>
+                  
+                    <option value="pdbqt" 
+                      
+                    >pdbqt - Protein Data Bank format with charges</option>
+                  
+                    <option value="png" 
+                      
+                    >png - File format for image compression</option>
+                  
+                    <option value="sdf" 
+                      
+                    >sdf - One of a family of chemical-data file formats developed by MDL Information Systems</option>
+                  
+                    <option value="smi" 
+                      
+                    >smi - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
+                  
+                    <option value="smiles" 
+                      
+                    >smiles - Chemical structure specified in Simplified Molecular Input Line Entry System line notation.</option>
+                  
+                    <option value="txt" 
+                      
+                    >txt - Textual format</option>
+                  
+                    <option value="xtc" 
+                      
+                    >xtc - Portable binary format for trajectories produced by GROMACS package</option>
+                  
+                </param>
+          
+            <param name="coordinates" type="select" label="coordinates" help="Type of coordinates: 2D or 3D. " multiple="">
+                  
+                    <option value="2" 
+                      
+                    >2 - 2D coordinates</option>
+                  
+                    <option value="3" 
+                      
+                    >3 - 3D coordinates</option>
+                  
+                </param>
+          
+            <param name="ph" type="float" 
+                  value="7.4"
+                  
+                      label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
+          
+            <param name="obabel_path" type="text" label="obabel_path" help="Path to the obabel executable binary." optional="false"
+                  value="obabel"
+                />
+          
+       </section>
     </inputs>
     <outputs>
         

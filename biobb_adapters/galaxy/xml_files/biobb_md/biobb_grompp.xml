@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mdp__dq__:${config.mdp},__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__maxwarn__dq__:${config.maxwarn},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+            --config "__oc____dq__mdp__dq__:${mdp},__dq__simulation_type__dq__:__dq__${simulation_type}__dq__,__dq__maxwarn__dq__:${maxwarn},__dq__gmx_lib__dq__:__dq__${gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${gmx_path}__dq____cc__"
           #end if
         
           #if str($input_gro_path) != 'None':
@@ -88,9 +88,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -99,52 +99,55 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="mdp" type="text" label="mdp" help="MDP options specification. (Json)" value="{}" />
-                
-                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each one creates a different mdp file. " multiple="">
-                    
-                      <option value="minimization" 
-                      
-                      >minimization - Energy minimization using steepest descent algorithm is used</option>
-                    
-                      <option value="nvt" 
-                      
-                      >nvt - substance N Volume V and Temperature T are conserved</option>
-                    
-                      <option value="npt" 
-                      
-                      >npt - substance N pressure P and Temperature T are conserved</option>
-                    
-                      <option value="free" 
-                      
-                      >free - No design constraints applied; Free MD</option>
-                    
-                      <option value="ions" 
-                      
-                      >ions - Synonym of minimization</option>
-                    
-                      <option value="index" 
-                      
-                      >index - Creates an empty mdp file</option>
-                    
-                    </param>
-                
-                  <param name="maxwarn" type="integer" 
-                      
-                      
-                           label="maxwarn" help="Maximum number of allowed warnings. If simulation_type is index default is 10." optional="true"/>
-                
-                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
-                      
-                    />
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="mdp" type="text" label="mdp" help="MDP options specification. (Json)" value="{}" />
+          
+            <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdp file. Each one creates a different mdp file. " multiple="">
+                  
+                    <option value="minimization" 
+                      
+                    >minimization - Energy minimization using steepest descent algorithm is used</option>
+                  
+                    <option value="nvt" 
+                      
+                    >nvt - substance N Volume V and Temperature T are conserved</option>
+                  
+                    <option value="npt" 
+                      
+                    >npt - substance N pressure P and Temperature T are conserved</option>
+                  
+                    <option value="free" 
+                      
+                    >free - No design constraints applied; Free MD</option>
+                  
+                    <option value="ions" 
+                      
+                    >ions - Synonym of minimization</option>
+                  
+                    <option value="index" 
+                      
+                    >index - Creates an empty mdp file</option>
+                  
+                </param>
+          
+            <param name="maxwarn" type="integer" 
+                  
+                  
+                      label="maxwarn" help="Maximum number of allowed warnings. If simulation_type is index default is 10." optional="true"/>
+          
+            <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+                  
+                />
+          
+            <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                  value="gmx"
+                />
+          
+       </section>
     </inputs>
     <outputs>
         

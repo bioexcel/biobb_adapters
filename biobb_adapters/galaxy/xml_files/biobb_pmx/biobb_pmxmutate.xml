@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__resinfo__dq__:${config.resinfo},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__pmx_path__dq__:__dq__${config.pmx_path}__dq____cc__"
+            --config "__oc____dq__mutation_list__dq__:__dq__${mutation_list}__dq__,__dq__force_field__dq__:__dq__${force_field}__dq__,__dq__resinfo__dq__:${resinfo},__dq__gmx_lib__dq__:__dq__${gmx_lib}__dq__,__dq__pmx_path__dq__:__dq__${pmx_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -58,9 +58,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -69,29 +69,32 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="mutation_list" type="text" label="mutation_list" help="Mutation list in the format &#34;Chain:Resnum MUT_AA_Code&#34; or &#34;Chain:Resnum MUT_NA_Code&#34;  (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:15CYS&#34;. Possible MUT_AA_Code: &#39;ALA&#39;, &#39;ARG&#39;, &#39;ASN&#39;, &#39;ASP&#39;, &#39;ASPH&#39;, &#39;ASPP&#39;, &#39;ASH&#39;, &#39;CYS&#39;, &#39;CYS2&#39;, &#39;CYN&#39;, &#39;CYX&#39;, &#39;CYM&#39;, &#39;CYSH&#39;, &#39;GLU&#39;, &#39;GLUH&#39;, &#39;GLUP&#39;, &#39;GLH&#39;, &#39;GLN&#39;, &#39;GLY&#39;, &#39;HIS&#39;, &#39;HIE&#39;, &#39;HISE&#39;, &#39;HSE&#39;, &#39;HIP&#39;, &#39;HSP&#39;, &#39;HISH&#39;, &#39;HID&#39;, &#39;HSD&#39;, &#39;ILE&#39;, &#39;LEU&#39;, &#39;LYS&#39;, &#39;LYSH&#39;, &#39;LYP&#39;, &#39;LYN&#39;, &#39;LSN&#39;, &#39;MET&#39;, &#39;PHE&#39;, &#39;PRO&#39;, &#39;SER&#39;, &#39;SP1&#39;, &#39;SP2&#39;, &#39;THR&#39;, &#39;TRP&#39;, &#39;TYR&#39;, &#39;VAL&#39;. Possible MUT_NA_Codes: &#39;A&#39;, &#39;T&#39;, &#39;C&#39;, &#39;G&#39;, &#39;U&#39;." optional="false"
-                      value="2Ala"
-                    />
-                
-                  <param name="force_field" type="text" label="force_field" help="Forcefield to use." optional="false"
-                      value="amber99sb-star-ildn-mut"
-                    />
-                
-                  <param name="resinfo" type="boolean" 
-                    
-                    label="resinfo" help="Show the list of 3-letter -&gt; 1-letter residues." />
-                
-                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path to the GMXLIB folder in your computer." optional="false"
-                      value="$CONDA_PREFIX/lib/python3.7/site-packages/pmx/data/mutff45/"
-                    />
-                
-                  <param name="pmx_path" type="text" label="pmx_path" help="Path to the PMX command line interface." optional="false"
-                      value="pmx"
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="mutation_list" type="text" label="mutation_list" help="Mutation list in the format &#34;Chain:Resnum MUT_AA_Code&#34; or &#34;Chain:Resnum MUT_NA_Code&#34;  (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:15CYS&#34;. Possible MUT_AA_Code: &#39;ALA&#39;, &#39;ARG&#39;, &#39;ASN&#39;, &#39;ASP&#39;, &#39;ASPH&#39;, &#39;ASPP&#39;, &#39;ASH&#39;, &#39;CYS&#39;, &#39;CYS2&#39;, &#39;CYN&#39;, &#39;CYX&#39;, &#39;CYM&#39;, &#39;CYSH&#39;, &#39;GLU&#39;, &#39;GLUH&#39;, &#39;GLUP&#39;, &#39;GLH&#39;, &#39;GLN&#39;, &#39;GLY&#39;, &#39;HIS&#39;, &#39;HIE&#39;, &#39;HISE&#39;, &#39;HSE&#39;, &#39;HIP&#39;, &#39;HSP&#39;, &#39;HISH&#39;, &#39;HID&#39;, &#39;HSD&#39;, &#39;ILE&#39;, &#39;LEU&#39;, &#39;LYS&#39;, &#39;LYSH&#39;, &#39;LYP&#39;, &#39;LYN&#39;, &#39;LSN&#39;, &#39;MET&#39;, &#39;PHE&#39;, &#39;PRO&#39;, &#39;SER&#39;, &#39;SP1&#39;, &#39;SP2&#39;, &#39;THR&#39;, &#39;TRP&#39;, &#39;TYR&#39;, &#39;VAL&#39;. Possible MUT_NA_Codes: &#39;A&#39;, &#39;T&#39;, &#39;C&#39;, &#39;G&#39;, &#39;U&#39;." optional="false"
+                  value="2Ala"
+                />
+          
+            <param name="force_field" type="text" label="force_field" help="Forcefield to use." optional="false"
+                  value="amber99sb-star-ildn-mut"
+                />
+          
+            <param name="resinfo" type="boolean" 
+                  
+                  label="resinfo" help="Show the list of 3-letter -&gt; 1-letter residues." />
+          
+            <param name="gmx_lib" type="text" label="gmx_lib" help="Path to the GMXLIB folder in your computer." optional="false"
+                  value="$CONDA_PREFIX/lib/python3.7/site-packages/pmx/data/mutff45/"
+                />
+          
+            <param name="pmx_path" type="text" label="pmx_path" help="Path to the PMX command line interface." optional="false"
+                  value="pmx"
+                />
+          
+       </section>
     </inputs>
     <outputs>
         

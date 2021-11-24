@@ -37,6 +37,7 @@
           <param name="outname_output_log_path" type="text" value="mychecking_log.log" optional="False" label="output LOG name" help="Output report log file path Format: [output].log "/>
         
         
+       </section>
     </inputs>
     <outputs>
         

@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mdin__dq__:${config.mdin},__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__sander_path__dq__:__dq__${config.sander_path}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_flags__dq__:__dq__${config.mpi_flags}__dq____cc__"
+            --config "__oc____dq__mdin__dq__:${mdin},__dq__simulation_type__dq__:__dq__${simulation_type}__dq__,__dq__sander_path__dq__:__dq__${sander_path}__dq__,__dq__mpi_bin__dq__:__dq__${mpi_bin}__dq__,__dq__mpi_np__dq__:${mpi_np},__dq__mpi_flags__dq__:__dq__${mpi_flags}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -118,9 +118,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -129,56 +129,59 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="mdin" type="text" label="mdin" help="Sander MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
-                
-                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
-                    
-                      <option value="minimization" 
-                      selected="true"
-                      >minimization - Runs an energy minimization</option>
-                    
-                      <option value="min_vacuo" 
-                      
-                      >min_vacuo - Runs an energy minimization in vacuo</option>
-                    
-                      <option value="NVT" 
-                      
-                      >NVT - Runs an NVT equilibration</option>
-                    
-                      <option value="npt" 
-                      
-                      >npt - Runs an NPT equilibration</option>
-                    
-                      <option value="free" 
-                      
-                      >free - Runs a MD simulation</option>
-                    
-                      <option value="heat" 
-                      
-                      >heat - Heats the MD system</option>
-                    
-                    </param>
-                
-                  <param name="sander_path" type="text" label="sander_path" help="sander binary path to be used." optional="false"
-                      value="sander"
-                    />
-                
-                  <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
-                      
-                    />
-                
-                  <param name="mpi_np" type="integer" 
-                      
-                      
-                           label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
-                
-                  <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
-                      
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="mdin" type="text" label="mdin" help="Sander MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
+          
+            <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
+                  
+                    <option value="minimization" 
+                      selected="true"
+                    >minimization - Runs an energy minimization</option>
+                  
+                    <option value="min_vacuo" 
+                      
+                    >min_vacuo - Runs an energy minimization in vacuo</option>
+                  
+                    <option value="NVT" 
+                      
+                    >NVT - Runs an NVT equilibration</option>
+                  
+                    <option value="npt" 
+                      
+                    >npt - Runs an NPT equilibration</option>
+                  
+                    <option value="free" 
+                      
+                    >free - Runs a MD simulation</option>
+                  
+                    <option value="heat" 
+                      
+                    >heat - Heats the MD system</option>
+                  
+                </param>
+          
+            <param name="sander_path" type="text" label="sander_path" help="sander binary path to be used." optional="false"
+                  value="sander"
+                />
+          
+            <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
+                  
+                />
+          
+            <param name="mpi_np" type="integer" 
+                  
+                  
+                      label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
+          
+            <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
+                  
+                />
+          
+       </section>
     </inputs>
     <outputs>
         

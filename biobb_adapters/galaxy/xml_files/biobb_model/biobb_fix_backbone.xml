@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__add_caps__dq__:${config.add_caps}__cc__"
+            --config "__oc____dq__add_caps__dq__:${add_caps}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -58,9 +58,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -69,13 +69,16 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="add_caps" type="boolean" 
-                    
-                    label="add_caps" help="Add caps to terminal residues." />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="add_caps" type="boolean" 
+                  
+                  label="add_caps" help="Add caps to terminal residues." />
+          
+       </section>
     </inputs>
     <outputs>
         

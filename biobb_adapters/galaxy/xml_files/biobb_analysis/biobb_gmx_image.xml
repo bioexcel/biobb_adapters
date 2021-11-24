@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__fit_selection__dq__:__dq__${config.fit_selection}__dq__,__dq__center_selection__dq__:__dq__${config.center_selection}__dq__,__dq__output_selection__dq__:__dq__${config.output_selection}__dq__,__dq__pbc__dq__:__dq__${config.pbc}__dq__,__dq__center__dq__:${config.center},__dq__ur__dq__:__dq__${config.ur}__dq__,__dq__fit__dq__:__dq__${config.fit}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+            --config "__oc____dq__fit_selection__dq__:__dq__${fit_selection}__dq__,__dq__center_selection__dq__:__dq__${center_selection}__dq__,__dq__output_selection__dq__:__dq__${output_selection}__dq__,__dq__pbc__dq__:__dq__${pbc}__dq__,__dq__center__dq__:${center},__dq__ur__dq__:__dq__${ur}__dq__,__dq__fit__dq__:__dq__${fit}__dq__,__dq__gmx_path__dq__:__dq__${gmx_path}__dq____cc__"
           #end if
         
           #if str($input_traj_path) != 'None':
@@ -68,9 +68,9 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3">Manual Input</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -79,333 +79,336 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
-                    
-                      <option value="System" 
-                      selected="true"
-                      >System - all atoms in the system</option>
-                    
-                      <option value="Protein" 
-                      
-                      >Protein - all protein atoms</option>
-                    
-                      <option value="Protein-H" 
-                      
-                      >Protein-H - protein atoms excluding hydrogens</option>
-                    
-                      <option value="C-alpha" 
-                      
-                      >C-alpha - C-alpha atoms</option>
-                    
-                      <option value="Backbone" 
-                      
-                      >Backbone - protein backbone atoms: N; C-alpha and C</option>
-                    
-                      <option value="MainChain" 
-                      
-                      >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
-                    
-                      <option value="MainChain+Cb" 
-                      
-                      >MainChain+Cb - protein main chain atoms including C-beta</option>
-                    
-                      <option value="MainChain+H" 
-                      
-                      >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain" 
-                      
-                      >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain-H" 
-                      
-                      >SideChain-H - protein side chain atoms excluding all hydrogens</option>
-                    
-                      <option value="Prot-Masses" 
-                      
-                      >Prot-Masses - protein atoms excluding dummy masses</option>
-                    
-                      <option value="non-Protein" 
-                      
-                      >non-Protein - all non-protein atoms</option>
-                    
-                      <option value="Water" 
-                      
-                      >Water - water molecules</option>
-                    
-                      <option value="SOL" 
-                      
-                      >SOL - water molecules</option>
-                    
-                      <option value="non-Water" 
-                      
-                      >non-Water - anything not covered by the Water group</option>
-                    
-                      <option value="Ion" 
-                      
-                      >Ion - any name matching an Ion entry in residuetypes.dat</option>
-                    
-                      <option value="NA" 
-                      
-                      >NA - all NA atoms</option>
-                    
-                      <option value="CL" 
-                      
-                      >CL - all CL atoms</option>
-                    
-                      <option value="Water_and_ions" 
-                      
-                      >Water_and_ions - combination of the Water and Ions groups</option>
-                    
-                    </param>
-                
-                  <param name="center_selection" type="select" label="center_selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
-                    
-                      <option value="System" 
-                      selected="true"
-                      >System - all atoms in the system</option>
-                    
-                      <option value="Protein" 
-                      
-                      >Protein - all protein atoms</option>
-                    
-                      <option value="Protein-H" 
-                      
-                      >Protein-H - protein atoms excluding hydrogens</option>
-                    
-                      <option value="C-alpha" 
-                      
-                      >C-alpha - C-alpha atoms</option>
-                    
-                      <option value="Backbone" 
-                      
-                      >Backbone - protein backbone atoms: N; C-alpha and C</option>
-                    
-                      <option value="MainChain" 
-                      
-                      >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
-                    
-                      <option value="MainChain+Cb" 
-                      
-                      >MainChain+Cb - protein main chain atoms including C-beta</option>
-                    
-                      <option value="MainChain+H" 
-                      
-                      >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain" 
-                      
-                      >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain-H" 
-                      
-                      >SideChain-H - protein side chain atoms excluding all hydrogens</option>
-                    
-                      <option value="Prot-Masses" 
-                      
-                      >Prot-Masses - protein atoms excluding dummy masses</option>
-                    
-                      <option value="non-Protein" 
-                      
-                      >non-Protein - all non-protein atoms</option>
-                    
-                      <option value="Water" 
-                      
-                      >Water - water molecules</option>
-                    
-                      <option value="SOL" 
-                      
-                      >SOL - water molecules</option>
-                    
-                      <option value="non-Water" 
-                      
-                      >non-Water - anything not covered by the Water group</option>
-                    
-                      <option value="Ion" 
-                      
-                      >Ion - any name matching an Ion entry in residuetypes.dat</option>
-                    
-                      <option value="NA" 
-                      
-                      >NA - all NA atoms</option>
-                    
-                      <option value="CL" 
-                      
-                      >CL - all CL atoms</option>
-                    
-                      <option value="Water_and_ions" 
-                      
-                      >Water_and_ions - combination of the Water and Ions groups</option>
-                    
-                    </param>
-                
-                  <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. " multiple="">
-                    
-                      <option value="System" 
-                      selected="true"
-                      >System - all atoms in the system</option>
-                    
-                      <option value="Protein" 
-                      
-                      >Protein - all protein atoms</option>
-                    
-                      <option value="Protein-H" 
-                      
-                      >Protein-H - protein atoms excluding hydrogens</option>
-                    
-                      <option value="C-alpha" 
-                      
-                      >C-alpha - C-alpha atoms</option>
-                    
-                      <option value="Backbone" 
-                      
-                      >Backbone - protein backbone atoms: N; C-alpha and C</option>
-                    
-                      <option value="MainChain" 
-                      
-                      >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
-                    
-                      <option value="MainChain+Cb" 
-                      
-                      >MainChain+Cb - protein main chain atoms including C-beta</option>
-                    
-                      <option value="MainChain+H" 
-                      
-                      >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain" 
-                      
-                      >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain-H" 
-                      
-                      >SideChain-H - protein side chain atoms excluding all hydrogens</option>
-                    
-                      <option value="Prot-Masses" 
-                      
-                      >Prot-Masses - protein atoms excluding dummy masses</option>
-                    
-                      <option value="non-Protein" 
-                      
-                      >non-Protein - all non-protein atoms</option>
-                    
-                      <option value="Water" 
-                      
-                      >Water - water molecules</option>
-                    
-                      <option value="SOL" 
-                      
-                      >SOL - water molecules</option>
-                    
-                      <option value="non-Water" 
-                      
-                      >non-Water - anything not covered by the Water group</option>
-                    
-                      <option value="Ion" 
-                      
-                      >Ion - any name matching an Ion entry in residuetypes.dat</option>
-                    
-                      <option value="NA" 
-                      
-                      >NA - all NA atoms</option>
-                    
-                      <option value="CL" 
-                      
-                      >CL - all CL atoms</option>
-                    
-                      <option value="Water_and_ions" 
-                      
-                      >Water_and_ions - combination of the Water and Ions groups</option>
-                    
-                    </param>
-                
-                  <param name="pbc" type="select" label="pbc" help=". " multiple="">
-                    
-                      <option value="none" 
-                      
-                      >none - No PBC treatment</option>
-                    
-                      <option value="mol" 
-                      
-                      >mol - Puts the center of mass of molecules in the box</option>
-                    
-                      <option value="res" 
-                      
-                      >res - Puts the center of mass of residues in the box</option>
-                    
-                      <option value="atom" 
-                      
-                      >atom - Puts all the atoms in the box</option>
-                    
-                      <option value="nojump" 
-                      
-                      >nojump - Checks if atoms jump across the box and then puts them back</option>
-                    
-                      <option value="cluster" 
-                      
-                      >cluster - Clusters all the atoms in the selected index such that they are all closest to the center of mass of the cluster which is iteratively updated</option>
-                    
-                      <option value="whole" 
-                      
-                      >whole - Only makes broken molecules whole</option>
-                    
-                    </param>
-                
-                  <param name="center" type="boolean" 
-                    checked="true"
-                    label="center" help="Center atoms in box." />
-                
-                  <param name="ur" type="select" label="ur" help="Unit-cell representation. " multiple="">
-                    
-                      <option value="rect" 
-                      
-                      >rect - It&#39;s the ordinary brick shape</option>
-                    
-                      <option value="tric" 
-                      
-                      >tric - It&#39;s the triclinic unit cell</option>
-                    
-                      <option value="compact" 
-                      selected="true"
-                      >compact - Puts all atoms at the closest distance from the center of the box</option>
-                    
-                    </param>
-                
-                  <param name="fit" type="select" label="fit" help="Fit molecule to ref structure in the structure file. " multiple="">
-                    
-                      <option value="none" 
-                      selected="true"
-                      >none - None</option>
-                    
-                      <option value="rot+trans" 
-                      
-                      >rot+trans - None</option>
-                    
-                      <option value="rotxy+transxy" 
-                      
-                      >rotxy+transxy - None</option>
-                    
-                      <option value="translation" 
-                      
-                      >translation - None</option>
-                    
-                      <option value="transxy" 
-                      
-                      >transxy - None</option>
-                    
-                      <option value="progressive" 
-                      
-                      >progressive - None</option>
-                    
-                    </param>
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
+      
             </when>
         </conditional>
+        <section name="Properties" title="Manual Input">
+        
+            <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
+                  
+                    <option value="System" 
+                      selected="true"
+                    >System - all atoms in the system</option>
+                  
+                    <option value="Protein" 
+                      
+                    >Protein - all protein atoms</option>
+                  
+                    <option value="Protein-H" 
+                      
+                    >Protein-H - protein atoms excluding hydrogens</option>
+                  
+                    <option value="C-alpha" 
+                      
+                    >C-alpha - C-alpha atoms</option>
+                  
+                    <option value="Backbone" 
+                      
+                    >Backbone - protein backbone atoms: N; C-alpha and C</option>
+                  
+                    <option value="MainChain" 
+                      
+                    >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
+                  
+                    <option value="MainChain+Cb" 
+                      
+                    >MainChain+Cb - protein main chain atoms including C-beta</option>
+                  
+                    <option value="MainChain+H" 
+                      
+                    >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain" 
+                      
+                    >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain-H" 
+                      
+                    >SideChain-H - protein side chain atoms excluding all hydrogens</option>
+                  
+                    <option value="Prot-Masses" 
+                      
+                    >Prot-Masses - protein atoms excluding dummy masses</option>
+                  
+                    <option value="non-Protein" 
+                      
+                    >non-Protein - all non-protein atoms</option>
+                  
+                    <option value="Water" 
+                      
+                    >Water - water molecules</option>
+                  
+                    <option value="SOL" 
+                      
+                    >SOL - water molecules</option>
+                  
+                    <option value="non-Water" 
+                      
+                    >non-Water - anything not covered by the Water group</option>
+                  
+                    <option value="Ion" 
+                      
+                    >Ion - any name matching an Ion entry in residuetypes.dat</option>
+                  
+                    <option value="NA" 
+                      
+                    >NA - all NA atoms</option>
+                  
+                    <option value="CL" 
+                      
+                    >CL - all CL atoms</option>
+                  
+                    <option value="Water_and_ions" 
+                      
+                    >Water_and_ions - combination of the Water and Ions groups</option>
+                  
+                </param>
+          
+            <param name="center_selection" type="select" label="center_selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
+                  
+                    <option value="System" 
+                      selected="true"
+                    >System - all atoms in the system</option>
+                  
+                    <option value="Protein" 
+                      
+                    >Protein - all protein atoms</option>
+                  
+                    <option value="Protein-H" 
+                      
+                    >Protein-H - protein atoms excluding hydrogens</option>
+                  
+                    <option value="C-alpha" 
+                      
+                    >C-alpha - C-alpha atoms</option>
+                  
+                    <option value="Backbone" 
+                      
+                    >Backbone - protein backbone atoms: N; C-alpha and C</option>
+                  
+                    <option value="MainChain" 
+                      
+                    >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
+                  
+                    <option value="MainChain+Cb" 
+                      
+                    >MainChain+Cb - protein main chain atoms including C-beta</option>
+                  
+                    <option value="MainChain+H" 
+                      
+                    >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain" 
+                      
+                    >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain-H" 
+                      
+                    >SideChain-H - protein side chain atoms excluding all hydrogens</option>
+                  
+                    <option value="Prot-Masses" 
+                      
+                    >Prot-Masses - protein atoms excluding dummy masses</option>
+                  
+                    <option value="non-Protein" 
+                      
+                    >non-Protein - all non-protein atoms</option>
+                  
+                    <option value="Water" 
+                      
+                    >Water - water molecules</option>
+                  
+                    <option value="SOL" 
+                      
+                    >SOL - water molecules</option>
+                  
+                    <option value="non-Water" 
+                      
+                    >non-Water - anything not covered by the Water group</option>
+                  
+                    <option value="Ion" 
+                      
+                    >Ion - any name matching an Ion entry in residuetypes.dat</option>
+                  
+                    <option value="NA" 
+                      
+                    >NA - all NA atoms</option>
+                  
+                    <option value="CL" 
+                      
+                    >CL - all CL atoms</option>
+                  
+                    <option value="Water_and_ions" 
+                      
+                    >Water_and_ions - combination of the Water and Ions groups</option>
+                  
+                </param>
+          
+            <param name="output_selection" type="select" label="output_selection" help="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. " multiple="">
+                  
+                    <option value="System" 
+                      selected="true"
+                    >System - all atoms in the system</option>
+                  
+                    <option value="Protein" 
+                      
+                    >Protein - all protein atoms</option>
+                  
+                    <option value="Protein-H" 
+                      
+                    >Protein-H - protein atoms excluding hydrogens</option>
+                  
+                    <option value="C-alpha" 
+                      
+                    >C-alpha - C-alpha atoms</option>
+                  
+                    <option value="Backbone" 
+                      
+                    >Backbone - protein backbone atoms: N; C-alpha and C</option>
+                  
+                    <option value="MainChain" 
+                      
+                    >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
+                  
+                    <option value="MainChain+Cb" 
+                      
+                    >MainChain+Cb - protein main chain atoms including C-beta</option>
+                  
+                    <option value="MainChain+H" 
+                      
+                    >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain" 
+                      
+                    >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain-H" 
+                      
+                    >SideChain-H - protein side chain atoms excluding all hydrogens</option>
+                  
+                    <option value="Prot-Masses" 
+                      
+                    >Prot-Masses - protein atoms excluding dummy masses</option>
+                  
+                    <option value="non-Protein" 
+                      
+                    >non-Protein - all non-protein atoms</option>
+                  
+                    <option value="Water" 
+                      
+                    >Water - water molecules</option>
+                  
+                    <option value="SOL" 
+                      
+                    >SOL - water molecules</option>
+                  
+                    <option value="non-Water" 
+                      
+                    >non-Water - anything not covered by the Water group</option>
+                  
+                    <option value="Ion" 
+                      
+                    >Ion - any name matching an Ion entry in residuetypes.dat</option>
+                  
+                    <option value="NA" 
+                      
+                    >NA - all NA atoms</option>
+                  
+                    <option value="CL" 
+                      
+                    >CL - all CL atoms</option>
+                  
+                    <option value="Water_and_ions" 
+                      
+                    >Water_and_ions - combination of the Water and Ions groups</option>
+                  
+                </param>
+          
+            <param name="pbc" type="select" label="pbc" help=". " multiple="">
+                  
+                    <option value="none" 
+                      
+                    >none - No PBC treatment</option>
+                  
+                    <option value="mol" 
+                      
+                    >mol - Puts the center of mass of molecules in the box</option>
+                  
+                    <option value="res" 
+                      
+                    >res - Puts the center of mass of residues in the box</option>
+                  
+                    <option value="atom" 
+                      
+                    >atom - Puts all the atoms in the box</option>
+                  
+                    <option value="nojump" 
+                      
+                    >nojump - Checks if atoms jump across the box and then puts them back</option>
+                  
+                    <option value="cluster" 
+                      
+                    >cluster - Clusters all the atoms in the selected index such that they are all closest to the center of mass of the cluster which is iteratively updated</option>
+                  
+                    <option value="whole" 
+                      
+                    >whole - Only makes broken molecules whole</option>
+                  
+                </param>
+          
+            <param name="center" type="boolean" 
+                  checked="true"
+                  label="center" help="Center atoms in box." />
+          
+            <param name="ur" type="select" label="ur" help="Unit-cell representation. " multiple="">
+                  
+                    <option value="rect" 
+                      
+                    >rect - It&#39;s the ordinary brick shape</option>
+                  
+                    <option value="tric" 
+                      
+                    >tric - It&#39;s the triclinic unit cell</option>
+                  
+                    <option value="compact" 
+                      selected="true"
+                    >compact - Puts all atoms at the closest distance from the center of the box</option>
+                  
+                </param>
+          
+            <param name="fit" type="select" label="fit" help="Fit molecule to ref structure in the structure file. " multiple="">
+                  
+                    <option value="none" 
+                      selected="true"
+                    >none - None</option>
+                  
+                    <option value="rot+trans" 
+                      
+                    >rot+trans - None</option>
+                  
+                    <option value="rotxy+transxy" 
+                      
+                    >rotxy+transxy - None</option>
+                  
+                    <option value="translation" 
+                      
+                    >translation - None</option>
+                  
+                    <option value="transxy" 
+                      
+                    >transxy - None</option>
+                  
+                    <option value="progressive" 
+                      
+                    >progressive - None</option>
+                  
+                </param>
+          
+            <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                  value="gmx"
+                />
+          
+       </section>
     </inputs>
     <outputs>
         
