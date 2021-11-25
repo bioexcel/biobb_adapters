@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__ion_mask__dq__:__dq__${config.ion_mask}__dq__,__dq__solute_mask__dq__:__dq__${config.solute_mask}__dq__,__dq__distance__dq__:${config.distance},__dq__overlap__dq__:${config.overlap}__cc__"
+            --config "__oc____dq__ion_mask__dq__:__dq__${properties.ion_mask}__dq__,__dq__solute_mask__dq__:__dq__${properties.solute_mask}__dq__,__dq__distance__dq__:${properties.distance},__dq__overlap__dq__:${properties.overlap}__cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -64,38 +64,40 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="ion_mask" type="text" label="ion_mask" help="Ions to be randomized. Cpptraj mask syntax can be found at the official Cpptraj manual." optional="false"
-                      value=":K+,Cl-,Na+"
-                    />
-                
-                  <param name="solute_mask" type="text" label="solute_mask" help="Solute (or set of atoms) around which the ions can get no closer than the distance specified. Cpptraj mask syntax can be found at the official Cpptraj manual." optional="false"
-                      value=":DA,DC,DG,DT,D?3,D?5"
-                    />
-                
-                  <param name="distance" type="float" 
-                      value="5.0"
-                      
-                           label="distance" help="Minimum distance cutoff for the ions around the defined solute." optional="false"/>
-                
-                  <param name="overlap" type="float" 
-                      value="3.5"
-                      
-                           label="overlap" help="Minimum distance between ions." optional="false"/>
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="ion_mask" type="text" label="ion_mask" help="Ions to be randomized. Cpptraj mask syntax can be found at the official Cpptraj manual." optional="false"
+                  value=":K+,Cl-,Na+"
+                />
+            
+              <param name="solute_mask" type="text" label="solute_mask" help="Solute (or set of atoms) around which the ions can get no closer than the distance specified. Cpptraj mask syntax can be found at the official Cpptraj manual." optional="false"
+                  value=":DA,DC,DG,DT,D?3,D?5"
+                />
+            
+              <param name="distance" type="float" 
+                  value="5.0"
+                  
+                  label="distance" help="Minimum distance cutoff for the ions around the defined solute." optional="false"/>
+            
+              <param name="overlap" type="float" 
+                  value="3.5"
+                  
+                  label="overlap" help="Minimum distance between ions." optional="false"/>
+                    
+          </section>
     </inputs>
     <outputs>
         
@@ -105,11 +107,11 @@
         <data name="output_crd_path" format="text" label="${outname_output_crd_path}">
             <change_format>
             
-            <when input="output_format" value="crd" format="crd" />
+            <when input="properties.output_format" value="crd" format="crd" />
             
-            <when input="output_format" value="mdcrd" format="mdcrd" />
+            <when input="properties.output_format" value="mdcrd" format="mdcrd" />
             
-            <when input="output_format" value="inpcrd" format="inpcrd" />
+            <when input="properties.output_format" value="inpcrd" format="inpcrd" />
             
             </change_format>
           </data>

@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__params__dq__:${config.params},__dq__num_wats__dq__:${config.num_wats},__dq__neutral__dq__:${config.neutral},__dq__num_positive_ions__dq__:${config.num_positive_ions},__dq__num_negative_ions__dq__:${config.num_negative_ions},__dq__titration_path__dq__:__dq__${config.titration_path}__dq____cc__"
+            --config "__oc____dq__params__dq__:${properties.params},__dq__num_wats__dq__:${properties.num_wats},__dq__neutral__dq__:${properties.neutral},__dq__num_positive_ions__dq__:${properties.num_positive_ions},__dq__num_negative_ions__dq__:${properties.num_negative_ions},__dq__titration_path__dq__:__dq__${properties.titration_path}__dq____cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -74,45 +74,48 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="params" type="text" label="params" help="CMIP options specification. (Json)" value="{}" />
-                
-                  <param name="num_wats" type="integer" 
-                      value="10"
-                      
-                           label="num_wats" help="Number of water molecules to be added." optional="false"/>
-                
-                  <param name="neutral" type="boolean" 
-                    
-                    label="neutral" help="Neutralize the charge of the system. If selected *num_positive_ions* and *num_negative_ions* values will not be taken into account." />
-                
-                  <param name="num_positive_ions" type="integer" 
-                      value="10"
-                      
-                           label="num_positive_ions" help="Number of positive ions to be added (Tipatom IP=Na+)." optional="false"/>
-                
-                  <param name="num_negative_ions" type="integer" 
-                      value="10"
-                      
-                           label="num_negative_ions" help="Number of negative ions to be added (Tipatom IM=Cl-)." optional="false"/>
-                
-                  <param name="titration_path" type="text" label="titration_path" help="Path to the CMIP Titration executable binary." optional="false"
-                      value="titration"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="params" type="text" label="params" help="CMIP options specification. (Json)" value="{}" />
+            
+              <param name="num_wats" type="integer" 
+                  value="10"
+                  
+                  label="num_wats" help="Number of water molecules to be added." optional="false"/>
+            
+              <param name="neutral" type="boolean" 
+                  
+                  label="neutral" help="Neutralize the charge of the system. If selected *num_positive_ions* and *num_negative_ions* values will not be taken into account." 
+                />
+            
+              <param name="num_positive_ions" type="integer" 
+                  value="10"
+                  
+                  label="num_positive_ions" help="Number of positive ions to be added (Tipatom IP=Na+)." optional="false"/>
+            
+              <param name="num_negative_ions" type="integer" 
+                  value="10"
+                  
+                  label="num_negative_ions" help="Number of negative ions to be added (Tipatom IM=Cl-)." optional="false"/>
+            
+              <param name="titration_path" type="text" label="titration_path" help="Path to the CMIP Titration executable binary." optional="false"
+                  value="titration"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

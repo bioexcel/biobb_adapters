@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__shell__dq__:${config.shell},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+            --config "__oc____dq__shell__dq__:${properties.shell},__dq__gmx_lib__dq__:__dq__${properties.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${properties.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_solute_gro_path) != 'None':
@@ -74,33 +74,35 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="shell" type="float" 
-                      
-                      
-                           label="shell" help="Thickness in nanometers of optional water layer around solute." optional="true"/>
-                
-                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
-                      
-                    />
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="shell" type="float" 
+                  
+                  
+                  label="shell" help="Thickness in nanometers of optional water layer around solute." optional="true"/>
+            
+              <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+                  
+                />
+            
+              <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                  value="gmx"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

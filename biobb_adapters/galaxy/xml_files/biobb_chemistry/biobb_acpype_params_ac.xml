@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:${config.charge},__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
+            --config "__oc____dq__basename__dq__:__dq__${properties.basename}__dq__,__dq__charge__dq__:${properties.charge},__dq__acpype_path__dq__:__dq__${properties.acpype_path}__dq____cc__"
           #end if
         
           #if str($input_path) != 'None':
@@ -66,33 +66,35 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="basename" type="text" label="basename" help="A basename for the project (folder and output files)." optional="false"
-                      value="BBB"
-                    />
-                
-                  <param name="charge" type="integer" 
-                      
-                      min="-20" max="20"
-                           label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="true"/>
-                
-                  <param name="acpype_path" type="text" label="acpype_path" help="Path to the acpype executable binary." optional="false"
-                      value="acpype"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="basename" type="text" label="basename" help="A basename for the project (folder and output files)." optional="false"
+                  value="BBB"
+                />
+            
+              <param name="charge" type="integer" 
+                  
+                  min="-20" max="20"
+                  label="charge" help="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype." optional="true"/>
+            
+              <param name="acpype_path" type="text" label="acpype_path" help="Path to the acpype executable binary." optional="false"
+                  value="acpype"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

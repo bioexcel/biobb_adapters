@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__resnames__dq__:__dq__${config.resnames}__dq__,__dq__igb__dq__:__dq__${config.igb}__dq__,__dq__system__dq__:__dq__${config.system}__dq____cc__"
+            --config "__oc____dq__resnames__dq__:__dq__${properties.resnames}__dq__,__dq__igb__dq__:__dq__${properties.igb}__dq__,__dq__system__dq__:__dq__${properties.system}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -54,76 +54,78 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. " multiple="">
-                    
-                      <option value="AS4" 
-                      
-                      >AS4 - None</option>
-                    
-                      <option value="GL4" 
-                      
-                      >GL4 - None</option>
-                    
-                      <option value="HIP" 
-                      
-                      >HIP - None</option>
-                    
-                      <option value="CYS" 
-                      
-                      >CYS - None</option>
-                    
-                      <option value="LYS" 
-                      
-                      >LYS - None</option>
-                    
-                      <option value="TYR" 
-                      
-                      >TYR - None</option>
-                    
-                    </param>
-                
-                  <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. " multiple="">
-                    
-                      <option value="1" 
-                      
-                      >1 - None</option>
-                    
-                      <option value="2" 
-                      selected="true"
-                      >2 - None</option>
-                    
-                      <option value="5" 
-                      
-                      >5 - None</option>
-                    
-                      <option value="7" 
-                      
-                      >7 - None</option>
-                    
-                      <option value="8" 
-                      
-                      >8 - None</option>
-                    
-                    </param>
-                
-                  <param name="system" type="text" label="system" help="Name of system to titrate." optional="false"
-                      value="Unknown"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. " multiple="">
+                  
+                    <option value="AS4" 
+                      
+                    >AS4 - None</option>
+                  
+                    <option value="GL4" 
+                      
+                    >GL4 - None</option>
+                  
+                    <option value="HIP" 
+                      
+                    >HIP - None</option>
+                  
+                    <option value="CYS" 
+                      
+                    >CYS - None</option>
+                  
+                    <option value="LYS" 
+                      
+                    >LYS - None</option>
+                  
+                    <option value="TYR" 
+                      
+                    >TYR - None</option>
+                  
+                </param>
+            
+              <param name="igb" type="select" label="igb" help="Generalized Born model which you intend to use to evaluate dynamics or protonation state swaps. " multiple="">
+                  
+                    <option value="1" 
+                      
+                    >1 - None</option>
+                  
+                    <option value="2" 
+                      selected="true"
+                    >2 - None</option>
+                  
+                    <option value="5" 
+                      
+                    >5 - None</option>
+                  
+                    <option value="7" 
+                      
+                    >7 - None</option>
+                  
+                    <option value="8" 
+                      
+                    >8 - None</option>
+                  
+                </param>
+            
+              <param name="system" type="text" label="system" help="Name of system to titrate." optional="false"
+                  value="Unknown"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         
@@ -133,11 +135,11 @@
         <data name="output_top_path" format="text" label="${outname_output_top_path}">
             <change_format>
             
-            <when input="output_format" value="top" format="top" />
+            <when input="properties.output_format" value="top" format="top" />
             
-            <when input="output_format" value="parmtop" format="parmtop" />
+            <when input="properties.output_format" value="parmtop" format="parmtop" />
             
-            <when input="output_format" value="prmtop" format="prmtop" />
+            <when input="properties.output_format" value="prmtop" format="prmtop" />
             
             </change_format>
           </data>

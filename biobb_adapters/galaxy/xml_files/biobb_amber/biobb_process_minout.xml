@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__terms__dq__:__ob____dq__${'__dq__,__dq__'.join($config.terms)}__dq____cb____cc__"
+            --config "__oc____dq__terms__dq__:__ob____dq__${'__dq__,__dq__'.join($properties.terms)}__dq____cb____cc__"
           #end if
         
           #if str($input_log_path) != 'None':
@@ -48,95 +48,97 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="terms" type="select" label="terms" help="Statistics descriptors. " multiple="True">
-                    
-                      <option value="ANGLE" 
-                      
-                      >ANGLE - None</option>
-                    
-                      <option value="BOND" 
-                      
-                      >BOND - None</option>
-                    
-                      <option value="DIHEDRAL" 
-                      
-                      >DIHEDRAL - None</option>
-                    
-                      <option value="EEL" 
-                      
-                      >EEL - None</option>
-                    
-                      <option value="EEL14" 
-                      
-                      >EEL14 - None</option>
-                    
-                      <option value="ENERGY" 
-                      
-                      >ENERGY - None</option>
-                    
-                      <option value="GMAX" 
-                      
-                      >GMAX - None</option>
-                    
-                      <option value="HBOND" 
-                      
-                      >HBOND - None</option>
-                    
-                      <option value="NAME" 
-                      
-                      >NAME - None</option>
-                    
-                      <option value="NSTEP" 
-                      
-                      >NSTEP - None</option>
-                    
-                      <option value="NUMBER" 
-                      
-                      >NUMBER - None</option>
-                    
-                      <option value="RESTRAINT" 
-                      
-                      >RESTRAINT - None</option>
-                    
-                      <option value="RMS" 
-                      
-                      >RMS - None</option>
-                    
-                      <option value="VDW14" 
-                      
-                      >VDW14 - None</option>
-                    
-                      <option value="VDWAALS" 
-                      
-                      >VDWAALS - None</option>
-                    
-                    </param>
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="terms" type="select" label="terms" help="Statistics descriptors. " multiple="True">
+                  
+                    <option value="ANGLE" 
+                      
+                    >ANGLE - None</option>
+                  
+                    <option value="BOND" 
+                      
+                    >BOND - None</option>
+                  
+                    <option value="DIHEDRAL" 
+                      
+                    >DIHEDRAL - None</option>
+                  
+                    <option value="EEL" 
+                      
+                    >EEL - None</option>
+                  
+                    <option value="EEL14" 
+                      
+                    >EEL14 - None</option>
+                  
+                    <option value="ENERGY" 
+                      
+                    >ENERGY - None</option>
+                  
+                    <option value="GMAX" 
+                      
+                    >GMAX - None</option>
+                  
+                    <option value="HBOND" 
+                      
+                    >HBOND - None</option>
+                  
+                    <option value="NAME" 
+                      
+                    >NAME - None</option>
+                  
+                    <option value="NSTEP" 
+                      
+                    >NSTEP - None</option>
+                  
+                    <option value="NUMBER" 
+                      
+                    >NUMBER - None</option>
+                  
+                    <option value="RESTRAINT" 
+                      
+                    >RESTRAINT - None</option>
+                  
+                    <option value="RMS" 
+                      
+                    >RMS - None</option>
+                  
+                    <option value="VDW14" 
+                      
+                    >VDW14 - None</option>
+                  
+                    <option value="VDWAALS" 
+                      
+                    >VDWAALS - None</option>
+                  
+                </param>
+                    
+          </section>
     </inputs>
     <outputs>
         
         <data name="output_dat_path" format="text" label="${outname_output_dat_path}">
             <change_format>
             
-            <when input="output_format" value="dat" format="dat" />
+            <when input="properties.output_format" value="dat" format="dat" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="csv" format="csv" />
+            <when input="properties.output_format" value="csv" format="csv" />
             
             </change_format>
           </data>

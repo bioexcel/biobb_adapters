@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__resid_list__dq__:${config.resid_list},__dq__offset__dq__:${config.offset},__dq__box_coordinates__dq__:${config.box_coordinates},__dq__residue_offset__dq__:${config.residue_offset}__cc__"
+            --config "__oc____dq__resid_list__dq__:${properties.resid_list},__dq__offset__dq__:${properties.offset},__dq__box_coordinates__dq__:${properties.box_coordinates},__dq__residue_offset__dq__:${properties.residue_offset}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -48,36 +48,39 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
-                
-                  <param name="offset" type="float" 
-                      value="2.0"
-                      min="0.1" max="1000.0"
-                           label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
-                
-                  <param name="box_coordinates" type="boolean" 
-                    
-                    label="box_coordinates" help="Add box coordinates as 8 ATOM records." />
-                
-                  <param name="residue_offset" type="integer" 
-                      
-                      
-                           label="residue_offset" help="Residue id offset." optional="true"/>
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
+            
+              <param name="offset" type="float" 
+                  value="2.0"
+                  min="0.1" max="1000.0"
+                  label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
+            
+              <param name="box_coordinates" type="boolean" 
+                  
+                  label="box_coordinates" help="Add box coordinates as 8 ATOM records." 
+                />
+            
+              <param name="residue_offset" type="integer" 
+                  
+                  
+                  label="residue_offset" help="Residue id offset." optional="true"/>
+                    
+          </section>
     </inputs>
     <outputs>
         

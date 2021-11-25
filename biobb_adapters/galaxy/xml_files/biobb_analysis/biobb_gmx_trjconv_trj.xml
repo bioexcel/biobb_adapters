@@ -20,7 +20,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__selection__dq__:__dq__${config.selection}__dq__,__dq__start__dq__:${config.start},__dq__end__dq__:${config.end},__dq__dt__dq__:${config.dt},__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+            --config "__oc____dq__selection__dq__:__dq__${properties.selection}__dq__,__dq__start__dq__:${properties.start},__dq__end__dq__:${properties.end},__dq__dt__dq__:${properties.dt},__dq__gmx_path__dq__:__dq__${properties.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_traj_path) != 'None':
@@ -58,138 +58,140 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="selection" type="select" label="selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
-                    
-                      <option value="System" 
-                      selected="true"
-                      >System - all atoms in the system</option>
-                    
-                      <option value="Protein" 
-                      
-                      >Protein - all protein atoms</option>
-                    
-                      <option value="Protein-H" 
-                      
-                      >Protein-H - protein atoms excluding hydrogens</option>
-                    
-                      <option value="C-alpha" 
-                      
-                      >C-alpha - C-alpha atoms</option>
-                    
-                      <option value="Backbone" 
-                      
-                      >Backbone - protein backbone atoms: N; C-alpha and C</option>
-                    
-                      <option value="MainChain" 
-                      
-                      >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
-                    
-                      <option value="MainChain+Cb" 
-                      
-                      >MainChain+Cb - protein main chain atoms including C-beta</option>
-                    
-                      <option value="MainChain+H" 
-                      
-                      >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain" 
-                      
-                      >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
-                    
-                      <option value="SideChain-H" 
-                      
-                      >SideChain-H - protein side chain atoms excluding all hydrogens</option>
-                    
-                      <option value="Prot-Masses" 
-                      
-                      >Prot-Masses - protein atoms excluding dummy masses</option>
-                    
-                      <option value="non-Protein" 
-                      
-                      >non-Protein - all non-protein atoms</option>
-                    
-                      <option value="Water" 
-                      
-                      >Water - water molecules</option>
-                    
-                      <option value="SOL" 
-                      
-                      >SOL - water molecules</option>
-                    
-                      <option value="non-Water" 
-                      
-                      >non-Water - anything not covered by the Water group</option>
-                    
-                      <option value="Ion" 
-                      
-                      >Ion - any name matching an Ion entry in residuetypes.dat</option>
-                    
-                      <option value="NA" 
-                      
-                      >NA - all NA atoms</option>
-                    
-                      <option value="CL" 
-                      
-                      >CL - all CL atoms</option>
-                    
-                      <option value="Water_and_ions" 
-                      
-                      >Water_and_ions - combination of the Water and Ions groups</option>
-                    
-                    </param>
-                
-                  <param name="start" type="integer" 
-                      
-                      
-                           label="start" help="Time of first frame to read from trajectory (default unit ps)." optional="true"/>
-                
-                  <param name="end" type="integer" 
-                      
-                      
-                           label="end" help="Time of last frame to read from trajectory (default unit ps)." optional="true"/>
-                
-                  <param name="dt" type="integer" 
-                      
-                      
-                           label="dt" help="Only write frame when t MOD dt = first time (ps)." optional="true"/>
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="selection" type="select" label="selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
+                  
+                    <option value="System" 
+                      selected="true"
+                    >System - all atoms in the system</option>
+                  
+                    <option value="Protein" 
+                      
+                    >Protein - all protein atoms</option>
+                  
+                    <option value="Protein-H" 
+                      
+                    >Protein-H - protein atoms excluding hydrogens</option>
+                  
+                    <option value="C-alpha" 
+                      
+                    >C-alpha - C-alpha atoms</option>
+                  
+                    <option value="Backbone" 
+                      
+                    >Backbone - protein backbone atoms: N; C-alpha and C</option>
+                  
+                    <option value="MainChain" 
+                      
+                    >MainChain - protein main chain atoms: N; C-alpha; C and O; including oxygens in C-terminus</option>
+                  
+                    <option value="MainChain+Cb" 
+                      
+                    >MainChain+Cb - protein main chain atoms including C-beta</option>
+                  
+                    <option value="MainChain+H" 
+                      
+                    >MainChain+H - protein main chain atoms including backbone amide hydrogens and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain" 
+                      
+                    >SideChain - protein side chain atoms: that is all atoms except N; C-alpha; C; O; backbone amide hydrogens and oxygens in C-terminus and hydrogens on the N-terminus</option>
+                  
+                    <option value="SideChain-H" 
+                      
+                    >SideChain-H - protein side chain atoms excluding all hydrogens</option>
+                  
+                    <option value="Prot-Masses" 
+                      
+                    >Prot-Masses - protein atoms excluding dummy masses</option>
+                  
+                    <option value="non-Protein" 
+                      
+                    >non-Protein - all non-protein atoms</option>
+                  
+                    <option value="Water" 
+                      
+                    >Water - water molecules</option>
+                  
+                    <option value="SOL" 
+                      
+                    >SOL - water molecules</option>
+                  
+                    <option value="non-Water" 
+                      
+                    >non-Water - anything not covered by the Water group</option>
+                  
+                    <option value="Ion" 
+                      
+                    >Ion - any name matching an Ion entry in residuetypes.dat</option>
+                  
+                    <option value="NA" 
+                      
+                    >NA - all NA atoms</option>
+                  
+                    <option value="CL" 
+                      
+                    >CL - all CL atoms</option>
+                  
+                    <option value="Water_and_ions" 
+                      
+                    >Water_and_ions - combination of the Water and Ions groups</option>
+                  
+                </param>
+            
+              <param name="start" type="integer" 
+                  
+                  
+                  label="start" help="Time of first frame to read from trajectory (default unit ps)." optional="true"/>
+            
+              <param name="end" type="integer" 
+                  
+                  
+                  label="end" help="Time of last frame to read from trajectory (default unit ps)." optional="true"/>
+            
+              <param name="dt" type="integer" 
+                  
+                  
+                  label="dt" help="Only write frame when t MOD dt = first time (ps)." optional="true"/>
+            
+              <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                  value="gmx"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         
         <data name="output_traj_path" format="text" label="${outname_output_traj_path}">
             <change_format>
             
-            <when input="output_format" value="xtc" format="xtc" />
+            <when input="properties.output_format" value="xtc" format="xtc" />
             
-            <when input="output_format" value="trr" format="trr" />
+            <when input="properties.output_format" value="trr" format="trr" />
             
-            <when input="output_format" value="cpt" format="cpt" />
+            <when input="properties.output_format" value="cpt" format="cpt" />
             
-            <when input="output_format" value="gro" format="gro" />
+            <when input="properties.output_format" value="gro" format="gro" />
             
-            <when input="output_format" value="g96" format="g96" />
+            <when input="properties.output_format" value="g96" format="g96" />
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="tng" format="tng" />
+            <when input="properties.output_format" value="tng" format="tng" />
             
             </change_format>
           </data>

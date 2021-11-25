@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__min_radius__dq__:${config.min_radius},__dq__max_radius__dq__:${config.max_radius},__dq__num_spheres__dq__:${config.num_spheres},__dq__sort_by__dq__:__dq__${config.sort_by}__dq__,__dq__fpocket_path__dq__:__dq__${config.fpocket_path}__dq____cc__"
+            --config "__oc____dq__min_radius__dq__:${properties.min_radius},__dq__max_radius__dq__:${properties.max_radius},__dq__num_spheres__dq__:${properties.num_spheres},__dq__sort_by__dq__:__dq__${properties.sort_by}__dq__,__dq__fpocket_path__dq__:__dq__${properties.fpocket_path}__dq____cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -54,55 +54,57 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="min_radius" type="float" 
-                      
-                      min="0.1" max="1000.0"
-                           label="min_radius" help="The minimum radius in Ångstroms an alpha sphere might have in a binding pocket." optional="true"/>
-                
-                  <param name="max_radius" type="float" 
-                      
-                      min="2.0" max="1000.0"
-                           label="max_radius" help="The maximum radius in Ångstroms of alpha spheres in a pocket." optional="true"/>
-                
-                  <param name="num_spheres" type="integer" 
-                      
-                      min="1" max="1000"
-                           label="num_spheres" help="Indicates how many alpha spheres a pocket must contain at least in order to figure in the results." optional="true"/>
-                
-                  <param name="sort_by" type="select" label="sort_by" help="From which property the output will be sorted. " multiple="">
-                    
-                      <option value="druggability_score" 
-                      selected="true"
-                      >druggability_score - this score intends to assess the likeliness of the pocket to bind a small drug like molecule</option>
-                    
-                      <option value="score" 
-                      
-                      >score - fpocket score as defined in the fpocket paper</option>
-                    
-                      <option value="volume" 
-                      
-                      >volume - volume of the pocket</option>
-                    
-                    </param>
-                
-                  <param name="fpocket_path" type="text" label="fpocket_path" help="path to fpocket in your local computer." optional="false"
-                      value="fpocket"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="min_radius" type="float" 
+                  
+                  min="0.1" max="1000.0"
+                  label="min_radius" help="The minimum radius in Ångstroms an alpha sphere might have in a binding pocket." optional="true"/>
+            
+              <param name="max_radius" type="float" 
+                  
+                  min="2.0" max="1000.0"
+                  label="max_radius" help="The maximum radius in Ångstroms of alpha spheres in a pocket." optional="true"/>
+            
+              <param name="num_spheres" type="integer" 
+                  
+                  min="1" max="1000"
+                  label="num_spheres" help="Indicates how many alpha spheres a pocket must contain at least in order to figure in the results." optional="true"/>
+            
+              <param name="sort_by" type="select" label="sort_by" help="From which property the output will be sorted. " multiple="">
+                  
+                    <option value="druggability_score" 
+                      selected="true"
+                    >druggability_score - this score intends to assess the likeliness of the pocket to bind a small drug like molecule</option>
+                  
+                    <option value="score" 
+                      
+                    >score - fpocket score as defined in the fpocket paper</option>
+                  
+                    <option value="volume" 
+                      
+                    >volume - volume of the pocket</option>
+                  
+                </param>
+            
+              <param name="fpocket_path" type="text" label="fpocket_path" help="path to fpocket in your local computer." optional="false"
+                  value="fpocket"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

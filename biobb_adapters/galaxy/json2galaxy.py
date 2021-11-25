@@ -184,15 +184,15 @@ def main():
                 # Generating "galaxyfied" Json string for config parameter
                 if v['type'] in ('string', 'select'):
                     if 'multiple' in v and v['multiple']:
-                        # ["${'","'.join($config.k)}"]
-                        txt = "__ob____dq__${'__dq__,__dq__'.join($config." + k + ")}__dq____cb__" 
+                        # ["${'","'.join($properties.k)}"]
+                        txt = "__ob____dq__${'__dq__,__dq__'.join($properties." + k + ")}__dq____cb__" 
                     else:
-                        # "${config.k}"
-                        txt = "__dq__${config." + k + "}__dq__"
+                        # "${k}"
+                        txt = "__dq__${properties." + k + "}__dq__"
                     props_str.append("__dq__" +  k + "__dq__:" + txt)
                     
                 else:
-                    props_str.append("__dq__" +  k + "__dq__:${config." + k + "}")
+                    props_str.append("__dq__" +  k + "__dq__:${properties." + k + "}")
             
             data['config_str'] = "__oc__" + ",".join(props_str) + "__cc__"
             #print(data)

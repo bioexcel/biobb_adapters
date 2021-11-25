@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__charges__dq__:${config.charges},__dq__mode__dq__:__dq__${config.mode}__dq__,__dq__ph__dq__:${config.ph},__dq__list__dq__:__dq__${config.list}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+            --config "__oc____dq__charges__dq__:${properties.charges},__dq__mode__dq__:__dq__${properties.mode}__dq__,__dq__ph__dq__:${properties.ph},__dq__list__dq__:__dq__${properties.list}__dq__,__dq__check_structure_path__dq__:__dq__${properties.check_structure_path}__dq____cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -48,62 +48,65 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="charges" type="boolean" 
-                    
-                    label="charges" help="Wether or not to add charges to the output file. If True the output is in PDBQT format." />
-                
-                  <param name="mode" type="select" label="mode" help="Selection mode. " multiple="">
-                    
-                      <option value="auto" 
-                      
-                      >auto - None</option>
-                    
-                      <option value="list" 
-                      
-                      >list - None</option>
-                    
-                      <option value="ph" 
-                      
-                      >ph - None</option>
-                    
-                    </param>
-                
-                  <param name="ph" type="float" 
-                      value="7.4"
-                      
-                           label="ph" help="Add hydrogens appropriate for pH. Only in case mode ph selected." optional="false"/>
-                
-                  <param name="list" type="text" label="list" help="List of residues to modify separated by commas (i.e HISA234HID,HISB33HIE). Only in case mode list selected." optional="true"
-                      
-                    />
-                
-                  <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
-                      value="check_structure"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="charges" type="boolean" 
+                  
+                  label="charges" help="Wether or not to add charges to the output file. If True the output is in PDBQT format." 
+                />
+            
+              <param name="mode" type="select" label="mode" help="Selection mode. " multiple="">
+                  
+                    <option value="auto" 
+                      
+                    >auto - None</option>
+                  
+                    <option value="list" 
+                      
+                    >list - None</option>
+                  
+                    <option value="ph" 
+                      
+                    >ph - None</option>
+                  
+                </param>
+            
+              <param name="ph" type="float" 
+                  value="7.4"
+                  
+                  label="ph" help="Add hydrogens appropriate for pH. Only in case mode ph selected." optional="false"/>
+            
+              <param name="list" type="text" label="list" help="List of residues to modify separated by commas (i.e HISA234HID,HISB33HIE). Only in case mode list selected." optional="true"
+                  
+                />
+            
+              <param name="check_structure_path" type="text" label="check_structure_path" help="path to the check_structure application" optional="false"
+                  value="check_structure"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         
         <data name="output_structure_path" format="text" label="${outname_output_structure_path}">
             <change_format>
             
-            <when input="output_format" value="pdb" format="pdb" />
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
-            <when input="output_format" value="pdbqt" format="pdbqt" />
+            <when input="properties.output_format" value="pdbqt" format="pdbqt" />
             
             </change_format>
           </data>

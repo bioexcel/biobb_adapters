@@ -16,7 +16,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__sequence__dq__:__dq__${config.sequence}__dq__,__dq__helix_type__dq__:__dq__${config.helix_type}__dq__,__dq__compiler__dq__:__dq__${config.compiler}__dq__,__dq__linker__dq__:__dq__${config.linker}__dq____cc__"
+            --config "__oc____dq__sequence__dq__:__dq__${properties.sequence}__dq__,__dq__helix_type__dq__:__dq__${properties.helix_type}__dq__,__dq__compiler__dq__:__dq__${properties.compiler}__dq__,__dq__linker__dq__:__dq__${properties.linker}__dq____cc__"
           #end if
         
         
@@ -38,60 +38,62 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="sequence" type="text" label="sequence" help="Nucleotide sequence to convert to a 3D structure. Nucleotides should be written in 1-letter code, with no spaces between them." optional="false"
-                      value="GCGCGGCTGATAAACGAAAGC"
-                    />
-                
-                  <param name="helix_type" type="select" label="helix_type" help="DNA/RNA helix type. " multiple="">
-                    
-                      <option value="arna" 
-                      
-                      >arna - Right Handed A-RNA - Arnott</option>
-                    
-                      <option value="aprna" 
-                      
-                      >aprna - Right Handed A’-RNA - Arnott</option>
-                    
-                      <option value="lbdna" 
-                      selected="true"
-                      >lbdna - Right Handed B-DNA - Langridge</option>
-                    
-                      <option value="abdna" 
-                      
-                      >abdna - Right Handed B-DNA - Arnott</option>
-                    
-                      <option value="sbdna" 
-                      
-                      >sbdna - Left Handed B-DNA - Sasisekharan</option>
-                    
-                      <option value="adna" 
-                      
-                      >adna - Right Handed A-DNA - Arnott</option>
-                    
-                    </param>
-                
-                  <param name="compiler" type="text" label="compiler" help="Alternative C compiler for nab." optional="false"
-                      value="gcc"
-                    />
-                
-                  <param name="linker" type="text" label="linker" help="Alternative Fortran linker for nab." optional="false"
-                      value="gfortran"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="sequence" type="text" label="sequence" help="Nucleotide sequence to convert to a 3D structure. Nucleotides should be written in 1-letter code, with no spaces between them." optional="false"
+                  value="GCGCGGCTGATAAACGAAAGC"
+                />
+            
+              <param name="helix_type" type="select" label="helix_type" help="DNA/RNA helix type. " multiple="">
+                  
+                    <option value="arna" 
+                      
+                    >arna - Right Handed A-RNA - Arnott</option>
+                  
+                    <option value="aprna" 
+                      
+                    >aprna - Right Handed A’-RNA - Arnott</option>
+                  
+                    <option value="lbdna" 
+                      selected="true"
+                    >lbdna - Right Handed B-DNA - Langridge</option>
+                  
+                    <option value="abdna" 
+                      
+                    >abdna - Right Handed B-DNA - Arnott</option>
+                  
+                    <option value="sbdna" 
+                      
+                    >sbdna - Left Handed B-DNA - Sasisekharan</option>
+                  
+                    <option value="adna" 
+                      
+                    >adna - Right Handed A-DNA - Arnott</option>
+                  
+                </param>
+            
+              <param name="compiler" type="text" label="compiler" help="Alternative C compiler for nab." optional="false"
+                  value="gcc"
+                />
+            
+              <param name="linker" type="text" label="linker" help="Alternative Fortran linker for nab." optional="false"
+                  value="gfortran"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

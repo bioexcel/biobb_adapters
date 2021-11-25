@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__heteroatoms__dq__:${config.heteroatoms},__dq__water__dq__:${config.water}__cc__"
+            --config "__oc____dq__heteroatoms__dq__:${properties.heteroatoms},__dq__water__dq__:${properties.water}__cc__"
           #end if
         
           #if str($input_structure_path) != 'None':
@@ -48,26 +48,29 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="heteroatoms" type="text" label="heteroatoms" help="List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{&#34;name&#34;: &#34;ZZ7&#34;, &#34;res_id&#34;: &#34;302&#34;, &#34;chain&#34;: &#34;B&#34;, &#34;model&#34;: &#34;1&#34;}]. If empty, all the heteroatoms of the structure will be returned. (Json)" value="[]" />
-                
-                  <param name="water" type="boolean" 
-                    
-                    label="water" help="Add or not waters." />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="heteroatoms" type="text" label="heteroatoms" help="List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{&#34;name&#34;: &#34;ZZ7&#34;, &#34;res_id&#34;: &#34;302&#34;, &#34;chain&#34;: &#34;B&#34;, &#34;model&#34;: &#34;1&#34;}]. If empty, all the heteroatoms of the structure will be returned. (Json)" value="[]" />
+            
+              <param name="water" type="boolean" 
+                  
+                  label="water" help="Add or not waters." 
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         

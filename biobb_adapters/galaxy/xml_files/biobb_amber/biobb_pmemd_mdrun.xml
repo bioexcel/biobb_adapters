@@ -26,7 +26,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__mdin__dq__:${config.mdin},__dq__pmemd_path__dq__:__dq__${config.pmemd_path}__dq__,__dq__simulation_type__dq__:__dq__${config.simulation_type}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:${config.mpi_np},__dq__mpi_flags__dq__:__dq__${config.mpi_flags}__dq____cc__"
+            --config "__oc____dq__mdin__dq__:${properties.mdin},__dq__pmemd_path__dq__:__dq__${properties.pmemd_path}__dq__,__dq__simulation_type__dq__:__dq__${properties.simulation_type}__dq__,__dq__mpi_bin__dq__:__dq__${properties.mpi_bin}__dq__,__dq__mpi_np__dq__:${properties.mpi_np},__dq__mpi_flags__dq__:__dq__${properties.mpi_flags}__dq____cc__"
           #end if
         
           #if str($input_top_path) != 'None':
@@ -118,76 +118,78 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="mdin" type="text" label="mdin" help="pmemd MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
-                
-                  <param name="pmemd_path" type="text" label="pmemd_path" help="pmemd binary path to be used." optional="false"
-                      value="pmemd"
-                    />
-                
-                  <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
-                    
-                      <option value="minimization" 
-                      selected="true"
-                      >minimization - Runs an energy minimization</option>
-                    
-                      <option value="min_vacuo" 
-                      
-                      >min_vacuo - Runs an energy minimization in vacuo</option>
-                    
-                      <option value="NVT" 
-                      
-                      >NVT - Runs an NVT equilibration</option>
-                    
-                      <option value="npt" 
-                      
-                      >npt - Runs an NPT equilibration</option>
-                    
-                      <option value="free" 
-                      
-                      >free - Runs a MD simulation</option>
-                    
-                    </param>
-                
-                  <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
-                      
-                    />
-                
-                  <param name="mpi_np" type="integer" 
-                      
-                      
-                           label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
-                
-                  <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
-                      
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="mdin" type="text" label="mdin" help="pmemd MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
+            
+              <param name="pmemd_path" type="text" label="pmemd_path" help="pmemd binary path to be used." optional="false"
+                  value="pmemd"
+                />
+            
+              <param name="simulation_type" type="select" label="simulation_type" help="Default options for the mdin file. Each creates a different mdin file. " multiple="">
+                  
+                    <option value="minimization" 
+                      selected="true"
+                    >minimization - Runs an energy minimization</option>
+                  
+                    <option value="min_vacuo" 
+                      
+                    >min_vacuo - Runs an energy minimization in vacuo</option>
+                  
+                    <option value="NVT" 
+                      
+                    >NVT - Runs an NVT equilibration</option>
+                  
+                    <option value="npt" 
+                      
+                    >npt - Runs an NPT equilibration</option>
+                  
+                    <option value="free" 
+                      
+                    >free - Runs a MD simulation</option>
+                  
+                </param>
+            
+              <param name="mpi_bin" type="text" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"
+                  
+                />
+            
+              <param name="mpi_np" type="integer" 
+                  
+                  
+                  label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
+            
+              <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
+                  
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         
         <data name="output_log_path" format="text" label="${outname_output_log_path}">
             <change_format>
             
-            <when input="output_format" value="log" format="log" />
+            <when input="properties.output_format" value="log" format="log" />
             
-            <when input="output_format" value="out" format="out" />
+            <when input="properties.output_format" value="out" format="out" />
             
-            <when input="output_format" value="txt" format="txt" />
+            <when input="properties.output_format" value="txt" format="txt" />
             
-            <when input="output_format" value="o" format="o" />
+            <when input="properties.output_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -195,17 +197,17 @@
         <data name="output_traj_path" format="text" label="${outname_output_traj_path}">
             <change_format>
             
-            <when input="output_format" value="trj" format="trj" />
+            <when input="properties.output_format" value="trj" format="trj" />
             
-            <when input="output_format" value="crd" format="crd" />
+            <when input="properties.output_format" value="crd" format="crd" />
             
-            <when input="output_format" value="mdcrd" format="mdcrd" />
+            <when input="properties.output_format" value="mdcrd" format="mdcrd" />
             
-            <when input="output_format" value="x" format="x" />
+            <when input="properties.output_format" value="x" format="x" />
             
-            <when input="output_format" value="netcdf" format="netcdf" />
+            <when input="properties.output_format" value="netcdf" format="netcdf" />
             
-            <when input="output_format" value="nc" format="nc" />
+            <when input="properties.output_format" value="nc" format="nc" />
             
             </change_format>
           </data>
@@ -213,15 +215,15 @@
         <data name="output_rst_path" format="text" label="${outname_output_rst_path}">
             <change_format>
             
-            <when input="output_format" value="rst" format="rst" />
+            <when input="properties.output_format" value="rst" format="rst" />
             
-            <when input="output_format" value="rst7" format="rst7" />
+            <when input="properties.output_format" value="rst7" format="rst7" />
             
-            <when input="output_format" value="netcdf" format="netcdf" />
+            <when input="properties.output_format" value="netcdf" format="netcdf" />
             
-            <when input="output_format" value="nc" format="nc" />
+            <when input="properties.output_format" value="nc" format="nc" />
             
-            <when input="output_format" value="ncrst" format="ncrst" />
+            <when input="properties.output_format" value="ncrst" format="ncrst" />
             
             </change_format>
           </data>
@@ -232,11 +234,11 @@
         <data name="output_cprst_path" format="text" label="${outname_output_cprst_path}">
             <change_format>
             
-            <when input="output_format" value="cprst" format="cprst" />
+            <when input="properties.output_format" value="cprst" format="cprst" />
             
-            <when input="output_format" value="rst" format="rst" />
+            <when input="properties.output_format" value="rst" format="rst" />
             
-            <when input="output_format" value="rst7" format="rst7" />
+            <when input="properties.output_format" value="rst7" format="rst7" />
             
             </change_format>
           </data>

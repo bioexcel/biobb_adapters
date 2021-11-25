@@ -18,7 +18,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__water_type__dq__:__dq__${config.water_type}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__ignh__dq__:${config.ignh},__dq__his__dq__:__dq__${config.his}__dq__,__dq__merge__dq__:${config.merge},__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+            --config "__oc____dq__water_type__dq__:__dq__${properties.water_type}__dq__,__dq__force_field__dq__:__dq__${properties.force_field}__dq__,__dq__ignh__dq__:${properties.ignh},__dq__his__dq__:__dq__${properties.his}__dq__,__dq__merge__dq__:${properties.merge},__dq__gmx_lib__dq__:__dq__${properties.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${properties.gmx_path}__dq____cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -54,132 +54,136 @@
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-                <option value="option1">from configuration file</option>
-                <option value="option2">from JSON string</option>
-                <option value="option3">manual input</option>
+              <option value="option3">Manual Input</option>
+              <option value="option1">from configuration file</option>
+              <option value="option2">from JSON string</option>
             </param>
             <when value="option1">
-                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
             </when>
             <when value="option2">
-                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
-                
-                  <param name="water_type" type="select" label="water_type" help="Water molecule type. " multiple="">
-                    
-                      <option value="spc" 
-                      
-                      >spc - None</option>
-                    
-                      <option value="spce" 
-                      selected="true"
-                      >spce - None</option>
-                    
-                      <option value="tip3p" 
-                      
-                      >tip3p - None</option>
-                    
-                      <option value="tip4p" 
-                      
-                      >tip4p - None</option>
-                    
-                      <option value="tip5p" 
-                      
-                      >tip5p - None</option>
-                    
-                      <option value="tips3p" 
-                      
-                      >tips3p - None</option>
-                    
-                    </param>
-                
-                  <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion.  " multiple="">
-                    
-                      <option value="gromos45a3" 
-                      
-                      >gromos45a3 - None</option>
-                    
-                      <option value="charmm27" 
-                      
-                      >charmm27 - None</option>
-                    
-                      <option value="gromos53a6" 
-                      
-                      >gromos53a6 - None</option>
-                    
-                      <option value="amber96" 
-                      
-                      >amber96 - None</option>
-                    
-                      <option value="amber99" 
-                      
-                      >amber99 - None</option>
-                    
-                      <option value="gromos43a2" 
-                      
-                      >gromos43a2 - None</option>
-                    
-                      <option value="gromos54a7" 
-                      
-                      >gromos54a7 - None</option>
-                    
-                      <option value="gromos43a1" 
-                      
-                      >gromos43a1 - None</option>
-                    
-                      <option value="amberGS" 
-                      
-                      >amberGS - None</option>
-                    
-                      <option value="gromos53a5" 
-                      
-                      >gromos53a5 - None</option>
-                    
-                      <option value="amber99sb" 
-                      
-                      >amber99sb - None</option>
-                    
-                      <option value="amber03" 
-                      
-                      >amber03 - None</option>
-                    
-                      <option value="amber99sb-ildn" 
-                      selected="true"
-                      >amber99sb-ildn - None</option>
-                    
-                      <option value="oplsaa" 
-                      
-                      >oplsaa - None</option>
-                    
-                      <option value="amber94" 
-                      
-                      >amber94 - None</option>
-                    
-                    </param>
-                
-                  <param name="ignh" type="boolean" 
-                    
-                    label="ignh" help="Should pdb2gmx ignore the hidrogens in the original structure." />
-                
-                  <param name="his" type="text" label="his" help="Histidine protonation array." optional="true"
-                      
-                    />
-                
-                  <param name="merge" type="boolean" 
-                    
-                    label="merge" help="Merge all chains into a single molecule." />
-                
-                  <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
-                      
-                    />
-                
-                  <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
-                      value="gmx"
-                    />
-                
             </when>
-        </conditional>
+          </conditional>
+          <section name="properties" title="Properties">
+            
+              <param name="water_type" type="select" label="water_type" help="Water molecule type. " multiple="">
+                  
+                    <option value="spc" 
+                      
+                    >spc - None</option>
+                  
+                    <option value="spce" 
+                      selected="true"
+                    >spce - None</option>
+                  
+                    <option value="tip3p" 
+                      
+                    >tip3p - None</option>
+                  
+                    <option value="tip4p" 
+                      
+                    >tip4p - None</option>
+                  
+                    <option value="tip5p" 
+                      
+                    >tip5p - None</option>
+                  
+                    <option value="tips3p" 
+                      
+                    >tips3p - None</option>
+                  
+                </param>
+            
+              <param name="force_field" type="select" label="force_field" help="Force field to be used during the conversion.  " multiple="">
+                  
+                    <option value="gromos45a3" 
+                      
+                    >gromos45a3 - None</option>
+                  
+                    <option value="charmm27" 
+                      
+                    >charmm27 - None</option>
+                  
+                    <option value="gromos53a6" 
+                      
+                    >gromos53a6 - None</option>
+                  
+                    <option value="amber96" 
+                      
+                    >amber96 - None</option>
+                  
+                    <option value="amber99" 
+                      
+                    >amber99 - None</option>
+                  
+                    <option value="gromos43a2" 
+                      
+                    >gromos43a2 - None</option>
+                  
+                    <option value="gromos54a7" 
+                      
+                    >gromos54a7 - None</option>
+                  
+                    <option value="gromos43a1" 
+                      
+                    >gromos43a1 - None</option>
+                  
+                    <option value="amberGS" 
+                      
+                    >amberGS - None</option>
+                  
+                    <option value="gromos53a5" 
+                      
+                    >gromos53a5 - None</option>
+                  
+                    <option value="amber99sb" 
+                      
+                    >amber99sb - None</option>
+                  
+                    <option value="amber03" 
+                      
+                    >amber03 - None</option>
+                  
+                    <option value="amber99sb-ildn" 
+                      selected="true"
+                    >amber99sb-ildn - None</option>
+                  
+                    <option value="oplsaa" 
+                      
+                    >oplsaa - None</option>
+                  
+                    <option value="amber94" 
+                      
+                    >amber94 - None</option>
+                  
+                </param>
+            
+              <param name="ignh" type="boolean" 
+                  
+                  label="ignh" help="Should pdb2gmx ignore the hidrogens in the original structure." 
+                />
+            
+              <param name="his" type="text" label="his" help="Histidine protonation array." optional="true"
+                  
+                />
+            
+              <param name="merge" type="boolean" 
+                  
+                  label="merge" help="Merge all chains into a single molecule." 
+                />
+            
+              <param name="gmx_lib" type="text" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"
+                  
+                />
+            
+              <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
+                  value="gmx"
+                />
+                    
+          </section>
     </inputs>
     <outputs>
         
