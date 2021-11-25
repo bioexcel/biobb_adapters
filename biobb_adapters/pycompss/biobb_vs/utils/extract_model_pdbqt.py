@@ -29,9 +29,9 @@ def _extractmodelpdbqt(input_pdbqt_path, output_pdbqt_path,  properties, **kwarg
         sys.stderr.flush()
 
 
-def extractmodelpdbqt(input_pdbqt_path, output_pdbqt_path, properties=None, **kwargs):
+def extract_model_pdbqt(input_pdbqt_path, output_pdbqt_path, properties=None, **kwargs):
 
-    if (output_pdbqt_path is None or os.path.exists(output_pdbqt_path)) and \
+    if (output_pdbqt_path is None or (os.path.exists(output_pdbqt_path) and os.stat(output_pdbqt_path).st_size > 0)) and \
        True:
         print("WARN: Task ExtractModelPDBQT already executed.")
     else:

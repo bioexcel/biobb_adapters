@@ -29,9 +29,9 @@ def _cpptrajrms(input_top_path, input_traj_path, output_cpptraj_path, input_exp_
         sys.stderr.flush()
 
 
-def cpptrajrms(input_top_path, input_traj_path, output_cpptraj_path, input_exp_path=None, properties=None, **kwargs):
+def cpptraj_rms(input_top_path, input_traj_path, output_cpptraj_path, input_exp_path=None, properties=None, **kwargs):
 
-    if (output_cpptraj_path is None or os.path.exists(output_cpptraj_path)) and \
+    if (output_cpptraj_path is None or (os.path.exists(output_cpptraj_path) and os.stat(output_cpptraj_path).st_size > 0)) and \
        True:
         print("WARN: Task CpptrajRms already executed.")
     else:

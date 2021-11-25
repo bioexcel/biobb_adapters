@@ -12,7 +12,7 @@ baseCommand: fix_amides
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_model:3.5.1--py_1
+    dockerPull: quay.io/biocontainers/biobb_model:3.7.0--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_model/raw/master/biobb_model/test/reference/model/output_pdb_amide_path.pdb
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_model/master/biobb_model/test/reference/model/output_amide_pdb_path.pdb
     type: string
     format:
     - edam:format_1476

@@ -29,9 +29,9 @@ def _fixsidechain(input_pdb_path, output_pdb_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def fixsidechain(input_pdb_path, output_pdb_path, properties=None, **kwargs):
+def fix_side_chain(input_pdb_path, output_pdb_path, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
        True:
         print("WARN: Task FixSideChain already executed.")
     else:

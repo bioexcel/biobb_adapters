@@ -31,8 +31,8 @@ def _pmxanalyse(input_a_xvg_zip_path, input_b_xvg_zip_path, output_result_path, 
 
 def pmxanalyse(input_a_xvg_zip_path, input_b_xvg_zip_path, output_result_path, output_work_plot_path, properties=None, **kwargs):
 
-    if (output_result_path is None or os.path.exists(output_result_path)) and \
-       (output_work_plot_path is None or os.path.exists(output_work_plot_path)) and \
+    if (output_result_path is None or (os.path.exists(output_result_path) and os.stat(output_result_path).st_size > 0)) and \
+       (output_work_plot_path is None or (os.path.exists(output_work_plot_path) and os.stat(output_work_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task Pmxanalyse already executed.")
     else:

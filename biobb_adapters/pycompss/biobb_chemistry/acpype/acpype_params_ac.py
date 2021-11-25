@@ -29,12 +29,12 @@ def _acpypeparamsac(input_path, output_path_frcmod, output_path_inpcrd, output_p
         sys.stderr.flush()
 
 
-def acpypeparamsac(input_path, output_path_frcmod, output_path_inpcrd, output_path_lib, output_path_prmtop, properties=None, **kwargs):
+def acpype_params_ac(input_path, output_path_frcmod, output_path_inpcrd, output_path_lib, output_path_prmtop, properties=None, **kwargs):
 
-    if (output_path_frcmod is None or os.path.exists(output_path_frcmod)) and \
-       (output_path_inpcrd is None or os.path.exists(output_path_inpcrd)) and \
-       (output_path_lib is None or os.path.exists(output_path_lib)) and \
-       (output_path_prmtop is None or os.path.exists(output_path_prmtop)) and \
+    if (output_path_frcmod is None or (os.path.exists(output_path_frcmod) and os.stat(output_path_frcmod).st_size > 0)) and \
+       (output_path_inpcrd is None or (os.path.exists(output_path_inpcrd) and os.stat(output_path_inpcrd).st_size > 0)) and \
+       (output_path_lib is None or (os.path.exists(output_path_lib) and os.stat(output_path_lib).st_size > 0)) and \
+       (output_path_prmtop is None or (os.path.exists(output_path_prmtop) and os.stat(output_path_prmtop).st_size > 0)) and \
        True:
         print("WARN: Task AcpypeParamsAC already executed.")
     else:

@@ -29,9 +29,9 @@ def _dummyvariables(input_dataset_path, output_dataset_path,  properties, **kwar
         sys.stderr.flush()
 
 
-def dummyvariables(input_dataset_path, output_dataset_path, properties=None, **kwargs):
+def dummy_variables(input_dataset_path, output_dataset_path, properties=None, **kwargs):
 
-    if (output_dataset_path is None or os.path.exists(output_dataset_path)) and \
+    if (output_dataset_path is None or (os.path.exists(output_dataset_path) and os.stat(output_dataset_path).st_size > 0)) and \
        True:
         print("WARN: Task DummyVariables already executed.")
     else:

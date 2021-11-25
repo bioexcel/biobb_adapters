@@ -29,10 +29,10 @@ def _parmedcpinutil(input_top_path, output_cpin_path, output_top_path,  properti
         sys.stderr.flush()
 
 
-def parmedcpinutil(input_top_path, output_cpin_path, output_top_path=None, properties=None, **kwargs):
+def parmed_cpinutil(input_top_path, output_cpin_path, output_top_path=None, properties=None, **kwargs):
 
-    if (output_cpin_path is None or os.path.exists(output_cpin_path)) and \
-       (output_top_path is None or os.path.exists(output_top_path)) and \
+    if (output_cpin_path is None or (os.path.exists(output_cpin_path) and os.stat(output_cpin_path).st_size > 0)) and \
+       (output_top_path is None or (os.path.exists(output_top_path) and os.stat(output_top_path).st_size > 0)) and \
        True:
         print("WARN: Task ParmedCpinUtil already executed.")
     else:

@@ -15,7 +15,7 @@ baseCommand: gmx_rgyr
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_analysis:3.5.0--py_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
 
 inputs:
   input_structure_path:

@@ -31,7 +31,7 @@ def _editconf(input_gro_path, output_gro_path,  properties, **kwargs):
 
 def editconf(input_gro_path, output_gro_path, properties=None, **kwargs):
 
-    if (output_gro_path is None or os.path.exists(output_gro_path)) and \
+    if (output_gro_path is None or (os.path.exists(output_gro_path) and os.stat(output_gro_path).st_size > 0)) and \
        True:
         print("WARN: Task Editconf already executed.")
     else:

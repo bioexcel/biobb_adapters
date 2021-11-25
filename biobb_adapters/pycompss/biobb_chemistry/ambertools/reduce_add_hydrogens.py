@@ -29,9 +29,9 @@ def _reduceaddhydrogens(input_path, output_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def reduceaddhydrogens(input_path, output_path, properties=None, **kwargs):
+def reduce_add_hydrogens(input_path, output_path, properties=None, **kwargs):
 
-    if (output_path is None or os.path.exists(output_path)) and \
+    if (output_path is None or (os.path.exists(output_path) and os.stat(output_path).st_size > 0)) and \
        True:
         print("WARN: Task ReduceAddHydrogens already executed.")
     else:

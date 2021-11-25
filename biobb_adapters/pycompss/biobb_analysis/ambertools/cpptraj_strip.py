@@ -29,9 +29,9 @@ def _cpptrajstrip(input_top_path, input_traj_path, output_cpptraj_path,  propert
         sys.stderr.flush()
 
 
-def cpptrajstrip(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
+def cpptraj_strip(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
 
-    if (output_cpptraj_path is None or os.path.exists(output_cpptraj_path)) and \
+    if (output_cpptraj_path is None or (os.path.exists(output_cpptraj_path) and os.stat(output_cpptraj_path).st_size > 0)) and \
        True:
         print("WARN: Task CpptrajStrip already executed.")
     else:

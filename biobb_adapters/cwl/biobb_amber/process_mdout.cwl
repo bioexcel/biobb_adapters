@@ -12,7 +12,7 @@ baseCommand: process_mdout
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.7.1--pyhdfd78af_0
 
 inputs:
   input_log_path:
@@ -69,6 +69,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_dat_path)
+    format: edam:format_1637
 
 $namespaces:
   edam: http://edamontology.org/

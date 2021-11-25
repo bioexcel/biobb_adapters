@@ -13,7 +13,7 @@ baseCommand: extract_model
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_structure_utils:3.5.2--py_0
+    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.7.1--pyhdfd78af_0
 
 inputs:
   input_structure_path:

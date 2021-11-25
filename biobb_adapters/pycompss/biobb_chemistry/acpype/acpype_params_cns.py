@@ -29,11 +29,11 @@ def _acpypeparamscns(input_path, output_path_par, output_path_inp, output_path_t
         sys.stderr.flush()
 
 
-def acpypeparamscns(input_path, output_path_par, output_path_inp, output_path_top, properties=None, **kwargs):
+def acpype_params_cns(input_path, output_path_par, output_path_inp, output_path_top, properties=None, **kwargs):
 
-    if (output_path_par is None or os.path.exists(output_path_par)) and \
-       (output_path_inp is None or os.path.exists(output_path_inp)) and \
-       (output_path_top is None or os.path.exists(output_path_top)) and \
+    if (output_path_par is None or (os.path.exists(output_path_par) and os.stat(output_path_par).st_size > 0)) and \
+       (output_path_inp is None or (os.path.exists(output_path_inp) and os.stat(output_path_inp).st_size > 0)) and \
+       (output_path_top is None or (os.path.exists(output_path_top) and os.stat(output_path_top).st_size > 0)) and \
        True:
         print("WARN: Task AcpypeParamsCNS already executed.")
     else:

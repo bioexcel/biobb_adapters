@@ -12,7 +12,7 @@ baseCommand: amber_to_pdb
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.7.1--pyhdfd78af_0
 
 inputs:
   input_top_path:

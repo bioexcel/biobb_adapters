@@ -13,7 +13,7 @@ from biobb_ml.classification.support_vector_machine import SupportVectorMachine 
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_dataset_path=FILE_IN, output_model_path=FILE_OUT, output_test_table_path=FILE_IN, output_plot_path=FILE_IN, 
+@task(input_dataset_path=FILE_IN, output_model_path=FILE_OUT, output_test_table_path=FILE_OUT, output_plot_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
 def _supportvectormachine(input_dataset_path, output_model_path, output_test_table_path, output_plot_path,  properties, **kwargs):
     
@@ -29,9 +29,11 @@ def _supportvectormachine(input_dataset_path, output_model_path, output_test_tab
         sys.stderr.flush()
 
 
-def supportvectormachine(input_dataset_path, output_model_path, output_test_table_path=None, output_plot_path=None, properties=None, **kwargs):
+def support_vector_machine(input_dataset_path, output_model_path, output_test_table_path=None, output_plot_path=None, properties=None, **kwargs):
 
-    if (output_model_path is None or os.path.exists(output_model_path)) and \
+    if (output_model_path is None or (os.path.exists(output_model_path) and os.stat(output_model_path).st_size > 0)) and \
+       (output_test_table_path is None or (os.path.exists(output_test_table_path) and os.stat(output_test_table_path).st_size > 0)) and \
+       (output_plot_path is None or (os.path.exists(output_plot_path) and os.stat(output_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task SupportVectorMachine already executed.")
     else:

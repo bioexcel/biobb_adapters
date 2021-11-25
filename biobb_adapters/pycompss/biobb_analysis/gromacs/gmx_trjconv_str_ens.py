@@ -29,9 +29,9 @@ def _gmxtrjconvstrens(input_traj_path, input_top_path, output_str_ens_path, inpu
         sys.stderr.flush()
 
 
-def gmxtrjconvstrens(input_traj_path, input_top_path, output_str_ens_path, input_index_path=None, properties=None, **kwargs):
+def gmx_trjconv_str_ens(input_traj_path, input_top_path, output_str_ens_path, input_index_path=None, properties=None, **kwargs):
 
-    if (output_str_ens_path is None or os.path.exists(output_str_ens_path)) and \
+    if (output_str_ens_path is None or (os.path.exists(output_str_ens_path) and os.stat(output_str_ens_path).st_size > 0)) and \
        True:
         print("WARN: Task GMXTrjConvStrEns already executed.")
     else:

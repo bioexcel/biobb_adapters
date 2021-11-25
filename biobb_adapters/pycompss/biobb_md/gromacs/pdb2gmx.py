@@ -31,8 +31,8 @@ def _pdb2gmx(input_pdb_path, output_gro_path, output_top_zip_path,  properties, 
 
 def pdb2gmx(input_pdb_path, output_gro_path, output_top_zip_path, properties=None, **kwargs):
 
-    if (output_gro_path is None or os.path.exists(output_gro_path)) and \
-       (output_top_zip_path is None or os.path.exists(output_top_zip_path)) and \
+    if (output_gro_path is None or (os.path.exists(output_gro_path) and os.stat(output_gro_path).st_size > 0)) and \
+       (output_top_zip_path is None or (os.path.exists(output_top_zip_path) and os.stat(output_top_zip_path).st_size > 0)) and \
        True:
         print("WARN: Task Pdb2gmx already executed.")
     else:

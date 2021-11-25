@@ -31,7 +31,7 @@ def _box(input_pdb_path, output_pdb_path,  properties, **kwargs):
 
 def box(input_pdb_path, output_pdb_path, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
        True:
         print("WARN: Task Box already executed.")
     else:

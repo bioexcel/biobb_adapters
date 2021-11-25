@@ -29,10 +29,10 @@ def _acpypeparamsgmxopls(input_path, output_path_itp, output_path_top,  properti
         sys.stderr.flush()
 
 
-def acpypeparamsgmxopls(input_path, output_path_itp, output_path_top, properties=None, **kwargs):
+def acpype_params_gmx_opls(input_path, output_path_itp, output_path_top, properties=None, **kwargs):
 
-    if (output_path_itp is None or os.path.exists(output_path_itp)) and \
-       (output_path_top is None or os.path.exists(output_path_top)) and \
+    if (output_path_itp is None or (os.path.exists(output_path_itp) and os.stat(output_path_itp).st_size > 0)) and \
+       (output_path_top is None or (os.path.exists(output_path_top) and os.stat(output_path_top).st_size > 0)) and \
        True:
         print("WARN: Task AcpypeParamsGMXOPLS already executed.")
     else:

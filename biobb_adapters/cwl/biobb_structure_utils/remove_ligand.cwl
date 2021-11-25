@@ -12,7 +12,7 @@ baseCommand: remove_ligand
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_structure_utils:3.5.2--py_0
+    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.7.1--pyhdfd78af_0
 
 inputs:
   input_structure_path:
@@ -64,6 +64,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_structure_path)
+    format: edam:format_1476
 
 $namespaces:
   edam: http://edamontology.org/

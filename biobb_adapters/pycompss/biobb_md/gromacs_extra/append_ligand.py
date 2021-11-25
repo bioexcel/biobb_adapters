@@ -29,9 +29,9 @@ def _appendligand(input_top_zip_path, input_itp_path, output_top_zip_path, input
         sys.stderr.flush()
 
 
-def appendligand(input_top_zip_path, input_itp_path, output_top_zip_path, input_posres_itp_path=None, properties=None, **kwargs):
+def append_ligand(input_top_zip_path, input_itp_path, output_top_zip_path, input_posres_itp_path=None, properties=None, **kwargs):
 
-    if (output_top_zip_path is None or os.path.exists(output_top_zip_path)) and \
+    if (output_top_zip_path is None or (os.path.exists(output_top_zip_path) and os.stat(output_top_zip_path).st_size > 0)) and \
        True:
         print("WARN: Task AppendLigand already executed.")
     else:

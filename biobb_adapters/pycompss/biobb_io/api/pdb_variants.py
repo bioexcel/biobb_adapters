@@ -29,9 +29,9 @@ def _pdbvariants(output_mutations_list_txt,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def pdbvariants(output_mutations_list_txt, properties=None, **kwargs):
+def pdb_variants(output_mutations_list_txt, properties=None, **kwargs):
 
-    if (output_mutations_list_txt is None or os.path.exists(output_mutations_list_txt)) and \
+    if (output_mutations_list_txt is None or (os.path.exists(output_mutations_list_txt) and os.stat(output_mutations_list_txt).st_size > 0)) and \
        True:
         print("WARN: Task PdbVariants already executed.")
     else:

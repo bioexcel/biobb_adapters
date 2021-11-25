@@ -13,7 +13,7 @@ baseCommand: cpptraj_average
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_analysis:3.5.0--py_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
 
 inputs:
   input_top_path:
@@ -41,10 +41,11 @@ inputs:
       Path to the input trajectory to be processed
       Type: string
       File type: input
-      Accepted formats: crd, cdf, netcdf, restart, ncrestart, restartnc, dcd, charmm, cor, pdb, mol2, trr, gro, binpos, xtc, cif, arc, sqm, sdf, conflib
+      Accepted formats: mdcrd, crd, cdf, netcdf, restart, ncrestart, restartnc, dcd, charmm, cor, pdb, mol2, trr, gro, binpos, xtc, cif, arc, sqm, sdf, conflib
       Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/ambertools/cpptraj.traj.dcd
     type: File
     format:
+    - edam:format_3878
     - edam:format_3878
     - edam:format_3650
     - edam:format_3650
@@ -75,10 +76,11 @@ inputs:
       Path to the output processed structure
       Type: string
       File type: output
-      Accepted formats: crd, netcdf, rst7, ncrst, dcd, pdb, mol2, binpos, trr, xtc, sqm
+      Accepted formats: mdcrd, crd, netcdf, rst7, ncrst, dcd, pdb, mol2, binpos, trr, xtc, sqm
       Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/ambertools/ref_cpptraj.average.pdb
     type: string
     format:
+    - edam:format_3878
     - edam:format_3878
     - edam:format_3650
     - edam:format_3886
@@ -93,7 +95,7 @@ inputs:
     inputBinding:
       position: 3
       prefix: --output_cpptraj_path
-    default: system.crd
+    default: system.mdcrd
 
   config:
     label: Advanced configuration options for biobb_analysis CpptrajAverage
@@ -111,6 +113,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_cpptraj_path)
+    format: edam:format_3878
 
 $namespaces:
   edam: http://edamontology.org/

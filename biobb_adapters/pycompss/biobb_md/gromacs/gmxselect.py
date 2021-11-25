@@ -31,7 +31,7 @@ def _gmxselect(input_structure_path, output_ndx_path, input_ndx_path,  propertie
 
 def gmxselect(input_structure_path, output_ndx_path, input_ndx_path=None, properties=None, **kwargs):
 
-    if (output_ndx_path is None or os.path.exists(output_ndx_path)) and \
+    if (output_ndx_path is None or (os.path.exists(output_ndx_path) and os.stat(output_ndx_path).st_size > 0)) and \
        True:
         print("WARN: Task Gmxselect already executed.")
     else:

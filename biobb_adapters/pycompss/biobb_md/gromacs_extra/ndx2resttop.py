@@ -31,7 +31,7 @@ def _ndx2resttop(input_ndx_path, input_top_zip_path, output_top_zip_path,  prope
 
 def ndx2resttop(input_ndx_path, input_top_zip_path, output_top_zip_path, properties=None, **kwargs):
 
-    if (output_top_zip_path is None or os.path.exists(output_top_zip_path)) and \
+    if (output_top_zip_path is None or (os.path.exists(output_top_zip_path) and os.stat(output_top_zip_path).st_size > 0)) and \
        True:
         print("WARN: Task Ndx2resttop already executed.")
     else:

@@ -12,7 +12,7 @@ baseCommand: pmxmutate
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_pmx:3.5.0--py_0
+    dockerPull: quay.io/biocontainers/biobb_pmx:3.6.0--pyhdfd78af_0
 
 inputs:
   input_structure_path:
@@ -79,6 +79,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_structure_path)
+    format: edam:format_1476
 
 $namespaces:
   edam: http://edamontology.org/

@@ -12,7 +12,7 @@ baseCommand: drugbank
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_io:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_io:3.7.0--pyhdfd78af_0
 
 inputs:
   output_sdf_path:

@@ -31,7 +31,7 @@ def _grompp(input_gro_path, input_top_zip_path, output_tpr_path, input_cpt_path,
 
 def grompp(input_gro_path, input_top_zip_path, output_tpr_path, input_cpt_path=None, input_ndx_path=None, input_mdp_path=None, properties=None, **kwargs):
 
-    if (output_tpr_path is None or os.path.exists(output_tpr_path)) and \
+    if (output_tpr_path is None or (os.path.exists(output_tpr_path) and os.stat(output_tpr_path).st_size > 0)) and \
        True:
         print("WARN: Task Grompp already executed.")
     else:

@@ -29,9 +29,9 @@ def _processmdout(input_log_path, output_dat_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def processmdout(input_log_path, output_dat_path, properties=None, **kwargs):
+def process_mdout(input_log_path, output_dat_path, properties=None, **kwargs):
 
-    if (output_dat_path is None or os.path.exists(output_dat_path)) and \
+    if (output_dat_path is None or (os.path.exists(output_dat_path) and os.stat(output_dat_path).st_size > 0)) and \
        True:
         print("WARN: Task ProcessMDOut already executed.")
     else:

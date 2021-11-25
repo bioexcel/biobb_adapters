@@ -13,25 +13,24 @@ baseCommand: pdb_cluster_zip
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_io:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_io:3.7.0--pyhdfd78af_0
 
 inputs:
   output_pdb_zip_path:
-    label: Path to the ZIP or PDB file containing the output PDB files
+    label: Path to the ZIP file containing the output PDB files
     doc: |-
-      Path to the ZIP or PDB file containing the output PDB files
+      Path to the ZIP file containing the output PDB files
       Type: string
       File type: output
-      Accepted formats: pdb, zip
+      Accepted formats: zip
       Example file: https://github.com/bioexcel/biobb_io/raw/master/biobb_io/test/reference/api/output_pdb_cluster.zip
     type: string
     format:
-    - edam:format_1476
     - edam:format_3987
     inputBinding:
       position: 1
       prefix: --output_pdb_zip_path
-    default: system.pdb
+    default: system.zip
 
   config:
     label: Advanced configuration options for biobb_io PdbClusterZip
@@ -43,12 +42,13 @@ inputs:
 
 outputs:
   output_pdb_zip_path:
-    label: Path to the ZIP or PDB file containing the output PDB files
+    label: Path to the ZIP file containing the output PDB files
     doc: |-
-      Path to the ZIP or PDB file containing the output PDB files
+      Path to the ZIP file containing the output PDB files
     type: File
     outputBinding:
       glob: $(inputs.output_pdb_zip_path)
+    format: edam:format_3987
 
 $namespaces:
   edam: http://edamontology.org/

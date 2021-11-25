@@ -12,7 +12,7 @@ baseCommand: leap_gen_top
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.7.1--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/structure.pdb
+      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/structure.leapin.pdb
     type: File
     format:
     - edam:format_1476
@@ -117,7 +117,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: in, leapin, txt, zip
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/frcmod.ionsdang_spce
+      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/frcmod.ionsdang_spce.txt
     type: File?
     format:
     - edam:format_2330
@@ -134,7 +134,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: in, leapin, txt, zip
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/leaprc.water.spce
+      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/leaprc.water.spce.txt
     type: File?
     format:
     - edam:format_2330
@@ -169,6 +169,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_top_path)
+    format: edam:format_3881
 
   output_crd_path:
     label: Output coordinates file (AMBER crd)
@@ -177,6 +178,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_crd_path)
+    format: edam:format_3878
 
 $namespaces:
   edam: http://edamontology.org/

@@ -12,7 +12,7 @@ baseCommand: process_minout
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.7.1--pyhdfd78af_0
 
 inputs:
   input_log_path:
@@ -41,7 +41,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: dat, txt, csv
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/process/sander.min.energy.dat
+      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/reference/process/sander.min.energy.dat
     type: string
     format:
     - edam:format_1637
@@ -69,6 +69,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_dat_path)
+    format: edam:format_1637
 
 $namespaces:
   edam: http://edamontology.org/

@@ -31,7 +31,7 @@ def _mmcif(output_mmcif_path,  properties, **kwargs):
 
 def mmcif(output_mmcif_path, properties=None, **kwargs):
 
-    if (output_mmcif_path is None or os.path.exists(output_mmcif_path)) and \
+    if (output_mmcif_path is None or (os.path.exists(output_mmcif_path) and os.stat(output_mmcif_path).st_size > 0)) and \
        True:
         print("WARN: Task Mmcif already executed.")
     else:

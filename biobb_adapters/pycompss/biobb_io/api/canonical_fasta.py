@@ -29,9 +29,9 @@ def _canonicalfasta(output_fasta_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def canonicalfasta(output_fasta_path, properties=None, **kwargs):
+def canonical_fasta(output_fasta_path, properties=None, **kwargs):
 
-    if (output_fasta_path is None or os.path.exists(output_fasta_path)) and \
+    if (output_fasta_path is None or (os.path.exists(output_fasta_path) and os.stat(output_fasta_path).st_size > 0)) and \
        True:
         print("WARN: Task CanonicalFasta already executed.")
     else:

@@ -12,7 +12,7 @@ baseCommand: babel_minimize
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_chemistry:3.5.0--py_0
+    dockerPull: quay.io/biocontainers/biobb_chemistry:3.7.0--pyhdfd78af_0
 
 inputs:
   input_path:
@@ -64,6 +64,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_path)
+    format: edam:format_1476
 
 $namespaces:
   edam: http://edamontology.org/

@@ -31,7 +31,7 @@ def _bindingsite(input_pdb_path, input_clusters_zip, output_pdb_path,  propertie
 
 def bindingsite(input_pdb_path, input_clusters_zip, output_pdb_path, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
        True:
         print("WARN: Task BindingSite already executed.")
     else:

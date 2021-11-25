@@ -29,9 +29,9 @@ def _strcheckaddhydrogens(input_structure_path, output_structure_path,  properti
         sys.stderr.flush()
 
 
-def strcheckaddhydrogens(input_structure_path, output_structure_path, properties=None, **kwargs):
+def str_check_add_hydrogens(input_structure_path, output_structure_path, properties=None, **kwargs):
 
-    if (output_structure_path is None or os.path.exists(output_structure_path)) and \
+    if (output_structure_path is None or (os.path.exists(output_structure_path) and os.stat(output_structure_path).st_size > 0)) and \
        True:
         print("WARN: Task StrCheckAddHydrogens already executed.")
     else:

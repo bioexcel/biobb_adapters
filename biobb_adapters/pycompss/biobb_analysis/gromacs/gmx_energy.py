@@ -29,9 +29,9 @@ def _gmxenergy(input_energy_path, output_xvg_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def gmxenergy(input_energy_path, output_xvg_path, properties=None, **kwargs):
+def gmx_energy(input_energy_path, output_xvg_path, properties=None, **kwargs):
 
-    if (output_xvg_path is None or os.path.exists(output_xvg_path)) and \
+    if (output_xvg_path is None or (os.path.exists(output_xvg_path) and os.stat(output_xvg_path).st_size > 0)) and \
        True:
         print("WARN: Task GMXEnergy already executed.")
     else:

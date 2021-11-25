@@ -29,10 +29,10 @@ def _fpocketselect(input_pockets_zip, output_pocket_pdb, output_pocket_pqr,  pro
         sys.stderr.flush()
 
 
-def fpocketselect(input_pockets_zip, output_pocket_pdb, output_pocket_pqr, properties=None, **kwargs):
+def fpocket_select(input_pockets_zip, output_pocket_pdb, output_pocket_pqr, properties=None, **kwargs):
 
-    if (output_pocket_pdb is None or os.path.exists(output_pocket_pdb)) and \
-       (output_pocket_pqr is None or os.path.exists(output_pocket_pqr)) and \
+    if (output_pocket_pdb is None or (os.path.exists(output_pocket_pdb) and os.stat(output_pocket_pdb).st_size > 0)) and \
+       (output_pocket_pqr is None or (os.path.exists(output_pocket_pqr) and os.stat(output_pocket_pqr).st_size > 0)) and \
        True:
         print("WARN: Task FPocketSelect already executed.")
     else:

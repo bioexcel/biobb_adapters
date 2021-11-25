@@ -12,7 +12,7 @@ baseCommand: ndx2resttop
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_md:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:3.7.1--pyhdfd78af_0
 
 inputs:
   input_ndx_path:

@@ -13,7 +13,7 @@ from biobb_ml.dimensionality_reduction.principal_component import PrincipalCompo
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_dataset_path=FILE_IN, output_results_path=FILE_OUT, output_plot_path=FILE_IN, 
+@task(input_dataset_path=FILE_IN, output_results_path=FILE_OUT, output_plot_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
 def _principalcomponentanalysis(input_dataset_path, output_results_path, output_plot_path,  properties, **kwargs):
     
@@ -29,9 +29,10 @@ def _principalcomponentanalysis(input_dataset_path, output_results_path, output_
         sys.stderr.flush()
 
 
-def principalcomponentanalysis(input_dataset_path, output_results_path, output_plot_path=None, properties=None, **kwargs):
+def principal_component(input_dataset_path, output_results_path, output_plot_path=None, properties=None, **kwargs):
 
-    if (output_results_path is None or os.path.exists(output_results_path)) and \
+    if (output_results_path is None or (os.path.exists(output_results_path) and os.stat(output_results_path).st_size > 0)) and \
+       (output_plot_path is None or (os.path.exists(output_plot_path) and os.stat(output_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task PrincipalComponentAnalysis already executed.")
     else:

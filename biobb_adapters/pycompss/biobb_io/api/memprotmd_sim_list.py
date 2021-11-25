@@ -29,9 +29,9 @@ def _memprotmdsimlist(output_simulations,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def memprotmdsimlist(output_simulations, properties=None, **kwargs):
+def memprotmd_sim_list(output_simulations, properties=None, **kwargs):
 
-    if (output_simulations is None or os.path.exists(output_simulations)) and \
+    if (output_simulations is None or (os.path.exists(output_simulations) and os.stat(output_simulations).st_size > 0)) and \
        True:
         print("WARN: Task MemProtMDSimList already executed.")
     else:

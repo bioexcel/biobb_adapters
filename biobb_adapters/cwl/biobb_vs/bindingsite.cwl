@@ -12,7 +12,7 @@ baseCommand: bindingsite
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_vs:3.7.0--pyhdfd78af_0
 
 inputs:
   input_pdb_path:

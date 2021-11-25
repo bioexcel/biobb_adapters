@@ -12,7 +12,7 @@ baseCommand: regression_predict
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_ml:3.5.0--py_2
+    dockerPull: quay.io/biocontainers/biobb_ml:3.7.0--pyhdfd78af_2
 
 inputs:
   input_model_path:
@@ -53,7 +53,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: csv
-      Example file: https://github.com/bioexcel/biobb_ml/raw/master/biobb_ml/test/data/classification/input_classification_predict.csv
+      Example file: https://github.com/bioexcel/biobb_ml/raw/master/biobb_ml/test/data/regression/input_regression_predict.csv
     type: File?
     format:
     - edam:format_3752

@@ -31,7 +31,7 @@ def _genrestr(input_structure_path, output_itp_path, input_ndx_path,  properties
 
 def genrestr(input_structure_path, output_itp_path, input_ndx_path=None, properties=None, **kwargs):
 
-    if (output_itp_path is None or os.path.exists(output_itp_path)) and \
+    if (output_itp_path is None or (os.path.exists(output_itp_path) and os.stat(output_itp_path).st_size > 0)) and \
        True:
         print("WARN: Task Genrestr already executed.")
     else:

@@ -12,7 +12,7 @@ baseCommand: pmemd_mdrun
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.7.1--pyhdfd78af_0
 
 inputs:
   input_top_path:
@@ -38,7 +38,7 @@ inputs:
       Input coordinates file (AMBER crd)
       Type: string
       File type: input
-      Accepted formats: crd, mdcrd, inpcrd, rst, rst7
+      Accepted formats: crd, mdcrd, inpcrd, rst, rst7, netcdf, nc, ncrst
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/pmemd/cln025.inpcrd
     type: File
     format:
@@ -47,6 +47,9 @@ inputs:
     - edam:format_3878
     - edam:format_3886
     - edam:format_3886
+    - edam:format_3650
+    - edam:format_3650
+    - edam:format_3650
     inputBinding:
       position: 2
       prefix: --input_crd_path
@@ -97,12 +100,15 @@ inputs:
       Output restart file
       Type: string
       File type: output
-      Accepted formats: rst, rst7
+      Accepted formats: rst, rst7, netcdf, nc, ncrst
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/reference/pmemd/sander.rst
     type: string
     format:
     - edam:format_3886
     - edam:format_3886
+    - edam:format_3650
+    - edam:format_3650
+    - edam:format_3650
     inputBinding:
       position: 5
       prefix: --output_rst_path
@@ -144,7 +150,7 @@ inputs:
       Input reference coordinates for position restraints
       Type: string
       File type: input
-      Accepted formats: crd, mdcrd, inpcrd, rst, rst7
+      Accepted formats: crd, mdcrd, inpcrd, rst, rst7, netcdf, nc, ncrst
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/pmemd/sander.rst
     type: File?
     format:
@@ -153,6 +159,9 @@ inputs:
     - edam:format_3878
     - edam:format_3886
     - edam:format_3886
+    - edam:format_3650
+    - edam:format_3650
+    - edam:format_3650
     inputBinding:
       prefix: --input_ref_path
 
@@ -219,6 +228,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_log_path)
+    format: edam:format_2330
 
   output_traj_path:
     label: Output trajectory file
@@ -227,6 +237,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_traj_path)
+    format: edam:format_3878
 
   output_rst_path:
     label: Output restart file
@@ -235,6 +246,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_rst_path)
+    format: edam:format_3886
 
   output_cpout_path:
     label: Output constant pH file (AMBER cpout)
@@ -252,6 +264,7 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_cprst_path)
+    format: edam:format_3886
 
   output_mdinfo_path:
     label: Output MD info

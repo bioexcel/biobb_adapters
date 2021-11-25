@@ -12,7 +12,7 @@ baseCommand: classification_neural_network
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_ml:3.5.0--py_2
+    dockerPull: quay.io/biocontainers/biobb_ml:3.7.0--pyhdfd78af_2
 
 inputs:
   input_dataset_path:

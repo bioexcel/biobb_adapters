@@ -31,7 +31,7 @@ def _makendx(input_structure_path, output_ndx_path, input_ndx_path,  properties,
 
 def make_ndx(input_structure_path, output_ndx_path, input_ndx_path=None, properties=None, **kwargs):
 
-    if (output_ndx_path is None or os.path.exists(output_ndx_path)) and \
+    if (output_ndx_path is None or (os.path.exists(output_ndx_path) and os.stat(output_ndx_path).st_size > 0)) and \
        True:
         print("WARN: Task MakeNdx already executed.")
     else:

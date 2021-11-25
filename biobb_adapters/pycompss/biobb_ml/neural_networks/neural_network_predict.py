@@ -29,9 +29,9 @@ def _predictneuralnetwork(input_model_path, output_results_path, input_dataset_p
         sys.stderr.flush()
 
 
-def predictneuralnetwork(input_model_path, output_results_path, input_dataset_path=None, properties=None, **kwargs):
+def neural_network_predict(input_model_path, output_results_path, input_dataset_path=None, properties=None, **kwargs):
 
-    if (output_results_path is None or os.path.exists(output_results_path)) and \
+    if (output_results_path is None or (os.path.exists(output_results_path) and os.stat(output_results_path).st_size > 0)) and \
        True:
         print("WARN: Task PredictNeuralNetwork already executed.")
     else:

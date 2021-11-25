@@ -31,8 +31,8 @@ def _solvate(input_solute_gro_path, output_gro_path, input_top_zip_path, output_
 
 def solvate(input_solute_gro_path, output_gro_path, input_top_zip_path, output_top_zip_path, input_solvent_gro_path=None, properties=None, **kwargs):
 
-    if (output_gro_path is None or os.path.exists(output_gro_path)) and \
-       (output_top_zip_path is None or os.path.exists(output_top_zip_path)) and \
+    if (output_gro_path is None or (os.path.exists(output_gro_path) and os.stat(output_gro_path).st_size > 0)) and \
+       (output_top_zip_path is None or (os.path.exists(output_top_zip_path) and os.stat(output_top_zip_path).st_size > 0)) and \
        True:
         print("WARN: Task Solvate already executed.")
     else:

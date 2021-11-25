@@ -29,9 +29,9 @@ def _cpptrajmask(input_top_path, input_traj_path, output_cpptraj_path,  properti
         sys.stderr.flush()
 
 
-def cpptrajmask(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
+def cpptraj_mask(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
 
-    if (output_cpptraj_path is None or os.path.exists(output_cpptraj_path)) and \
+    if (output_cpptraj_path is None or (os.path.exists(output_cpptraj_path) and os.stat(output_cpptraj_path).st_size > 0)) and \
        True:
         print("WARN: Task CpptrajMask already executed.")
     else:

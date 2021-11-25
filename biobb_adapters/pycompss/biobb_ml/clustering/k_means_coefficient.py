@@ -13,7 +13,7 @@ from biobb_ml.clustering.k_means_coefficient import KMeansCoefficient  # Importi
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_dataset_path=FILE_IN, output_results_path=FILE_OUT, output_plot_path=FILE_IN, 
+@task(input_dataset_path=FILE_IN, output_results_path=FILE_OUT, output_plot_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
 def _kmeanscoefficient(input_dataset_path, output_results_path, output_plot_path,  properties, **kwargs):
     
@@ -29,9 +29,10 @@ def _kmeanscoefficient(input_dataset_path, output_results_path, output_plot_path
         sys.stderr.flush()
 
 
-def kmeanscoefficient(input_dataset_path, output_results_path, output_plot_path=None, properties=None, **kwargs):
+def k_means_coefficient(input_dataset_path, output_results_path, output_plot_path=None, properties=None, **kwargs):
 
-    if (output_results_path is None or os.path.exists(output_results_path)) and \
+    if (output_results_path is None or (os.path.exists(output_results_path) and os.stat(output_results_path).st_size > 0)) and \
+       (output_plot_path is None or (os.path.exists(output_plot_path) and os.stat(output_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task KMeansCoefficient already executed.")
     else:

@@ -31,7 +31,7 @@ def _pmxmutate(input_structure_path, output_structure_path, input_b_structure_pa
 
 def pmxmutate(input_structure_path, output_structure_path, input_b_structure_path=None, properties=None, **kwargs):
 
-    if (output_structure_path is None or os.path.exists(output_structure_path)) and \
+    if (output_structure_path is None or (os.path.exists(output_structure_path) and os.stat(output_structure_path).st_size > 0)) and \
        True:
         print("WARN: Task Pmxmutate already executed.")
     else:

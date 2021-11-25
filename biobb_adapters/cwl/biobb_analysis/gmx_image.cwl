@@ -13,7 +13,7 @@ baseCommand: gmx_image
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_analysis:3.5.0--py_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
 
 inputs:
   input_traj_path:
@@ -109,6 +109,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_traj_path)
+    format: edam:format_3875
 
 $namespaces:
   edam: http://edamontology.org/

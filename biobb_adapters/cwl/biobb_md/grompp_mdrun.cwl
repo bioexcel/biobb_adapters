@@ -12,7 +12,7 @@ baseCommand: grompp_mdrun
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_md:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:3.7.1--pyhdfd78af_0
 
 inputs:
   input_gro_path:
@@ -100,7 +100,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: log
-      Example file: null
+      Example file: https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_gmx_mdrun.log
     type: string
     format:
     - edam:format_2330

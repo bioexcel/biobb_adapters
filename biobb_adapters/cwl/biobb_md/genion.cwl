@@ -12,7 +12,7 @@ baseCommand: genion
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_md:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:3.7.1--pyhdfd78af_0
 
 inputs:
   input_tpr_path:
@@ -92,9 +92,9 @@ inputs:
       prefix: --input_ndx_path
 
   config:
-    label: Advanced configuration options for biobb_md genion
+    label: Advanced configuration options for biobb_md Genion
     doc: |-
-      Advanced configuration options for biobb_md genion. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_md genion documentation: https://biobb-md.readthedocs.io/en/latest/gromacs.html#module-gromacs.genion
+      Advanced configuration options for biobb_md Genion. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_md Genion documentation: https://biobb-md.readthedocs.io/en/latest/gromacs.html#module-gromacs.genion
     type: string?
     inputBinding:
       prefix: --config

@@ -13,7 +13,7 @@ from biobb_ml.neural_networks.neural_network_decode import DecodingNeuralNetwork
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_decode_path=FILE_IN, input_model_path=FILE_IN, output_decode_path=FILE_OUT, output_predict_path=FILE_IN, 
+@task(input_decode_path=FILE_IN, input_model_path=FILE_IN, output_decode_path=FILE_OUT, output_predict_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
 def _decodingneuralnetwork(input_decode_path, input_model_path, output_decode_path, output_predict_path,  properties, **kwargs):
     
@@ -29,9 +29,10 @@ def _decodingneuralnetwork(input_decode_path, input_model_path, output_decode_pa
         sys.stderr.flush()
 
 
-def decodingneuralnetwork(input_decode_path, input_model_path, output_decode_path, output_predict_path=None, properties=None, **kwargs):
+def neural_network_decode(input_decode_path, input_model_path, output_decode_path, output_predict_path=None, properties=None, **kwargs):
 
-    if (output_decode_path is None or os.path.exists(output_decode_path)) and \
+    if (output_decode_path is None or (os.path.exists(output_decode_path) and os.stat(output_decode_path).st_size > 0)) and \
+       (output_predict_path is None or (os.path.exists(output_predict_path) and os.stat(output_predict_path).st_size > 0)) and \
        True:
         print("WARN: Task DecodingNeuralNetwork already executed.")
     else:

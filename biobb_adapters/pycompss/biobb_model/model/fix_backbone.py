@@ -29,9 +29,9 @@ def _fixbackbone(input_pdb_path, input_fasta_canonical_sequence_path, output_pdb
         sys.stderr.flush()
 
 
-def fixbackbone(input_pdb_path, input_fasta_canonical_sequence_path, output_pdb_path, properties=None, **kwargs):
+def fix_backbone(input_pdb_path, input_fasta_canonical_sequence_path, output_pdb_path, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
        True:
         print("WARN: Task FixBackbone already executed.")
     else:

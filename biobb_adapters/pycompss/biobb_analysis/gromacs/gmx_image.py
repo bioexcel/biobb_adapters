@@ -29,9 +29,9 @@ def _gmximage(input_traj_path, input_top_path, output_traj_path, input_index_pat
         sys.stderr.flush()
 
 
-def gmximage(input_traj_path, input_top_path, output_traj_path, input_index_path=None, properties=None, **kwargs):
+def gmx_image(input_traj_path, input_top_path, output_traj_path, input_index_path=None, properties=None, **kwargs):
 
-    if (output_traj_path is None or os.path.exists(output_traj_path)) and \
+    if (output_traj_path is None or (os.path.exists(output_traj_path) and os.stat(output_traj_path).st_size > 0)) and \
        True:
         print("WARN: Task GMXImage already executed.")
     else:

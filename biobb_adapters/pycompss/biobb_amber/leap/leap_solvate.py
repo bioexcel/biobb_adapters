@@ -29,11 +29,11 @@ def _leapsolvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_pa
         sys.stderr.flush()
 
 
-def leapsolvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path=None, input_frcmod_path=None, input_params_path=None, input_source_path=None, properties=None, **kwargs):
+def leap_solvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path=None, input_frcmod_path=None, input_params_path=None, input_source_path=None, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
-       (output_top_path is None or os.path.exists(output_top_path)) and \
-       (output_crd_path is None or os.path.exists(output_crd_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
+       (output_top_path is None or (os.path.exists(output_top_path) and os.stat(output_top_path).st_size > 0)) and \
+       (output_crd_path is None or (os.path.exists(output_crd_path) and os.stat(output_crd_path).st_size > 0)) and \
        True:
         print("WARN: Task LeapSolvate already executed.")
     else:

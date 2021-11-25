@@ -29,9 +29,9 @@ def _clusteringpredict(input_model_path, output_results_path, input_dataset_path
         sys.stderr.flush()
 
 
-def clusteringpredict(input_model_path, output_results_path, input_dataset_path=None, properties=None, **kwargs):
+def clustering_predict(input_model_path, output_results_path, input_dataset_path=None, properties=None, **kwargs):
 
-    if (output_results_path is None or os.path.exists(output_results_path)) and \
+    if (output_results_path is None or (os.path.exists(output_results_path) and os.stat(output_results_path).st_size > 0)) and \
        True:
         print("WARN: Task ClusteringPredict already executed.")
     else:

@@ -31,7 +31,7 @@ def _drugbank(output_sdf_path,  properties, **kwargs):
 
 def drugbank(output_sdf_path, properties=None, **kwargs):
 
-    if (output_sdf_path is None or os.path.exists(output_sdf_path)) and \
+    if (output_sdf_path is None or (os.path.exists(output_sdf_path) and os.stat(output_sdf_path).st_size > 0)) and \
        True:
         print("WARN: Task Drugbank already executed.")
     else:

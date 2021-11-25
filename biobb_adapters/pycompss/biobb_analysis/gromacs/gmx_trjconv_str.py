@@ -29,9 +29,9 @@ def _gmxtrjconvstr(input_structure_path, input_top_path, output_str_path, input_
         sys.stderr.flush()
 
 
-def gmxtrjconvstr(input_structure_path, input_top_path, output_str_path, input_index_path=None, properties=None, **kwargs):
+def gmx_trjconv_str(input_structure_path, input_top_path, output_str_path, input_index_path=None, properties=None, **kwargs):
 
-    if (output_str_path is None or os.path.exists(output_str_path)) and \
+    if (output_str_path is None or (os.path.exists(output_str_path) and os.stat(output_str_path).st_size > 0)) and \
        True:
         print("WARN: Task GMXTrjConvStr already executed.")
     else:
