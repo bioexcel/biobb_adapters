@@ -68,7 +68,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             {% for k, v in props.items() %}
               {% if v['type'] == 'string' or v['type'] == 'list' -%}
                 <param name="{{ k }}" type="text" label="{{ k }}" help="{{ v['description'] }}" optional="{{v['optional']}}"
