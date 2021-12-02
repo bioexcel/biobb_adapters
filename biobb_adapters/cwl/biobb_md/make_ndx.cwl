@@ -42,7 +42,7 @@ inputs:
       Example file: https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_make_ndx.ndx
     type: string
     format:
-    - edam:format_2330
+    - edam:format_2033
     inputBinding:
       position: 2
       prefix: --output_ndx_path
@@ -58,7 +58,7 @@ inputs:
       Example file: null
     type: File?
     format:
-    - edam:format_2330
+    - edam:format_2033
     inputBinding:
       prefix: --input_ndx_path
 
@@ -78,10 +78,10 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_ndx_path)
-    format: edam:format_2330
+    format: edam:format_2033
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

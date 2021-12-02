@@ -87,7 +87,7 @@ inputs:
       Example file: null
     type: File?
     format:
-    - edam:format_2330
+    - edam:format_2033
     inputBinding:
       prefix: --input_ndx_path
 
@@ -119,7 +119,7 @@ outputs:
     format: edam:format_3987
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

@@ -63,21 +63,21 @@ inputs:
       Path to the output file
       Type: string
       File type: output
-      Accepted formats: xtc, trr, cpt, gro, g96, pdb, tng
+      Accepted formats: pdb, xtc, trr, cpt, gro, g96, tng
       Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gromacs/ref_trjconv.str.pdb
     type: string
     format:
+    - edam:format_1476
     - edam:format_3875
     - edam:format_3910
     - edam:format_2333
     - edam:format_2033
     - edam:format_2033
-    - edam:format_1476
     - edam:format_3876
     inputBinding:
       position: 3
       prefix: --output_str_path
-    default: system.xtc
+    default: system.pdb
 
   input_index_path:
     label: Path to the GROMACS index file
@@ -109,10 +109,10 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_str_path)
-    format: edam:format_3875
+    format: edam:format_1476
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

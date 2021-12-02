@@ -47,7 +47,7 @@ inputs:
     - edam:format_3878
     - edam:format_3650
     - edam:format_3650
-    - edam:format_3650
+    - edam:format_3886
     inputBinding:
       position: 2
       prefix: --input_crd_path
@@ -106,7 +106,7 @@ inputs:
     - edam:format_3886
     - edam:format_3650
     - edam:format_3650
-    - edam:format_3650
+    - edam:format_3886
     inputBinding:
       position: 5
       prefix: --output_rst_path
@@ -148,7 +148,7 @@ inputs:
       Input reference coordinates for position restraints
       Type: string
       File type: input
-      Accepted formats: rst, rst7, netcdf, nc, ncrst
+      Accepted formats: rst, rst7, netcdf, nc, ncrst, crd
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/sander/sander.rst
     type: File?
     format:
@@ -156,7 +156,8 @@ inputs:
     - edam:format_3886
     - edam:format_3650
     - edam:format_3650
-    - edam:format_3650
+    - edam:format_3886
+    - edam:format_3878
     inputBinding:
       prefix: --input_ref_path
 
@@ -271,7 +272,7 @@ outputs:
     format: edam:format_2330
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl
