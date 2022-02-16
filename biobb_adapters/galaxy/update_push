@@ -1,8 +1,8 @@
 #!/bin/csh
 foreach s (../../../biobb*/*/json_schemas/*json)
 echo $s
-python json2galaxy.py --extended --create_dir $s
+python json2galaxy.py --create_dir $s
 end 
 git add .
-git commit -m "Auto xml's Update (extended version)"
+git commit -m "Auto xml's Update"
 git push origin

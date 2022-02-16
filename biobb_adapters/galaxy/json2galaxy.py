@@ -20,7 +20,6 @@ def tool_name(orig):
 def main():
     """ Usage: json2galaxy.py [-h] [--template TEMPLATE] [--containers CONTAINERS]
                       [--id ID] [--display_name DISPLAY_NAME] [--create_dir]
-                      [--extended]
                       schema
         positional arguments:                                                                    
             * schema (**str**)      Path to Json schema from building block                                  
@@ -30,7 +29,6 @@ def main():
             * --id (**str**)        tool id for Galaxy (default biobb_tool name)
             * --display_name (**str**) Tool name to display in Galaxy (default tool_name)
             * --create_dir (**bool**)  Create biobb group adapter directory (default False)
-            * --extended (**bool**)    Create detailed from for properties (default False)
     """
     parser = argparse.ArgumentParser(description='Build galaxy adapters.')
     parser.add_argument("--template", default=TEMPL, help="Template for XML galaxy adapter")
@@ -38,7 +36,6 @@ def main():
     parser.add_argument("--id", help="tool id for Galaxy")
     parser.add_argument("--display_name", help="Tool name to display in Galaxy")
     parser.add_argument("--create_dir", action="store_true", help="Create biobb directory")
-    parser.add_argument("--extended", action="store_true", help="Create detailed properties form")
     parser.add_argument(dest="schema", help="Json schema from building block")
     
     args = parser.parse_args()
@@ -118,7 +115,7 @@ def main():
                 'file_types':[],
                 'description': schema_data['properties'][f]['description'],
                 'optional': f not in schema_data['required']
-                }
+            }
             
             if 'enum' in schema_data['properties'][f]:
                 for v in schema_data['properties'][f]['enum']:
@@ -138,7 +135,7 @@ def main():
             
             data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
         
-        elif args.extended:
+        else:
             # Parsing properties
             # TODO include more structured information in json schema to avoid re
 
