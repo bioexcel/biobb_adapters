@@ -48,9 +48,13 @@
           <param name="input_model_path" type="data" format="h5"  optional="False" label="input H5 file" help="Path to the input model. Format: [input].h5"/> 
         
         
-          <param name="outname_output_decode_path" type="text" value="myneural_network_decode.csv" optional="False" label="output CSV name" help="Path to the output decode file Format: [output].csv "/>
+          <param name="outname_output_decode_path" type="text" value="myneural_network_decode.csv" 
+              optional="False" label="output CSV name" 
+              help="Path to the output decode file Format: [output].csv "/>
         
-          <param name="outname_output_predict_path" type="text" value="myneural_network_decode.csv" optional="True" label="output CSV name" help="Path to the output predict file Format: [output].csv "/>
+          <param name="outname_output_predict_path" type="text" value="myneural_network_decode.csv" 
+              optional="True" label="output CSV name" 
+              help="Path to the output predict file Format: [output].csv "/>
         
         
     </inputs>

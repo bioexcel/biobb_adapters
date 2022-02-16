@@ -44,7 +44,9 @@
           <param name="input_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the input file. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_path" type="text" value="myreduce_add_hydrogens.pdb" optional="False" label="output PDB name" help="Path to the output file Format: [output].pdb "/>
+          <param name="outname_output_path" type="text" value="myreduce_add_hydrogens.pdb" 
+              optional="False" label="output PDB name" 
+              help="Path to the output file Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="flip" type="boolean" 
                   

@@ -48,9 +48,13 @@
           <param name="input_top_path" type="data" format="top,parmtop,prmtop"  optional="False" label="input TOP,PARMTOP,PRMTOP file" help="Input AMBER topology file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_cpin_path" type="text" value="myparmed_cpinutil.cpin" optional="False" label="output CPIN name" help="Output AMBER constant pH input (CPin) file Format: [output].cpin "/>
+          <param name="outname_output_cpin_path" type="text" value="myparmed_cpinutil.cpin" 
+              optional="False" label="output CPIN name" 
+              help="Output AMBER constant pH input (CPin) file Format: [output].cpin "/>
         
-          <param name="outname_output_top_path" type="text" value="myparmed_cpinutil.top" optional="True" label="output TOP,PARMTOP,PRMTOP name" help="Output topology file (AMBER ParmTop) Format: [output].[format] "/>
+          <param name="outname_output_top_path" type="text" value="myparmed_cpinutil.top" 
+              optional="True" label="output TOP,PARMTOP,PRMTOP name" 
+              help="Output topology file (AMBER ParmTop) Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -67,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="resnames" type="select" label="resnames" help="Residue names to include in CPIN file. " multiple="">
                   
@@ -124,6 +128,22 @@
               <param name="system" type="text" label="system" help="Name of system to titrate." optional="false"
                   value="Unknown"
                 />
+            
+              <param name="output_format" type="select" label="output_format" help="Format of the output file" multiple="">
+                  
+                    <option value="top" 
+                      
+                    >top - </option>
+                  
+                    <option value="parmtop" 
+                      
+                    >parmtop - </option>
+                  
+                    <option value="prmtop" 
+                      
+                    >prmtop - </option>
+                  
+                </param>
                     
           </section>
     </inputs>

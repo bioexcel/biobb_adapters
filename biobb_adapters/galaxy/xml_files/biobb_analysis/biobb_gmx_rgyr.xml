@@ -64,7 +64,9 @@
           <param name="input_index_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
         
-          <param name="outname_output_xvg_path" type="text" value="mygmx_rgyr.xvg" optional="False" label="output XVG name" help="Path to the XVG output file Format: [output].xvg "/>
+          <param name="outname_output_xvg_path" type="text" value="mygmx_rgyr.xvg" 
+              optional="False" label="output XVG name" 
+              help="Path to the XVG output file Format: [output].xvg "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -81,7 +83,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="xvg" type="select" label="xvg" help="XVG plot formatting. " multiple="">
                   

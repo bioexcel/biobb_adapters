@@ -58,9 +58,13 @@
           <param name="input_b_xvg_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the zip file containing the dgdl.xvg files of the B state. Format: [input].zip"/> 
         
         
-          <param name="outname_output_result_path" type="text" value="mypmxanalyse.txt" optional="False" label="output TXT name" help="Path to the TXT results file Format: [output].txt "/>
+          <param name="outname_output_result_path" type="text" value="mypmxanalyse.txt" 
+              optional="False" label="output TXT name" 
+              help="Path to the TXT results file Format: [output].txt "/>
         
-          <param name="outname_output_work_plot_path" type="text" value="mypmxanalyse.png" optional="False" label="output PNG name" help="Path to the PNG plot results file Format: [output].png "/>
+          <param name="outname_output_work_plot_path" type="text" value="mypmxanalyse.png" 
+              optional="False" label="output PNG name" 
+              help="Path to the PNG plot results file Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -77,7 +81,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="method" type="select" label="method" help="Choose one or more estimators to use. " multiple="">
                   

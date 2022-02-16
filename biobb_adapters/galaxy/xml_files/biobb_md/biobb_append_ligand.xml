@@ -64,7 +64,9 @@
           <param name="input_posres_itp_path" type="data" format="itp"  optional="True" label="input ITP file" help="Path to the position restriction ITP file. Format: [input].itp"/> 
         
         
-          <param name="outname_output_top_zip_path" type="text" value="myappend_ligand.zip" optional="False" label="output ZIP name" help="Path/Name the output topology TOP and ITP files zipball Format: [output].zip "/>
+          <param name="outname_output_top_zip_path" type="text" value="myappend_ligand.zip" 
+              optional="False" label="output ZIP name" 
+              help="Path/Name the output topology TOP and ITP files zipball Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -81,7 +83,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="posres_name" type="text" label="posres_name" help="String to be included in the ifdef clause." optional="false"
                   value="POSRES_LIGAND"

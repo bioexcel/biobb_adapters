@@ -54,7 +54,9 @@
           <param name="input_summary" type="data" format="json"  optional="False" label="input JSON file" help="Path to the JSON summary file returned by fpocket. Format: [input].json"/> 
         
         
-          <param name="outname_output_filter_pockets_zip" type="text" value="myfpocket_filter.zip" optional="False" label="output ZIP name" help="Path to the selected pockets after filtering Format: [output].zip "/>
+          <param name="outname_output_filter_pockets_zip" type="text" value="myfpocket_filter.zip" 
+              optional="False" label="output ZIP name" 
+              help="Path to the selected pockets after filtering Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="score" type="text" label="score" help="List of two float numbers between 0 and 1 indicating the score range. Indicates the fpocket score after the evaluation of pocket prediction accuracy as defined in the fpocket paper. (Json)" value="[]" />
             

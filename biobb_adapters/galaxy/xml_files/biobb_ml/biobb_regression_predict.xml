@@ -54,7 +54,9 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="True" label="input CSV file" help="Path to the dataset to predict. Format: [input].csv"/> 
         
         
-          <param name="outname_output_results_path" type="text" value="myregression_predict.csv" optional="False" label="output CSV name" help="Path to the output results file Format: [output].csv "/>
+          <param name="outname_output_results_path" type="text" value="myregression_predict.csv" 
+              optional="False" label="output CSV name" 
+              help="Path to the output results file Format: [output].csv "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="predictions" type="text" label="predictions" help="List of dictionaries with all values you want to predict targets. It will be taken into account only in case **input_dataset_path** is not provided. Format: [{ &#39;var1&#39;: 1.0, &#39;var2&#39;: 2.0 }, { &#39;var1&#39;: 4.0, &#39;var2&#39;: 2.7 }] for datasets with headers and [[ 1.0, 2.0 ], [ 4.0, 2.7 ]] for datasets without headers. (Json)" value="[]" />
                     

@@ -34,7 +34,9 @@
           <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="myfix_chirality.pdb" optional="False" label="output PDB name" help="Output PDB file path Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="myfix_chirality.pdb" 
+              optional="False" label="output PDB name" 
+              help="Output PDB file path Format: [output].pdb "/>
         
         
     </inputs>

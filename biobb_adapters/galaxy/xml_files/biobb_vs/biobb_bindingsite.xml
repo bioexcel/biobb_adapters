@@ -54,7 +54,9 @@
           <param name="input_clusters_zip" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the ZIP file with all the PDB members of the identity cluster. Format: [input].zip"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mybindingsite.pdb" optional="False" label="output PDB name" help="Path to the PDB containig the residues belonging to the binding site Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mybindingsite.pdb" 
+              optional="False" label="output PDB name" 
+              help="Path to the PDB containig the residues belonging to the binding site Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="ligand" type="text" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, the largest one will be selected, if more than one." optional="true"
                   

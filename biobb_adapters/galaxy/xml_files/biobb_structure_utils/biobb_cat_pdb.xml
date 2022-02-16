@@ -44,7 +44,9 @@
           <param name="input_structure2" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" optional="False" label="output PDB name" help="Output protein file path Format: [output].pdb "/>
+          <param name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" 
+              optional="False" label="output PDB name" 
+              help="Output protein file path Format: [output].pdb "/>
         
         
     </inputs>

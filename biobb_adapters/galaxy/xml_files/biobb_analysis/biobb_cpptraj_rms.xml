@@ -64,7 +64,9 @@
           <param name="input_exp_path" type="data" format="pdb"  optional="True" label="input PDB file" help="Path to the experimental reference file (required if reference = experimental). Format: [input].pdb"/> 
         
         
-          <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_rms.dat" optional="False" label="output DAT,AGR,XMGR,GNU name" help="Path to the output processed analysis Format: [output].[format] "/>
+          <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_rms.dat" 
+              optional="False" label="output DAT,AGR,XMGR,GNU name" 
+              help="Path to the output processed analysis Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -81,7 +83,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="start" type="integer" 
                   value="1"
@@ -153,6 +155,26 @@
               <param name="cpptraj_path" type="text" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"
                   value="cpptraj"
                 />
+            
+              <param name="output_format" type="select" label="output_format" help="Format of the output file" multiple="">
+                  
+                    <option value="dat" 
+                      
+                    >dat - </option>
+                  
+                    <option value="agr" 
+                      
+                    >agr - </option>
+                  
+                    <option value="xmgr" 
+                      
+                    >xmgr - </option>
+                  
+                    <option value="gnu" 
+                      
+                    >gnu - </option>
+                  
+                </param>
                     
           </section>
     </inputs>

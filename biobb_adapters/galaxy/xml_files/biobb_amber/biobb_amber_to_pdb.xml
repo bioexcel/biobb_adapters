@@ -41,10 +41,12 @@
         
           <param name="input_top_path" type="data" format="top,parmtop,prmtop"  optional="False" label="input TOP,PARMTOP,PRMTOP file" help="AMBER topology file. Format: [input].[format]"/> 
         
-          <param name="input_crd_path" type="data" format="crd,mdcrd,inpcrd"  optional="False" label="input CRD,MDCRD,INPCRD file" help="AMBER coordinates file. Format: [input].[format]"/> 
+          <param name="input_crd_path" type="data" format="crd,mdcrd,inpcrd,rst"  optional="False" label="input CRD,MDCRD,INPCRD,RST file" help="AMBER coordinates file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="myamber_to_pdb.pdb" optional="False" label="output PDB name" help="Structure PDB file Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="myamber_to_pdb.pdb" 
+              optional="False" label="output PDB name" 
+              help="Structure PDB file Format: [output].pdb "/>
         
         
     </inputs>

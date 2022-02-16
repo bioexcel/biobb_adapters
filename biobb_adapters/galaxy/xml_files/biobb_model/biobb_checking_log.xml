@@ -34,7 +34,9 @@
           <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_log_path" type="text" value="mychecking_log.log" optional="False" label="output LOG name" help="Output report log file path Format: [output].log "/>
+          <param name="outname_output_log_path" type="text" value="mychecking_log.log" 
+              optional="False" label="output LOG name" 
+              help="Output report log file path Format: [output].log "/>
         
         
     </inputs>

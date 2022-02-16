@@ -48,9 +48,13 @@
           <param name="input_pockets_zip" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the pockets found by fpocket. Format: [input].zip"/> 
         
         
-          <param name="outname_output_pocket_pdb" type="text" value="myfpocket_select.pdb" optional="False" label="output PDB name" help="Path to the PDB file with the cavity found by fpocket Format: [output].pdb "/>
+          <param name="outname_output_pocket_pdb" type="text" value="myfpocket_select.pdb" 
+              optional="False" label="output PDB name" 
+              help="Path to the PDB file with the cavity found by fpocket Format: [output].pdb "/>
         
-          <param name="outname_output_pocket_pqr" type="text" value="myfpocket_select.pqr" optional="False" label="output PQR name" help="Path to the PQR file with the pocket found by fpocket Format: [output].pqr "/>
+          <param name="outname_output_pocket_pqr" type="text" value="myfpocket_select.pqr" 
+              optional="False" label="output PQR name" 
+              help="Path to the PQR file with the pocket found by fpocket Format: [output].pqr "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -67,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="pocket" type="integer" 
                   value="1"

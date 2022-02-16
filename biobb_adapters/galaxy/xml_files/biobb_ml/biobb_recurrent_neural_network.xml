@@ -52,11 +52,17 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_model_path" type="text" value="myrecurrent_neural_network.h5" optional="False" label="output H5 name" help="Path to the output model file Format: [output].h5 "/>
+          <param name="outname_output_model_path" type="text" value="myrecurrent_neural_network.h5" 
+              optional="False" label="output H5 name" 
+              help="Path to the output model file Format: [output].h5 "/>
         
-          <param name="outname_output_test_table_path" type="text" value="myrecurrent_neural_network.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
+          <param name="outname_output_test_table_path" type="text" value="myrecurrent_neural_network.csv" 
+              optional="True" label="output CSV name" 
+              help="Path to the test table file Format: [output].csv "/>
         
-          <param name="outname_output_plot_path" type="text" value="myrecurrent_neural_network.png" optional="True" label="output PNG name" help="Loss, accuracy and MSE plots Format: [output].png "/>
+          <param name="outname_output_plot_path" type="text" value="myrecurrent_neural_network.png" 
+              optional="True" label="output PNG name" 
+              help="Loss, accuracy and MSE plots Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -73,7 +79,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="target" type="text" label="target" help="Dependent variable you want to predict from your dataset. You can specify either a column name or a column index. Formats: { &#34;column&#34;: &#34;column3&#34; } or { &#34;index&#34;: 21 }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
             

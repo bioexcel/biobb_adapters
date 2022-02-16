@@ -104,17 +104,29 @@
           <param name="input_ref_path" type="data" format="crd,mdcrd,inpcrd,rst,rst7,netcdf,nc,ncrst"  optional="True" label="input CRD,MDCRD,INPCRD,RST,RST7,NETCDF,NC,NCRST file" help="Input reference coordinates for position restraints. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_log_path" type="text" value="mypmemd_mdrun.log" optional="False" label="output LOG,OUT,TXT,O name" help="Output log file Format: [output].[format] "/>
+          <param name="outname_output_log_path" type="text" value="mypmemd_mdrun.log" 
+              optional="False" label="output LOG,OUT,TXT,O name" 
+              help="Output log file Format: [output].[format] "/>
         
-          <param name="outname_output_traj_path" type="text" value="mypmemd_mdrun.trj" optional="False" label="output TRJ,CRD,MDCRD,X,NETCDF,NC name" help="Output trajectory file Format: [output].[format] "/>
+          <param name="outname_output_traj_path" type="text" value="mypmemd_mdrun.trj" 
+              optional="False" label="output TRJ,CRD,MDCRD,X,NETCDF,NC name" 
+              help="Output trajectory file Format: [output].[format] "/>
         
-          <param name="outname_output_rst_path" type="text" value="mypmemd_mdrun.rst" optional="False" label="output RST,RST7,NETCDF,NC,NCRST name" help="Output restart file Format: [output].[format] "/>
+          <param name="outname_output_rst_path" type="text" value="mypmemd_mdrun.rst" 
+              optional="False" label="output RST,RST7,NETCDF,NC,NCRST name" 
+              help="Output restart file Format: [output].[format] "/>
         
-          <param name="outname_output_cpout_path" type="text" value="mypmemd_mdrun.cpout" optional="True" label="output CPOUT name" help="Output constant pH file (AMBER cpout) Format: [output].cpout "/>
+          <param name="outname_output_cpout_path" type="text" value="mypmemd_mdrun.cpout" 
+              optional="True" label="output CPOUT name" 
+              help="Output constant pH file (AMBER cpout) Format: [output].cpout "/>
         
-          <param name="outname_output_cprst_path" type="text" value="mypmemd_mdrun.cprst" optional="True" label="output CPRST,RST,RST7 name" help="Output constant pH restart file (AMBER rstout) Format: [output].[format] "/>
+          <param name="outname_output_cprst_path" type="text" value="mypmemd_mdrun.cprst" 
+              optional="True" label="output CPRST,RST,RST7 name" 
+              help="Output constant pH restart file (AMBER rstout) Format: [output].[format] "/>
         
-          <param name="outname_output_mdinfo_path" type="text" value="mypmemd_mdrun.mdinfo" optional="True" label="output MDINFO name" help="Output MD info Format: [output].mdinfo "/>
+          <param name="outname_output_mdinfo_path" type="text" value="mypmemd_mdrun.mdinfo" 
+              optional="True" label="output MDINFO name" 
+              help="Output MD info Format: [output].mdinfo "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -131,7 +143,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="mdin" type="text" label="mdin" help="pmemd MD run options specification. (Used if *input_mdin_path* is None) (Json)" value="{}" />
             
@@ -175,6 +187,94 @@
               <param name="mpi_flags" type="text" label="mpi_flags" help="Path to the MPI hostlist file." optional="true"
                   
                 />
+            
+              <param name="output_log_path_format" type="select" label="output_log_path_format" help="Format of the output file" multiple="">
+                  
+                    <option value="log" 
+                      
+                    >log - </option>
+                  
+                    <option value="out" 
+                      
+                    >out - </option>
+                  
+                    <option value="txt" 
+                      
+                    >txt - </option>
+                  
+                    <option value="o" 
+                      
+                    >o - </option>
+                  
+                </param>
+            
+              <param name="output_traj_path_format" type="select" label="output_traj_path_format" help="Format of the output file" multiple="">
+                  
+                    <option value="trj" 
+                      
+                    >trj - </option>
+                  
+                    <option value="crd" 
+                      
+                    >crd - </option>
+                  
+                    <option value="mdcrd" 
+                      
+                    >mdcrd - </option>
+                  
+                    <option value="x" 
+                      
+                    >x - </option>
+                  
+                    <option value="netcdf" 
+                      
+                    >netcdf - </option>
+                  
+                    <option value="nc" 
+                      
+                    >nc - </option>
+                  
+                </param>
+            
+              <param name="output_rst_path_format" type="select" label="output_rst_path_format" help="Format of the output file" multiple="">
+                  
+                    <option value="rst" 
+                      
+                    >rst - </option>
+                  
+                    <option value="rst7" 
+                      
+                    >rst7 - </option>
+                  
+                    <option value="netcdf" 
+                      
+                    >netcdf - </option>
+                  
+                    <option value="nc" 
+                      
+                    >nc - </option>
+                  
+                    <option value="ncrst" 
+                      
+                    >ncrst - </option>
+                  
+                </param>
+            
+              <param name="output_cprst_path_format" type="select" label="output_cprst_path_format" help="Format of the output file" multiple="">
+                  
+                    <option value="cprst" 
+                      
+                    >cprst - </option>
+                  
+                    <option value="rst" 
+                      
+                    >rst - </option>
+                  
+                    <option value="rst7" 
+                      
+                    >rst7 - </option>
+                  
+                </param>
                     
           </section>
     </inputs>
@@ -183,13 +283,13 @@
         <data name="output_log_path" format="text" label="${outname_output_log_path}">
             <change_format>
             
-            <when input="properties.output_format" value="log" format="log" />
+            <when input="properties.output_log_path_format" value="log" format="log" />
             
-            <when input="properties.output_format" value="out" format="out" />
+            <when input="properties.output_log_path_format" value="out" format="out" />
             
-            <when input="properties.output_format" value="txt" format="txt" />
+            <when input="properties.output_log_path_format" value="txt" format="txt" />
             
-            <when input="properties.output_format" value="o" format="o" />
+            <when input="properties.output_log_path_format" value="o" format="o" />
             
             </change_format>
           </data>
@@ -197,17 +297,17 @@
         <data name="output_traj_path" format="text" label="${outname_output_traj_path}">
             <change_format>
             
-            <when input="properties.output_format" value="trj" format="trj" />
+            <when input="properties.output_traj_path_format" value="trj" format="trj" />
             
-            <when input="properties.output_format" value="crd" format="crd" />
+            <when input="properties.output_traj_path_format" value="crd" format="crd" />
             
-            <when input="properties.output_format" value="mdcrd" format="mdcrd" />
+            <when input="properties.output_traj_path_format" value="mdcrd" format="mdcrd" />
             
-            <when input="properties.output_format" value="x" format="x" />
+            <when input="properties.output_traj_path_format" value="x" format="x" />
             
-            <when input="properties.output_format" value="netcdf" format="netcdf" />
+            <when input="properties.output_traj_path_format" value="netcdf" format="netcdf" />
             
-            <when input="properties.output_format" value="nc" format="nc" />
+            <when input="properties.output_traj_path_format" value="nc" format="nc" />
             
             </change_format>
           </data>
@@ -215,15 +315,15 @@
         <data name="output_rst_path" format="text" label="${outname_output_rst_path}">
             <change_format>
             
-            <when input="properties.output_format" value="rst" format="rst" />
+            <when input="properties.output_rst_path_format" value="rst" format="rst" />
             
-            <when input="properties.output_format" value="rst7" format="rst7" />
+            <when input="properties.output_rst_path_format" value="rst7" format="rst7" />
             
-            <when input="properties.output_format" value="netcdf" format="netcdf" />
+            <when input="properties.output_rst_path_format" value="netcdf" format="netcdf" />
             
-            <when input="properties.output_format" value="nc" format="nc" />
+            <when input="properties.output_rst_path_format" value="nc" format="nc" />
             
-            <when input="properties.output_format" value="ncrst" format="ncrst" />
+            <when input="properties.output_rst_path_format" value="ncrst" format="ncrst" />
             
             </change_format>
           </data>
@@ -234,11 +334,11 @@
         <data name="output_cprst_path" format="text" label="${outname_output_cprst_path}">
             <change_format>
             
-            <when input="properties.output_format" value="cprst" format="cprst" />
+            <when input="properties.output_cprst_path_format" value="cprst" format="cprst" />
             
-            <when input="properties.output_format" value="rst" format="rst" />
+            <when input="properties.output_cprst_path_format" value="rst" format="rst" />
             
-            <when input="properties.output_format" value="rst7" format="rst7" />
+            <when input="properties.output_cprst_path_format" value="rst7" format="rst7" />
             
             </change_format>
           </data>

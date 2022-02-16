@@ -1,6 +1,7 @@
 """ Utility to generate Galaxy automated tool definitions (XML) from biobb json_schemas """
 
 import argparse
+from itertools import count
 import json
 import os
 import re
@@ -107,6 +108,9 @@ def main():
         data['version'] = '0.1.0'
         
     data['description'] = schema_data['title']
+    
+    multiple_formats_required = [];
+
     for f in schema_data['properties']:
         if f != 'properties':
             # Parsing input and output files
@@ -122,12 +126,13 @@ def main():
                     m = re.search(r"\w+", v)
                     tool_data['file_types'].append(m.group(0))
         
-            
             tool_data['format'] = ','.join(tool_data['file_types'])
             
             if len(tool_data['file_types']) > 1:
                 tool_data['help_format'] = '[format]'
                 tool_data['multiple_format'] = "output_format"
+                if schema_data['properties'][f]['filetype'] == 'output':
+                    multiple_formats_required.append(tool_data)            
             else:
                 tool_data['help_format'] = tool_data['format']
             
@@ -137,7 +142,7 @@ def main():
         
         else:
             # Parsing properties
-            # TODO include more structured information in json schema to avoid re
+            # TODO check structured information in json schema to avoid re
 
             props_str=[]
             for k,v in schema_data['properties'][f]['properties'].items():
@@ -193,6 +198,27 @@ def main():
             
             data['config_str'] = "__oc__" + ",".join(props_str) + "__cc__"
             #print(data)
+            # Adding output_format when multiple output formats
+            n_formats_required = len(multiple_formats_required);
+            if multiple_formats_required:
+                for tool in multiple_formats_required:
+                    param_name = 'output_format'
+                    if n_formats_required > 1 :
+                        param_name = tool['name'] + '_format'
+                    if param_name not in data['props']:
+                        data['props'][param_name] = {
+                            'type': 'select',
+                            'default': None,
+                            'wf_prop': False,
+                            'description': 'Format of the output file',
+                            'enum': tool['file_types'],
+                            'property_formats': {},
+                            'values': tool['file_types'],
+                            'optional': 'true'
+                        }
+                        data['files']['output'][tool['name']]['multiple_format'] = param_name
+                        print(f"WARNING: added {param_name} property due to {tool['name']}")
+
     env = Environment(
         loader=FileSystemLoader(template_dir),
         autoescape=select_autoescape(['xml'])

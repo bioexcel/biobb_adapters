@@ -54,7 +54,9 @@
           <param name="input_ndx_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the input index NDX file. Format: [input].ndx"/> 
         
         
-          <param name="outname_output_ndx_path" type="text" value="mymake_ndx.ndx" optional="False" label="output NDX name" help="Path to the output index NDX file Format: [output].ndx "/>
+          <param name="outname_output_ndx_path" type="text" value="mymake_ndx.ndx" 
+              optional="False" label="output NDX name" 
+              help="Path to the output index NDX file Format: [output].ndx "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="selection" type="text" label="selection" help="Heavy atoms. Atom selection string." optional="false"
                   value="a CA C N O"

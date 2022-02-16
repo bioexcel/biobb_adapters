@@ -44,7 +44,9 @@
           <param name="input_pdb_path" type="data" format="pdb,pqr"  optional="False" label="input PDB,PQR file" help="PDB file containing a selection of residue numbers or PQR file containing the pocket. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mybox.pdb" optional="False" label="output PDB name" help="PDB including the annotation of the box center and size as REMARKs Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mybox.pdb" 
+              optional="False" label="output PDB name" 
+              help="PDB including the annotation of the box center and size as REMARKs Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="offset" type="float" 
                   value="2.0"

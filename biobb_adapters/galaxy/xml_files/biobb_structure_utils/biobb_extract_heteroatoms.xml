@@ -44,7 +44,9 @@
           <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_heteroatom_path" type="text" value="myextract_heteroatoms.pdb" optional="False" label="output PDB name" help="Output heteroatom file path Format: [output].pdb "/>
+          <param name="outname_output_heteroatom_path" type="text" value="myextract_heteroatoms.pdb" 
+              optional="False" label="output PDB name" 
+              help="Output heteroatom file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="heteroatoms" type="text" label="heteroatoms" help="List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{&#34;name&#34;: &#34;ZZ7&#34;, &#34;res_id&#34;: &#34;302&#34;, &#34;chain&#34;: &#34;B&#34;, &#34;model&#34;: &#34;1&#34;}]. If empty, all the heteroatoms of the structure will be returned. (Json)" value="[]" />
             

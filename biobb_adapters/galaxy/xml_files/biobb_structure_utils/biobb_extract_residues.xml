@@ -1,52 +1,52 @@
-<tool id="biobb_vs_box_residues_ext" name="BoxResidues" version="3.6.0" >
-    <description>: This class sets the center and the size of a rectangular parallelepiped box around a set of residues.</description>
+<tool id="biobb_structure_utils_extract_residues_ext" name="ExtractResidues" version="3.6.1" >
+    <description>: Class to extract residues from a 3D structure using Biopython.</description>
     <requirements>
-        <requirement type="package">biobb_vs</requirement>
+        <requirement type="package">biobb_structure_utils</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
+          ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
         
         #if $config.sele == "option1":
             ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
           #end if
         
-        box_residues
+        extract_residues
 
         #if $config.sele == "option1":
             --config ${config.properties}.${config.properties.ext}
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__resid_list__dq__:${properties.resid_list},__dq__offset__dq__:${properties.offset},__dq__box_coordinates__dq__:${properties.box_coordinates},__dq__residue_offset__dq__:${properties.residue_offset}__cc__"
+            --config "__oc____dq__residues__dq__:${properties.residues}__cc__"
           #end if
         
-          #if str($input_pdb_path) != 'None':
-            --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+          #if str($input_structure_path) != 'None':
+            --input_structure_path ${input_structure_path}.${input_structure_path.ext}
           #end if
         
         
-          --output_pdb_path $__new_file_path__/$outname_output_pdb_path
+          --output_residues_path $__new_file_path__/$outname_output_residues_path
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
           #end if
         
-          rm -f ${input_pdb_path}.${input_pdb_path.ext};
+          rm -f ${input_structure_path}.${input_structure_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
+          if test -f $__new_file_path__/$outname_output_residues_path; then mv $__new_file_path__/$outname_output_residues_path $output_residues_path; fi;
         
     ]]>
     </command>
     <inputs>
         
-          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="PDB protein structure for which the box will be build. Its size and center will be set around the &#39;resid_list&#39; property once mapped against this PDB. Format: [input].pdb"/> 
+          <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mybox_residues.pdb" 
+          <param name="outname_output_residues_path" type="text" value="myextract_residues.pdb" 
               optional="False" label="output PDB name" 
-              help="PDB including the annotation of the box center and size as REMARKs Format: [output].pdb "/>
+              help="Output residues file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -65,29 +65,14 @@
           </conditional>
           <section name="properties" title="Properties Input">
             
-              <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
-            
-              <param name="offset" type="float" 
-                  value="2.0"
-                  min="0.1" max="1000.0"
-                  label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
-            
-              <param name="box_coordinates" type="boolean" 
-                  
-                  label="box_coordinates" help="Add box coordinates as 8 ATOM records." 
-                />
-            
-              <param name="residue_offset" type="integer" 
-                  
-                  
-                  label="residue_offset" help="Residue id offset." optional="true"/>
+              <param name="residues" type="text" label="residues" help="List of comma separated res_id (will extract all residues that match the res_id) or list of dictionaries with the name | res_id  | chain | model of the heteroatoms to be extracted. Format: [{&#34;name&#34;: &#34;HIS&#34;, &#34;res_id&#34;: &#34;72&#34;, &#34;chain&#34;: &#34;A&#34;, &#34;model&#34;: &#34;1&#34;}]. (Json)" value="[]" />
                     
           </section>
     </inputs>
     <outputs>
         
         
-          <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
+          <data name="output_residues_path" format="pdb" label="${outname_output_residues_path}"/>
         
     </outputs>
     <tests>
@@ -97,7 +82,7 @@
     <help>
 .. class:: infomark
         
-Check the syntax for the tool parameters at the original library documentation: https://biobb_vs.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb_structure_utils.readthedocs.io/en/latest
 
 -----
 
@@ -120,7 +105,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_vs},
+            url = {https://github.com/bioexcel/biobb_structure_utils},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

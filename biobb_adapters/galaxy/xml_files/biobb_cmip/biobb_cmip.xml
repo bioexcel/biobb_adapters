@@ -53,6 +53,8 @@
           --output_rst_path $__new_file_path__/$outname_output_rst_path
         
           --output_byat_path $__new_file_path__/$outname_output_byat_path
+        
+          --output_log_path $__new_file_path__/$outname_output_log_path
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
@@ -77,6 +79,8 @@
         
           if test -f $__new_file_path__/$outname_output_byat_path; then mv $__new_file_path__/$outname_output_byat_path $output_byat_path; fi;
         
+          if test -f $__new_file_path__/$outname_output_log_path; then mv $__new_file_path__/$outname_output_log_path $output_log_path; fi;
+        
     ]]>
     </command>
     <inputs>
@@ -90,15 +94,29 @@
           <param name="input_params_path" type="data" format="txt"  optional="True" label="input TXT file" help="Path to the CMIP input parameters file. Format: [input].txt"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mycmip.pdb" optional="True" label="output PDB name" help="Path to the output PDB file Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mycmip.pdb" 
+              optional="True" label="output PDB name" 
+              help="Path to the output PDB file Format: [output].pdb "/>
         
-          <param name="outname_output_grd_path" type="text" value="mycmip.grd" optional="True" label="output GRD name" help="Path to the output grid file in GRD format Format: [output].grd "/>
+          <param name="outname_output_grd_path" type="text" value="mycmip.grd" 
+              optional="True" label="output GRD name" 
+              help="Path to the output grid file in GRD format Format: [output].grd "/>
         
-          <param name="outname_output_cube_path" type="text" value="mycmip.cube" optional="True" label="output CUBE name" help="Path to the output grid file in cube format Format: [output].cube "/>
+          <param name="outname_output_cube_path" type="text" value="mycmip.cube" 
+              optional="True" label="output CUBE name" 
+              help="Path to the output grid file in cube format Format: [output].cube "/>
         
-          <param name="outname_output_rst_path" type="text" value="mycmip.txt" optional="True" label="output TXT name" help="Path to the output restart file Format: [output].txt "/>
+          <param name="outname_output_rst_path" type="text" value="mycmip.txt" 
+              optional="True" label="output TXT name" 
+              help="Path to the output restart file Format: [output].txt "/>
         
-          <param name="outname_output_byat_path" type="text" value="mycmip.txt" optional="True" label="output TXT name" help="Path to the output atom by atom energy file Format: [output].txt "/>
+          <param name="outname_output_byat_path" type="text" value="mycmip.txt" 
+              optional="True" label="output TXT name" 
+              help="Path to the output atom by atom energy file Format: [output].txt "/>
+        
+          <param name="outname_output_log_path" type="text" value="mycmip.log" 
+              optional="False" label="output LOG name" 
+              help="Path to the output CMIP log file LOG Format: [output].log "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -115,13 +133,21 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
-              <param name="execution_type" type="select" label="execution_type" help="Default options for the params file. Each one creates a different params file. " multiple="">
+              <param name="execution_type" type="select" label="execution_type" help="Default options for the params file, each one creates a different params file. " multiple="">
                   
-                    <option value="mip" 
+                    <option value="mip_pos" 
                       selected="true"
-                    >mip - MIP O-  Mehler Solmajer dielectric</option>
+                    >mip_pos - MIP O+  Mehler Solmajer dielectric</option>
+                  
+                    <option value="mip_neg" 
+                      
+                    >mip_neg - MIP O-  Mehler Solmajer dielectric</option>
+                  
+                    <option value="mip_neu" 
+                      
+                    >mip_neu - MIP Oxygen Mehler Solmajer dielectric</option>
                   
                     <option value="solvation" 
                       
@@ -165,6 +191,9 @@
         
         
           <data name="output_byat_path" format="txt" label="${outname_output_byat_path}"/>
+        
+        
+          <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
         
     </outputs>
     <tests>

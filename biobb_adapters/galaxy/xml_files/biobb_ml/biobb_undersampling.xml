@@ -44,7 +44,9 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_dataset_path" type="text" value="myundersampling.csv" optional="False" label="output CSV name" help="Path to the output dataset Format: [output].csv "/>
+          <param name="outname_output_dataset_path" type="text" value="myundersampling.csv" 
+              optional="False" label="output CSV name" 
+              help="Path to the output dataset Format: [output].csv "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="method" type="select" label="method" help="Undersampling method. It&#39;s a mandatory property. " multiple="">
                   

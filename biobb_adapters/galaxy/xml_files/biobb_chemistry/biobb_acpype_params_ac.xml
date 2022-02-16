@@ -56,13 +56,21 @@
           <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_path_frcmod" type="text" value="myacpype_params_ac.frcmod" optional="False" label="output FRCMOD name" help="Path to the FRCMOD output file Format: [output].frcmod "/>
+          <param name="outname_output_path_frcmod" type="text" value="myacpype_params_ac.frcmod" 
+              optional="False" label="output FRCMOD name" 
+              help="Path to the FRCMOD output file Format: [output].frcmod "/>
         
-          <param name="outname_output_path_inpcrd" type="text" value="myacpype_params_ac.inpcrd" optional="False" label="output INPCRD name" help="Path to the INPCRD output file Format: [output].inpcrd "/>
+          <param name="outname_output_path_inpcrd" type="text" value="myacpype_params_ac.inpcrd" 
+              optional="False" label="output INPCRD name" 
+              help="Path to the INPCRD output file Format: [output].inpcrd "/>
         
-          <param name="outname_output_path_lib" type="text" value="myacpype_params_ac.lib" optional="False" label="output LIB name" help="Path to the LIB output file Format: [output].lib "/>
+          <param name="outname_output_path_lib" type="text" value="myacpype_params_ac.lib" 
+              optional="False" label="output LIB name" 
+              help="Path to the LIB output file Format: [output].lib "/>
         
-          <param name="outname_output_path_prmtop" type="text" value="myacpype_params_ac.prmtop" optional="False" label="output PRMTOP name" help="Path to the PRMTOP output file Format: [output].prmtop "/>
+          <param name="outname_output_path_prmtop" type="text" value="myacpype_params_ac.prmtop" 
+              optional="False" label="output PRMTOP name" 
+              help="Path to the PRMTOP output file Format: [output].prmtop "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -79,7 +87,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="basename" type="text" label="basename" help="A basename for the project (folder and output files)." optional="false"
                   value="BBB"

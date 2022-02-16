@@ -48,9 +48,13 @@
           <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_path_itp" type="text" value="myacpype_params_gmx_opls.itp" optional="False" label="output ITP name" help="Path to the ITP output file Format: [output].itp "/>
+          <param name="outname_output_path_itp" type="text" value="myacpype_params_gmx_opls.itp" 
+              optional="False" label="output ITP name" 
+              help="Path to the ITP output file Format: [output].itp "/>
         
-          <param name="outname_output_path_top" type="text" value="myacpype_params_gmx_opls.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
+          <param name="outname_output_path_top" type="text" value="myacpype_params_gmx_opls.top" 
+              optional="False" label="output TOP name" 
+              help="Path to the TOP output file Format: [output].top "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -67,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="basename" type="text" label="basename" help="A basename for the project (folder and output files)." optional="false"
                   value="BBB"

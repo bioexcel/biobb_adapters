@@ -44,7 +44,9 @@
           <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input 3D structure PDB file. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mypdb4amber_run.pdb" optional="False" label="output PDB name" help="Output 3D structure PDB file Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mypdb4amber_run.pdb" 
+              optional="False" label="output PDB name" 
+              help="Output 3D structure PDB file Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="remove_hydrogens" type="boolean" 
                   

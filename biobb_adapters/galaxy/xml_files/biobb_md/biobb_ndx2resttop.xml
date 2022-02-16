@@ -54,7 +54,9 @@
           <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
         
         
-          <param name="outname_output_top_zip_path" type="text" value="myndx2resttop.zip" optional="False" label="output ZIP name" help="Path the output TOP topology in zip format Format: [output].zip "/>
+          <param name="outname_output_top_zip_path" type="text" value="myndx2resttop.zip" 
+              optional="False" label="output ZIP name" 
+              help="Path the output TOP topology in zip format Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="force_constants" type="text" label="force_constants" help="Array of three floats defining the force constants." optional="false"
                   value="500 500 500"

@@ -34,7 +34,9 @@
     <inputs>
         
         
-          <param name="outname_output_sdf_path" type="text" value="myideal_sdf.sdf" optional="False" label="output SDF name" help="Path to the output SDF file Format: [output].sdf "/>
+          <param name="outname_output_sdf_path" type="text" value="myideal_sdf.sdf" 
+              optional="False" label="output SDF name" 
+              help="Path to the output SDF file Format: [output].sdf "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -51,7 +53,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="ligand_code" type="text" label="ligand_code" help="RSCB PDB ligand code." optional="true"
                   

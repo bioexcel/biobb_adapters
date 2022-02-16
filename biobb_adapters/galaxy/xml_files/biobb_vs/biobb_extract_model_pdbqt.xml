@@ -44,7 +44,9 @@
           <param name="input_pdbqt_path" type="data" format="pdbqt"  optional="False" label="input PDBQT file" help="Input PDBQT file. Format: [input].pdbqt"/> 
         
         
-          <param name="outname_output_pdbqt_path" type="text" value="myextract_model_pdbqt.pdbqt" optional="False" label="output PDBQT name" help="Output PDBQT file Format: [output].pdbqt "/>
+          <param name="outname_output_pdbqt_path" type="text" value="myextract_model_pdbqt.pdbqt" 
+              optional="False" label="output PDBQT name" 
+              help="Output PDBQT file Format: [output].pdbqt "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="model" type="integer" 
                   value="1"

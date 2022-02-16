@@ -22,7 +22,7 @@
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__params__dq__:${properties.params},__dq__num_wats__dq__:${properties.num_wats},__dq__neutral__dq__:${properties.neutral},__dq__num_positive_ions__dq__:${properties.num_positive_ions},__dq__num_negative_ions__dq__:${properties.num_negative_ions},__dq__titration_path__dq__:__dq__${properties.titration_path}__dq____cc__"
+            --config "__oc____dq__params__dq__:${properties.params},__dq__energy_cutoff__dq__:${properties.energy_cutoff},__dq__num_wats__dq__:${properties.num_wats},__dq__neutral__dq__:${properties.neutral},__dq__num_positive_ions__dq__:${properties.num_positive_ions},__dq__num_negative_ions__dq__:${properties.num_negative_ions},__dq__titration_path__dq__:__dq__${properties.titration_path}__dq____cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -68,9 +68,13 @@
           <param name="input_params_path" type="data" format="txt"  optional="True" label="input TXT file" help="Path to the CMIP input parameters file. Format: [input].txt"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mytitration.pdb" optional="False" label="output PDB name" help="Path to the output PDB file Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mytitration.pdb" 
+              optional="False" label="output PDB name" 
+              help="Path to the output PDB file Format: [output].pdb "/>
         
-          <param name="outname_output_log_path" type="text" value="mytitration.log" optional="False" label="output LOG name" help="Path to the output Tritration log file LOG Format: [output].log "/>
+          <param name="outname_output_log_path" type="text" value="mytitration.log" 
+              optional="False" label="output LOG name" 
+              help="Path to the output Tritration log file LOG Format: [output].log "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -87,9 +91,14 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="params" type="text" label="params" help="CMIP options specification. (Json)" value="{}" />
+            
+              <param name="energy_cutoff" type="float" 
+                  value="9999.9"
+                  
+                  label="energy_cutoff" help="Energy cutoff, extremely hight value to enable the addition of all the ions and waters before reaching the cutoff." optional="false"/>
             
               <param name="num_wats" type="integer" 
                   value="10"

@@ -48,9 +48,13 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_results_path" type="text" value="myk_neighbors_coefficient.csv" optional="False" label="output CSV name" help="Path to the accuracy values list Format: [output].csv "/>
+          <param name="outname_output_results_path" type="text" value="myk_neighbors_coefficient.csv" 
+              optional="False" label="output CSV name" 
+              help="Path to the accuracy values list Format: [output].csv "/>
         
-          <param name="outname_output_plot_path" type="text" value="myk_neighbors_coefficient.png" optional="True" label="output PNG name" help="Path to the accuracy plot Format: [output].png "/>
+          <param name="outname_output_plot_path" type="text" value="myk_neighbors_coefficient.png" 
+              optional="True" label="output PNG name" 
+              help="Path to the accuracy plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -67,7 +71,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="independent_vars" type="text" label="independent_vars" help="Independent variables or columns from your dataset you want to train. (Json)" value="[]" />
             

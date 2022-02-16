@@ -1,7 +1,7 @@
-<tool id="biobb_vs_box_residues_ext" name="BoxResidues" version="3.6.0" >
-    <description>: This class sets the center and the size of a rectangular parallelepiped box around a set of residues.</description>
+<tool id="biobb_cmip_prepare_pdb_ext" name="PreparePdb" version="0.1.0" >
+    <description>: Class to add CMIP charges and atom types.</description>
     <requirements>
-        <requirement type="package">biobb_vs</requirement>
+        <requirement type="package">biobb_cmip</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -11,14 +11,14 @@
             ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
           #end if
         
-        box_residues
+        prepare_pdb
 
         #if $config.sele == "option1":
             --config ${config.properties}.${config.properties.ext}
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__resid_list__dq__:${properties.resid_list},__dq__offset__dq__:${properties.offset},__dq__box_coordinates__dq__:${properties.box_coordinates},__dq__residue_offset__dq__:${properties.residue_offset}__cc__"
+            --config "__oc____dq__remove_water__dq__:${properties.remove_water},__dq__add_hydrogen__dq__:${properties.add_hydrogen},__dq__keep_hydrogen__dq__:${properties.keep_hydrogen},__dq__fix_sidechains__dq__:${properties.fix_sidechains},__dq__fix_backbone_atoms__dq__:${properties.fix_backbone_atoms}__cc__"
           #end if
         
           #if str($input_pdb_path) != 'None':
@@ -41,12 +41,12 @@
     </command>
     <inputs>
         
-          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="PDB protein structure for which the box will be build. Its size and center will be set around the &#39;resid_list&#39; property once mapped against this PDB. Format: [input].pdb"/> 
+          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mybox_residues.pdb" 
+          <param name="outname_output_pdb_path" type="text" value="myprepare_pdb.pdb" 
               optional="False" label="output PDB name" 
-              help="PDB including the annotation of the box center and size as REMARKs Format: [output].pdb "/>
+              help="Output PDB file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -65,22 +65,30 @@
           </conditional>
           <section name="properties" title="Properties Input">
             
-              <param name="resid_list" type="text" label="resid_list" help="List with all the residue numbers to form a cavity or binding site. Mandatory property. (Json)" value="[]" />
-            
-              <param name="offset" type="float" 
-                  value="2.0"
-                  min="0.1" max="1000.0"
-                  label="offset" help="Extra distance (Angstroms) between the last residue atom and the box boundary." optional="false"/>
-            
-              <param name="box_coordinates" type="boolean" 
-                  
-                  label="box_coordinates" help="Add box coordinates as 8 ATOM records." 
+              <param name="remove_water" type="boolean" 
+                  checked="true"
+                  label="remove_water" help="Remove Water molecules." 
                 />
             
-              <param name="residue_offset" type="integer" 
+              <param name="add_hydrogen" type="boolean" 
+                  checked="true"
+                  label="add_hydrogen" help="Add Hydrogen atoms to the structure." 
+                />
+            
+              <param name="keep_hydrogen" type="boolean" 
                   
-                  
-                  label="residue_offset" help="Residue id offset." optional="true"/>
+                  label="keep_hydrogen" help="If **add_hydrogen** is True. All hydrogen atoms will be removed before adding the new ones unless this option is set True." 
+                />
+            
+              <param name="fix_sidechains" type="boolean" 
+                  checked="true"
+                  label="fix_sidechains" help="Complete side chains (heavy atoms, protein only)." 
+                />
+            
+              <param name="fix_backbone_atoms" type="boolean" 
+                  checked="true"
+                  label="fix_backbone_atoms" help="Add missing O, OXT backbone atoms." 
+                />
                     
           </section>
     </inputs>
@@ -97,7 +105,7 @@
     <help>
 .. class:: infomark
         
-Check the syntax for the tool parameters at the original library documentation: https://biobb_vs.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb_cmip.readthedocs.io/en/latest
 
 -----
 
@@ -120,7 +128,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_vs},
+            url = {https://github.com/bioexcel/biobb_cmip},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

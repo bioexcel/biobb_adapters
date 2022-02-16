@@ -34,7 +34,9 @@
     <inputs>
         
         
-          <param name="outname_output_json_path" type="text" value="mystructure_info.json" optional="False" label="output JSON name" help="Path to the output JSON file with all the structure information Format: [output].json "/>
+          <param name="outname_output_json_path" type="text" value="mystructure_info.json" 
+              optional="False" label="output JSON name" 
+              help="Path to the output JSON file with all the structure information Format: [output].json "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -51,7 +53,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="pdb_code" type="text" label="pdb_code" help="RSCB PDB structure code." optional="true"
                   

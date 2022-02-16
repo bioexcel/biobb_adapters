@@ -44,7 +44,9 @@
           <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_dataset_path" type="text" value="mydummy_variables.csv" optional="False" label="output CSV name" help="Path to the output dataset Format: [output].csv "/>
+          <param name="outname_output_dataset_path" type="text" value="mydummy_variables.csv" 
+              optional="False" label="output CSV name" 
+              help="Path to the output dataset Format: [output].csv "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="targets" type="text" label="targets" help="Independent variables or columns from your dataset you want to drop. If None given, all the columns will be taken. You can specify either a list of columns names from your input dataset, a list of columns indexes or a range of columns indexes. Formats: { &#34;columns&#34;: [&#34;column1&#34;, &#34;column2&#34;] } or { &#34;indexes&#34;: [0, 2, 3, 10, 11, 17] } or { &#34;range&#34;: [[0, 20], [50, 102]] }. In case of mulitple formats, the first one will be picked. (Json)" value="{}" />
                     

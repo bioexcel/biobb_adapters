@@ -64,7 +64,9 @@
           <param name="input_index_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
         
-          <param name="outname_output_traj_path" type="text" value="mygmx_image.xtc" optional="False" label="output XTC,TRR,CPT,GRO,G96,PDB,TNG name" help="Path to the output file Format: [output].[format] "/>
+          <param name="outname_output_traj_path" type="text" value="mygmx_image.xtc" 
+              optional="False" label="output XTC,TRR,CPT,GRO,G96,PDB,TNG name" 
+              help="Path to the output file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -81,7 +83,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="fit_selection" type="select" label="fit_selection" help="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                   
@@ -407,6 +409,38 @@
               <param name="gmx_path" type="text" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"
                   value="gmx"
                 />
+            
+              <param name="output_format" type="select" label="output_format" help="Format of the output file" multiple="">
+                  
+                    <option value="xtc" 
+                      
+                    >xtc - </option>
+                  
+                    <option value="trr" 
+                      
+                    >trr - </option>
+                  
+                    <option value="cpt" 
+                      
+                    >cpt - </option>
+                  
+                    <option value="gro" 
+                      
+                    >gro - </option>
+                  
+                    <option value="g96" 
+                      
+                    >g96 - </option>
+                  
+                    <option value="pdb" 
+                      
+                    >pdb - </option>
+                  
+                    <option value="tng" 
+                      
+                    >tng - </option>
+                  
+                </param>
                     
           </section>
     </inputs>

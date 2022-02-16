@@ -64,7 +64,9 @@
           <param name="input_index_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
         
-          <param name="outname_output_str_ens_path" type="text" value="mygmx_trjconv_str_ens.zip" optional="False" label="output ZIP name" help="Path to the output file Format: [output].zip "/>
+          <param name="outname_output_str_ens_path" type="text" value="mygmx_trjconv_str_ens.zip" 
+              optional="False" label="output ZIP name" 
+              help="Path to the output file Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -81,7 +83,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="selection" type="select" label="selection" help="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. " multiple="">
                   

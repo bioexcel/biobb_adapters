@@ -54,7 +54,9 @@
           <param name="input_file_path2" type="data" format="dcd"  optional="True" label="input DCD file" help="Description for the second input file path (optional). Format: [input].dcd"/> 
         
         
-          <param name="outname_output_file_path" type="text" value="mytemplate_container.zip" optional="False" label="output ZIP name" help="Description for the output file path Format: [output].zip "/>
+          <param name="outname_output_file_path" type="text" value="mytemplate_container.zip" 
+              optional="False" label="output ZIP name" 
+              help="Description for the output file path Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="boolean_property" type="boolean" 
                   checked="true"

@@ -24,7 +24,9 @@
     <inputs>
         
         
-          <param name="outname_output_simulations" type="text" value="mymemprotmd_sim_list.json" optional="False" label="output JSON name" help="Path to the output JSON file Format: [output].json "/>
+          <param name="outname_output_simulations" type="text" value="mymemprotmd_sim_list.json" 
+              optional="False" label="output JSON name" 
+              help="Path to the output JSON file Format: [output].json "/>
         
         
     </inputs>

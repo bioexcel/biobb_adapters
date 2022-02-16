@@ -62,11 +62,17 @@
           <param name="input_predict_path" type="data" format="csv"  optional="True" label="input CSV file" help="Path to the input predict dataset. Format: [input].csv"/> 
         
         
-          <param name="outname_output_model_path" type="text" value="myautoencoder_neural_network.h5" optional="False" label="output H5 name" help="Path to the output model file Format: [output].h5 "/>
+          <param name="outname_output_model_path" type="text" value="myautoencoder_neural_network.h5" 
+              optional="False" label="output H5 name" 
+              help="Path to the output model file Format: [output].h5 "/>
         
-          <param name="outname_output_test_decode_path" type="text" value="myautoencoder_neural_network.csv" optional="True" label="output CSV name" help="Path to the test decode table file Format: [output].csv "/>
+          <param name="outname_output_test_decode_path" type="text" value="myautoencoder_neural_network.csv" 
+              optional="True" label="output CSV name" 
+              help="Path to the test decode table file Format: [output].csv "/>
         
-          <param name="outname_output_test_predict_path" type="text" value="myautoencoder_neural_network.csv" optional="True" label="output CSV name" help="Path to the test predict table file Format: [output].csv "/>
+          <param name="outname_output_test_predict_path" type="text" value="myautoencoder_neural_network.csv" 
+              optional="True" label="output CSV name" 
+              help="Path to the test predict table file Format: [output].csv "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -83,7 +89,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance. " multiple="">
                   

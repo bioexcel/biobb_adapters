@@ -44,7 +44,9 @@
           <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="mymutate.pdb" optional="False" label="output PDB name" help="Output PDB file path Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mymutate.pdb" 
+              optional="False" label="output PDB name" 
+              help="Output PDB file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -61,7 +63,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="mutation_list" type="text" label="mutation_list" help="Mutation list in the format &#34;Chain:WT_AA_ThreeLeterCode Resnum MUT_AA_ThreeLeterCode&#34; (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" optional="false"
                   value="A:Val2Ala"

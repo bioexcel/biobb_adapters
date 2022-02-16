@@ -34,7 +34,9 @@
     <inputs>
         
         
-          <param name="outname_output_simulations" type="text" value="mymemprotmd_sim_search.json" optional="False" label="output JSON name" help="Path to the output JSON file Format: [output].json "/>
+          <param name="outname_output_simulations" type="text" value="mymemprotmd_sim_search.json" 
+              optional="False" label="output JSON name" 
+              help="Path to the output JSON file Format: [output].json "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -51,7 +53,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="collection_name" type="text" label="collection_name" help="Name of the collection to query." optional="false"
                   value="refs"

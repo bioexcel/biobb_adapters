@@ -54,7 +54,9 @@
           <param name="input_ndx_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the input GROMACS index file, NDX format. Format: [input].ndx"/> 
         
         
-          <param name="outname_output_itp_path" type="text" value="mygenrestr.itp" optional="False" label="output ITP name" help="Path the output ITP topology file with restrains Format: [output].itp "/>
+          <param name="outname_output_itp_path" type="text" value="mygenrestr.itp" 
+              optional="False" label="output ITP name" 
+              help="Path the output ITP topology file with restrains Format: [output].itp "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="restrained_group" type="text" label="restrained_group" help="Index group that will be restrained." optional="false"
                   value="system"

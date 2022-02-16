@@ -84,7 +84,9 @@
           <param name="input_mdp_path" type="data" format="mdp"  optional="True" label="input MDP file" help="Path to the input GROMACS MDP file. Format: [input].mdp"/> 
         
         
-          <param name="outname_output_tpr_path" type="text" value="mygrompp.tpr" optional="False" label="output TPR name" help="Path to the output portable binary run file TPR Format: [output].tpr "/>
+          <param name="outname_output_tpr_path" type="text" value="mygrompp.tpr" 
+              optional="False" label="output TPR name" 
+              help="Path to the output portable binary run file TPR Format: [output].tpr "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -101,7 +103,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="mdp" type="text" label="mdp" help="MDP options specification. (Json)" value="{}" />
             

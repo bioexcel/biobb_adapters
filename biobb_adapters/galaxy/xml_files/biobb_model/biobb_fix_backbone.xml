@@ -54,7 +54,9 @@
           <param name="input_fasta_canonical_sequence_path" type="data" format="fasta"  optional="False" label="input FASTA file" help="Input FASTA file path. Format: [input].fasta"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="myfix_backbone.pdb" optional="False" label="output PDB name" help="Output PDB file path Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="myfix_backbone.pdb" 
+              optional="False" label="output PDB name" 
+              help="Output PDB file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -71,7 +73,7 @@
             <when value="option3">
             </when>
           </conditional>
-          <section name="properties" title="Properties">
+          <section name="properties" title="Properties Input">
             
               <param name="add_caps" type="boolean" 
                   
