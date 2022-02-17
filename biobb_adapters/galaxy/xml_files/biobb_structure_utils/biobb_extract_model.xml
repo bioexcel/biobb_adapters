@@ -41,7 +41,7 @@
     </command>
     <inputs>
         
-          <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
+          <param name="input_structure_path" type="data" format="pdb,pdbqt"  optional="False" label="input PDB,PDBQT file" help="Input structure file path. Format: [input].[format]"/> 
         
         
           <param name="outname_output_structure_path" type="text" value="myextract_model.pdb" 
