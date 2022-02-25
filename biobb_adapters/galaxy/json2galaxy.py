@@ -109,7 +109,7 @@ def main():
         
     data['description'] = schema_data['title']
     
-    multiple_formats_required = [];
+    multiple_formats_required = []
 
     for f in schema_data['properties']:
         if f != 'properties':
