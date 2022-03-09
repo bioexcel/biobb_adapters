@@ -6,6 +6,7 @@ import json
 import os
 import re
 import sys
+import requests
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from jinja2.exceptions import TemplateSyntaxError
@@ -13,10 +14,17 @@ from jinja2.exceptions import TemplateSyntaxError
 TEMPL = "biobb_galaxy_template.xml"
 CONTAINERS = "biobb_galaxy_containers.json"
 XML_DIR = "./xml_files"
+EDAM_CACHE = "./edam_cache.json"
+EDAM_PREFIX = "https://openebench.bsc.es/monitor/rest/edam/description?term=http://edamontology.org/"
 
 def tool_name(orig):
     data = re.split('_', orig)
     return ''.join([a.capitalize() for a in data])
+
+def parse_edam(edam_terms, id, no_cache=False):
+    if no_cache or id not in edam_terms:
+        edam_terms[id] = requests.get(f"{EDAM_PREFIX}{id}").json()
+    return edam_terms[id]
 
 def main():
     """ Usage: json2galaxy.py [-h] [--template TEMPLATE] [--containers CONTAINERS]
@@ -60,7 +68,15 @@ def main():
             cont_lst = json.load(containers_lst)
     except IOError as err:
         sys.exit(err)
-    
+
+    # Parsing EDAM terms
+    try:
+        with open(EDAM_CACHE) as edam_json:
+            edam_terms = json.load(edam_json)
+    except Exception as err:
+        print(err)
+        edam_terms = {}
+
     # Parsing json schema
     
     try:
@@ -118,18 +134,24 @@ def main():
                 'name': f, 
                 'file_types':[],
                 'description': schema_data['properties'][f]['description'],
-                'optional': f not in schema_data['required']
+                'optional': f not in schema_data['required'],
+                'property_formats': {}
             }
-            
-            if 'enum' in schema_data['properties'][f]:
-                for v in schema_data['properties'][f]['enum']:
-                    m = re.search(r"\w+", v)
+            if 'file_formats' in schema_data['properties'][f]:
+                for v in schema_data['properties'][f]['file_formats']:
+                    m = re.search(r"\w+", v['extension'])
                     tool_data['file_types'].append(m.group(0))
+                    tool_data['property_formats'][m.group(0)] = parse_edam(edam_terms, v['edam'])
+            
+            # if 'enum' in schema_data['properties'][f]:
+            #     for v in schema_data['properties'][f]['enum']:
+            #         m = re.search(r"\w+", v)
+            #         tool_data['file_types'].append(m.group(0))
         
             tool_data['format'] = ','.join(tool_data['file_types'])
             
             if len(tool_data['file_types']) > 1:
-                tool_data['help_format'] = '[format]'
+                tool_data['help_format'] = '[format]'                
                 tool_data['multiple_format'] = "output_format"
                 if schema_data['properties'][f]['filetype'] == 'output':
                     multiple_formats_required.append(tool_data)            
@@ -179,7 +201,7 @@ def main():
                         dum[fmt['name']] = fmt['description']
                     v['property_formats'] = dum
                 else:
-                    v['property_formats'] = []
+                    v['property_formats'] = {}
                 data['props'][k] = v
                 #
                 
@@ -197,7 +219,7 @@ def main():
                     props_str.append("__dq__" +  k + "__dq__:${properties." + k + "}")
             
             data['config_str'] = "__oc__" + ",".join(props_str) + "__cc__"
-            #print(data)
+            print(data)
             # Adding output_format when multiple output formats
             n_formats_required = len(multiple_formats_required);
             if multiple_formats_required:
@@ -230,6 +252,13 @@ def main():
             os.mkdir(XML_DIR + "/" + data['biobb_group'])
     with open(XML_DIR + "/" + data['biobb_group'] + "/biobb_" + data['name'] + ".xml", "w") as xml_file:
         xml_file.write(templ.render(data))
-        
+
+    # Refresh EDAM cache
+    try:
+        with open(EDAM_CACHE, 'w') as edam_json:
+            json.dump(edam_terms, edam_json, indent=3)
+    except Exception as e:
+        print(e)
+    
 if __name__ == '__main__':
     main()
