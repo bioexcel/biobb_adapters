@@ -1,7 +1,9 @@
 <tool id="biobb_io_drugbank_ext" name="Drugbank" version="3.6.0" >
     <description>: This class is a wrapper for the Drugbank REST API.</description>
     <requirements>
-        <requirement type="package">biobb_io</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_io</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

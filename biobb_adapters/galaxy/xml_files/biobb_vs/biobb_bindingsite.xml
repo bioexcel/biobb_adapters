@@ -1,7 +1,9 @@
 <tool id="biobb_vs_bindingsite_ext" name="Bindingsite" version="3.6.0" >
     <description>: This class finds the binding site of the input_pdb.</description>
     <requirements>
-        <requirement type="package">biobb_vs</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_vs</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

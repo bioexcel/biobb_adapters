@@ -1,7 +1,9 @@
 <tool id="biobb_vs_extract_model_pdbqt_ext" name="ExtractModelPdbqt" version="3.6.0" >
     <description>: Extracts a model from a PDBQT file with several models.</description>
     <requirements>
-        <requirement type="package">biobb_vs</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_vs</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

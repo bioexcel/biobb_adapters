@@ -1,7 +1,9 @@
 <tool id="biobb_md_editconf_ext" name="Editconf" version="3.6.0" >
     <description>: Wrapper class for the GROMACS editconf module.</description>
     <requirements>
-        <requirement type="package">biobb_md</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_md</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -44,8 +46,8 @@
           <param name="input_gro_path" type="data" format="gro,pdb"  optional="False" label="input GRO,PDB file" help="Path to the input GRO file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_gro_path" type="text" value="myeditconf.pdb" 
-              optional="False" label="output PDB,GRO name" 
+          <param name="outname_output_gro_path" type="text" value="myeditconf.gro" 
+              optional="False" label="output GRO,PDB name" 
               help="Path to the output GRO file Format: [output].[format] "/>
         
         <conditional name="config">
@@ -105,13 +107,13 @@
             
               <param name="output_format" type="select" label="output_format" help="Format of the output file" multiple="">
                   
-                    <option value="pdb" 
-                      
-                    >pdb - </option>
-                  
                     <option value="gro" 
                       
                     >gro - </option>
+                  
+                    <option value="pdb" 
+                      
+                    >pdb - </option>
                   
                 </param>
                     
@@ -122,9 +124,9 @@
         <data name="output_gro_path" format="text" label="${outname_output_gro_path}">
             <change_format>
             
-            <when input="properties.output_format" value="pdb" format="pdb" />
-            
             <when input="properties.output_format" value="gro" format="gro" />
+            
+            <when input="properties.output_format" value="pdb" format="pdb" />
             
             </change_format>
           </data>

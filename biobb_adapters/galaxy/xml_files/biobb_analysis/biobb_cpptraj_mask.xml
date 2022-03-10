@@ -1,7 +1,9 @@
 <tool id="biobb_analysis_cpptraj_mask_ext" name="CpptrajMask" version="3.6.0" >
     <description>: Wrapper of the Ambertools Cpptraj module for extracting a selection of atoms from a given cpptraj compatible trajectory.</description>
     <requirements>
-        <requirement type="package">biobb_analysis</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_analysis</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

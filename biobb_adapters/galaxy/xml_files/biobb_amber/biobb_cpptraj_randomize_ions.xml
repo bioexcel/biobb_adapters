@@ -1,7 +1,9 @@
 <tool id="biobb_amber_cpptraj_randomize_ions_ext" name="CpptrajRandomizeIons" version="3.6.2" >
     <description>: Wrapper of the AmberTools (AMBER MD Package) cpptraj tool module.</description>
     <requirements>
-        <requirement type="package">biobb_amber</requirement>
+        <requirement type="package"
+        version="3.6.2"
+        >biobb_amber</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

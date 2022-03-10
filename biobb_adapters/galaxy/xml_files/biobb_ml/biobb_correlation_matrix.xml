@@ -1,7 +1,9 @@
 <tool id="biobb_ml_correlation_matrix_ext" name="CorrelationMatrix" version="3.6.1" >
     <description>: Generates a correlation matrix from a given dataset.</description>
     <requirements>
-        <requirement type="package">biobb_ml</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_ml</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

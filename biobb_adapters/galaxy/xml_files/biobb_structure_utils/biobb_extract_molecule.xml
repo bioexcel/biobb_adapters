@@ -1,7 +1,9 @@
 <tool id="biobb_structure_utils_extract_molecule_ext" name="ExtractMolecule" version="3.6.1" >
     <description>: This class is a wrapper of the Structure Checking tool to extract a molecule from a 3D structure.</description>
     <requirements>
-        <requirement type="package">biobb_structure_utils</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_structure_utils</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
@@ -41,7 +43,7 @@
     </command>
     <inputs>
         
-          <param name="input_structure_path" type="data" format="pdb,pdbqt"  optional="False" label="input PDB,PDBQT file" help="Input structure file path. Format: [input].[format]"/> 
+          <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
         
         
           <param name="outname_output_molecule_path" type="text" value="myextract_molecule.pdb" 

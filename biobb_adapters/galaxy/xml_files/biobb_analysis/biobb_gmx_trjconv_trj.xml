@@ -1,7 +1,9 @@
 <tool id="biobb_analysis_gmx_trjconv_trj_ext" name="GmxTrjconvTrj" version="3.6.0" >
     <description>: Wrapper of the GROMACS trjconv module for converting between GROMACS compatible trajectory file formats and/or extracts a selection of atoms.</description>
     <requirements>
-        <requirement type="package">biobb_analysis</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_analysis</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

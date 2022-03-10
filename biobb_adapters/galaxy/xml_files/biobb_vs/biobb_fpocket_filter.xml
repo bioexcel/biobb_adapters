@@ -1,7 +1,9 @@
 <tool id="biobb_vs_fpocket_filter_ext" name="FpocketFilter" version="3.6.0" >
     <description>: Performs a search over the outputs of the fpocket building block.</description>
     <requirements>
-        <requirement type="package">biobb_vs</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_vs</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

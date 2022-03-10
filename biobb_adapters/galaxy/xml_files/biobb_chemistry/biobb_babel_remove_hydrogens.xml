@@ -1,7 +1,9 @@
 <tool id="biobb_chemistry_babel_remove_hydrogens_ext" name="BabelRemoveHydrogens" version="3.6.0" >
     <description>: This class is a wrapper of the Open Babel tool.</description>
     <requirements>
-        <requirement type="package">biobb_chemistry</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_chemistry</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

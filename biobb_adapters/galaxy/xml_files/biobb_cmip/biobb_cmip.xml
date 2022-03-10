@@ -1,7 +1,9 @@
-<tool id="biobb_cmip_cmip_ext" name="Cmip" version="0.1.0" >
+<tool id="biobb_cmip_cmip_ext" name="Cmip" version="" >
     <description>: Wrapper class for the CMIP cmip module.</description>
     <requirements>
-        <requirement type="package">biobb_cmip</requirement>
+        <requirement type="package"
+        
+        >biobb_cmip</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

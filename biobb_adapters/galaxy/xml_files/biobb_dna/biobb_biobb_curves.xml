@@ -1,7 +1,9 @@
 <tool id="biobb_dna_biobb_curves_ext" name="BiobbCurves" version="3.6.2" >
     <description>: Wrapper for the Cur+ executable  that is part of the Curves+ software suite.</description>
     <requirements>
-        <requirement type="package">biobb_dna</requirement>
+        <requirement type="package"
+        version="3.6.2"
+        >biobb_dna</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

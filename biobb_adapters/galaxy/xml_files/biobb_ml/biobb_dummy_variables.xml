@@ -1,7 +1,9 @@
 <tool id="biobb_ml_dummy_variables_ext" name="DummyVariables" version="3.6.1" >
     <description>: Converts categorical variables into dummy/indicator variables (binaries).</description>
     <requirements>
-        <requirement type="package">biobb_ml</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_ml</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

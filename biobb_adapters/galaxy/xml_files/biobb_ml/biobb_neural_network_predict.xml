@@ -1,7 +1,9 @@
 <tool id="biobb_ml_neural_network_predict_ext" name="NeuralNetworkPredict" version="3.6.1" >
     <description>: Makes predictions from an input dataset and a given model.</description>
     <requirements>
-        <requirement type="package">biobb_ml</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_ml</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

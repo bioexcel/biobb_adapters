@@ -1,0 +1,181 @@
+biobb_amber/json_schemas/amber_to_pdb.json
+('input', {'crd', 'mdcrd', 'inpcrd', 'prmtop', 'rst', 'parmtop'})
+biobb_amber/json_schemas/cestats_run.json
+('input', {, 'ceout', 'cpein', 'gzip', 'gz', 'cein'})
+('output', {'o', 'out', 'dat'})
+biobb_amber/json_schemas/cphstats_run.json
+('input', {'cpout', 'gzip', 'cpin'})
+('output', {'o', 'out', 'dat'})
+biobb_amber/json_schemas/cpptraj_randomize_ions.json
+('input', {, 'mdcrd', 'inpcrd', 'prmtop', 'parmtop', 'crd'})
+('output', {, 'inpcrd', 'mdcrd', 'crd'})
+biobb_amber/json_schemas/leap_add_ions.json
+('input', {'leapin', 'in', 'frcmod', , 'lib'})
+('output', {'parmtop', 'mdcrd', 'inpcrd', 'crd', 'prmtop'})
+biobb_amber/json_schemas/leap_gen_top.json
+('input', {'lib', 'in', 'leapin', 'frcmod'})
+('output', {'inpcrd', 'crd', 'mdcrd', 'parmtop', 'prmtop'})
+biobb_amber/json_schemas/leap_solvate.json
+('input', {'lib', 'frcmod', 'in', 'leapin', })
+('output', {'crd', 'inpcrd', 'parmtop', 'prmtop', 'mdcrd', })
+biobb_amber/json_schemas/parmed_cpinutil.json
+('input', {'parmtop', 'prmtop'})
+('output', {'cpin', 'parmtop', 'prmtop'})
+biobb_amber/json_schemas/parmed_hmassrepartition.json
+('input', {'prmtop', 'parmtop'})
+('output', {'prmtop', 'parmtop'})
+biobb_amber/json_schemas/pmemd_mdrun.json
+('input', {'inpcrd', 'crd', 'nc', 'ncrst', 'mdcrd', 'rst', 'mdin', 'in', 'prmtop', 'parmtop', 'cpin', 'rst7'})
+('output', {, 'crd', 'nc', 'ncrst', 'o', 'cpout', 'mdcrd', 'x', 'rst', 'log', 'cprst', 'mdinfo', 'trj', 'out', 'rst7'})
+biobb_amber/json_schemas/process_mdout.json
+('input', {'o', 'out', 'log'})
+('output', {'dat', })
+biobb_amber/json_schemas/process_minout.json
+('input', {'out', 'o', 'log'})
+('output', {'dat'})
+biobb_amber/json_schemas/sander_mdrun.json
+('input', {'cpin', 'in', 'prmtop', 'parmtop', 'inpcrd', 'rst', 'mdcrd', 'nc', 'ncrst', 'rst7', 'mdin', 'crd', })
+('output', {'o', 'cpout', 'mdinfo', 'rst', 'out', 'mdcrd', 'nc', 'rst7', 'ncrst', 'crd', 'trj', 'cprst', 'x', 'log', })
+biobb_analysis/json_schemas/cpptraj_average.json
+('input', {'parmtop', 'charmm', 'cif', 'arc', 'cdf', 'cor', 'crd', 'sqm', 'conflib', 'prmtop', 'restart', 'mdcrd', 'ncrestart', 'restartnc', 'binpos'})
+('output', {'crd', 'sqm', 'mdcrd', 'rst7', 'ncrst', 'binpos'})
+biobb_analysis/json_schemas/cpptraj_bfactor.json
+('input', {'cdf', 'binpos', 'charmm', 'conflib', 'prmtop', 'ncrestart', 'cif', 'arc', 'restart', 'cor', 'parmtop', 'restartnc', 'mdcrd', 'crd', 'sqm'})
+('output', {'agr', 'gnu', 'xmgr', 'dat'})
+biobb_analysis/json_schemas/cpptraj_convert.json
+('input', {'binpos', 'arc', 'cor', 'restart', 'restartnc', 'sqm', 'ncrestart', 'conflib', 'cdf', 'parmtop', 'mdcrd', 'crd', 'cif', 'prmtop', 'charmm'})
+('output', {'binpos', 'sqm', 'rst7', 'mdcrd', 'ncrst', 'crd'})
+/biobb_analysis/json_schemas/cpptraj_dry.json
+('input', {'mdcrd', 'charmm', 'ncrestart', 'crd', 'conflib', 'parmtop', 'restartnc', 'restart', 'prmtop', 'binpos', 'cif', 'arc', , 'cor', 'cdf', , 'sqm'})
+('output', {'binpos', 'crd', 'mdcrd', 'sqm', 'rst7', 'ncrst', })
+biobb_analysis/json_schemas/cpptraj_image.json
+('input', {'cif', 'cor', 'binpos', 'mdcrd', 'prmtop', 'restartnc', 'restart', 'parmtop', 'charmm', 'conflib', 'crd', 'ncrestart', 'cdf', , 'sqm', 'arc'})
+('output', {'crd', 'rst7', 'ncrst', 'binpos', 'mdcrd', 'sqm'})
+biobb_analysis/json_schemas/cpptraj_mask.json
+('input', {'parmtop', 'crd', 'restart', 'cif', 'prmtop', 'ncrestart', 'sqm', 'arc', 'mdcrd', 'restartnc', 'binpos', 'cor', 'conflib', 'cdf', 'charmm'})
+('output', {'crd', 'sqm', 'ncrst', 'rst7', 'binpos', 'mdcrd'})
+biobb_analysis/json_schemas/cpptraj_rgyr.json
+('input', {'restartnc', 'mdcrd', 'cif', 'conflib', 'charmm', 'restart', 'parmtop', 'crd', 'cdf', 'binpos', 'arc', 'cor', 'sqm', 'prmtop', 'ncrestart'})
+('output', {'agr', 'xmgr', 'gnu', 'dat'})
+biobb_analysis/json_schemas/cpptraj_rmsf.json
+('input', {'prmtop', 'binpos', 'arc', 'restart', 'ncrestart', 'cdf', 'cor', 'crd', 'parmtop', 'conflib', 'restartnc', 'mdcrd', 'charmm', 'sqm', 'cif'})
+('output', {'xmgr', 'dat', 'agr', 'gnu'})
+biobb_analysis/json_schemas/cpptraj_rms.json
+('input', {'prmtop', 'binpos', 'crd', 'restart', 'cdf', 'restartnc', 'sqm', , 'cor', 'conflib', 'arc', 'charmm', 'cif', 'mdcrd', 'ncrestart', 'parmtop'})
+('output', {'gnu', 'agr', 'xmgr', 'dat'})
+biobb_analysis/json_schemas/cpptraj_slice.json
+('input', {, 'mdcrd', 'cif', 'cdf', 'crd', , 'cor', 'restartnc', 'conflib', 'restart', 'prmtop', 'arc', 'binpos', 'sqm', 'charmm', , 'ncrestart', 'parmtop'})
+('output', {'rst7', 'mdcrd', 'binpos', 'ncrst', 'sqm', 'crd'})
+biobb_analysis/json_schemas/cpptraj_snapshot.json
+('input', {, 'arc', 'sqm', 'restart', 'binpos', 'crd', 'prmtop', 'cif', 'conflib', 'mdcrd', 'restartnc', 'cor', 'parmtop', 'ncrestart', , 'charmm', 'cdf'})
+('output', {'binpos', 'sqm', 'mdcrd', 'rst7', 'crd', 'ncrst'})
+biobb_analysis/json_schemas/cpptraj_strip.json
+('input', {'sqm', 'charmm', 'cor', 'cdf', 'ncrestart', 'restartnc', 'mdcrd', 'binpos', 'cif', 'restart', 'parmtop', 'crd', 'conflib', , 'prmtop', 'arc'})
+('output', {'sqm', 'crd', 'ncrst', 'rst7', , 'mdcrd', 'binpos'})
+biobb_analysis/json_schemas/gmx_cluster.json
+('input', {'g96', 'brk', 'tng', 'ent'})
+('output', {'g96', 'tng'})
+biobb_analysis/json_schemas/gmx_image.json
+('input', {'g96', 'ent', 'brk', 'tng'})
+('output', {'g96', 'tng'})
+biobb_analysis/json_schemas/gmx_rgyr.json
+('input', {'ent', 'g96', 'tng', 'brk', })
+biobb_analysis/json_schemas/gmx_rms.json
+('input', {'brk', 'ent', 'g96', 'tng'})
+biobb_analysis/json_schemas/gmx_trjconv_str_ens.json
+('input', {'tng', 'brk', 'ent', 'g96'})
+biobb_analysis/json_schemas/gmx_trjconv_str.json
+('input', {'g96', 'tng', 'brk', 'ent'})
+('output', {'g96', 'tng'})
+biobb_analysis/json_schemas/gmx_trjconv_trj.json
+('input', {'tng', 'g96'})
+('output', {'tng', 'g96'})
+biobb_chemistry/json_schemas/acpype_params_ac.json
+('input', {'mdl'})
+('output', {'frcmod', 'prmtop', 'lib', 'inpcrd'})
+biobb_chemistry/json_schemas/acpype_params_cns.json
+('input', {'mdl'})
+('output', {'inp', 'par'})
+biobb_chemistry/json_schemas/acpype_params_gmx.json
+('input', {'mdl'})
+biobb_chemistry/json_schemas/acpype_params_gmx_opls.json
+('input', {'mdl'})
+biobb_chemistry/json_schemas/babel_add_hydrogens.json
+('input', {'mmcif', 'inp', 'smi', 'dat', 'mdl', 'smiles', 'ent', 'fa', 'log', 'xml', 'mcif'})
+('output', {'mmcif', 'mdl', 'inp', 'smi', 'smiles', 'mcif', 'ent', 'fa'})
+biobb_chemistry/json_schemas/babel_convert.json
+('input', {'mdl', 'log', 'xml', 'smiles', 'smi', 'fa', 'mmcif', 'mcif', , 'inp', 'dat', 'ent'})
+('output', {'mdl', 'fa', 'mmcif', 'mcif', , , 'inp', , 'smiles', 'smi', 'ent'})
+biobb_chemistry/json_schemas/babel_remove_hydrogens.json
+('input', {'inp', 'ent', 'fa', 'mmcif', 'dat', 'log', 'mcif', 'xml', 'mdl', 'smi', 'smiles'})
+('output', {'inp', 'mdl', 'mcif', 'smiles', 'ent', 'smi', 'fa', 'mmcif'})
+biobb_cmip/json_schemas/cmip.json
+('output', {'cube'})
+biobb_cmip/json_schemas/prepare_structure.json
+('input', {'psf', 'prmtop'})
+biobb_cmip/json_schemas/titration.json
+('output', {'log'})
+biobb_dna/json_schemas/average_stiffness.json
+('input', {'ser'})
+biobb_dna/json_schemas/biobb_canal.json
+('input', {'cda', 'lis'})
+biobb_dna/json_schemas/biobb_canion.json
+('input', {'afr', 'cdi'})
+biobb_dna/json_schemas/biobb_curves.json
+('input', {'trj'})
+('output', {'lis', 'cda'})
+biobb_dna/json_schemas/bipopulations.json
+('input', {'ser'})
+biobb_dna/json_schemas/canonicalag.json
+('input', {'ser'})
+biobb_dna/json_schemas/dna_averages.json
+('input', {'ser'})
+biobb_dna/json_schemas/dna_timeseries.json
+('input', {'ser'})
+biobb_dna/json_schemas/interbpcorr.json
+('input', {'ser'})
+biobb_dna/json_schemas/interseqcorr.json
+('input', {'ser'})
+biobb_dna/json_schemas/intrabpcorr.json
+('input', {'ser'})
+biobb_dna/json_schemas/intraseqcorr.json
+('input', {'ser'})
+biobb_dna/json_schemas/puckering.json
+('input', {'ser'})
+biobb_io/json_schemas/mmcif.json
+('output', {'cif', 'mmcif'})
+biobb_md/json_schemas/grompp.json
+('input', {'mdp'})
+biobb_md/json_schemas/grompp_mdrun.json
+('input', {'mdp'})
+('output', {'log'})
+biobb_md/json_schemas/mdrun.json
+('output', {'log'})
+biobb_ml/json_schemas/classification_predict.json
+('input', {'pkl'})
+biobb_ml/biobb_ml/json_schemas/clustering_predict.json
+('input', {'pkl'})
+biobb_ml/json_schemas/decision_tree.json
+('output', {'pkl'})
+biobb_ml/json_schemas/k_means.json
+('output', {'pkl'})
+biobb_ml/json_schemas/k_neighbors.json
+('output', {'pkl'})
+biobb_ml/json_schemas/linear_regression.json
+('output', {'pkl'})
+biobb_ml/json_schemas/logistic_regression.json
+('output', {'pkl'})
+biobb_ml/json_schemas/polynomial_regression.json
+('output', {'pkl'})
+biobb_ml/json_schemas/random_forest_classifier.json
+('output', {'pkl'})
+biobb_ml/json_schemas/random_forest_regressor.json
+('output', {'pkl'})
+/biobb_ml/json_schemas/regression_predict.json
+('input', { 'pkl'})
+biobb_ml/json_schemas/support_vector_machine.json
+('output', {'pkl'})
+biobb_model/json_schemas/checking_log.json
+('output', {'log'})
+biobb_vs/json_schemas/autodock_vina_run.json
+('output', {'log'})

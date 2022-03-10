@@ -1,7 +1,9 @@
-<tool id="biobb_template_template_ext" name="Template" version="0.1.0" >
+<tool id="biobb_template_template_ext" name="Template" version="" >
     <description>: Short description for the template module in Restructured Text (reST) syntax. Mandatory.</description>
     <requirements>
-        <requirement type="package">biobb_template</requirement>
+        <requirement type="package"
+        
+        >biobb_template</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

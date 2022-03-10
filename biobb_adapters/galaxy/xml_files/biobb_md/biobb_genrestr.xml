@@ -1,7 +1,9 @@
 <tool id="biobb_md_genrestr_ext" name="Genrestr" version="3.6.0" >
     <description>: Wrapper of the GROMACS genrestr module.</description>
     <requirements>
-        <requirement type="package">biobb_md</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_md</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

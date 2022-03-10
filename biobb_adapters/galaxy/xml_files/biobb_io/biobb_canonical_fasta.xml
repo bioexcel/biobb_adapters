@@ -1,7 +1,9 @@
 <tool id="biobb_io_canonical_fasta_ext" name="CanonicalFasta" version="3.6.0" >
     <description>: This class is a wrapper for downloading a FASTA structure from the Protein Data Bank.</description>
     <requirements>
-        <requirement type="package">biobb_io</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_io</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

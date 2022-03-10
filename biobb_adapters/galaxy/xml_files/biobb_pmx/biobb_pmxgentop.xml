@@ -1,7 +1,9 @@
 <tool id="biobb_pmx_pmxgentop_ext" name="Pmxgentop" version="3.6.0" >
     <description>: Wrapper class for the PMX gentop module.</description>
     <requirements>
-        <requirement type="package">biobb_pmx</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_pmx</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

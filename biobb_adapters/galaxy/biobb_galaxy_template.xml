@@ -1,7 +1,11 @@
 <tool id="{{ tool_id }}_ext" name="{{ display_name }}" version="{{ version }}" >
     <description>: {{ description }}</description>
     <requirements>
-        <requirement type="package">{{biobb_group}}</requirement>
+        <requirement type="package"
+        {% if version -%}
+          version="{{ version }}"
+        {%- endif %}
+        >{{biobb_group}}</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         {% for k in files['input'] %}

@@ -1,7 +1,9 @@
 <tool id="biobb_ml_regression_neural_network_ext" name="RegressionNeuralNetwork" version="3.6.1" >
     <description>: Wrapper of the TensorFlow Keras Sequential method for regression.</description>
     <requirements>
-        <requirement type="package">biobb_ml</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_ml</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

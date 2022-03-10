@@ -1,7 +1,9 @@
 <tool id="biobb_ml_regression_predict_ext" name="RegressionPredict" version="3.6.1" >
     <description>: Makes predictions from an input dataset and a given regression model.</description>
     <requirements>
-        <requirement type="package">biobb_ml</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_ml</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

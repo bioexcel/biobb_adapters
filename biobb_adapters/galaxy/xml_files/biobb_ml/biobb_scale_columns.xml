@@ -1,7 +1,9 @@
 <tool id="biobb_ml_scale_columns_ext" name="ScaleColumns" version="3.6.1" >
     <description>: Scales columns from a given dataset.</description>
     <requirements>
-        <requirement type="package">biobb_ml</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_ml</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

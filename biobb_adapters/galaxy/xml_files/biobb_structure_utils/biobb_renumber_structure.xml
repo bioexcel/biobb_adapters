@@ -1,7 +1,9 @@
 <tool id="biobb_structure_utils_renumber_structure_ext" name="RenumberStructure" version="3.6.1" >
     <description>: Class to renumber atomic indexes from a 3D structure.</description>
     <requirements>
-        <requirement type="package">biobb_structure_utils</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_structure_utils</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

@@ -1,7 +1,9 @@
 <tool id="biobb_analysis_gmx_energy_ext" name="GmxEnergy" version="3.6.0" >
     <description>: Wrapper of the GROMACS energy module for extracting energy components from a given GROMACS energy file.</description>
     <requirements>
-        <requirement type="package">biobb_analysis</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_analysis</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

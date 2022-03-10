@@ -1,7 +1,9 @@
 <tool id="biobb_md_grompp_mdrun_ext" name="GromppMdrun" version="3.6.0" >
     <description>: Wrapper of the GROMACS grompp module and the GROMACS mdrun module.</description>
     <requirements>
-        <requirement type="package">biobb_md</requirement>
+        <requirement type="package"
+        version="3.6.0"
+        >biobb_md</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         

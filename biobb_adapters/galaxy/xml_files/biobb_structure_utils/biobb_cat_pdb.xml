@@ -1,7 +1,9 @@
 <tool id="biobb_structure_utils_cat_pdb_ext" name="CatPdb" version="3.6.1" >
     <description>: Class to concat two PDB structures in a single PDB file.</description>
     <requirements>
-        <requirement type="package">biobb_structure_utils</requirement>
+        <requirement type="package"
+        version="3.6.1"
+        >biobb_structure_utils</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
