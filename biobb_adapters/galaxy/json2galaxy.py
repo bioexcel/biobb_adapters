@@ -110,10 +110,15 @@ def main():
         data['version'] = '0.1.0'
         
     data['description'] = schema_data['title']
+<<<<<<< HEAD
 
     multiple_formats_required = []
     if args.file_types:
         file_types = {'input':set(), 'output': set()}
+=======
+    
+    multiple_formats_required = []
+>>>>>>> b21cc1e7d2a5320ef326791a8cd9fd5dc38ed85b
 
     for f in schema_data['properties']:
         if f != 'properties':
