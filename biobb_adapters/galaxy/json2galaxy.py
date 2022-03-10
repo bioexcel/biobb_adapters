@@ -6,6 +6,7 @@ import json
 import os
 import re
 import sys
+from os.path import join as opj
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from jinja2.exceptions import TemplateSyntaxError
@@ -55,7 +56,7 @@ def main():
     # Parsing containers data    
     
     if args.containers == CONTAINERS:
-        args.containers = template_dir + "/" + args.containers
+        args.containers = opj(template_dir, args.containers)
         
     try:
         with open (args.containers, "r") as containers_lst:
@@ -72,7 +73,7 @@ def main():
         sys.exit(err)
     
     if '$id' not in schema_data:
-        sys.exit(args.schema + " not parseable")
+        sys.exit(f"{args.schema} not parseable")
     
     #Getting data components from schema
     
@@ -93,12 +94,9 @@ def main():
     if args.id:
         data['tool_id'] = args.id
     else:
-        data['tool_id'] = data['biobb_group'] + "_" + data['name']
+        data['tool_id'] = f"{data['biobb_group']}_{data['name']}"
     if data['biobb_group'] in cont_lst:
-        data['container_id'] = "{}:{}--py_0".format(
-            cont_lst[data['biobb_group']]['docker_image'],
-            cont_lst[data['biobb_group']]['version']
-        )
+        data['container_id'] = f"{cont_lst[data['biobb_group']]['docker_image']}:{cont_lst[data['biobb_group']]['version']}--py_0"
     else:
         data['container_id'] = ''        
     
@@ -110,15 +108,10 @@ def main():
         data['version'] = '0.1.0'
         
     data['description'] = schema_data['title']
-<<<<<<< HEAD
 
     multiple_formats_required = []
     if args.file_types:
         file_types = {'input':set(), 'output': set()}
-=======
-    
-    multiple_formats_required = []
->>>>>>> b21cc1e7d2a5320ef326791a8cd9fd5dc38ed85b
 
     for f in schema_data['properties']:
         if f != 'properties':
@@ -238,9 +231,10 @@ def main():
     templ = env.get_template(args.template)
     
     if args.create_dir:
-        if not os.path.isdir(XML_DIR + "/" + data['biobb_group']):
-            os.mkdir(XML_DIR + "/" + data['biobb_group'])
-    with open(XML_DIR + "/" + data['biobb_group'] + "/biobb_" + data['name'] + ".xml", "w") as xml_file:
+        wdir = opj(XML_DIR, data['biobb_group'])
+        if not os.path.isdir(wdir):
+            os.mkdir(wdir)
+    with open(opj(wdir, f"biobb_{data['name']}.xml"), "w") as xml_file:
         xml_file.write(templ.render(data))
         
     if args.file_types:
