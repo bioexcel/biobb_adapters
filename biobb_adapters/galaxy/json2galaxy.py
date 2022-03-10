@@ -105,7 +105,7 @@ def main():
     elif data['biobb_group'] in cont_lst:
         data['version'] = cont_lst[data['biobb_group']]['version']
     else:
-        data['version'] = '0.1.0'
+        data['version'] = ''
         
     data['description'] = schema_data['title']
 
