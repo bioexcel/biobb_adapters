@@ -30,6 +30,7 @@ def main():
             * --id (**str**)        tool id for Galaxy (default biobb_tool name)
             * --display_name (**str**) Tool name to display in Galaxy (default tool_name)
             * --create_dir (**bool**)  Create biobb group adapter directory (default False)
+            * --file_types (**bool**)  Add discovered file types to logs
     """
     parser = argparse.ArgumentParser(description='Build galaxy adapters.')
     parser.add_argument("--template", default=TEMPL, help="Template for XML galaxy adapter")
@@ -38,6 +39,7 @@ def main():
     parser.add_argument("--display_name", help="Tool name to display in Galaxy")
     parser.add_argument("--create_dir", action="store_true", help="Create biobb directory")
     parser.add_argument(dest="schema", help="Json schema from building block")
+    parser.add_argument("--file_types", action="store_true", help="Get File Types list")
     
     args = parser.parse_args()
     
@@ -108,8 +110,10 @@ def main():
         data['version'] = '0.1.0'
         
     data['description'] = schema_data['title']
-    
-    multiple_formats_required = [];
+
+    multiple_formats_required = []
+    if args.file_types:
+        file_types = {'input':set(), 'output': set()}
 
     for f in schema_data['properties']:
         if f != 'properties':
@@ -125,6 +129,9 @@ def main():
                 for v in schema_data['properties'][f]['enum']:
                     m = re.search(r"\w+", v)
                     tool_data['file_types'].append(m.group(0))
+                    if args.file_types: 
+                        for ty in tool_data['file_types']:
+                            file_types[schema_data['properties'][f]['filetype']].add(ty)
         
             tool_data['format'] = ','.join(tool_data['file_types'])
             
@@ -198,7 +205,7 @@ def main():
             
             data['config_str'] = "__oc__" + ",".join(props_str) + "__cc__"
             #print(data)
-            # Adding output_format when multiple output formats
+            # Adding output_format when multiple output formats (not to be included in the command line)
             n_formats_required = len(multiple_formats_required);
             if multiple_formats_required:
                 for tool in multiple_formats_required:
@@ -208,7 +215,7 @@ def main():
                     if param_name not in data['props']:
                         data['props'][param_name] = {
                             'type': 'select',
-                            'default': None,
+                            'default': None, # Check how to pre-select according to extension:$s/cp
                             'wf_prop': False,
                             'description': 'Format of the output file',
                             'enum': tool['file_types'],
@@ -230,6 +237,11 @@ def main():
             os.mkdir(XML_DIR + "/" + data['biobb_group'])
     with open(XML_DIR + "/" + data['biobb_group'] + "/biobb_" + data['name'] + ".xml", "w") as xml_file:
         xml_file.write(templ.render(data))
+        
+    if args.file_types:
+        for io in file_types:
+            for ty in file_types[io]:
+                print(f"#TYP {ty}\t{io}\t{data['tool_id']}")
         
 if __name__ == '__main__':
     main()
