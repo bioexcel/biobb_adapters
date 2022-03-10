@@ -41,8 +41,6 @@
         
         
           --output_pdb_path $__new_file_path__/$outname_output_pdb_path
-        
-          --output_log_path $__new_file_path__/$outname_output_log_path
         ;          
         #if $config.sele == "option1":
             rm -f ${config.properties}.${config.properties.ext};
@@ -56,8 +54,6 @@
         
         
           if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
-        
-          if test -f $__new_file_path__/$outname_output_log_path; then mv $__new_file_path__/$outname_output_log_path $output_log_path; fi;
         
     ]]>
     </command>
@@ -73,10 +69,6 @@
           <param name="outname_output_pdb_path" type="text" value="mytitration.pdb" 
               optional="False" label="output PDB name" 
               help="Path to the output PDB file Format: [output].pdb "/>
-        
-          <param name="outname_output_log_path" type="text" value="mytitration.log" 
-              optional="False" label="output LOG name" 
-              help="Path to the output Tritration log file LOG Format: [output].log "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -132,9 +124,6 @@
         
         
           <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
-        
-        
-          <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
         
     </outputs>
     <tests>

@@ -26,7 +26,7 @@
           #end if
         
         
-          --output_pdb_path $__new_file_path__/$outname_output_pdb_path
+          --output_cmip_pdb_path $__new_file_path__/$outname_output_cmip_pdb_path
         ;          
         
         
@@ -35,7 +35,7 @@
           rm -f ${input_topology_path}.${input_topology_path.ext};
         
         
-          if test -f $__new_file_path__/$outname_output_pdb_path; then mv $__new_file_path__/$outname_output_pdb_path $output_pdb_path; fi;
+          if test -f $__new_file_path__/$outname_output_cmip_pdb_path; then mv $__new_file_path__/$outname_output_cmip_pdb_path $output_cmip_pdb_path; fi;
         
     ]]>
     </command>
@@ -46,7 +46,7 @@
           <param name="input_topology_path" type="data" format="zip,top,psf,prmtop"  optional="True" label="input ZIP,TOP,PSF,PRMTOP file" help="Path to the input topology path. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_pdb_path" type="text" value="myprepare_structure.pdb" 
+          <param name="outname_output_cmip_pdb_path" type="text" value="myprepare_structure.pdb" 
               optional="False" label="output PDB name" 
               help="Path to the output PDB file Format: [output].pdb "/>
         
@@ -55,7 +55,7 @@
     <outputs>
         
         
-          <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
+          <data name="output_cmip_pdb_path" format="pdb" label="${outname_output_cmip_pdb_path}"/>
         
     </outputs>
     <tests>

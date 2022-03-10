@@ -1,5 +1,5 @@
-<tool id="biobb_cmip_prepare_pdb_ext" name="PreparePdb" version="" >
-    <description>: Class to add CMIP charges and atom types.</description>
+<tool id="biobb_cmip_ignore_residues_ext" name="IgnoreResidues" version="" >
+    <description>: Class to ignore residue charges in CMIP potential calculations.</description>
     <requirements>
         <requirement type="package"
         
@@ -7,24 +7,24 @@
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
+          ln -f -s ${input_cmip_pdb_path} ${input_cmip_pdb_path}.${input_cmip_pdb_path.ext};
         
         #if $config.sele == "option1":
             ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
           #end if
         
-        prepare_pdb
+        ignore_residues
 
         #if $config.sele == "option1":
             --config ${config.properties}.${config.properties.ext}
           #else if $config.sele == "option2":
             --config '${config.jsonstr}'
           #else if $config.sele == "option3":
-            --config "__oc____dq__remove_water__dq__:${properties.remove_water},__dq__add_hydrogen__dq__:${properties.add_hydrogen},__dq__keep_hydrogen__dq__:${properties.keep_hydrogen},__dq__fix_sidechains__dq__:${properties.fix_sidechains},__dq__fix_backbone_atoms__dq__:${properties.fix_backbone_atoms}__cc__"
+            --config "__oc____dq__residue_list__dq__:__dq__${properties.residue_list}__dq__,__dq__ignore_all__dq__:${properties.ignore_all}__cc__"
           #end if
         
-          #if str($input_pdb_path) != 'None':
-            --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+          #if str($input_cmip_pdb_path) != 'None':
+            --input_cmip_pdb_path ${input_cmip_pdb_path}.${input_cmip_pdb_path.ext}
           #end if
         
         
@@ -34,7 +34,7 @@
             rm -f ${config.properties}.${config.properties.ext};
           #end if
         
-          rm -f ${input_pdb_path}.${input_pdb_path.ext};
+          rm -f ${input_cmip_pdb_path}.${input_cmip_pdb_path.ext};
         
         
           if test -f $__new_file_path__/$outname_output_cmip_pdb_path; then mv $__new_file_path__/$outname_output_cmip_pdb_path $output_cmip_pdb_path; fi;
@@ -43,10 +43,10 @@
     </command>
     <inputs>
         
-          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
+          <param name="input_cmip_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
         
         
-          <param name="outname_output_cmip_pdb_path" type="text" value="myprepare_pdb.pdb" 
+          <param name="outname_output_cmip_pdb_path" type="text" value="myignore_residues.pdb" 
               optional="False" label="output PDB name" 
               help="Output PDB file path Format: [output].pdb "/>
         
@@ -67,29 +67,13 @@
           </conditional>
           <section name="properties" title="Properties Input">
             
-              <param name="remove_water" type="boolean" 
-                  checked="true"
-                  label="remove_water" help="Remove Water molecules." 
-                />
-            
-              <param name="add_hydrogen" type="boolean" 
-                  checked="true"
-                  label="add_hydrogen" help="Add Hydrogen atoms to the structure." 
-                />
-            
-              <param name="keep_hydrogen" type="boolean" 
+              <param name="residue_list" type="text" label="residue_list" help="Residue list in the format &#34;Chain:Resnum&#34; (no spaces between the elements) separated by commas. If no chain is provided all the residues in the pdb file will be market. ie: &#34;A:3&#34;." optional="true"
                   
-                  label="keep_hydrogen" help="If **add_hydrogen** is True. All hydrogen atoms will be removed before adding the new ones unless this option is set True." 
                 />
             
-              <param name="fix_sidechains" type="boolean" 
-                  checked="true"
-                  label="fix_sidechains" help="Complete side chains (heavy atoms, protein only)." 
-                />
-            
-              <param name="fix_backbone_atoms" type="boolean" 
-                  checked="true"
-                  label="fix_backbone_atoms" help="Add missing O, OXT backbone atoms." 
+              <param name="ignore_all" type="boolean" 
+                  
+                  label="ignore_all" help="Mark all the residues in the PDB file." 
                 />
                     
           </section>

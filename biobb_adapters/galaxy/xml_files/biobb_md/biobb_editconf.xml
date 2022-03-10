@@ -46,8 +46,8 @@
           <param name="input_gro_path" type="data" format="gro,pdb"  optional="False" label="input GRO,PDB file" help="Path to the input GRO file. Format: [input].[format]"/> 
         
         
-          <param name="outname_output_gro_path" type="text" value="myeditconf.gro" 
-              optional="False" label="output GRO,PDB name" 
+          <param name="outname_output_gro_path" type="text" value="myeditconf.pdb" 
+              optional="False" label="output PDB,GRO name" 
               help="Path to the output GRO file Format: [output].[format] "/>
         
         <conditional name="config">
@@ -107,13 +107,13 @@
             
               <param name="output_format" type="select" label="output_format" help="Format of the output file" multiple="">
                   
-                    <option value="gro" 
-                      
-                    >gro - </option>
-                  
                     <option value="pdb" 
                       
                     >pdb - </option>
+                  
+                    <option value="gro" 
+                      
+                    >gro - </option>
                   
                 </param>
                     
@@ -124,9 +124,9 @@
         <data name="output_gro_path" format="text" label="${outname_output_gro_path}">
             <change_format>
             
-            <when input="properties.output_format" value="gro" format="gro" />
-            
             <when input="properties.output_format" value="pdb" format="pdb" />
+            
+            <when input="properties.output_format" value="gro" format="gro" />
             
             </change_format>
           </data>
