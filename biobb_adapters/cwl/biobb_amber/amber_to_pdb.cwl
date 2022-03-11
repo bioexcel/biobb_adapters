@@ -38,13 +38,14 @@ inputs:
       AMBER coordinates file
       Type: string
       File type: input
-      Accepted formats: crd, mdcrd, inpcrd
+      Accepted formats: crd, mdcrd, inpcrd, rst
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/ambpdb/structure.leap.crd
     type: File
     format:
     - edam:format_3878
     - edam:format_3878
     - edam:format_3878
+    - edam:format_3886
     inputBinding:
       position: 2
       prefix: --input_crd_path

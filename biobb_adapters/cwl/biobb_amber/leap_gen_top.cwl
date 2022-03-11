@@ -88,11 +88,12 @@ inputs:
       Input ligand library parameters file
       Type: string
       File type: input
-      Accepted formats: lib
+      Accepted formats: lib, zip
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/ligand.lib
     type: File?
     format:
     - edam:format_3889
+    - edam:format_3987
     inputBinding:
       prefix: --input_lib_path
 
@@ -102,11 +103,12 @@ inputs:
       Input ligand frcmod parameters file
       Type: string
       File type: input
-      Accepted formats: frcmod
+      Accepted formats: frcmod, zip
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/ligand.frcmod
     type: File?
     format:
     - edam:format_3888
+    - edam:format_3987
     inputBinding:
       prefix: --input_frcmod_path
 

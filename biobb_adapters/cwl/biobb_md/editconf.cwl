@@ -37,16 +37,16 @@ inputs:
       Path to the output GRO file
       Type: string
       File type: output
-      Accepted formats: gro, pdb
+      Accepted formats: pdb, gro
       Example file: https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_editconf.gro
     type: string
     format:
-    - edam:format_2033
     - edam:format_1476
+    - edam:format_2033
     inputBinding:
       position: 2
       prefix: --output_gro_path
-    default: system.gro
+    default: system.pdb
 
   config:
     label: Advanced configuration options for biobb_md Editconf
@@ -64,7 +64,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_gro_path)
-    format: edam:format_2033
+    format: edam:format_1476
 
 $namespaces:
   edam: https://edamontology.org/
