@@ -1,5 +1,7 @@
 # biobb_adapters
 
+## DEPRECATED. Functionality moved to utils_biobb repo
+
 ### Introduction
 Biobb_adapters is the Biobb module collection to use the building blocks with several workflow managers.
 Biobb (BioExcel building blocks) packages are Python building blocks that
