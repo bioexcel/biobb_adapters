@@ -1,0 +1,102 @@
+{
+    "summary": {
+        "num_errors": 0,
+        "num_failures": 0,
+        "num_skips": 0,
+        "num_tests": 1
+    },
+    "tests": [
+        {
+            "data": {
+                "inputs": {
+                    "config_json": {
+                        "id": "f82aa9183cc5efc5",
+                        "src": "hda"
+                    },
+                    "input_data_npy_path": {
+                        "id": "ca1a68f03865463c",
+                        "src": "hda"
+                    },
+                    "input_model_pth_path": {
+                        "id": "a3e117bcd837a3cf",
+                        "src": "hda"
+                    },
+                    "outname_output_latent_space_npy_path": "latent_space_npy_path.npy",
+                    "outname_output_reconstructed_data_npy_path": "output_reconstructed_data.npy"
+                },
+                "job": {
+                    "command_line": "ln -s /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/files/7/0/f/dataset_70f6f36e-4862-44c5-80c5-2b87a0ad432d.dat ./input_data_npy_path.npy; ln -s /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/files/a/c/6/dataset_ac61a2ed-d379-4b84-a923-c61c12ec9ad6.dat ./input_model_pth_path.zip; ln -s /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/files/4/1/e/dataset_41e3394f-48c4-4ee1-a236-0bfda70090ec.dat ./config_json.json;  apply_mdae  --config ./config_json.json  --input_data_npy_path ./input_data_npy_path.npy --input_model_pth_path ./input_model_pth_path.zip --output_reconstructed_data_npy_path output_reconstructed_data.npy --output_latent_space_npy_path latent_space_npy_path.npy ;  mv output_reconstructed_data.npy /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/outputs/dataset_91fc34e1-fee3-465e-8153-932a207ea48a.dat; if test -f latent_space_npy_path.npy; then mv latent_space_npy_path.npy /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/outputs/dataset_342ef655-042c-47d6-95a9-7f1ac7b561c5.dat; fi;",
+                    "command_version": "",
+                    "copied_from_job_id": null,
+                    "create_time": "2024-07-05T10:34:02.643430",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "80316",
+                    "galaxy_version": "24.0",
+                    "handler": null,
+                    "history_id": "ca1a68f03865463c",
+                    "id": "fc1125c97b2d5618",
+                    "inputs": {
+                        "config_json": {
+                            "id": "f82aa9183cc5efc5",
+                            "src": "hda",
+                            "uuid": "41e3394f-48c4-4ee1-a236-0bfda70090ec"
+                        },
+                        "input_data_npy_path": {
+                            "id": "ca1a68f03865463c",
+                            "src": "hda",
+                            "uuid": "70f6f36e-4862-44c5-80c5-2b87a0ad432d"
+                        },
+                        "input_model_pth_path": {
+                            "id": "a3e117bcd837a3cf",
+                            "src": "hda",
+                            "uuid": "ac61a2ed-d379-4b84-a923-c61c12ec9ad6"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "output_latent_space_npy_path": {
+                            "id": "355b28a60b064dcd",
+                            "src": "hda",
+                            "uuid": "342ef655-042c-47d6-95a9-7f1ac7b561c5"
+                        },
+                        "output_reconstructed_data_npy_path": {
+                            "id": "fc1125c97b2d5618",
+                            "src": "hda",
+                            "uuid": "91fc34e1-fee3-465e-8153-932a207ea48a"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"npy\"",
+                        "chromInfo": "\"/Users/pau/projects/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "outname_output_latent_space_npy_path": "\"latent_space_npy_path.npy\"",
+                        "outname_output_reconstructed_data_npy_path": "\"output_reconstructed_data.npy\""
+                    },
+                    "state": "ok",
+                    "stderr": "",
+                    "stdout": "2024-07-05 12:34:08,585 [MainThread  ] [INFO ]  Executing biobb_pytorch.mdae.apply_mdae Version: 4.2.1\n2024-07-05 12:34:08,587 [MainThread  ] [INFO ]  Copy: ./input_data_npy_path.npy to /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec\n2024-07-05 12:34:08,590 [MainThread  ] [INFO ]  Copy: ./input_model_pth_path.zip to /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec\n2024-07-05 12:34:08,590 [MainThread  ] [INFO ]  Applying MDAE model reducing dimensionality from 306 to 2 and reconstructing.\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]  Applying model:\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]    Device: cpu\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]    Input file: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec/input_data_npy_path.npy\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]      File size: 119.66 KB\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Number of atoms: 102\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Number of frames: 100\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Batch size: 1\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Number of layers: 4\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Input dimensions: 306\n2024-07-05 12:34:08,593 [MainThread  ] [INFO ]    Latent dimensions: 2\n2024-07-05 12:34:08,742 [MainThread  ] [INFO ]    Execution time: 00s\n2024-07-05 12:34:08,744 [MainThread  ] [INFO ]  Saving reconstructed data to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec/output_reconstructed_data.npy\n2024-07-05 12:34:08,744 [MainThread  ] [INFO ]    File size: 119.66 KB\n2024-07-05 12:34:08,744 [MainThread  ] [INFO ]  Saving latent space to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec/latent_space_npy_path.npy\n2024-07-05 12:34:08,745 [MainThread  ] [INFO ]    File size: 928.00 Bytes\n2024-07-05 12:34:08,746 [MainThread  ] [INFO ]  Removed: []\n",
+                    "tool_id": "biobb_pytorch_apply_mdae",
+                    "tool_stderr": "",
+                    "tool_stdout": "2024-07-05 12:34:08,585 [MainThread  ] [INFO ]  Executing biobb_pytorch.mdae.apply_mdae Version: 4.2.1\n2024-07-05 12:34:08,587 [MainThread  ] [INFO ]  Copy: ./input_data_npy_path.npy to /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec\n2024-07-05 12:34:08,590 [MainThread  ] [INFO ]  Copy: ./input_model_pth_path.zip to /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec\n2024-07-05 12:34:08,590 [MainThread  ] [INFO ]  Applying MDAE model reducing dimensionality from 306 to 2 and reconstructing.\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]  Applying model:\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]    Device: cpu\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]    Input file: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec/input_data_npy_path.npy\n2024-07-05 12:34:08,591 [MainThread  ] [INFO ]      File size: 119.66 KB\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Number of atoms: 102\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Number of frames: 100\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Batch size: 1\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Number of layers: 4\n2024-07-05 12:34:08,592 [MainThread  ] [INFO ]    Input dimensions: 306\n2024-07-05 12:34:08,593 [MainThread  ] [INFO ]    Latent dimensions: 2\n2024-07-05 12:34:08,742 [MainThread  ] [INFO ]    Execution time: 00s\n2024-07-05 12:34:08,744 [MainThread  ] [INFO ]  Saving reconstructed data to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec/output_reconstructed_data.npy\n2024-07-05 12:34:08,744 [MainThread  ] [INFO ]    File size: 119.66 KB\n2024-07-05 12:34:08,744 [MainThread  ] [INFO ]  Saving latent space to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpf5lliefg/job_working_directory/000/4/working/bbf39262-6b1c-4103-a454-1b3a9abac2ec/latent_space_npy_path.npy\n2024-07-05 12:34:08,745 [MainThread  ] [INFO ]    File size: 928.00 Bytes\n2024-07-05 12:34:08,746 [MainThread  ] [INFO ]  Removed: []\n",
+                    "update_time": "2024-07-05T10:34:18.861592",
+                    "user_email": "planemo@galaxyproject.org"
+                },
+                "status": "success",
+                "test_index": 0,
+                "time_seconds": 41.213606119155884,
+                "tool_id": "biobb_pytorch_apply_mdae",
+                "tool_version": "4.2.1"
+            },
+            "has_data": true,
+            "id": "biobb_pytorch_apply_mdae-0"
+        }
+    ],
+    "version": "0.1"
+}
