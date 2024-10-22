@@ -12,7 +12,7 @@ baseCommand: cmip_titration
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_cmip:4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_cmip:5.0.0--pyhdfd78af_0
 
 inputs:
   input_pdb_path:

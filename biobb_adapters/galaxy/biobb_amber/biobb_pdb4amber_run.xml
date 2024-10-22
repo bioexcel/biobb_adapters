@@ -1,7 +1,7 @@
 <tool id="biobb_amber_pdb4amber_run" name="Pdb4amberRun" version="@TOOL_VERSION@" >
     <description>Wrapper of the AmberTools (AMBER MD Package) pdb4amber tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

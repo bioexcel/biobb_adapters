@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_cpptraj_mask" name="CpptrajMask" version="@TOOL_VERSION@" >
     <description>Wrapper of the Ambertools Cpptraj module for extracting a selection of atoms from a given cpptraj compatible trajectory.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

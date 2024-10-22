@@ -1,7 +1,7 @@
 <tool id="biobb_cmip_cmip_prepare_structure" name="CmipPrepareStructure" version="@TOOL_VERSION@" >
     <description>Generate a CMIP suitable PDB input.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

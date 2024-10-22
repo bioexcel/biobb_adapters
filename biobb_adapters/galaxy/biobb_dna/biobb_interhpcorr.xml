@@ -1,0 +1,106 @@
+<tool id="biobb_dna_interhpcorr" name="Interhpcorr" version="@TOOL_VERSION@" >
+    <description>Calculate correlation between helical parameters for a single inter-base pair.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.4</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_dna</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_filename_shift ./input_filename_shift.$input_filename_shift.ext;
+      ln -s $input_filename_slide ./input_filename_slide.$input_filename_slide.ext;
+      ln -s $input_filename_rise ./input_filename_rise.$input_filename_rise.ext;
+      ln -s $input_filename_tilt ./input_filename_tilt.$input_filename_tilt.ext;
+      ln -s $input_filename_roll ./input_filename_roll.$input_filename_roll.ext;
+      ln -s $input_filename_twist ./input_filename_twist.$input_filename_twist.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      interhpcorr
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_filename_shift ./input_filename_shift.$input_filename_shift.ext
+      --input_filename_slide ./input_filename_slide.$input_filename_slide.ext
+      --input_filename_rise ./input_filename_rise.$input_filename_rise.ext
+      --input_filename_tilt ./input_filename_tilt.$input_filename_tilt.ext
+      --input_filename_roll ./input_filename_roll.$input_filename_roll.ext
+      --input_filename_twist ./input_filename_twist.$input_filename_twist.ext
+      --output_csv_path $outname_output_csv_path
+      --output_jpg_path $outname_output_jpg_path
+      ;
+      
+      mv $outname_output_csv_path $output_csv_path;
+      mv $outname_output_jpg_path $output_jpg_path;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_filename_shift" type="data" format="csv" optional="false" help="Path to .csv file with data for helical parameter 'shift'"/>
+      <param name="input_filename_slide" type="data" format="csv" optional="false" help="Path to .csv file with data for helical parameter 'slide'"/>
+      <param name="input_filename_rise" type="data" format="csv" optional="false" help="Path to .csv file with data for helical parameter 'rise'"/>
+      <param name="input_filename_tilt" type="data" format="csv" optional="false" help="Path to .csv file with data for helical parameter 'tilt'"/>
+      <param name="input_filename_roll" type="data" format="csv" optional="false" help="Path to .csv file with data for helical parameter 'roll'"/>
+      <param name="input_filename_twist" type="data" format="csv" optional="false" help="Path to .csv file with data for helical parameter 'twist'"/>
+      <param name="outname_output_csv_path" type="text" optional="false" help="Path to directory where output is saved"/>
+      <param name="outname_output_jpg_path" type="text" optional="false" help="Path to .jpg file where output is saved"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_csv_path" format="csv" />
+      <data name="output_jpg_path" format="jpg" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_interhpcorr.json" ftype="json" />
+          <param name="input_filename_shift" value="series_shift_AA.csv" ftype="csv" />
+          <param name="input_filename_slide" value="series_slide_AA.csv" ftype="csv" />
+          <param name="input_filename_rise" value="series_rise_AA.csv" ftype="csv" />
+          <param name="input_filename_tilt" value="series_tilt_AA.csv" ftype="csv" />
+          <param name="input_filename_roll" value="series_roll_AA.csv" ftype="csv" />
+          <param name="input_filename_twist" value="series_twist_AA.csv" ftype="csv" />
+          <param name="outname_output_csv_path" value="inter_hpcorr.csv" />
+          <param name="outname_output_jpg_path" value="inter_hpcorr.jpg" />
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-dna.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

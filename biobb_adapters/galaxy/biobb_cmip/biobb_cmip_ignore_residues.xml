@@ -1,7 +1,7 @@
 <tool id="biobb_cmip_cmip_ignore_residues" name="CmipIgnoreResidues" version="@TOOL_VERSION@" >
     <description>Class to ignore residues in CMIP potential calculations.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

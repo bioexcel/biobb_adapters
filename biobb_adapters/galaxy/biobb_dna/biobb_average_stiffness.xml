@@ -1,0 +1,86 @@
+<tool id="biobb_dna_average_stiffness" name="AverageStiffness" version="@TOOL_VERSION@" >
+    <description>Calculate average stiffness constants for each base pair of a trajectory's series.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.4</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_dna</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_ser_path ./input_ser_path.$input_ser_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      average_stiffness
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_ser_path ./input_ser_path.$input_ser_path.ext
+      --output_csv_path $outname_output_csv_path
+      --output_jpg_path $outname_output_jpg_path
+      ;
+      
+      mv $outname_output_csv_path $output_csv_path;
+      mv $outname_output_jpg_path $output_jpg_path;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_ser_path" type="data" format="ser" optional="false" help="Path to .ser file for helical parameter. File is expected to be a table, with the first column being an index and the rest the helical parameter values for each base/basepair"/>
+      <param name="outname_output_csv_path" type="text" optional="false" help="Path to .csv file where output is saved"/>
+      <param name="outname_output_jpg_path" type="text" optional="false" help="Path to .jpg file where output is saved"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_csv_path" format="csv" />
+      <data name="output_jpg_path" format="jpg" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_average_stiffness.json" ftype="json" />
+          <param name="input_ser_path" value="canal_output_roll.ser" ftype="ser" />
+          <param name="outname_output_csv_path" value="avgstiff.csv" />
+          <param name="outname_output_jpg_path" value="avgstiff.jpg" />
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-dna.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>
