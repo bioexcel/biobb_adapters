@@ -1,7 +1,7 @@
 <tool id="biobb_flexserv_pcz_animate" name="PczAnimate" version="@TOOL_VERSION@" >
     <description>Extract PCA animations from a compressed PCZ file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

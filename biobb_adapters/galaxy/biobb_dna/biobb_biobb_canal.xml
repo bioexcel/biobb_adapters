@@ -1,7 +1,7 @@
 <tool id="biobb_dna_biobb_canal" name="BiobbCanal" version="@TOOL_VERSION@" >
     <description>Wrapper for the Canal executable that is part of the Curves+ software suite.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.4</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

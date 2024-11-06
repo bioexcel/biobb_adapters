@@ -1,7 +1,7 @@
 <tool id="biobb_flexdyn_imod_imove" name="ImodImove" version="@TOOL_VERSION@" >
     <description>Wrapper of the imove tool</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

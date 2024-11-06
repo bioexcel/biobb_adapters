@@ -1,7 +1,7 @@
 <tool id="biobb_amber_leap_add_ions" name="LeapAddIons" version="@TOOL_VERSION@" >
     <description>Wrapper of the AmberTools (AMBER MD Package) leap tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.0.2</token>
     </macros>
 
     <requirements>
@@ -19,6 +19,9 @@
       #end if
       #if $input_params_path:
         ln -s $input_params_path ./input_params_path.$input_params_path.ext;
+      #end if
+      #if $input_prep_path:
+        ln -s $input_prep_path ./input_prep_path.$input_prep_path.ext;
       #end if
       #if $input_source_path:
         ln -s $input_source_path ./input_source_path.$input_source_path.ext;
@@ -43,6 +46,9 @@
       #if $input_params_path:
         --input_params_path ./input_params_path.$input_params_path.ext
       #end if
+      #if $input_prep_path:
+        --input_prep_path ./input_prep_path.$input_prep_path.ext
+      #end if
       #if $input_source_path:
         --input_source_path ./input_source_path.$input_source_path.ext
       #end if
@@ -62,6 +68,7 @@
       <param name="input_lib_path" type="data" format="lib" optional="true" help="Input ligand library parameters file"/>
       <param name="input_frcmod_path" type="data" format="frcmod" optional="true" help="Input ligand frcmod parameters file"/>
       <param name="input_params_path" type="data" format="in" optional="true" help="Additional leap parameter files to load with loadAmberParams Leap command"/>
+      <param name="input_prep_path" type="data" format="in" optional="true" help="Additional leap parameter files to load with loadAmberPrep Leap command"/>
       <param name="input_source_path" type="data" format="in" optional="true" help="Additional leap command files to load with source Leap command"/>
       <param name="outname_output_pdb_path" type="text" optional="false" help="Output 3D structure PDB file matching the topology file"/>
       <param name="outname_output_top_path" type="text" optional="false" help="Output topology file (AMBER ParmTop)"/>

@@ -1,7 +1,7 @@
 <tool id="biobb_dna_interbpcorr" name="Interbpcorr" version="@TOOL_VERSION@" >
     <description>Calculate correlation between all base pairs of a single sequence and for a single helical parameter.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.4</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

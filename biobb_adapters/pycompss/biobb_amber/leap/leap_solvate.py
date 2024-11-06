@@ -13,14 +13,14 @@ from biobb_amber.leap.leap_solvate import LeapSolvate  # Importing class instead
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_pdb_path=FILE_IN, output_pdb_path=FILE_OUT, output_top_path=FILE_OUT, output_crd_path=FILE_OUT, input_lib_path=FILE_IN, input_frcmod_path=FILE_IN, input_params_path=FILE_IN, input_source_path=FILE_IN, 
+@task(input_pdb_path=FILE_IN, output_pdb_path=FILE_OUT, output_top_path=FILE_OUT, output_crd_path=FILE_OUT, input_lib_path=FILE_IN, input_frcmod_path=FILE_IN, input_params_path=FILE_IN, input_prep_path=FILE_IN, input_source_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _leapsolvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path, input_frcmod_path, input_params_path, input_source_path,  properties, **kwargs):
+def _leapsolvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path, input_frcmod_path, input_params_path, input_prep_path, input_source_path,  properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
     try:
-        LeapSolvate(input_pdb_path=input_pdb_path, output_pdb_path=output_pdb_path, output_top_path=output_top_path, output_crd_path=output_crd_path, input_lib_path=input_lib_path, input_frcmod_path=input_frcmod_path, input_params_path=input_params_path, input_source_path=input_source_path, properties=properties, **kwargs).launch()
+        LeapSolvate(input_pdb_path=input_pdb_path, output_pdb_path=output_pdb_path, output_top_path=output_top_path, output_crd_path=output_crd_path, input_lib_path=input_lib_path, input_frcmod_path=input_frcmod_path, input_params_path=input_params_path, input_prep_path=input_prep_path, input_source_path=input_source_path, properties=properties, **kwargs).launch()
     except Exception as e:
         traceback.print_exc()
         raise e
@@ -29,7 +29,7 @@ def _leapsolvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_pa
         sys.stderr.flush()
 
 
-def leap_solvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path=None, input_frcmod_path=None, input_params_path=None, input_source_path=None, properties=None, **kwargs):
+def leap_solvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path=None, input_frcmod_path=None, input_params_path=None, input_prep_path=None, input_source_path=None, properties=None, **kwargs):
 
     if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
        (output_top_path is None or (os.path.exists(output_top_path) and os.stat(output_top_path).st_size > 0)) and \
@@ -37,4 +37,4 @@ def leap_solvate(input_pdb_path, output_pdb_path, output_top_path, output_crd_pa
        True:
         print("WARN: Task LeapSolvate already executed.")
     else:
-        _leapsolvate( input_pdb_path,  output_pdb_path,  output_top_path,  output_crd_path,  input_lib_path,  input_frcmod_path,  input_params_path,  input_source_path,  properties, **kwargs)
+        _leapsolvate( input_pdb_path,  output_pdb_path,  output_top_path,  output_crd_path,  input_lib_path,  input_frcmod_path,  input_params_path,  input_prep_path,  input_source_path,  properties, **kwargs)

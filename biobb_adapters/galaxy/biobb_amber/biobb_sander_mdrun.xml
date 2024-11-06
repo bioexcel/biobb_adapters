@@ -1,7 +1,7 @@
 <tool id="biobb_amber_sander_mdrun" name="SanderMdrun" version="@TOOL_VERSION@" >
     <description>Wrapper of the AmberTools (AMBER MD Package) sander tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.0.2</token>
     </macros>
 
     <requirements>

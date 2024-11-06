@@ -1,7 +1,7 @@
 <tool id="biobb_dna_dna_timeseries_unzip" name="DnaTimeseriesUnzip" version="@TOOL_VERSION@" >
     <description>Tool for extracting dna_timeseries output files.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.4</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_flexserv_nma_run" name="NmaRun" version="@TOOL_VERSION@" >
     <description>Wrapper of the Normal Mode Analysis tool from the FlexServ module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

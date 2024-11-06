@@ -1,7 +1,7 @@
 <tool id="biobb_flexserv_pcz_stiffness" name="PczStiffness" version="@TOOL_VERSION@" >
     <description>Extract PCA stiffness from a compressed PCZ file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

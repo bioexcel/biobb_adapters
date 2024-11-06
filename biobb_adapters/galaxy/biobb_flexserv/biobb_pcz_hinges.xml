@@ -1,7 +1,7 @@
 <tool id="biobb_flexserv_pcz_hinges" name="PczHinges" version="@TOOL_VERSION@" >
     <description>Compute possible hinge regions (residues around which large protein movements are organized) of a molecule from a compressed PCZ file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

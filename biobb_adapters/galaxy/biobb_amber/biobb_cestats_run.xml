@@ -1,7 +1,7 @@
 <tool id="biobb_amber_cestats_run" name="CestatsRun" version="@TOOL_VERSION@" >
     <description>Wrapper of the AmberTools (AMBER MD Package) cestats tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.0.2</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_flexdyn_concoord_disco" name="ConcoordDisco" version="@TOOL_VERSION@" >
     <description>Wrapper of the Disco tool from the Concoord package.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.0.0</token>
     </macros>
 
     <requirements>

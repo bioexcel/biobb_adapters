@@ -1,7 +1,7 @@
 <tool id="biobb_amber_nab_build_dna_structure" name="NabBuildDnaStructure" version="@TOOL_VERSION@" >
     <description>Wrapper of the AmberTools (AMBER MD Package) nab tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.0.2</token>
     </macros>
 
     <requirements>
