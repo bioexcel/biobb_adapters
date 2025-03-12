@@ -1,0 +1,21 @@
+name: biobb_haddock
+owner: chemteam
+description: "biobb_haddock is the Biobb module collection to compute classical molecular interaction potentials."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    biobb_haddock is the Biobb module collection to compute classical molecular interaction potentials..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-haddock.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_haddock
+type: unrestricted
+categories:
+  - haddock
+  - protein-protein
+  - interaction
+  - docking
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

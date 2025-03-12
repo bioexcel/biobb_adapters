@@ -13,7 +13,7 @@ baseCommand: dna_timeseries
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_dna:4.2.2--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_dna:5.0.0--pyhdfd78af_0
 
 inputs:
   input_ser_path:

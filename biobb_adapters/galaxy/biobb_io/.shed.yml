@@ -1,0 +1,26 @@
+name: biobb_io
+owner: chemteam
+description: "Biobb_io is the Biobb module collection to fetch data to be consumed by the rest of the Biobb building blocks."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_io is the Biobb module collection to fetch data to be consumed by the rest of the Biobb building blocks..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-io.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_io
+type: unrestricted
+categories:
+  - io
+  - mmb
+  - pdb
+  - rcsb
+  - ebi
+  - MemProtMD
+  - sdf
+  - mmcif
+  - fasta
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

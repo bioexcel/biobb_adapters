@@ -1,0 +1,24 @@
+name: biobb_amber
+owner: chemteam
+description: "biobb_amber is a BioBB category for AMBER MD package, allowing setup and simulation of atomistic MD simulations using AMBER MD package and its associated AMBER tools"
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    biobb_amber is a BioBB category for AMBER MD package, allowing setup and simulation of atomistic MD simulations using AMBER MD package and its associated AMBER tools.
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-amber.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_amber
+type: unrestricted
+categories:
+  - Amber
+  - AmberTools
+  - cpptraj
+  - parmed
+  - leap
+  - nab
+  - MD
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

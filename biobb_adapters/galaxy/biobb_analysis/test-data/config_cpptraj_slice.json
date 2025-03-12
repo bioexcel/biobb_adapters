@@ -1,0 +1,7 @@
+{
+    "start": 2,
+    "end": 20,
+    "steps": 2,
+    "mask": "c-alpha",
+    "format": "netcdf"
+}

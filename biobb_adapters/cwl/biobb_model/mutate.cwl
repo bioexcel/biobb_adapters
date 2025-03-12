@@ -12,7 +12,7 @@ baseCommand: mutate
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_model:4.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_model:4.2.3--pyhdfd78af_0
 
 inputs:
   input_pdb_path:

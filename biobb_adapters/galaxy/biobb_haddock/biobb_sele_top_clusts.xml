@@ -1,0 +1,100 @@
+<tool id="biobb_haddock_sele_top_clusts" name="SeleTopClusts" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the Haddock SeleTopClusts module https://www.bonvinlab.org/haddock3/modules/analysis/seletopclusts.html.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.1</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_haddock</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext;
+      #if $haddock_config_path:
+        ln -s $haddock_config_path ./haddock_config_path.$haddock_config_path.ext;
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      sele_top_clusts
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext
+      #if $haddock_config_path:
+        --haddock_config_path ./haddock_config_path.$haddock_config_path.ext
+      #end if
+      --output_selection_zip_path $outname_output_selection_zip_path
+      #if $outname_output_haddock_wf_data_zip:
+        --output_haddock_wf_data_zip $outname_output_haddock_wf_data_zip
+      #end if
+      ;
+      
+      mv $outname_output_selection_zip_path $output_selection_zip_path;
+      if test -f $outname_output_haddock_wf_data_zip; then mv $outname_output_haddock_wf_data_zip $output_haddock_wf_data_zip; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_haddock_wf_data_zip" type="data" format="zip" optional="false" help="Path to the input zipball containing all the current Haddock workflow data"/>
+      <param name="haddock_config_path" type="data" format="cfg" optional="true" help="Haddock configuration CFG file path"/>
+      <param name="outname_output_selection_zip_path" type="text" optional="false" help="Path to the output PDB file collection in zip format"/>
+      <param name="outname_output_haddock_wf_data_zip" type="text" optional="true" help="Path to the output zipball containing all the current Haddock workflow data"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_selection_zip_path" format="zip" />
+      <data name="output_haddock_wf_data_zip" format="zip" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_sele_top_clusts.json" ftype="json" />
+          <param name="input_haddock_wf_data_zip" value="haddock_wf_data_clustfcc.zip" ftype="zip" />
+          <param name="outname_output_selection_zip_path" value="seletopclusts_output.zip" />
+          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
+          <output name="output_selection_zip_path" ftype="zip">
+            <assert_contents>
+              <has_size value="530021" delta="132505"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-haddock.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

@@ -1,111 +1,56 @@
-<tool id="biobb_model_mutate_ext" name="Mutate" version="4.0.1" >
-    <description>: Class to mutate one amino acid by another in a 3d structure.</description>
+<tool id="biobb_model_mutate" name="Mutate" version="@TOOL_VERSION@" >
+    <description>Class to mutate one amino acid by another in a 3d structure.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.3</token>
+    </macros>
+
     <requirements>
-        <requirement type="package"
-        version="4.0.1"
-        >biobb_model</requirement>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_model</requirement>
     </requirements>
-    <command detect_errors="aggressive"><![CDATA[
-        
-          ln -f -s ${input_pdb_path} ${input_pdb_path}_`echo $$`.${input_pdb_path.ext};
-        
-        #if $config.sele == "option1":
-            ln -s -f ${config.properties} ${config.properties}_`echo $$`.${config.properties.ext};
-          #end if
 
-        mutate
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_pdb_path ./input_pdb_path.$input_pdb_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
 
-        #if $config.sele == "option1":
-            --config ${config.properties}_`echo $$`.${config.properties.ext}
-          #else if $config.sele == "option2":
-            --config '${config.jsonstr}'
-          #else if $config.sele == "option3":
-            --config '__oc____dq__mutation_list__dq__:__dq__${properties.mutation_list}__dq__,__dq__use_modeller__dq__:${properties.use_modeller},__dq__modeller_key__dq__:__dq__${properties.modeller_key}__dq__,__dq__binary_path__dq__:__dq__${properties.binary_path}__dq____cc__'
-          #end if
-        
-          #if str($input_pdb_path) != 'None':
-            --input_pdb_path ${input_pdb_path}_`echo $$`.${input_pdb_path.ext}
-          #end if
-        
-        
-          --output_pdb_path $outname_output_pdb_path
-        ;
-        #if $config.sele == "option1":
-            rm -f ${config.properties}_`echo $$`.${config.properties.ext};
-          #end if
-        
-          rm -f ${input_pdb_path}_`echo $$`.${input_pdb_path.ext};
-        
-        
-          if test -f $outname_output_pdb_path; then mv $outname_output_pdb_path $output_pdb_path; fi;
-        
-    ]]>
+      mutate
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_pdb_path ./input_pdb_path.$input_pdb_path.ext
+      --output_pdb_path $outname_output_pdb_path
+      ;
+      
+      mv $outname_output_pdb_path $output_pdb_path;
+      ]]>
     </command>
+
     <inputs>
-        
-          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/>
-        
-        
-          <param name="outname_output_pdb_path" type="text" value="mymutate.pdb"
-              optional="False" label="output PDB name"
-              help="Output PDB file path Format: [output].pdb "/>
-        
-        <conditional name="config">
-            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-              <option value="option3">Manual Input</option>
-              <option value="option1">from configuration file</option>
-              <option value="option2">from JSON string</option>
-            </param>
-            <when value="option1">
-              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
-            </when>
-            <when value="option2">
-              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
-            </when>
-            <when value="option3">
-            </when>
-          </conditional>
-          <section name="properties" title="Properties Input">
-            
-              <param name="mutation_list" type="text" label="mutation_list" help="Mutation list in the format &#34;Chain:WT_AA_ThreeLeterCode Resnum MUT_AA_ThreeLeterCode&#34; (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" optional="true"
-                  
-                >
-                  <sanitizer><valid initial="string.printable"/></sanitizer>
-                </param>
-            
-              <param name="use_modeller" type="boolean"
-                  
-                  label="use_modeller" help="Use Modeller suite to optimize the side chains."
-                />
-            
-              <param name="modeller_key" type="text" label="modeller_key" help="Modeller license key." optional="true"
-                  
-                >
-                  <sanitizer><valid initial="string.printable"/></sanitizer>
-                </param>
-            
-              <param name="binary_path" type="text" label="binary_path" help="Path to the check_structure executable binary." optional="false"
-                  value="check_structure"
-                >
-                  <sanitizer><valid initial="string.printable"/></sanitizer>
-                </param>
-            
-          </section>
+      <param name="input_pdb_path" type="data" format="pdb" optional="false" help="Input PDB file path"/>
+      <param name="outname_output_pdb_path" type="text" optional="false" help="Output PDB file path"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
+
     <outputs>
-        
-        
-          <data name="output_pdb_path" format="pdb" label="${outname_output_pdb_path}"/>
-        
+      <data name="output_pdb_path" format="pdb" />
     </outputs>
+
     <tests>
         <test>
+          <param name="config_json" value="config_mutate.json" ftype="json" />
+          <param name="input_pdb_path" value="2ki5.pdb" ftype="pdb" />
+          <param name="outname_output_pdb_path" value="output_mutated_pdb_path.pdb" />
         </test>
     </tests>
+
     <help>
 .. class:: infomark
 
-Check the syntax for the tool parameters at the original library documentation: https://biobb_model.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb-model.readthedocs.io/en/latest
 
 -----
 
@@ -128,7 +73,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_model},
+            url = {https://github.com/bioexcel/biobb_pytorch},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

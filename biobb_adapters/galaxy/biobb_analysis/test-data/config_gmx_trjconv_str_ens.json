@@ -1,0 +1,8 @@
+{
+    "selection": "System",
+    "start": 0,
+    "end": 10,
+    "dt": 1,
+    "output_name": "output",
+    "output_type": "pdb"
+}

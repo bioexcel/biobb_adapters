@@ -1,0 +1,11 @@
+{
+    "heteroatoms": [
+        {
+            "name": "TA1",
+            "model": "1"
+        },
+        {
+            "name": "ADP"
+        }
+    ]
+}

@@ -1,129 +1,83 @@
-<tool id="biobb_haddock_capri_eval_ext" name="CapriEval" version="3.7.8" >
-    <description>: Wrapper class for the Haddock CapriEval module.</description>
+<tool id="biobb_haddock_capri_eval" name="CapriEval" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the Haddock CapriEval module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.1</token>
+    </macros>
+
     <requirements>
-        <requirement type="package"
-        version="3.7.8"
-        >biobb_haddock</requirement>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_haddock</requirement>
     </requirements>
-    <command detect_errors="aggressive"><![CDATA[
-        
-          ln -f -s ${input_haddock_wf_data_zip} ${input_haddock_wf_data_zip}_`echo $$`.${input_haddock_wf_data_zip.ext};
-        
-          ln -f -s ${} ${}_`echo $$`.${.ext};
-        
-          ln -f -s ${haddock_config_path} ${haddock_config_path}_`echo $$`.${haddock_config_path.ext};
-        
-        #if $config.sele == "option1":
-            ln -s -f ${config.properties} ${config.properties}_`echo $$`.${config.properties.ext};
-          #end if
 
-        capri_eval
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext;
+      #if $reference_pdb_path:
+        ln -s $reference_pdb_path ./reference_pdb_path.$reference_pdb_path.ext;
+      #end if
+      #if $haddock_config_path:
+        ln -s $haddock_config_path ./haddock_config_path.$haddock_config_path.ext;
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
 
-        #if $config.sele == "option1":
-            --config ${config.properties}_`echo $$`.${config.properties.ext}
-          #else if $config.sele == "option2":
-            --config '${config.jsonstr}'
-          #else if $config.sele == "option3":
-            --config '__oc____dq__cfg__dq__:${properties.cfg},__dq__binary_path__dq__:__dq__${properties.binary_path}__dq____cc__'
-          #end if
-        
-          #if str($input_haddock_wf_data_zip) != 'None':
-            --input_haddock_wf_data_zip ${input_haddock_wf_data_zip}_`echo $$`.${input_haddock_wf_data_zip.ext}
-          #end if
-        
-          #if str($) != 'None':
-            -- ${}_`echo $$`.${.ext}
-          #end if
-        
-          #if str($haddock_config_path) != 'None':
-            --haddock_config_path ${haddock_config_path}_`echo $$`.${haddock_config_path.ext}
-          #end if
-        
-        
-          --output_evaluation_zip_path $outname_output_evaluation_zip_path
-        
-          --output_haddock_wf_data_zip $outname_output_haddock_wf_data_zip
-        ;
-        #if $config.sele == "option1":
-            rm -f ${config.properties}_`echo $$`.${config.properties.ext};
-          #end if
-        
-          rm -f ${input_haddock_wf_data_zip}_`echo $$`.${input_haddock_wf_data_zip.ext};
-        
-          rm -f ${}_`echo $$`.${.ext};
-        
-          rm -f ${haddock_config_path}_`echo $$`.${haddock_config_path.ext};
-        
-        
-          if test -f $outname_output_evaluation_zip_path; then mv $outname_output_evaluation_zip_path $output_evaluation_zip_path; fi;
-        
-          if test -f $outname_output_haddock_wf_data_zip; then mv $outname_output_haddock_wf_data_zip $output_haddock_wf_data_zip; fi;
-        
-    ]]>
+      capri_eval
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext
+      #if $reference_pdb_path:
+        --reference_pdb_path ./reference_pdb_path.$reference_pdb_path.ext
+      #end if
+      #if $haddock_config_path:
+        --haddock_config_path ./haddock_config_path.$haddock_config_path.ext
+      #end if
+      --output_evaluation_zip_path $outname_output_evaluation_zip_path
+      #if $outname_output_haddock_wf_data_zip:
+        --output_haddock_wf_data_zip $outname_output_haddock_wf_data_zip
+      #end if
+      ;
+      
+      mv $outname_output_evaluation_zip_path $output_evaluation_zip_path;
+      if test -f $outname_output_haddock_wf_data_zip; then mv $outname_output_haddock_wf_data_zip $output_haddock_wf_data_zip; fi;
+      ]]>
     </command>
+
     <inputs>
-        
-          <param name="input_haddock_wf_data_zip" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the input zipball containing all the current Haddock workflow data. Format: [input].zip"/>
-        
-          <param name="" type="data" format="pdb"  optional="True" label="input PDB file" help="Path to the input PDB file containing an structure for reference. Format: [input].pdb"/>
-        
-          <param name="haddock_config_path" type="data" format="cfg"  optional="True" label="input CFG file" help="Haddock configuration CFG file path. Format: [input].cfg"/>
-        
-        
-          <param name="outname_output_evaluation_zip_path" type="text" value="mycapri_eval.zip"
-              optional="False" label="output ZIP name"
-              help="Path to the output PDB file collection in zip format Format: [output].zip "/>
-        
-          <param name="outname_output_haddock_wf_data_zip" type="text" value="mycapri_eval.zip"
-              optional="True" label="output ZIP name"
-              help="Path to the output zipball containing all the current Haddock workflow data Format: [output].zip "/>
-        
-        <conditional name="config">
-            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-              <option value="option3">Manual Input</option>
-              <option value="option1">from configuration file</option>
-              <option value="option2">from JSON string</option>
-            </param>
-            <when value="option1">
-              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
-            </when>
-            <when value="option2">
-              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
-            </when>
-            <when value="option3">
-            </when>
-          </conditional>
-          <section name="properties" title="Properties Input">
-            
-              <param name="cfg" type="text" label="cfg" help="Haddock configuration options specification. (Json)" value="{}">
-                  <sanitizer><valid initial="string.printable"/></sanitizer>
-                </param>
-            
-              <param name="binary_path" type="text" label="binary_path" help="Path to the haddock haddock executable binary." optional="false"
-                  value="haddock"
-                >
-                  <sanitizer><valid initial="string.printable"/></sanitizer>
-                </param>
-            
-          </section>
+      <param name="input_haddock_wf_data_zip" type="data" format="zip" optional="false" help="Path to the input zipball containing all the current Haddock workflow data"/>
+      <param name="reference_pdb_path" type="data" format="pdb" optional="true" help="Path to the input PDB file containing an structure for reference"/>
+      <param name="haddock_config_path" type="data" format="cfg" optional="true" help="Haddock configuration CFG file path"/>
+      <param name="outname_output_evaluation_zip_path" type="text" optional="false" help="Path to the output PDB file collection in zip format"/>
+      <param name="outname_output_haddock_wf_data_zip" type="text" optional="true" help="Path to the output zipball containing all the current Haddock workflow data"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
+
     <outputs>
-        
-        
-          <data name="output_evaluation_zip_path" format="zip" label="${outname_output_evaluation_zip_path}"/>
-        
-        
-          <data name="output_haddock_wf_data_zip" format="zip" label="${outname_output_haddock_wf_data_zip}"/>
-        
+      <data name="output_evaluation_zip_path" format="zip" />
+      <data name="output_haddock_wf_data_zip" format="zip" />
     </outputs>
+
     <tests>
         <test>
+          <param name="config_json" value="config_capri_eval.json" ftype="json" />
+          <param name="input_haddock_wf_data_zip" value="haddock_wf_data_rigid.zip" ftype="zip" />
+          <param name="reference_pdb_path" value="e2a-hpr_1GGR.pdb" ftype="pdb" />
+          <param name="outname_output_evaluation_zip_path" value="caprieval_output.zip" />
+          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
+          <output name="output_evaluation_zip_path" ftype="zip">
+            <assert_contents>
+              <has_size value="2956" delta="739"/>
+            </assert_contents>
+          </output>
         </test>
     </tests>
+
     <help>
 .. class:: infomark
 
-Check the syntax for the tool parameters at the original library documentation: https://biobb_haddock.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb-haddock.readthedocs.io/en/latest
 
 -----
 
@@ -146,7 +100,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_haddock},
+            url = {https://github.com/bioexcel/biobb_pytorch},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

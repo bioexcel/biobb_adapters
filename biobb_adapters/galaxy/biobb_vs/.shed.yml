@@ -1,0 +1,22 @@
+name: biobb_vs
+owner: chemteam
+description: "Biobb_vs is the Biobb module collection to perform virtual screening studies."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_vs is the Biobb module collection to perform virtual screening studies..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-vs.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_vs
+type: unrestricted
+categories:
+  - virtual screening
+  - autodock
+  - vina
+  - fpocket
+  - binding site
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

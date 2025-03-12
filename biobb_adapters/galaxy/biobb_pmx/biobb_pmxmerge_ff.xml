@@ -1,61 +1,61 @@
-<tool id="biobb_pmx_pmxmerge_ff_ext" name="PmxmergeFf" version="4.0.0" >
-    <description>: Wrapper class for the PMX merge_ff module.</description>
+<tool id="biobb_pmx_pmxmerge_ff" name="PmxmergeFf" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the PMX merge_ff module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.1</token>
+    </macros>
+
     <requirements>
-        <requirement type="package"
-        version="4.0.0"
-        >biobb_pmx</requirement>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_pmx</requirement>
     </requirements>
-    <command detect_errors="aggressive"><![CDATA[
-        
-          ln -f -s ${input_topology_path} ${input_topology_path}_`echo $$`.${input_topology_path.ext};
-        
-        
 
-        pmxmerge_ff
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_topology_path ./input_topology_path.$input_topology_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
 
-        
-        
-          #if str($input_topology_path) != 'None':
-            --input_topology_path ${input_topology_path}_`echo $$`.${input_topology_path.ext}
-          #end if
-        
-        
-          --output_topology_path $outname_output_topology_path
-        ;
-        
-        
-          rm -f ${input_topology_path}_`echo $$`.${input_topology_path.ext};
-        
-        
-          if test -f $outname_output_topology_path; then mv $outname_output_topology_path $output_topology_path; fi;
-        
-    ]]>
+      pmxmerge_ff
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_topology_path ./input_topology_path.$input_topology_path.ext
+      --output_topology_path $outname_output_topology_path
+      ;
+      
+      mv $outname_output_topology_path $output_topology_path;
+      ]]>
     </command>
+
     <inputs>
-        
-          <param name="input_topology_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the input ligand topologies as a zip file containing a list of itp files. Format: [input].zip"/>
-        
-        
-          <param name="outname_output_topology_path" type="text" value="mypmxmerge_ff.itp"
-              optional="False" label="output ITP name"
-              help="Path to the merged ligand topology file Format: [output].itp "/>
-        
-        
+      <param name="input_topology_path" type="data" format="zip" optional="false" help="Path to the input ligand topologies as a zip file containing a list of itp files"/>
+      <param name="outname_output_topology_path" type="text" optional="false" help="Path to the merged ligand topology file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
+
     <outputs>
-        
-        
-          <data name="output_topology_path" format="itp" label="${outname_output_topology_path}"/>
-        
+      <data name="output_topology_path" format="itp" />
     </outputs>
+
     <tests>
         <test>
+          <param name="config_json" value="config_pmxmerge_ff.json" ftype="json" />
+          <param name="input_topology_path" value="itps_to_merge.zip" ftype="zip" />
+          <param name="outname_output_topology_path" value="hybridTopo.itp" />
+          <output name="output_topology_path" ftype="itp">
+            <assert_contents>
+              <has_size value="1468" delta="367"/>
+            </assert_contents>
+          </output>
         </test>
     </tests>
+
     <help>
 .. class:: infomark
 
-Check the syntax for the tool parameters at the original library documentation: https://biobb_pmx.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb-pmx.readthedocs.io/en/latest
 
 -----
 
@@ -78,7 +78,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_pmx},
+            url = {https://github.com/bioexcel/biobb_pytorch},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

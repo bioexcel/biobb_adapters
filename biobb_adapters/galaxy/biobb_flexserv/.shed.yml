@@ -1,0 +1,23 @@
+name: biobb_flexserv
+owner: chemteam
+description: "Biobb_flexserv is a BioBB category for biomolecular flexibility studies on protein 3D structures."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_flexserv is a BioBB category for biomolecular flexibility studies on protein 3D structures..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-flexserv.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_flexserv
+type: unrestricted
+categories:
+  - BD
+  - DMD
+  - NMA
+  - Flexibility
+  - Structure
+  - 3D
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

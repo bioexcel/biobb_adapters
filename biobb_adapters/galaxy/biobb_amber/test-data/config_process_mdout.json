@@ -1,0 +1,8 @@
+{
+    "terms": [
+        "TEMP",
+        "VOLUME",
+        "EKTOT"
+    ],
+    "remove_tmp": true
+}

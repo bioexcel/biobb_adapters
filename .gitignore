@@ -1,3 +1,6 @@
+# Ignore files too big for git
+THGA_K.cdi
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

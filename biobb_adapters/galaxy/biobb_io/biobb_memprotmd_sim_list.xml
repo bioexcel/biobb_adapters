@@ -1,51 +1,52 @@
-<tool id="biobb_io_memprotmd_sim_list_ext" name="MemprotmdSimList" version="4.0.0" >
-    <description>: This class is a wrapper of the MemProtMD to get all available membrane-protein systems from its REST API.</description>
+<tool id="biobb_io_memprotmd_sim_list" name="MemprotmdSimList" version="@TOOL_VERSION@" >
+    <description>This class is a wrapper of the MemProtMD to get all available membrane-protein systems from its REST API.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
     <requirements>
-        <requirement type="package"
-        version="4.0.0"
-        >biobb_io</requirement>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_io</requirement>
     </requirements>
-    <command detect_errors="aggressive"><![CDATA[
-        
-        
 
-        memprotmd_sim_list
+    <command detect_errors="exit_code"><![CDATA[
+      
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
 
-        
-        
-        
-          --output_simulations $outname_output_simulations
-        ;
-        
-        
-        
-          if test -f $outname_output_simulations; then mv $outname_output_simulations $output_simulations; fi;
-        
-    ]]>
+      memprotmd_sim_list
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --output_simulations $outname_output_simulations
+      ;
+      
+      mv $outname_output_simulations $output_simulations;
+      ]]>
     </command>
+
     <inputs>
-        
-        
-          <param name="outname_output_simulations" type="text" value="mymemprotmd_sim_list.json"
-              optional="False" label="output JSON name"
-              help="Path to the output JSON file Format: [output].json "/>
-        
-        
+      <param name="outname_output_simulations" type="text" optional="false" help="Path to the output JSON file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
+
     <outputs>
-        
-        
-          <data name="output_simulations" format="json" label="${outname_output_simulations}"/>
-        
+      <data name="output_simulations" format="json" />
     </outputs>
+
     <tests>
         <test>
+          <param name="config_json" value="config_memprotmd_sim_list.json" ftype="json" />
+          <param name="outname_output_simulations" value="output_simulations.json" />
         </test>
     </tests>
+
     <help>
 .. class:: infomark
 
-Check the syntax for the tool parameters at the original library documentation: https://biobb_io.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb-io.readthedocs.io/en/latest
 
 -----
 
@@ -68,7 +69,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_io},
+            url = {https://github.com/bioexcel/biobb_pytorch},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

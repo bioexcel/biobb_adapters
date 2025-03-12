@@ -1,0 +1,27 @@
+name: biobb_flexdyn
+owner: chemteam
+description: "Biobb_flexdyn is the Biobb module collection for studies on the conformational landscape of native proteins."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_flexdyn is the Biobb module collection for studies on the conformational landscape of native proteins..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-flexdyn.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_flexdyn
+type: unrestricted
+categories:
+  - 3D-Bioinfo
+  - ELIXIR
+  - FlexDyn
+  - Bioinformatics
+  - Workflows
+  - BioExcel
+  - Compatibility
+  - Flexibility
+  - Ensembles
+  - Protein Structure
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

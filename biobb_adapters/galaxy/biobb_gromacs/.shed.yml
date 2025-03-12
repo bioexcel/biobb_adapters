@@ -1,0 +1,21 @@
+name: biobb_gromacs
+owner: chemteam
+description: "Biobb_gromacs is the Biobb module collection to perform molecular dynamics simulations using the GROMACS MD suite."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_gromacs is the Biobb module collection to perform molecular dynamics simulations using the GROMACS MD suite..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-gromacs.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_gromacs
+type: unrestricted
+categories:
+  - md
+  - molecular
+  - dynamics
+  - GROMACS
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

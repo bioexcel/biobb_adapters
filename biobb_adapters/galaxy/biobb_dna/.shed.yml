@@ -1,0 +1,20 @@
+name: biobb_dna
+owner: chemteam
+description: "Biobb_dna is a package composed of different analyses for nucleic acid trajectories"
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_dna is a package composed of different analyses for nucleic acid trajectories.
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-dna.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_dna
+type: unrestricted
+categories:
+  - dna
+  - curves
+  - canal
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

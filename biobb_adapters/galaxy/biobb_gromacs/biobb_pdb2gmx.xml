@@ -1,61 +1,71 @@
-<tool id="biobb_gromacs_pdb2gmx" name="Pdb2gmx" version="4.2.0" >
-  <description>: Wrapper class for the GROMACS pdb2gmx module.</description>
+<tool id="biobb_gromacs_pdb2gmx" name="Pdb2gmx" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the GROMACS pdb2gmx module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
 
-  <requirements>
-    <requirement type="package" version="4.2.0">biobb_gromacs</requirement>
-  </requirements>
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_gromacs</requirement>
+    </requirements>
 
-  <command detect_errors="exit_code"><![CDATA[
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_pdb_path ./input_pdb_path.$input_pdb_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
 
-    ln -s $input_pdb_path ./input_pdb_path.$input_pdb_path.ext;
-    #if str($config_json) != 'None':
-      ln -s $config_json ./config_json.$config_json.ext;
-    #end if
+      pdb2gmx
 
-    pdb2gmx
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_pdb_path ./input_pdb_path.$input_pdb_path.ext
+      --output_gro_path $outname_output_gro_path
+      --output_top_zip_path $outname_output_top_zip_path
+      ;
+      
+      mv $outname_output_gro_path $output_gro_path;
+      mv $outname_output_top_zip_path $output_top_zip_path;
+      ]]>
+    </command>
 
-    #if str($config_json) != 'None':
-      --config ./config_json.$config_json.ext
-    #end if
+    <inputs>
+      <param name="input_pdb_path" type="data" format="pdb" optional="false" help="Path to the input PDB file"/>
+      <param name="outname_output_gro_path" type="text" optional="false" help="Path to the output GRO file"/>
+      <param name="outname_output_top_zip_path" type="text" optional="false" help="Path the output TOP topology in zip format"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
 
-    --input_pdb_path ./input_pdb_path.$input_pdb_path.ext
-    --output_gro_path $outname_output_gro_path
-    --output_top_zip_path $outname_output_top_zip_path
-    ;
+    <outputs>
+      <data name="output_gro_path" format="gro" />
+      <data name="output_top_zip_path" format="zip" />
+    </outputs>
 
-    if test -f $outname_output_gro_path; then mv $outname_output_gro_path $output_gro_path; fi;
-    if test -f $outname_output_top_zip_path; then mv $outname_output_top_zip_path $output_top_zip_path; fi;
+    <tests>
+        <test>
+          <param name="config_json" value="config_pdb2gmx.json" ftype="json" />
+          <param name="input_pdb_path" value="egfr.pdb" ftype="pdb" />
+          <param name="outname_output_gro_path" value="output_gro.gro" />
+          <param name="outname_output_top_zip_path" value="output_top_zip.zip" />
+          <output name="output_gro_path" ftype="gro">
+            <assert_contents>
+              <has_size value="211524" delta="52881"/>
+            </assert_contents>
+          </output>
+          <output name="output_top_zip_path" ftype="zip">
+            <assert_contents>
+              <has_size value="1395519" delta="348879"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
 
-    ]]>
-  </command>
-
-  <inputs>
-    <param format="pdb" name="input_pdb_path" type="data" label="PDB input file" help="Path to the input PDB file. Format: [input].pdb"/>
-    <param name="outname_output_gro_path" type="text" optional="False" label="output GRO name" help="Path to the output GRO file Format: [output].gro "/>
-    <param name="outname_output_top_zip_path" type="text" optional="False" label="output ZIP name" help="Path the output TOP topology in zip format Format: [output].zip "/>
-    <param name="config_json" type="data" format="json" optional="True" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
-  </inputs>
-
-  <outputs>
-    <data name="output_gro_path" format="gro" />
-    <data name="output_top_zip_path" format="zip" />
-  </outputs>
-
-  <tests>
-    <test>
-      <param name="config_json" value="config_pdb2gmx.json" ftype="json" />
-      <param name="input_pdb_path" value="input_pdb2gmx.pdb" ftype="pdb" />
-      <param name="outname_output_gro_path" value="output_pdb2gmx.gro" />
-      <param name="outname_output_top_zip_path" value="output_pdb2gmx.zip" />
-      <output name="output_gro_path" file="output_pdb2gmx.gro" />
-      <output name="output_top_zip_path" file="output_pdb2gmx.zip" compare="sim_size"/>
-    </test>
-  </tests>
-
-  <help>
+    <help>
 .. class:: infomark
 
-Check the syntax for the tool parameters at the original library documentation: https://biobb_gromacs.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb-gromacs.readthedocs.io/en/latest
 
 -----
 
@@ -68,20 +78,19 @@ Check the syntax for the tool parameters at the original library documentation: 
         :width: 150
 
 **https://bioexcel.eu**
-  </help>
+   </help>
 
-  <citations>
-    <citation type="bibtex">
-        @misc{githubbiobb,
-        author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
-        year = {2019-21},
-        title = {biobb: BioExcel building blocks },
-        publisher = {GitHub},
-        journal = {GitHub repository},
-        url = {https://github.com/bioexcel/biobb_gromacs},
-        }
-    </citation>
-    <citation type="doi">10.1038/s41597-019-0177-4</citation>
-  </citations>
-
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
 </tool>

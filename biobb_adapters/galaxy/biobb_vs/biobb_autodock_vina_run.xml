@@ -1,130 +1,81 @@
-<tool id="biobb_vs_autodock_vina_run_ext" name="AutodockVinaRun" version="4.0.0" >
-    <description>: Wrapper of the AutoDock Vina software.</description>
+<tool id="biobb_vs_autodock_vina_run" name="AutodockVinaRun" version="@TOOL_VERSION@" >
+    <description>Wrapper of the AutoDock Vina software.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
     <requirements>
-        <requirement type="package"
-        version="4.0.0"
-        >biobb_vs</requirement>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_vs</requirement>
     </requirements>
-    <command detect_errors="aggressive"><![CDATA[
-        
-          ln -f -s ${input_ligand_pdbqt_path} ${input_ligand_pdbqt_path}_`echo $$`.${input_ligand_pdbqt_path.ext};
-        
-          ln -f -s ${input_receptor_pdbqt_path} ${input_receptor_pdbqt_path}_`echo $$`.${input_receptor_pdbqt_path.ext};
-        
-          ln -f -s ${input_box_path} ${input_box_path}_`echo $$`.${input_box_path.ext};
-        
-        #if $config.sele == "option1":
-            ln -s -f ${config.properties} ${config.properties}_`echo $$`.${config.properties.ext};
-          #end if
 
-        autodock_vina_run
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_ligand_pdbqt_path ./input_ligand_pdbqt_path.$input_ligand_pdbqt_path.ext;
+      ln -s $input_receptor_pdbqt_path ./input_receptor_pdbqt_path.$input_receptor_pdbqt_path.ext;
+      ln -s $input_box_path ./input_box_path.$input_box_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
 
-        #if $config.sele == "option1":
-            --config ${config.properties}_`echo $$`.${config.properties.ext}
-          #else if $config.sele == "option2":
-            --config '${config.jsonstr}'
-          #else if $config.sele == "option3":
-            --config '__oc____dq__cpu__dq__:${properties.cpu},__dq__binary_path__dq__:__dq__${properties.binary_path}__dq____cc__'
-          #end if
-        
-          #if str($input_ligand_pdbqt_path) != 'None':
-            --input_ligand_pdbqt_path ${input_ligand_pdbqt_path}_`echo $$`.${input_ligand_pdbqt_path.ext}
-          #end if
-        
-          #if str($input_receptor_pdbqt_path) != 'None':
-            --input_receptor_pdbqt_path ${input_receptor_pdbqt_path}_`echo $$`.${input_receptor_pdbqt_path.ext}
-          #end if
-        
-          #if str($input_box_path) != 'None':
-            --input_box_path ${input_box_path}_`echo $$`.${input_box_path.ext}
-          #end if
-        
-        
-          --output_pdbqt_path $outname_output_pdbqt_path
-        
-          --output_log_path $outname_output_log_path
-        ;
-        #if $config.sele == "option1":
-            rm -f ${config.properties}_`echo $$`.${config.properties.ext};
-          #end if
-        
-          rm -f ${input_ligand_pdbqt_path}_`echo $$`.${input_ligand_pdbqt_path.ext};
-        
-          rm -f ${input_receptor_pdbqt_path}_`echo $$`.${input_receptor_pdbqt_path.ext};
-        
-          rm -f ${input_box_path}_`echo $$`.${input_box_path.ext};
-        
-        
-          if test -f $outname_output_pdbqt_path; then mv $outname_output_pdbqt_path $output_pdbqt_path; fi;
-        
-          if test -f $outname_output_log_path; then mv $outname_output_log_path $output_log_path; fi;
-        
-    ]]>
+      autodock_vina_run
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_ligand_pdbqt_path ./input_ligand_pdbqt_path.$input_ligand_pdbqt_path.ext
+      --input_receptor_pdbqt_path ./input_receptor_pdbqt_path.$input_receptor_pdbqt_path.ext
+      --input_box_path ./input_box_path.$input_box_path.ext
+      --output_pdbqt_path $outname_output_pdbqt_path
+      #if $outname_output_log_path:
+        --output_log_path $outname_output_log_path
+      #end if
+      ;
+      
+      mv $outname_output_pdbqt_path $output_pdbqt_path;
+      if test -f $outname_output_log_path; then mv $outname_output_log_path $output_log_path; fi;
+      ]]>
     </command>
+
     <inputs>
-        
-          <param name="input_ligand_pdbqt_path" type="data" format="pdbqt"  optional="False" label="input PDBQT file" help="Path to the input PDBQT ligand. Format: [input].pdbqt"/>
-        
-          <param name="input_receptor_pdbqt_path" type="data" format="pdbqt"  optional="False" label="input PDBQT file" help="Path to the input PDBQT receptor. Format: [input].pdbqt"/>
-        
-          <param name="input_box_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the PDB containig the residues belonging to the binding site. Format: [input].pdb"/>
-        
-        
-          <param name="outname_output_pdbqt_path" type="text" value="myautodock_vina_run.pdbqt"
-              optional="False" label="output PDBQT name"
-              help="Path to the output PDBQT file Format: [output].pdbqt "/>
-        
-          <param name="outname_output_log_path" type="text" value="myautodock_vina_run.log"
-              optional="True" label="output LOG name"
-              help="Path to the log file Format: [output].log "/>
-        
-        <conditional name="config">
-            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
-              <option value="option3">Manual Input</option>
-              <option value="option1">from configuration file</option>
-              <option value="option2">from JSON string</option>
-            </param>
-            <when value="option1">
-              <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
-            </when>
-            <when value="option2">
-              <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
-            </when>
-            <when value="option3">
-            </when>
-          </conditional>
-          <section name="properties" title="Properties Input">
-            
-              <param name="cpu" type="integer"
-                  value="1"
-                  min="1" max="1000"
-                  label="cpu" help="the number of CPUs to use." optional="false"/>
-            
-              <param name="binary_path" type="text" label="binary_path" help="path to vina in your local computer." optional="false"
-                  value="vina"
-                >
-                  <sanitizer><valid initial="string.printable"/></sanitizer>
-                </param>
-            
-          </section>
+      <param name="input_ligand_pdbqt_path" type="data" format="pdbqt" optional="false" help="Path to the input PDBQT ligand"/>
+      <param name="input_receptor_pdbqt_path" type="data" format="pdbqt" optional="false" help="Path to the input PDBQT receptor"/>
+      <param name="input_box_path" type="data" format="pdb" optional="false" help="Path to the PDB containig the residues belonging to the binding site"/>
+      <param name="outname_output_pdbqt_path" type="text" optional="false" help="Path to the output PDBQT file"/>
+      <param name="outname_output_log_path" type="text" optional="true" help="Path to the log file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
+
     <outputs>
-        
-        
-          <data name="output_pdbqt_path" format="pdbqt" label="${outname_output_pdbqt_path}"/>
-        
-        
-          <data name="output_log_path" format="log" label="${outname_output_log_path}"/>
-        
+      <data name="output_pdbqt_path" format="pdbqt" />
+      <data name="output_log_path" format="log" />
     </outputs>
+
     <tests>
         <test>
+          <param name="config_json" value="config_autodock_vina_run.json" ftype="json" />
+          <param name="input_ligand_pdbqt_path" value="vina_ligand.pdbqt" ftype="pdbqt" />
+          <param name="input_receptor_pdbqt_path" value="vina_receptor.pdbqt" ftype="pdbqt" />
+          <param name="input_box_path" value="vina_box.pdb" ftype="pdb" />
+          <param name="outname_output_pdbqt_path" value="output_pdbqt_path.pdbqt" />
+          <param name="outname_output_log_path" value="output_log_path.log" />
+          <output name="output_pdbqt_path" ftype="pdbqt">
+            <assert_contents>
+              <has_size value="44766" delta="11191"/>
+            </assert_contents>
+          </output>
+          <output name="output_log_path" ftype="log">
+            <assert_contents>
+              <has_size value="2194" delta="548"/>
+            </assert_contents>
+          </output>
         </test>
     </tests>
+
     <help>
 .. class:: infomark
 
-Check the syntax for the tool parameters at the original library documentation: https://biobb_vs.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb-vs.readthedocs.io/en/latest
 
 -----
 
@@ -147,7 +98,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_vs},
+            url = {https://github.com/bioexcel/biobb_pytorch},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

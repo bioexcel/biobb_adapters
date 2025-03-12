@@ -1,0 +1,21 @@
+name: biobb_chemistry
+owner: chemteam
+description: "Biobb_chemistry is the Biobb module collection to perform chemistry over molecular dynamics simulations."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_chemistry is the Biobb module collection to perform chemistry over molecular dynamics simulations..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-chemistry.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_chemistry
+type: unrestricted
+categories:
+  - chemistry
+  - ambertools
+  - acpype
+  - babel
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital

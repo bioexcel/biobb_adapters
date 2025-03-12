@@ -1,0 +1,20 @@
+name: biobb_pdb_tools
+owner: chemteam
+description: "Biobb PDB Tools is a swiss army knife for manipulating and editing PDB files"
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb PDB Tools is a swiss army knife for manipulating and editing PDB files.
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-pdb-tools.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_pdb_tools
+type: unrestricted
+categories:
+  - pdb
+  - chain
+  - model
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital
