@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_sele_top_clusts" name="SeleTopClusts" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock SeleTopClusts module https://www.bonvinlab.org/haddock3/modules/analysis/seletopclusts.html.</description>
+    <description>Wrapper class for the Haddock SeleTopClusts module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.1</token>
+      <token name="@TOOL_VERSION@">5.0.1</token>
     </macros>
 
     <requirements>

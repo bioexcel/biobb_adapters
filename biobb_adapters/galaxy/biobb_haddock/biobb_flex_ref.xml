@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_flex_ref" name="FlexRef" version="@TOOL_VERSION@" >
     <description>Wrapper class for the Haddock FlexRef module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.1</token>
+      <token name="@TOOL_VERSION@">5.0.1</token>
     </macros>
 
     <requirements>
@@ -11,8 +11,14 @@
     <command detect_errors="exit_code"><![CDATA[
       
       ln -s $input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext;
-      #if $restraints_table_path:
-        ln -s $restraints_table_path ./restraints_table_path.$restraints_table_path.ext;
+      #if $ambig_restraints_table_path:
+        ln -s $ambig_restraints_table_path ./ambig_restraints_table_path.$ambig_restraints_table_path.ext;
+      #end if
+      #if $unambig_restraints_table_path:
+        ln -s $unambig_restraints_table_path ./unambig_restraints_table_path.$unambig_restraints_table_path.ext;
+      #end if
+      #if $hb_restraints_table_path:
+        ln -s $hb_restraints_table_path ./hb_restraints_table_path.$hb_restraints_table_path.ext;
       #end if
       #if $haddock_config_path:
         ln -s $haddock_config_path ./haddock_config_path.$haddock_config_path.ext;
@@ -28,8 +34,14 @@
       #end if
       
       --input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext
-      #if $restraints_table_path:
-        --restraints_table_path ./restraints_table_path.$restraints_table_path.ext
+      #if $ambig_restraints_table_path:
+        --ambig_restraints_table_path ./ambig_restraints_table_path.$ambig_restraints_table_path.ext
+      #end if
+      #if $unambig_restraints_table_path:
+        --unambig_restraints_table_path ./unambig_restraints_table_path.$unambig_restraints_table_path.ext
+      #end if
+      #if $hb_restraints_table_path:
+        --hb_restraints_table_path ./hb_restraints_table_path.$hb_restraints_table_path.ext
       #end if
       #if $haddock_config_path:
         --haddock_config_path ./haddock_config_path.$haddock_config_path.ext
@@ -47,7 +59,9 @@
 
     <inputs>
       <param name="input_haddock_wf_data_zip" type="data" format="zip" optional="false" help="Path to the input zipball containing all the current Haddock workflow data"/>
-      <param name="restraints_table_path" type="data" format="tbl" optional="true" help="Path to the input TBL file containing a list of restraints for docking"/>
+      <param name="ambig_restraints_table_path" type="data" format="tbl" optional="true" help="Path to the input TBL file containing a list of ambiguous restraints for docking"/>
+      <param name="unambig_restraints_table_path" type="data" format="tbl" optional="true" help="Path to the input TBL file containing a list of unambiguous restraints for docking"/>
+      <param name="hb_restraints_table_path" type="data" format="tbl" optional="true" help="Path to the input TBL file containing a list of hydrogen bond restraints for docking"/>
       <param name="haddock_config_path" type="data" format="cfg" optional="true" help="Haddock configuration CFG file path"/>
       <param name="outname_refinement_output_zip_path" type="text" optional="false" help="Path to the output PDB file collection in zip format"/>
       <param name="outname_output_haddock_wf_data_zip" type="text" optional="true" help="Path to the output zipball containing all the current Haddock workflow data"/>
@@ -63,7 +77,7 @@
         <test>
           <param name="config_json" value="config_flex_ref.json" ftype="json" />
           <param name="input_haddock_wf_data_zip" value="haddock_wf_data_seletop.zip" ftype="zip" />
-          <param name="restraints_table_path" value="e2a-hpr_air.tbl" ftype="tbl" />
+          <param name="ambig_restraints_table_path" value="e2a-hpr_air.tbl" ftype="tbl" />
           <param name="outname_refinement_output_zip_path" value="refinement_output.zip" />
           <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
           <output name="refinement_output_zip_path" ftype="zip">

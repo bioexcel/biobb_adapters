@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_sele_top" name="SeleTop" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock SeleTop module https://www.bonvinlab.org/haddock3/modules/analysis/seletop.html</description>
+    <description>Wrapper class for the Haddock SeleTop module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.1</token>
+      <token name="@TOOL_VERSION@">5.0.1</token>
     </macros>
 
     <requirements>
@@ -60,7 +60,7 @@
           <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
           <output name="output_selection_zip_path" ftype="zip">
             <assert_contents>
-              <has_size value="22" delta="5"/>
+              <has_size value="882756" delta="220689"/>
             </assert_contents>
           </output>
         </test>

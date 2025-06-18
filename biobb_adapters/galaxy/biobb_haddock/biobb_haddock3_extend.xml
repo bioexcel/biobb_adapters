@@ -1,0 +1,91 @@
+<tool id="biobb_haddock_haddock3_extend" name="Haddock3Extend" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the Haddock3 extend module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">5.0.1</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_haddock</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $haddock_config_path ./haddock_config_path.$haddock_config_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      haddock3_extend
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --haddock_config_path ./haddock_config_path.$haddock_config_path.ext
+      --input_haddock_wf_data_zip $outname_input_haddock_wf_data_zip
+      --output_haddock_wf_data_zip $outname_output_haddock_wf_data_zip
+      ;
+      
+      mv $outname_input_haddock_wf_data_zip $input_haddock_wf_data_zip;
+      mv $outname_output_haddock_wf_data_zip $output_haddock_wf_data_zip;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="haddock_config_path" type="data" format="cfg" optional="false" help="Haddock configuration CFG file path"/>
+      <param name="outname_input_haddock_wf_data_zip" type="text" optional="false" help="Path to the input zipball containing all the current Haddock workflow data"/>
+      <param name="outname_output_haddock_wf_data_zip" type="text" optional="false" help="Path to the output zipball containing all the current Haddock workflow data"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="input_haddock_wf_data_zip" format="zip" />
+      <data name="output_haddock_wf_data_zip" format="zip" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_haddock3_extend.json" ftype="json" />
+          <param name="haddock_config_path" value="extend.cfg" ftype="cfg" />
+          <param name="outname_input_haddock_wf_data_zip" value="haddock_wf_data_caprieval.zip" />
+          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
+          <output name="output_haddock_wf_data_zip" ftype="zip">
+            <assert_contents>
+              <has_size value="2759851" delta="689962"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-haddock.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

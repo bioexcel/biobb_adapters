@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_rigid_body" name="RigidBody" version="@TOOL_VERSION@" >
     <description>Wrapper class for the Haddock RigidBody module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.1</token>
+      <token name="@TOOL_VERSION@">5.0.1</token>
     </macros>
 
     <requirements>
@@ -78,7 +78,7 @@
           <param name="config_json" value="config_rigid_body.json" ftype="json" />
           <param name="input_haddock_wf_data_zip" value="haddock_wf_data_topology.zip" ftype="zip" />
           <param name="outname_docking_output_zip_path" value="docking_output.zip" />
-          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
+          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data_rigid.zip" />
           <output name="docking_output_zip_path" ftype="zip">
             <assert_contents>
               <has_size value="766602" delta="191650"/>

@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_capri_eval" name="CapriEval" version="@TOOL_VERSION@" >
     <description>Wrapper class for the Haddock CapriEval module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.1</token>
+      <token name="@TOOL_VERSION@">5.0.1</token>
     </macros>
 
     <requirements>
@@ -65,10 +65,10 @@
           <param name="input_haddock_wf_data_zip" value="haddock_wf_data_rigid.zip" ftype="zip" />
           <param name="reference_pdb_path" value="e2a-hpr_1GGR.pdb" ftype="pdb" />
           <param name="outname_output_evaluation_zip_path" value="caprieval_output.zip" />
-          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
+          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data_caprieval.zip" />
           <output name="output_evaluation_zip_path" ftype="zip">
             <assert_contents>
-              <has_size value="2956" delta="739"/>
+              <has_size value="2258375" delta="564593"/>
             </assert_contents>
           </output>
         </test>

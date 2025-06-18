@@ -3,7 +3,7 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-label: Wrapper class for the Haddock SeleTop module https://www.bonvinlab.org/haddock3/modules/analysis/seletop.html
+label: Wrapper class for the Haddock SeleTop module.
 
 doc: |-
   The SeleTop module. Haddock SeleTop module selects the top models of a docking.
@@ -12,7 +12,7 @@ baseCommand: sele_top
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:4.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.0.1--pyhdfd78af_0
 
 inputs:
   input_haddock_wf_data_zip:
@@ -54,7 +54,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/reference/haddock/ref_topology.zip
+      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_emref.zip
     type: string
     format:
     - edam:format_3987
@@ -69,7 +69,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: cfg
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/configuration.cfg
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/run.cfg
     type: File?
     format:
     - edam:format_1476

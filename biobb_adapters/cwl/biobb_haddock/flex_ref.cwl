@@ -6,13 +6,13 @@ class: CommandLineTool
 label: Wrapper class for the Haddock FlexRef module.
 
 doc: |-
-  The FlexRef module. Haddock FlexRef module computes a flexible refinement over selected structures.
+  The FlexRef module.Haddock FlexRef module computes a flexible refinement over selected structures.
 
 baseCommand: flex_ref
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:4.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.0.1--pyhdfd78af_0
 
 inputs:
   input_haddock_wf_data_zip:
@@ -46,10 +46,11 @@ inputs:
       prefix: --refinement_output_zip_path
     default: system.zip
 
-  restraints_table_path:
-    label: Path to the input TBL file containing a list of restraints for docking
+  ambig_restraints_table_path:
+    label: Path to the input TBL file containing a list of ambiguous restraints for
+      docking
     doc: |-
-      Path to the input TBL file containing a list of restraints for docking
+      Path to the input TBL file containing a list of ambiguous restraints for docking
       Type: string
       File type: input
       Accepted formats: tbl
@@ -58,7 +59,37 @@ inputs:
     format:
     - edam:format_2330
     inputBinding:
-      prefix: --restraints_table_path
+      prefix: --ambig_restraints_table_path
+
+  unambig_restraints_table_path:
+    label: Path to the input TBL file containing a list of unambiguous restraints
+      for docking
+    doc: |-
+      Path to the input TBL file containing a list of unambiguous restraints for docking
+      Type: string
+      File type: input
+      Accepted formats: tbl
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/e2a-hpr_air.tbl
+    type: File?
+    format:
+    - edam:format_2330
+    inputBinding:
+      prefix: --unambig_restraints_table_path
+
+  hb_restraints_table_path:
+    label: Path to the input TBL file containing a list of hydrogen bond restraints
+      for docking
+    doc: |-
+      Path to the input TBL file containing a list of hydrogen bond restraints for docking
+      Type: string
+      File type: input
+      Accepted formats: tbl
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/e2a-hpr_air.tbl
+    type: File?
+    format:
+    - edam:format_2330
+    inputBinding:
+      prefix: --hb_restraints_table_path
 
   output_haddock_wf_data_zip:
     label: Path to the output zipball containing all the current Haddock workflow
@@ -68,7 +99,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/reference/haddock/ref_topology.zip
+      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_emref.zip
     type: string
     format:
     - edam:format_3987
@@ -83,7 +114,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: cfg
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/configuration.cfg
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/run.cfg
     type: File?
     format:
     - edam:format_1476

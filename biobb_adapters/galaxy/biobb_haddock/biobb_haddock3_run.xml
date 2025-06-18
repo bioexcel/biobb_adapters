@@ -1,5 +1,5 @@
-<tool id="biobb_haddock_topology" name="Topology" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock Topology module.</description>
+<tool id="biobb_haddock_haddock3_run" name="Haddock3Run" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the Haddock3 run module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.0.1</token>
     </macros>
@@ -11,8 +11,15 @@
     <command detect_errors="exit_code"><![CDATA[
       
       ln -s $mol1_input_pdb_path ./mol1_input_pdb_path.$mol1_input_pdb_path.ext;
-      #if $mol2_input_pdb_path:
-        ln -s $mol2_input_pdb_path ./mol2_input_pdb_path.$mol2_input_pdb_path.ext;
+      ln -s $mol2_input_pdb_path ./mol2_input_pdb_path.$mol2_input_pdb_path.ext;
+      #if $ambig_restraints_table_path:
+        ln -s $ambig_restraints_table_path ./ambig_restraints_table_path.$ambig_restraints_table_path.ext;
+      #end if
+      #if $unambig_restraints_table_path:
+        ln -s $unambig_restraints_table_path ./unambig_restraints_table_path.$unambig_restraints_table_path.ext;
+      #end if
+      #if $hb_restraints_table_path:
+        ln -s $hb_restraints_table_path ./hb_restraints_table_path.$hb_restraints_table_path.ext;
       #end if
       #if $haddock_config_path:
         ln -s $haddock_config_path ./haddock_config_path.$haddock_config_path.ext;
@@ -21,68 +28,58 @@
         ln -s $config_json ./config_json.$config_json.ext;
       #end if
 
-      topology
+      haddock3_run
 
       #if $config_json:
         --config ./config_json.$config_json.ext
       #end if
       
       --mol1_input_pdb_path ./mol1_input_pdb_path.$mol1_input_pdb_path.ext
-      #if $mol2_input_pdb_path:
-        --mol2_input_pdb_path ./mol2_input_pdb_path.$mol2_input_pdb_path.ext
+      --mol2_input_pdb_path ./mol2_input_pdb_path.$mol2_input_pdb_path.ext
+      #if $ambig_restraints_table_path:
+        --ambig_restraints_table_path ./ambig_restraints_table_path.$ambig_restraints_table_path.ext
+      #end if
+      #if $unambig_restraints_table_path:
+        --unambig_restraints_table_path ./unambig_restraints_table_path.$unambig_restraints_table_path.ext
+      #end if
+      #if $hb_restraints_table_path:
+        --hb_restraints_table_path ./hb_restraints_table_path.$hb_restraints_table_path.ext
       #end if
       #if $haddock_config_path:
         --haddock_config_path ./haddock_config_path.$haddock_config_path.ext
-      #end if
-      --mol1_output_top_zip_path $outname_mol1_output_top_zip_path
-      #if $outname_mol2_output_top_zip_path:
-        --mol2_output_top_zip_path $outname_mol2_output_top_zip_path
       #end if
       #if $outname_output_haddock_wf_data_zip:
         --output_haddock_wf_data_zip $outname_output_haddock_wf_data_zip
       #end if
       ;
       
-      mv $outname_mol1_output_top_zip_path $mol1_output_top_zip_path;
-      if test -f $outname_mol2_output_top_zip_path; then mv $outname_mol2_output_top_zip_path $mol2_output_top_zip_path; fi;
       if test -f $outname_output_haddock_wf_data_zip; then mv $outname_output_haddock_wf_data_zip $output_haddock_wf_data_zip; fi;
       ]]>
     </command>
 
     <inputs>
       <param name="mol1_input_pdb_path" type="data" format="pdb" optional="false" help="Path to the input PDB file"/>
-      <param name="mol2_input_pdb_path" type="data" format="pdb" optional="true" help="Path to the input PDB file"/>
+      <param name="mol2_input_pdb_path" type="data" format="pdb" optional="false" help="Path to the input PDB file"/>
+      <param name="ambig_restraints_table_path" type="data" format="tbl" optional="true" help="Path to the input TBL file containing a list of ambiguous restraints for docking"/>
+      <param name="unambig_restraints_table_path" type="data" format="tbl" optional="true" help="Path to the input TBL file containing a list of unambiguous restraints for docking"/>
+      <param name="hb_restraints_table_path" type="data" format="tbl" optional="true" help="Path to the input TBL file containing a list of hydrogen bond restraints for docking"/>
       <param name="haddock_config_path" type="data" format="cfg" optional="true" help="Haddock configuration CFG file path"/>
-      <param name="outname_mol1_output_top_zip_path" type="text" optional="false" help="Path to the output PDB file collection in zip format"/>
-      <param name="outname_mol2_output_top_zip_path" type="text" optional="true" help="Path to the output PDB file collection in zip format"/>
       <param name="outname_output_haddock_wf_data_zip" type="text" optional="true" help="Path to the output zipball containing all the current Haddock workflow data"/>
       <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
 
     <outputs>
-      <data name="mol1_output_top_zip_path" format="zip" />
-      <data name="mol2_output_top_zip_path" format="zip" />
       <data name="output_haddock_wf_data_zip" format="zip" />
     </outputs>
 
     <tests>
         <test>
-          <param name="config_json" value="config_topology.json" ftype="json" />
+          <param name="config_json" value="config_haddock3_run.json" ftype="json" />
           <param name="mol1_input_pdb_path" value="e2aP_1F3G.pdb" ftype="pdb" />
           <param name="mol2_input_pdb_path" value="hpr_ensemble.pdb" ftype="pdb" />
-          <param name="outname_mol1_output_top_zip_path" value="mol1_top.zip" />
-          <param name="outname_mol2_output_top_zip_path" value="mol2_top.zip" />
+          <param name="ambig_restraints_table_path" value="e2a-hpr_air.tbl" ftype="tbl" />
+          <param name="haddock_config_path" value="run.cfg" ftype="cfg" />
           <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
-          <output name="mol1_output_top_zip_path" ftype="zip">
-            <assert_contents>
-              <has_size value="111214" delta="27803"/>
-            </assert_contents>
-          </output>
-          <output name="mol2_output_top_zip_path" ftype="zip">
-            <assert_contents>
-              <has_size value="636971" delta="159242"/>
-            </assert_contents>
-          </output>
         </test>
     </tests>
 
