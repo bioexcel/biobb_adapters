@@ -1,0 +1,19 @@
+name: biobb_mem
+owner: chemteam
+description: "Biobb_mem is a BioBB category for membrane analysis and manipulation. It allows analysis of membrane properties and manipulation of membrane systems using tools like MDAnalysis and LiPyphilic."
+homepage_url: https://github.com/bioexcel/biobb_pytorch
+long_description: |
+    Biobb_mem is a BioBB category for membrane analysis and manipulation. It allows analysis of membrane properties and manipulation of membrane systems using tools like MDAnalysis and LiPyphilic..
+    Biobb (BioExcel building blocks) packages are Python building blocks that
+    create new layer of compatibility and interoperability over popular bioinformatics tools.
+    The latest documentation of this package can be found in our readthedocs site:
+    [latest API documentation](https://biobb-mem.readthedocs.io/en/latest/).
+remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_mem
+type: unrestricted
+categories:
+  - membrane
+  - keywords
+maintainers:
+  - PauAndrio
+  - gbayarri
+  - adamhospital
