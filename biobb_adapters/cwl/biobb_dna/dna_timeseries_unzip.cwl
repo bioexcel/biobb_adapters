@@ -12,7 +12,7 @@ baseCommand: dna_timeseries_unzip
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_dna:5.0.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_dna:5.1.0--pyhdfd78af_0
 
 inputs:
   input_zip_file:

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="biobb_adapters",
-    version="4.0.0",
+    version="5.1.0",
     author="Biobb developers",
     author_email="pau.andrio@bsc.es",
     description="Biobb_adapters is the Biobb module collection to use the building blocks with several workflow managers.",
@@ -22,13 +22,13 @@ setuptools.setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=['cwltool'],
-    python_requires='>=3.7,<=3.10',
+    python_requires='>=3.9,<=3.12',
     classifiers=(
         "Development Status :: 5 - Production/Stable",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: POSIX",

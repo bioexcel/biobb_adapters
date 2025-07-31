@@ -1,0 +1,90 @@
+<tool id="biobb_chemistry_acpype_convert_amber_to_gmx" name="AcpypeConvertAmberToGmx" version="@TOOL_VERSION@" >
+    <description>This class is a wrapper of Acpype tool for the conversion of AMBER topologies to GROMACS.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">5.1.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_chemistry</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_crd_path ./input_crd_path.$input_crd_path.ext;
+      ln -s $input_top_path ./input_top_path.$input_top_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      acpype_convert_amber_to_gmx
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_crd_path ./input_crd_path.$input_crd_path.ext
+      --input_top_path ./input_top_path.$input_top_path.ext
+      --output_path_gro $outname_output_path_gro
+      --output_path_top $outname_output_path_top
+      ;
+      
+      mv $outname_output_path_gro $output_path_gro;
+      mv $outname_output_path_top $output_path_top;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_crd_path" type="data" format="inpcrd" optional="false" help="Path to the input coordinates file (AMBER crd)"/>
+      <param name="input_top_path" type="data" format="top" optional="false" help="Path to the input topology file (AMBER ParmTop)"/>
+      <param name="outname_output_path_gro" type="text" optional="false" help="Path to the GRO output file"/>
+      <param name="outname_output_path_top" type="text" optional="false" help="Path to the TOP output file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_path_gro" format="gro" />
+      <data name="output_path_top" format="top" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_acpype_convert_amber_to_gmx.json" ftype="json" />
+          <param name="input_crd_path" value="acpype.coords.inpcrd" ftype="inpcrd" />
+          <param name="input_top_path" value="acpype.top.prmtop" ftype="prmtop" />
+          <param name="outname_output_path_gro" value="ref_acpype.amber2gmx.gro" />
+          <param name="outname_output_path_top" value="ref_acpype.amber2gmx.top" />
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-chemistry.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

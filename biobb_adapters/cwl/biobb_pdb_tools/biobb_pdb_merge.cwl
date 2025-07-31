@@ -12,7 +12,7 @@ baseCommand: biobb_pdb_merge
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/repository/biocontainers/biobb_pdb_tools?tab=tags&tag=4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/repository/biocontainers/biobb_pdb_tools?tab=tags&tag=5.1.0--pyhdfd78af_0
 
 inputs:
   input_file_path:
@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: zip
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_pdb_tools/master/biobb_pdb_tools/test/data/pdb_tools/input_pdb_merge1.pdb
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_pdb_tools/master/biobb_pdb_tools/test/data/pdb_tools/input_pdb_merge.pdb
     type: File
     format:
     - edam:format_3987

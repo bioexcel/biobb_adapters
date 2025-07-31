@@ -1,7 +1,7 @@
 <tool id="biobb_io_pdb_variants" name="PdbVariants" version="@TOOL_VERSION@" >
     <description>This class creates a text file containing a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

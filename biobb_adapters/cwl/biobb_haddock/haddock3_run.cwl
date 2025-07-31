@@ -12,7 +12,7 @@ baseCommand: haddock3_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.0.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
 
 inputs:
   mol1_input_pdb_path:

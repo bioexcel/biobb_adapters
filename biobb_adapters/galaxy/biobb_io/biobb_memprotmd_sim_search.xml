@@ -1,7 +1,7 @@
 <tool id="biobb_io_memprotmd_sim_search" name="MemprotmdSimSearch" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of the MemProtMD to perform advanced searches in the MemProtMD DB using its REST API.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_remove_ligand" name="RemoveLigand" version="@TOOL_VERSION@" >
     <description>Class to remove the selected ligand atoms from a 3D structure.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

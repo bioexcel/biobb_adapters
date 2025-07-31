@@ -1,0 +1,100 @@
+<tool id="biobb_mem_mda_hole" name="MdaHole" version="@TOOL_VERSION@" >
+    <description>Wrapper of the MDAnalysis HOLE module for analyzing ion channel pores or transporter pathways.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">5.1.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_mem</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_top_path ./input_top_path.$input_top_path.ext;
+      ln -s $input_traj_path ./input_traj_path.$input_traj_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      mda_hole
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_top_path ./input_top_path.$input_top_path.ext
+      --input_traj_path ./input_traj_path.$input_traj_path.ext
+      --output_hole_path $outname_output_hole_path
+      --output_csv_path $outname_output_csv_path
+      ;
+      
+      mv $outname_output_hole_path $output_hole_path;
+      mv $outname_output_csv_path $output_csv_path;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_top_path" type="data" format="crd" optional="false" help="Path to the input structure or topology file"/>
+      <param name="input_traj_path" type="data" format="arc" optional="false" help="Path to the input trajectory to be processed"/>
+      <param name="outname_output_hole_path" type="text" optional="false" help="Path to the output HOLE analysis results"/>
+      <param name="outname_output_csv_path" type="text" optional="false" help="Path to the output CSV file containing the radius and coordinates of the pore"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_hole_path" format="vmd" />
+      <data name="output_csv_path" format="csv" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_mda_hole.json" ftype="json" />
+          <param name="input_top_path" value="A01JD.pdb" ftype="pdb" />
+          <param name="input_traj_path" value="A01JD.xtc" ftype="xtc" />
+          <param name="outname_output_hole_path" value="hole.vmd" />
+          <param name="outname_output_csv_path" value="hole_profile.csv" />
+          <output name="output_hole_path" ftype="vmd">
+            <assert_contents>
+              <has_size value="4548795" delta="1137198"/>
+            </assert_contents>
+          </output>
+          <output name="output_csv_path" ftype="csv">
+            <assert_contents>
+              <has_size value="119549" delta="29887"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-mem.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

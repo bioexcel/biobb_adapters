@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_cat_pdb" name="CatPdb" version="@TOOL_VERSION@" >
     <description>Class to concat two PDB structures in a single PDB file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

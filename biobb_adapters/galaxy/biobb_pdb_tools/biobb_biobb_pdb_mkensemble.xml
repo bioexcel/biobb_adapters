@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_mkensemble" name="BiobbPdbMkensemble" version="@TOOL_VERSION@" >
     <description>Merges several PDB files into one multi-model (ensemble) file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

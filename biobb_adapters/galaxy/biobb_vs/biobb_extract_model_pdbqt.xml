@@ -1,7 +1,7 @@
 <tool id="biobb_vs_extract_model_pdbqt" name="ExtractModelPdbqt" version="@TOOL_VERSION@" >
     <description>Extracts a model from a PDBQT file with several models.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

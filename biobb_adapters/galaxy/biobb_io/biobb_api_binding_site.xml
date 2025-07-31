@@ -1,7 +1,7 @@
 <tool id="biobb_io_api_binding_site" name="ApiBindingSite" version="@TOOL_VERSION@" >
     <description>This class is a wrapper for the PDBe REST API Binding Sites endpoint.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

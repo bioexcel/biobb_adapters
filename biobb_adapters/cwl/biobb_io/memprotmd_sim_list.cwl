@@ -13,7 +13,7 @@ baseCommand: memprotmd_sim_list
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_io:4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_io:5.1.0--pyhdfd78af_0
 
 inputs:
   output_simulations:

@@ -20,6 +20,8 @@ categories:
   - sdf
   - mmcif
   - fasta
+  - alphafold
+  - mddb
 maintainers:
   - PauAndrio
   - gbayarri

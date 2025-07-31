@@ -1,7 +1,7 @@
 <tool id="biobb_flexdyn_imod_imc" name="ImodImc" version="@TOOL_VERSION@" >
     <description>Wrapper of the imc tool</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

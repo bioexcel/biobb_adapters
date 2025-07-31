@@ -1,7 +1,7 @@
 <tool id="biobb_chemistry_reduce_add_hydrogens" name="ReduceAddHydrogens" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of the Ambertools reduce module for adding hydrogens to a given structure.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.1</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

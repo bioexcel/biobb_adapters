@@ -12,7 +12,7 @@ baseCommand: biobb_pdb_splitmodel
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/repository/biocontainers/biobb_pdb_tools?tab=tags&tag=4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/repository/biocontainers/biobb_pdb_tools?tab=tags&tag=5.1.0--pyhdfd78af_0
 
 inputs:
   input_file_path:

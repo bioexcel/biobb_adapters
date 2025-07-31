@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_gmx_trjconv_str_ens" name="GmxTrjconvStrEns" version="@TOOL_VERSION@" >
     <description>Wrapper of the GROMACS trjconv module for extracting an ensemble of frames containing a selection of atoms from GROMACS compatible trajectory files.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

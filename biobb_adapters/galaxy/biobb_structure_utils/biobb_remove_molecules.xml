@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_remove_molecules" name="RemoveMolecules" version="@TOOL_VERSION@" >
     <description>Class to remove molecules from a 3D structure using Biopython.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

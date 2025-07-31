@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_uniqname" name="BiobbPdbUniqname" version="@TOOL_VERSION@" >
     <description>Renames atoms sequentially (C1, C2, O1, ...) for each HETATM residue.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

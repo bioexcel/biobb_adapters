@@ -1,7 +1,7 @@
 <tool id="biobb_gromacs_ndx2resttop" name="Ndx2resttop" version="@TOOL_VERSION@" >
     <description>Generate a restrained topology from an index NDX file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>
@@ -50,7 +50,7 @@
           <param name="outname_output_top_zip_path" value="output_top_zip.zip" />
           <output name="output_top_zip_path" ftype="zip">
             <assert_contents>
-              <has_size value="9658926" delta="2414731"/>
+              <has_size value="10032238" delta="2508059"/>
             </assert_contents>
           </output>
         </test>

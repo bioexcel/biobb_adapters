@@ -1,7 +1,7 @@
 <tool id="biobb_model_fix_amides" name="FixAmides" version="@TOOL_VERSION@" >
     <description>Fix amide groups from residues.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.3</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

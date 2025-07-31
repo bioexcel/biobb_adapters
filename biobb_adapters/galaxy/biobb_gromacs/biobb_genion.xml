@@ -1,7 +1,7 @@
 <tool id="biobb_gromacs_genion" name="Genion" version="@TOOL_VERSION@" >
     <description>Wrapper class for the GROMACS genion module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_chemistry_babel_minimize" name="BabelMinimize" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of the Open Babel tool.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.1</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

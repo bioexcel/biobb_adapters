@@ -1,7 +1,7 @@
 <tool id="biobb_amber_leap_build_linear_structure" name="LeapBuildLinearStructure" version="@TOOL_VERSION@" >
     <description>Wrapper of the AmberTools (AMBER MD Package) leap tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.2</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

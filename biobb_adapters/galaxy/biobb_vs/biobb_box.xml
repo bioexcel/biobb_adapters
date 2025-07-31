@@ -1,7 +1,7 @@
 <tool id="biobb_vs_box" name="Box" version="@TOOL_VERSION@" >
     <description>This class sets the center and the size of a rectangular parallelepiped box around a set of residues or a pocket.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_extract_chain" name="ExtractChain" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of the Structure Checking tool to extract a chain from a 3D structure.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

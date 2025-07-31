@@ -1,7 +1,7 @@
 <tool id="biobb_dna_intrahpcorr" name="Intrahpcorr" version="@TOOL_VERSION@" >
     <description>Calculate correlation between helical parameters for a single intra-base pair.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

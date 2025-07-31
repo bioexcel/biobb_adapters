@@ -12,7 +12,7 @@ baseCommand: extract_model_pdbqt
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_vs:4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_vs:5.1.0--pyhdfd78af_0
 
 inputs:
   input_pdbqt_path:

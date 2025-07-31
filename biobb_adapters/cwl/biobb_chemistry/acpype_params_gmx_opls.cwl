@@ -12,7 +12,7 @@ baseCommand: acpype_params_gmx_opls
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_chemistry:5.0.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_chemistry:5.1.0--pyhdfd78af_1
 
 inputs:
   input_path:

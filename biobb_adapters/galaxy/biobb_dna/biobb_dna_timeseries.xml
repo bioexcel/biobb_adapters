@@ -1,7 +1,7 @@
 <tool id="biobb_dna_dna_timeseries" name="DnaTimeseries" version="@TOOL_VERSION@" >
     <description>Created time series and histogram plots for each base pair from a helical parameter series file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

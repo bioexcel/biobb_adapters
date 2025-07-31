@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_splitseg" name="BiobbPdbSplitseg" version="@TOOL_VERSION@" >
     <description>Splits a PDB file into several, each containing one segment.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

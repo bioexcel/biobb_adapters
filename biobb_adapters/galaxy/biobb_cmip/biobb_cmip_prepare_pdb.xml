@@ -1,7 +1,7 @@
 <tool id="biobb_cmip_cmip_prepare_pdb" name="CmipPreparePdb" version="@TOOL_VERSION@" >
     <description>Class to add CMIP charges and atom types.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

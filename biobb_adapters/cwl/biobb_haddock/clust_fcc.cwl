@@ -12,7 +12,7 @@ baseCommand: clust_fcc
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.0.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
 
 inputs:
   input_haddock_wf_data_zip:

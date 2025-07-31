@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_tidy" name="BiobbPdbTidy" version="@TOOL_VERSION@" >
     <description>Modifies the file to adhere (as much as possible) to the format specifications.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>
@@ -42,7 +42,7 @@
     <tests>
         <test>
           <param name="config_json" value="config_biobb_pdb_tidy.json" ftype="json" />
-          <param name="input_file_path" value="input_pdb_tidy.pdb" ftype="pdb" />
+          <param name="input_file_path" value="1AKI.pdb" ftype="pdb" />
           <param name="outname_output_file_path" value="output.pdb" />
           <output name="output_file_path" ftype="pdb">
             <assert_contents>

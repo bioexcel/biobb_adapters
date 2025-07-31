@@ -1,7 +1,7 @@
 <tool id="biobb_pmx_pmxatom_mapping" name="PmxatomMapping" version="@TOOL_VERSION@" >
     <description>Wrapper class for the PMX atom_mapping module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.1</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

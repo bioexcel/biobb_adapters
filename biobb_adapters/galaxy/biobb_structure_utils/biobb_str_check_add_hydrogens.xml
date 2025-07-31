@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_str_check_add_hydrogens" name="StrCheckAddHydrogens" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of the Structure Checking tool to add hydrogens to a 3D structure.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

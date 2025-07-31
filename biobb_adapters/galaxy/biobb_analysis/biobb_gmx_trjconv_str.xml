@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_gmx_trjconv_str" name="GmxTrjconvStr" version="@TOOL_VERSION@" >
     <description>Wrapper of the GROMACS trjconv module for converting between GROMACS compatible structure file formats and/or extracting a selection of atoms.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

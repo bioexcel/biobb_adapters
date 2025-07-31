@@ -12,7 +12,7 @@ baseCommand: parmed_cpinutil
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_amber:5.0.2--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_amber:5.1.0--pyhdfd78af_0
 
 inputs:
   input_top_path:

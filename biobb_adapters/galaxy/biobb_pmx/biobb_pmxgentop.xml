@@ -1,7 +1,7 @@
 <tool id="biobb_pmx_pmxgentop" name="Pmxgentop" version="@TOOL_VERSION@" >
     <description>Wrapper class for the PMX gentop module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.1</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

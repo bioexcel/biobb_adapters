@@ -1,7 +1,7 @@
 <tool id="biobb_vs_bindingsite" name="Bindingsite" version="@TOOL_VERSION@" >
     <description>This class finds the binding site of the input_pdb.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

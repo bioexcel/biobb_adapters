@@ -12,7 +12,7 @@ baseCommand: train_mdae
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pytorch:4.2.1--pyhad2cae4_0
+    dockerPull: quay.io/biocontainers/biobb_pytorch:5.1.0--pyhad2cae4_0
 
 inputs:
   input_train_npy_path:

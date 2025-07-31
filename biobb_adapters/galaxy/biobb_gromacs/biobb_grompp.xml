@@ -1,7 +1,7 @@
 <tool id="biobb_gromacs_grompp" name="Grompp" version="@TOOL_VERSION@" >
     <description>Wrapper of the GROMACS grompp module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>
@@ -71,7 +71,7 @@
           <param name="outname_output_tpr_path" value="output_tpr.tpr" />
           <output name="output_tpr_path" ftype="tpr">
             <assert_contents>
-              <has_size value="2076452" delta="519113"/>
+              <has_size value="2076200" delta="519050"/>
             </assert_contents>
           </output>
         </test>

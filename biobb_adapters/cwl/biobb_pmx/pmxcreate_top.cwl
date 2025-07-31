@@ -12,7 +12,7 @@ baseCommand: pmxcreate_top
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pmx:4.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pmx:5.1.0--pyhdfd78af_0
 
 inputs:
   input_topology1_path:

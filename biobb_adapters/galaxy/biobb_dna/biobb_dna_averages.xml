@@ -1,7 +1,7 @@
 <tool id="biobb_dna_dna_averages" name="DnaAverages" version="@TOOL_VERSION@" >
     <description>Load .ser file for a given helical parameter and read each column corresponding to a base calculating average over each one.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

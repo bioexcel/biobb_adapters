@@ -1,7 +1,7 @@
 <tool id="biobb_io_memprotmd_sim" name="MemprotmdSim" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of the MemProtMD to download a simulation using its REST API.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

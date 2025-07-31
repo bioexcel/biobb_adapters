@@ -1,7 +1,7 @@
 <tool id="biobb_io_pdb_cluster_zip" name="PdbClusterZip" version="@TOOL_VERSION@" >
     <description>This class is a wrapper for downloading a PDB cluster from the Protein Data Bank.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

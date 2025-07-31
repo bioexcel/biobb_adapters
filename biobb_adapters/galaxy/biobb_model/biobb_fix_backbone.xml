@@ -1,7 +1,7 @@
 <tool id="biobb_model_fix_backbone" name="FixBackbone" version="@TOOL_VERSION@" >
     <description>Class to model the missing atoms in the backbone of a PDB structure.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.3</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

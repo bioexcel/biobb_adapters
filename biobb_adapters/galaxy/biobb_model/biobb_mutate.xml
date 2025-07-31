@@ -1,7 +1,7 @@
 <tool id="biobb_model_mutate" name="Mutate" version="@TOOL_VERSION@" >
     <description>Class to mutate one amino acid by another in a 3d structure.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.3</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

@@ -12,7 +12,7 @@ baseCommand: genion
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_gromacs:4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_gromacs:5.1.0--pyhdfd78af_0
 
 inputs:
   input_tpr_path:

@@ -1,7 +1,7 @@
 <tool id="biobb_cp2k_cp2k_run" name="Cp2kRun" version="@TOOL_VERSION@" >
     <description>Wrapper of the CP2K QM tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

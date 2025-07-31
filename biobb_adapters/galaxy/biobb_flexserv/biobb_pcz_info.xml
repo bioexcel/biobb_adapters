@@ -1,7 +1,7 @@
 <tool id="biobb_flexserv_pcz_info" name="PczInfo" version="@TOOL_VERSION@" >
     <description>Extract PCA info (variance, Dimensionality) from a compressed PCZ file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

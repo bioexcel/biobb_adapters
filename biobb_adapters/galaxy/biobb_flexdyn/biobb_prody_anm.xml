@@ -1,7 +1,7 @@
 <tool id="biobb_flexdyn_prody_anm" name="ProdyAnm" version="@TOOL_VERSION@" >
     <description>Wrapper of the ANM tool from the Prody package.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

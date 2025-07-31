@@ -1,7 +1,7 @@
 <tool id="biobb_structure_utils_remove_pdb_water" name="RemovePdbWater" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of the Structure Checking tool to remove water molecules from PDB 3D structures.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_cp2k_cp2k_prep" name="Cp2kPrep" version="@TOOL_VERSION@" >
     <description>Helper bb to prepare inputs for the CP2K QM tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.0.0</token>
+      <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>
 
     <requirements>
