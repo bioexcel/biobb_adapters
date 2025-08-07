@@ -1,7 +1,7 @@
 <tool id="biobb_gromacs_ndx2resttop" name="Ndx2resttop" version="@TOOL_VERSION@" >
     <description>Generate a restrained topology from an index NDX file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>

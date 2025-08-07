@@ -1,7 +1,7 @@
 <tool id="biobb_godmd_godmd_run" name="GodmdRun" version="@TOOL_VERSION@" >
     <description>Wrapper of the GOdMD tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>
@@ -81,12 +81,12 @@
           <param name="outname_output_pdb_path" value="godmd_pdb.pdb" />
           <output name="output_log_path" ftype="log">
             <assert_contents>
-              <has_size value="24546" delta="6136"/>
+              <has_size value="2507" delta="626"/>
             </assert_contents>
           </output>
           <output name="output_ene_path" ftype="out">
             <assert_contents>
-              <has_size value="12240" delta="3060"/>
+              <has_size value="27" delta="6"/>
             </assert_contents>
           </output>
           <output name="output_trj_path" ftype="mdcrd">

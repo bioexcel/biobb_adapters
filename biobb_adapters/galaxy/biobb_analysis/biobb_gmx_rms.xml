@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_gmx_rms" name="GmxRms" version="@TOOL_VERSION@" >
     <description>Wrapper of the GROMACS rms module for performing a Root Mean Square deviation (RMSd) analysis from a given GROMACS compatible trajectory.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>

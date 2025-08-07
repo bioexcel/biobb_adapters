@@ -1,7 +1,7 @@
 <tool id="biobb_gromacs_append_ligand" name="AppendLigand" version="@TOOL_VERSION@" >
     <description>This class takes a ligand ITP file and inserts it in a topology.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>

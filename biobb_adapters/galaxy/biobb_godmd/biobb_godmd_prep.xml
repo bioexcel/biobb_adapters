@@ -1,7 +1,7 @@
 <tool id="biobb_godmd_godmd_prep" name="GodmdPrep" version="@TOOL_VERSION@" >
     <description>Helper bb to prepare inputs for the GOdMD tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">4.2.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>

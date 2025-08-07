@@ -1,7 +1,7 @@
 <tool id="biobb_gromacs_genrestr" name="Genrestr" version="@TOOL_VERSION@" >
     <description>Wrapper of the GROMACS genrestr module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>

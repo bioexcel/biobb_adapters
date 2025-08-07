@@ -13,7 +13,7 @@ baseCommand: cpptraj_snapshot
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:5.1.1--pyhdfd78af_0
 
 inputs:
   input_top_path:

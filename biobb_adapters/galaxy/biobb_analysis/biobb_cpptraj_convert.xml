@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_cpptraj_convert" name="CpptrajConvert" version="@TOOL_VERSION@" >
     <description>Wrapper of the Ambertools Cpptraj module for converting between cpptraj compatible trajectory file formats and/or extracting a selection of atoms or frames.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>

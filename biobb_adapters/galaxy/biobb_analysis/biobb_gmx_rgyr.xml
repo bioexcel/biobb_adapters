@@ -1,7 +1,7 @@
 <tool id="biobb_analysis_gmx_rgyr" name="GmxRgyr" version="@TOOL_VERSION@" >
     <description>Wrapper of the GROMACS gyrate module for computing the radius of gyration (Rgyr) of a molecule about the x-, y- and z-axes, as a function of time, from a given GROMACS compatible trajectory.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.1.1</token>
     </macros>
 
     <requirements>
