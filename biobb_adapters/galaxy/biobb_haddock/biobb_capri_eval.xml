@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_capri_eval" name="CapriEval" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock CapriEval module.</description>
+    <description>Wrapper class for the HADDOCK3 CapriEval module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

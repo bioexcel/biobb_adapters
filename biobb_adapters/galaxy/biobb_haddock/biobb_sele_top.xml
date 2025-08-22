@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_sele_top" name="SeleTop" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock SeleTop module.</description>
+    <description>Wrapper class for the HADDOCK3 SeleTop module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

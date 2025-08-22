@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_topology" name="Topology" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock Topology module.</description>
+    <description>Wrapper class for the HADDOCK3 Topology module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_rigid_body" name="RigidBody" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock RigidBody module.</description>
+    <description>Wrapper class for the HADDOCK3 RigidBody module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

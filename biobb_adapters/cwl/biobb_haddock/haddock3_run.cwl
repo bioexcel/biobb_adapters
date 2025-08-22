@@ -3,16 +3,16 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-label: Wrapper class for the Haddock3 run module.
+label: Wrapper class for the HADDOCK3 Run module.
 
 doc: |-
-  The Haddock3 run module launches the HADDOCK3 execution for docking.
+  The HADDOCK3 run module launches the HADDOCK3 execution for docking.
 
 baseCommand: haddock3_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/mulled-v2-22bab6654f47e7f669b7c59303b9227634e208f0:29450066f7a131dfc0f19d73955ab3e2101ec25f-0
 
 inputs:
   mol1_input_pdb_path:

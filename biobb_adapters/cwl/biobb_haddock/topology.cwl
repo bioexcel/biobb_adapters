@@ -3,16 +3,16 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-label: Wrapper class for the Haddock Topology module.
+label: Wrapper class for the HADDOCK3 Topology module.
 
 doc: |-
-  The Topology module. Haddock Topology module creates a topology from a system to be used for docking.
+  The Topology module. HADDOCK3 Topology module creates a topology from a system to be used for docking.
 
 baseCommand: topology
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/mulled-v2-22bab6654f47e7f669b7c59303b9227634e208f0:29450066f7a131dfc0f19d73955ab3e2101ec25f-0
 
 inputs:
   mol1_input_pdb_path:

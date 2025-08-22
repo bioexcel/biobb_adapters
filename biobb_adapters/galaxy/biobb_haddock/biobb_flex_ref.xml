@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_flex_ref" name="FlexRef" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock FlexRef module.</description>
+    <description>Wrapper class for the HADDOCK3 FlexRef module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

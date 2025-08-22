@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_haddock3_run" name="Haddock3Run" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock3 run module.</description>
+    <description>Wrapper class for the HADDOCK3 Run module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

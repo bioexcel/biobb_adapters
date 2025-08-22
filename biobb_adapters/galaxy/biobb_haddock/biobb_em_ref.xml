@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_em_ref" name="EmRef" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock EMRef module.</description>
+    <description>Wrapper class for the HADDOCK3 EMRef module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

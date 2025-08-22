@@ -1,5 +1,5 @@
 <tool id="biobb_haddock_sele_top_clusts" name="SeleTopClusts" version="@TOOL_VERSION@" >
-    <description>Wrapper class for the Haddock SeleTopClusts module.</description>
+    <description>Wrapper class for the HADDOCK3 SeleTopClusts module.</description>
     <macros>
       <token name="@TOOL_VERSION@">5.1.0</token>
     </macros>

@@ -3,16 +3,16 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-label: Wrapper class for the Haddock ContactMap module.
+label: Wrapper class for the HADDOCK3 ContactMap module.
 
 doc: |-
-  The ContactMap module. Haddock ContactMap module computes contacts between chains in complexes and generates heatmaps and chordcharts.
+  The ContactMap module. HADDOCK3 ContactMap module computes contacts between chains in complexes and generates heatmaps and chordcharts.
 
 baseCommand: contact_map
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/mulled-v2-22bab6654f47e7f669b7c59303b9227634e208f0:29450066f7a131dfc0f19d73955ab3e2101ec25f-0
 
 inputs:
   input_haddock_wf_data_zip:

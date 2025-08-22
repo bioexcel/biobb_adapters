@@ -3,16 +3,16 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-label: Wrapper class for the Haddock SeleTopClusts module.
+label: Wrapper class for the HADDOCK3 SeleTopClusts module.
 
 doc: |-
-  The SeleTopClusts module. Haddock SeleTopClusts module selects the top clusters of a docking.
+  The SeleTopClusts module. HADDOCK3 SeleTopClusts module selects the top clusters of a docking.
 
 baseCommand: sele_top_clusts
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/mulled-v2-22bab6654f47e7f669b7c59303b9227634e208f0:29450066f7a131dfc0f19d73955ab3e2101ec25f-0
 
 inputs:
   input_haddock_wf_data_zip:
