@@ -12,7 +12,7 @@ baseCommand: leap_gen_top
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_amber:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_amber:5.2.1--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -136,7 +136,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: in, leapin, txt, zip
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/heme_all.in
+      Example file: null
     type: File?
     format:
     - edam:format_2330

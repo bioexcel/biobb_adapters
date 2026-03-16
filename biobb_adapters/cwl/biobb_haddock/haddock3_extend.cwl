@@ -12,24 +12,23 @@ baseCommand: haddock3_extend
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.2.1--pyhdfd78af_0
 
 inputs:
-  input_haddock_wf_data_zip:
+  input_haddock_wf_data:
     label: Path to the input zipball containing all the current Haddock workflow data
     doc: |-
       Path to the input zipball containing all the current Haddock workflow data
-      Type: string
-      File type: output
+      Type: dir
+      File type: input
       Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/reference/haddock/ref_topology.zip
-    type: string
+      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_caprieval.zip
+    type: File
     format:
     - edam:format_3987
     inputBinding:
       position: 1
-      prefix: --input_haddock_wf_data_zip
-    default: system.zip
+      prefix: --input_haddock_wf_data
 
   haddock_config_path:
     label: Haddock configuration CFG file path
@@ -46,21 +45,21 @@ inputs:
       position: 2
       prefix: --haddock_config_path
 
-  output_haddock_wf_data_zip:
+  output_haddock_wf_data:
     label: Path to the output zipball containing all the current Haddock workflow
       data
     doc: |-
       Path to the output zipball containing all the current Haddock workflow data
-      Type: string
+      Type: dir
       File type: output
       Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/reference/haddock/ref_topology.zip
+      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/reference/haddock/ref_haddock3_extend.zip
     type: string
     format:
     - edam:format_3987
     inputBinding:
       position: 3
-      prefix: --output_haddock_wf_data_zip
+      prefix: --output_haddock_wf_data
     default: system.zip
 
   config:
@@ -72,23 +71,14 @@ inputs:
       prefix: --config
 
 outputs:
-  input_haddock_wf_data_zip:
-    label: Path to the input zipball containing all the current Haddock workflow data
-    doc: |-
-      Path to the input zipball containing all the current Haddock workflow data
-    type: File
-    outputBinding:
-      glob: $(inputs.input_haddock_wf_data_zip)
-    format: edam:format_3987
-
-  output_haddock_wf_data_zip:
+  output_haddock_wf_data:
     label: Path to the output zipball containing all the current Haddock workflow
       data
     doc: |-
       Path to the output zipball containing all the current Haddock workflow data
     type: File
     outputBinding:
-      glob: $(inputs.output_haddock_wf_data_zip)
+      glob: $(inputs.output_haddock_wf_data)
     format: edam:format_3987
 
 $namespaces:

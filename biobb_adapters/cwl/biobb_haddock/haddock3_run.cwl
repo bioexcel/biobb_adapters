@@ -12,99 +12,42 @@ baseCommand: haddock3_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.2.1--pyhdfd78af_0
 
 inputs:
-  mol1_input_pdb_path:
-    label: Path to the input PDB file
+  input_haddock_wf_data:
+    label: Input folder containing all the files defined in the config
     doc: |-
-      Path to the input PDB file
-      Type: string
+      Input folder containing all the files defined in the config
+      Type: dir
       File type: input
-      Accepted formats: pdb
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/e2aP_1F3G.pdb
+      Accepted formats: directory, zip
+      Example file: https://github.com/bioexcel/biobb_haddock/tree/master/biobb_haddock/test/data/haddock/haddock_wf_data_run.zip
     type: File
     format:
-    - edam:format_1476
+    - edam:format_1915
+    - edam:format_3987
     inputBinding:
       position: 1
-      prefix: --mol1_input_pdb_path
+      prefix: --input_haddock_wf_data
 
-  mol2_input_pdb_path:
-    label: Path to the input PDB file
-    doc: |-
-      Path to the input PDB file
-      Type: string
-      File type: input
-      Accepted formats: pdb
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/hpr_ensemble.pdb
-    type: File
-    format:
-    - edam:format_1476
-    inputBinding:
-      position: 2
-      prefix: --mol2_input_pdb_path
-
-  ambig_restraints_table_path:
-    label: Path to the input TBL file containing a list of ambiguous restraints for
-      docking
-    doc: |-
-      Path to the input TBL file containing a list of ambiguous restraints for docking
-      Type: string
-      File type: input
-      Accepted formats: tbl
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/e2a-hpr_air.tbl
-    type: File?
-    format:
-    - edam:format_2330
-    inputBinding:
-      prefix: --ambig_restraints_table_path
-
-  unambig_restraints_table_path:
-    label: Path to the input TBL file containing a list of unambiguous restraints
-      for docking
-    doc: |-
-      Path to the input TBL file containing a list of unambiguous restraints for docking
-      Type: string
-      File type: input
-      Accepted formats: tbl
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/e2a-hpr_air.tbl
-    type: File?
-    format:
-    - edam:format_2330
-    inputBinding:
-      prefix: --unambig_restraints_table_path
-
-  hb_restraints_table_path:
-    label: Path to the input TBL file containing a list of hydrogen bond restraints
-      for docking
-    doc: |-
-      Path to the input TBL file containing a list of hydrogen bond restraints for docking
-      Type: string
-      File type: input
-      Accepted formats: tbl
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/e2a-hpr_air.tbl
-    type: File?
-    format:
-    - edam:format_2330
-    inputBinding:
-      prefix: --hb_restraints_table_path
-
-  output_haddock_wf_data_zip:
+  output_haddock_wf_data:
     label: Path to the output zipball containing all the current Haddock workflow
       data
     doc: |-
       Path to the output zipball containing all the current Haddock workflow data
-      Type: string
+      Type: dir
       File type: output
-      Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_emref.zip
+      Accepted formats: directory, zip
+      Example file: null
     type: string
     format:
+    - edam:format_1915
     - edam:format_3987
     inputBinding:
-      prefix: --output_haddock_wf_data_zip
-    default: system.zip
+      position: 2
+      prefix: --output_haddock_wf_data
+    default: system.directory
 
   haddock_config_path:
     label: Haddock configuration CFG file path
@@ -129,15 +72,15 @@ inputs:
       prefix: --config
 
 outputs:
-  output_haddock_wf_data_zip:
+  output_haddock_wf_data:
     label: Path to the output zipball containing all the current Haddock workflow
       data
     doc: |-
       Path to the output zipball containing all the current Haddock workflow data
-    type: File?
+    type: File
     outputBinding:
-      glob: $(inputs.output_haddock_wf_data_zip)
-    format: edam:format_3987
+      glob: $(inputs.output_haddock_wf_data)
+    format: edam:format_1915
 
 $namespaces:
   edam: https://edamontology.org/

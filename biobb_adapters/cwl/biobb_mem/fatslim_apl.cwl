@@ -12,7 +12,7 @@ baseCommand: fatslim_apl
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_mem:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_mem:5.2.2--pyhdfd78af_0
 
 inputs:
   input_top_path:
@@ -42,7 +42,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: csv
-      Example file: https://github.com/bioexcel/biobb_mem/raw/main/biobb_mem/test/reference/fatslim/apl.ndx
+      Example file: https://github.com/bioexcel/biobb_mem/raw/main/biobb_mem/test/reference/fatslim/apl.csv
     type: string
     format:
     - edam:format_3752

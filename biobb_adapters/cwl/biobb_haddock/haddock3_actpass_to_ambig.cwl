@@ -12,7 +12,7 @@ baseCommand: haddock3_actpass_to_ambig
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.2.1--pyhdfd78af_0
 
 inputs:
   input_actpass1_path:
@@ -23,7 +23,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: txt, dat, in, pass
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/haddock_actpass1.txt
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock_restraints/haddock_actpass1.pass
     type: File
     format:
     - edam:format_2330
@@ -42,7 +42,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: txt, dat, in, pass
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock/haddock_actpass2.txt
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/haddock_restraints/haddock_actpass2.pass
     type: File
     format:
     - edam:format_2330

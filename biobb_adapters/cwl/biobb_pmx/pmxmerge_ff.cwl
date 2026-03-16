@@ -12,7 +12,7 @@ baseCommand: pmxmerge_ff
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pmx:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pmx:5.2.2--pyhdfd78af_0
 
 inputs:
   input_topology_path:
@@ -23,7 +23,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand_itps.zip
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/itps_to_merge.zip
     type: File
     format:
     - edam:format_3987
@@ -38,7 +38,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: itp
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand.itp
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ref_mergedTopology.itp
     type: string
     format:
     - edam:format_3883

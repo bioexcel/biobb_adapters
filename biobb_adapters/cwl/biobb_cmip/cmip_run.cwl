@@ -12,7 +12,7 @@ baseCommand: cmip_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_cmip:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_cmip:5.2.3--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: pdb
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_cmip/master/biobb_cmip/test/data/cmip/RBD-hACE2.RBD.cmip.pdb
     type: File?
     format:
     - edam:format_1476
@@ -141,7 +141,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: log
-      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_cmip.log
+      Example file: null
     type: string
     format:
     - edam:format_2330
@@ -185,7 +185,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: json
-      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+      Example file: null
     type: string
     format:
     - edam:format_3464
@@ -200,7 +200,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: json
-      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+      Example file: null
     type: string
     format:
     - edam:format_3464
@@ -215,7 +215,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: json
-      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+      Example file: null
     type: File?
     format:
     - edam:format_3464
@@ -229,7 +229,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: json
-      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+      Example file: null
     type: File?
     format:
     - edam:format_3464

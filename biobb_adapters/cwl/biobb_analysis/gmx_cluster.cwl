@@ -13,7 +13,7 @@ baseCommand: gmx_cluster
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:5.1.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:5.2.1--pyhdfd78af_0
 
 inputs:
   input_structure_path:
@@ -100,7 +100,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: log
-      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gmx_cluster_cluster.log
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gromacs/gmx_cluster_cluster.log
     type: string
     format:
     - edam:format_2330
@@ -115,7 +115,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: xpm
-      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gmx_cluster_rmsd-clust.xpm
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gromacs/gmx_cluster_rmsd-clust.xpm
     type: string
     format:
     - edam:format_3599
@@ -130,7 +130,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: xvg
-      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gmx_cluster_rmsd-dist.xvg
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gromacs/gmx_cluster_rmsd-dist.xvg
     type: string
     format:
     - edam:format_2330

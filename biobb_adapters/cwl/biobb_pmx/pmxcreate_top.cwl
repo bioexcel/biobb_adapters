@@ -12,7 +12,7 @@ baseCommand: pmxcreate_top
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pmx:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pmx:5.2.2--pyhdfd78af_0
 
 inputs:
   input_topology1_path:
@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: itp
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand.itp
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/topo1.itp
     type: File
     format:
     - edam:format_3883
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: itp
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand.itp
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/topo2.itp
     type: File
     format:
     - edam:format_3883
@@ -52,7 +52,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand_top.zip
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ref_hybridTopo.zip
     type: string
     format:
     - edam:format_3987

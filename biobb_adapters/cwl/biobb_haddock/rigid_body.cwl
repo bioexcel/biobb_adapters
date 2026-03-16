@@ -12,23 +12,43 @@ baseCommand: rigid_body
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.2.1--pyhdfd78af_0
 
 inputs:
-  input_haddock_wf_data_zip:
-    label: Path to the input zipball containing all the current Haddock workflow data
+  input_haddock_wf_data:
+    label: Path to the input directory containing all the current Haddock workflow
+      data
     doc: |-
-      Path to the input zipball containing all the current Haddock workflow data
-      Type: string
+      Path to the input directory containing all the current Haddock workflow data
+      Type: dir
       File type: input
-      Accepted formats: zip
+      Accepted formats: directory, zip
       Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_topology.zip
     type: File
     format:
+    - edam:format_1915
     - edam:format_3987
     inputBinding:
       position: 1
-      prefix: --input_haddock_wf_data_zip
+      prefix: --input_haddock_wf_data
+
+  output_haddock_wf_data:
+    label: Path to the output directory containing all the current Haddock workflow
+      data
+    doc: |-
+      Path to the output directory containing all the current Haddock workflow data
+      Type: dir
+      File type: output
+      Accepted formats: directory, zip
+      Example file: null
+    type: string
+    format:
+    - edam:format_1915
+    - edam:format_3987
+    inputBinding:
+      position: 2
+      prefix: --output_haddock_wf_data
+    default: system.directory
 
   docking_output_zip_path:
     label: Path to the output PDB file collection in zip format
@@ -42,7 +62,7 @@ inputs:
     format:
     - edam:format_3987
     inputBinding:
-      position: 2
+      position: 3
       prefix: --docking_output_zip_path
     default: system.zip
 
@@ -91,22 +111,6 @@ inputs:
     inputBinding:
       prefix: --hb_restraints_table_path
 
-  output_haddock_wf_data_zip:
-    label: Path to the output zipball containing all the current Haddock workflow
-      data
-    doc: |-
-      Path to the output zipball containing all the current Haddock workflow data
-      Type: string
-      File type: output
-      Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_emref.zip
-    type: string
-    format:
-    - edam:format_3987
-    inputBinding:
-      prefix: --output_haddock_wf_data_zip
-    default: system.zip
-
   haddock_config_path:
     label: Haddock configuration CFG file path
     doc: |-
@@ -130,6 +134,16 @@ inputs:
       prefix: --config
 
 outputs:
+  output_haddock_wf_data:
+    label: Path to the output directory containing all the current Haddock workflow
+      data
+    doc: |-
+      Path to the output directory containing all the current Haddock workflow data
+    type: File
+    outputBinding:
+      glob: $(inputs.output_haddock_wf_data)
+    format: edam:format_1915
+
   docking_output_zip_path:
     label: Path to the output PDB file collection in zip format
     doc: |-
@@ -137,16 +151,6 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.docking_output_zip_path)
-    format: edam:format_3987
-
-  output_haddock_wf_data_zip:
-    label: Path to the output zipball containing all the current Haddock workflow
-      data
-    doc: |-
-      Path to the output zipball containing all the current Haddock workflow data
-    type: File?
-    outputBinding:
-      glob: $(inputs.output_haddock_wf_data_zip)
     format: edam:format_3987
 
 $namespaces:

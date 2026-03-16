@@ -12,7 +12,7 @@ baseCommand: topology
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.2.1--pyhdfd78af_0
 
 inputs:
   mol1_input_pdb_path:
@@ -30,6 +30,23 @@ inputs:
       position: 1
       prefix: --mol1_input_pdb_path
 
+  output_haddock_wf_data:
+    label: Path to the output zipball containing all the current Haddock workflow
+      data
+    doc: |-
+      Path to the output zipball containing all the current Haddock workflow data
+      Type: dir
+      File type: output
+      Accepted formats: zip
+      Example file: null
+    type: string
+    format:
+    - edam:format_3987
+    inputBinding:
+      position: 2
+      prefix: --output_haddock_wf_data
+    default: system.zip
+
   mol1_output_top_zip_path:
     label: Path to the output PDB file collection in zip format
     doc: |-
@@ -42,7 +59,6 @@ inputs:
     format:
     - edam:format_3987
     inputBinding:
-      position: 2
       prefix: --mol1_output_top_zip_path
     default: system.zip
 
@@ -75,22 +91,6 @@ inputs:
       prefix: --mol2_output_top_zip_path
     default: system.zip
 
-  output_haddock_wf_data_zip:
-    label: Path to the output zipball containing all the current Haddock workflow
-      data
-    doc: |-
-      Path to the output zipball containing all the current Haddock workflow data
-      Type: string
-      File type: output
-      Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_emref.zip
-    type: string
-    format:
-    - edam:format_3987
-    inputBinding:
-      prefix: --output_haddock_wf_data_zip
-    default: system.zip
-
   haddock_config_path:
     label: Haddock configuration CFG file path
     doc: |-
@@ -114,11 +114,21 @@ inputs:
       prefix: --config
 
 outputs:
+  output_haddock_wf_data:
+    label: Path to the output zipball containing all the current Haddock workflow
+      data
+    doc: |-
+      Path to the output zipball containing all the current Haddock workflow data
+    type: File
+    outputBinding:
+      glob: $(inputs.output_haddock_wf_data)
+    format: edam:format_3987
+
   mol1_output_top_zip_path:
     label: Path to the output PDB file collection in zip format
     doc: |-
       Path to the output PDB file collection in zip format
-    type: File
+    type: File?
     outputBinding:
       glob: $(inputs.mol1_output_top_zip_path)
     format: edam:format_3987
@@ -130,16 +140,6 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.mol2_output_top_zip_path)
-    format: edam:format_3987
-
-  output_haddock_wf_data_zip:
-    label: Path to the output zipball containing all the current Haddock workflow
-      data
-    doc: |-
-      Path to the output zipball containing all the current Haddock workflow data
-    type: File?
-    outputBinding:
-      glob: $(inputs.output_haddock_wf_data_zip)
     format: edam:format_3987
 
 $namespaces:

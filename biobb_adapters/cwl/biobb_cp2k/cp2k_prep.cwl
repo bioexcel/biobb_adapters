@@ -12,7 +12,7 @@ baseCommand: cp2k_prep
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_cp2k:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_cp2k:5.2.1--pyhdfd78af_0
 
 inputs:
   output_inp_path:
@@ -39,11 +39,14 @@ inputs:
       Input configuration file (CP2K run options)
       Type: string
       File type: input
-      Accepted formats: pdb
+      Accepted formats: inp, in, txt, wfn
       Example file: https://github.com/bioexcel/biobb_cp2k/raw/master/biobb_cp2k/test/data/cp2k/cp2k_energy.inp
     type: File?
     format:
-    - edam:format_1476
+    - edam:format_2330
+    - edam:format_2330
+    - edam:format_2330
+    - edam:format_2333
     inputBinding:
       prefix: --input_inp_path
 

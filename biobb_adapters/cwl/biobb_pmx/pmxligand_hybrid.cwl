@@ -12,7 +12,7 @@ baseCommand: pmxligand_hybrid
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pmx:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pmx:5.2.2--pyhdfd78af_0
 
 inputs:
   input_structure1_path:
@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand.pdb
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/lig1.pdb
     type: File
     format:
     - edam:format_1476
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand.pdb
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/lig2.pdb
     type: File
     format:
     - edam:format_1476
@@ -52,7 +52,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: itp
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand.itp
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/topoLig1.itp
     type: File
     format:
     - edam:format_3883
@@ -67,7 +67,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: itp
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/ligand.itp
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/topoLig2.itp
     type: File
     format:
     - edam:format_3883
@@ -82,7 +82,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: log, txt, out
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/atom_mapping.log
+      Example file: null
     type: string
     format:
     - edam:format_2330
@@ -100,7 +100,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/superimposed_ligand.pdb
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ref_hybridStructure1.pdb
     type: string
     format:
     - edam:format_1476
@@ -116,7 +116,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/superimposed_ligand.pdb
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ref_hybridStructure2.pdb
     type: string
     format:
     - edam:format_1476
@@ -132,7 +132,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: itp
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ligand_hybrid.itp
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ref_hybridTopology.itp
     type: string
     format:
     - edam:format_3883
@@ -148,7 +148,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: itp
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ligand_hybrid_atomtypes.itp
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ref_hybridAtomTypes.itp
     type: string
     format:
     - edam:format_3883
@@ -164,7 +164,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: dat, txt
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/ref_mapping_pairs.dat
+      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/myPairs1.dat
     type: File?
     format:
     - edam:format_1637
@@ -179,7 +179,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: ndx
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/atoms_to_consider.ndx
+      Example file: null
     type: File?
     format:
     - edam:format_2033
@@ -193,7 +193,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: ndx
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/reference/pmx/atoms_to_consider.ndx
+      Example file: null
     type: File?
     format:
     - edam:format_2033

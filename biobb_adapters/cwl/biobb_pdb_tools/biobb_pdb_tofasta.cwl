@@ -12,13 +12,13 @@ baseCommand: biobb_pdb_tofasta
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/repository/biocontainers/biobb_pdb_tools?tab=tags&tag=5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pdb_tools:5.2.1--pyhdfd78af_0
 
 inputs:
   input_file_path:
-    label: PDB file
+    label: Input PDB file
     doc: |-
-      PDB file
+      Input PDB file
       Type: string
       File type: input
       Accepted formats: pdb
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: fasta, fa
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_pdb_tools/master/biobb_pdb_tools/test/reference/pdb_tools/ref_pdb_tofasta.pdb
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_pdb_tools/master/biobb_pdb_tools/test/reference/pdb_tools/ref_pdb_tofasta.fasta
     type: string
     format:
     - edam:format_1929

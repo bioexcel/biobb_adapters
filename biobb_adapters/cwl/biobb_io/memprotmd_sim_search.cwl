@@ -13,7 +13,7 @@ baseCommand: memprotmd_sim_search
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_io:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_io:5.2.3--pyhdfd78af_0
 
 inputs:
   output_simulations:
@@ -23,7 +23,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: json
-      Example file: https://github.com/bioexcel/biobb_io/raw/master/biobb_io/test/reference/api/output_sim_search.json
+      Example file: https://github.com/bioexcel/biobb_io/raw/master/biobb_io/test/reference/api/output_sim_search_schema_validator.json
     type: string
     format:
     - edam:format_3464

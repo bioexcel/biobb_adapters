@@ -13,7 +13,7 @@ baseCommand: cpptraj_density
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_mem:5.1.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_mem:5.2.2--pyhdfd78af_0
 
 inputs:
   input_top_path:
@@ -23,7 +23,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: top, pdb, prmtop, parmtop, zip
-      Example file: https://github.com/bioexcel/biobb_mem/raw/main/biobb_mem/test/data/ambertools/topology.top
+      Example file: https://github.com/bioexcel/biobb_mem/raw/main/biobb_mem/test/data/ambertools/topology.pdb
     type: File
     format:
     - edam:format_3881
@@ -78,7 +78,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: dat, agr, xmgr, gnu
-      Example file: https://github.com/bioexcel/biobb_mem/raw/main/biobb_mem/test/reference/ambertools/reference/density_default.dat
+      Example file: https://github.com/bioexcel/biobb_mem/raw/main/biobb_mem/test/reference/ambertools/density_default.dat
     type: string
     format:
     - edam:format_1637
