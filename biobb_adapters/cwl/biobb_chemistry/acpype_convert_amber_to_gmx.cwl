@@ -13,7 +13,7 @@ baseCommand: acpype_convert_amber_to_gmx
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_chemistry:5.2.1--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_chemistry:5.2.1--pyhdfd78af_0
 
 inputs:
   input_crd_path:

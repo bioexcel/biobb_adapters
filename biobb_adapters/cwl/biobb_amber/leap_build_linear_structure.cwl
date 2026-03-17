@@ -12,7 +12,7 @@ baseCommand: leap_build_linear_structure
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_amber:5.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_amber:5.2.1--py312hc5e4ab4_0
 
 inputs:
   output_pdb_path:

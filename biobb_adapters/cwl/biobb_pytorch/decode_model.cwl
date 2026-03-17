@@ -12,7 +12,7 @@ baseCommand: decode_model
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pytorch:5.2.2--pyhad2cae4_0
+    dockerPull: quay.io/biocontainers/biobb_pytorch:5.2.3--pyha658751_0
 
 inputs:
   input_model_pth_path:
@@ -63,9 +63,9 @@ inputs:
     default: system.npz
 
   config:
-    label: Advanced configuration options for biobb_pytorch EvaluateDecoder
+    label: Advanced configuration options for biobb_pytorch decode_model
     doc: |-
-      Advanced configuration options for biobb_pytorch EvaluateDecoder. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch EvaluateDecoder documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.decode_model
+      Advanced configuration options for biobb_pytorch decode_model. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch decode_model documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.decode_model
     type: string?
     inputBinding:
       prefix: --config
