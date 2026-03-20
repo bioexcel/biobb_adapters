@@ -13,7 +13,7 @@ baseCommand: cpptraj_rgyr
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:5.2.1--gmx2026_2
+    dockerPull: quay.io/biocontainers/biobb_analysis:5.2.1--pyhdfd78af_0
 
 inputs:
   input_top_path:
