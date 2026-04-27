@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_flexserv PCZstiffness
     doc: |-
       Advanced configuration options for biobb_flexserv PCZstiffness. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexserv PCZstiffness documentation: https://biobb-flexserv.readthedocs.io/en/latest/pcasuite.html#module-pcasuite.pcz_stiffness
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

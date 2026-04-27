@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_structure_path=FILE_IN, output_molecules_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _removemolecules(input_structure_path, output_molecules_path,  properties, **kwargs):
+def _removemolecules(input_structure_path, output_molecules_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -35,4 +35,4 @@ def remove_molecules(input_structure_path, output_molecules_path, properties=Non
        True:
         print("WARN: Task RemoveMolecules already executed.")
     else:
-        _removemolecules( input_structure_path,  output_molecules_path,  properties, **kwargs)
+        _removemolecules(input_structure_path, output_molecules_path, properties, **kwargs)

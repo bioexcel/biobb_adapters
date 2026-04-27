@@ -49,7 +49,7 @@ inputs:
     label: Advanced configuration options for biobb_pytorch BuildModel
     doc: |-
       Advanced configuration options for biobb_pytorch BuildModel. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch BuildModel documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.build_model
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

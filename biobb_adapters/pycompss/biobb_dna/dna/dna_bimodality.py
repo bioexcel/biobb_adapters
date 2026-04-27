@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_csv_file=FILE_IN, output_csv_path=FILE_OUT, output_jpg_path=FILE_OUT, input_zip_file=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _helparbimodality(input_csv_file, output_csv_path, output_jpg_path, input_zip_file,  properties, **kwargs):
+def _helparbimodality(input_csv_file, output_csv_path, output_jpg_path, input_zip_file, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def dna_bimodality(input_csv_file, output_csv_path, output_jpg_path, input_zip_f
        True:
         print("WARN: Task HelParBimodality already executed.")
     else:
-        _helparbimodality( input_csv_file,  output_csv_path,  output_jpg_path,  input_zip_file,  properties, **kwargs)
+        _helparbimodality(input_csv_file, output_csv_path, output_jpg_path, input_zip_file, properties, **kwargs)

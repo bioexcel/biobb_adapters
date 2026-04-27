@@ -84,7 +84,7 @@ inputs:
     label: Advanced configuration options for biobb_flexdyn ConcoordDist
     doc: |-
       Advanced configuration options for biobb_flexdyn ConcoordDist. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexdyn ConcoordDist documentation: https://biobb-flexdyn.readthedocs.io/en/latest/flexdyn.html#module-flexdyn.concoord_dist
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

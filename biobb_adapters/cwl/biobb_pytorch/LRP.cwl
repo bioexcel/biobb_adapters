@@ -65,7 +65,7 @@ inputs:
     label: Advanced configuration options for biobb_pytorch LRP
     doc: |-
       Advanced configuration options for biobb_pytorch LRP. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch LRP documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.explainability.LRP
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

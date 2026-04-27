@@ -53,7 +53,7 @@ inputs:
     label: Advanced configuration options for biobb_haddock Haddock3RestrainBodies
     doc: |-
       Advanced configuration options for biobb_haddock Haddock3RestrainBodies. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_haddock Haddock3RestrainBodies documentation: https://biobb-haddock.readthedocs.io/en/latest/haddock_restraints.html#module-haddock_restraints.haddock3_restrain_bodies
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

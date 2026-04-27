@@ -111,7 +111,7 @@ inputs:
     label: Advanced configuration options for biobb_dna CanonicalAG
     doc: |-
       Advanced configuration options for biobb_dna CanonicalAG. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna CanonicalAG documentation: https://biobb-dna.readthedocs.io/en/latest/backbone.html#module-backbone.canonicalag
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

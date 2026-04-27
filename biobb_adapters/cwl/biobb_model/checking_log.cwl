@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_model CheckingLog
     doc: |-
       Advanced configuration options for biobb_model CheckingLog. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model CheckingLog documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.checking_log
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

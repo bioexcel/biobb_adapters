@@ -65,7 +65,7 @@ inputs:
     label: Advanced configuration options for biobb_model FixBackbone
     doc: |-
       Advanced configuration options for biobb_model FixBackbone. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixBackbone documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_backbone
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

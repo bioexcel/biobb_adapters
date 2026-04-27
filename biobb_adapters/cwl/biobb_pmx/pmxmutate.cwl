@@ -67,7 +67,7 @@ inputs:
     label: Advanced configuration options for biobb_pmx Pmxmutate
     doc: |-
       Advanced configuration options for biobb_pmx Pmxmutate. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pmx Pmxmutate documentation: https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxmutate
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

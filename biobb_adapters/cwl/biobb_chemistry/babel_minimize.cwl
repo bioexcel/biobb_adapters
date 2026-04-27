@@ -52,7 +52,7 @@ inputs:
     label: Advanced configuration options for biobb_chemistry BabelMinimize
     doc: |-
       Advanced configuration options for biobb_chemistry BabelMinimize. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_chemistry BabelMinimize documentation: https://biobb-chemistry.readthedocs.io/en/latest/babelm.html#module-babelm.babel_minimize
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

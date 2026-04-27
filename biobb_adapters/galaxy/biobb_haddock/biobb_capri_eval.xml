@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_capri_eval" name="CapriEval" version="@TOOL_VERSION@" >
     <description>Wrapper class for the HADDOCK3 CapriEval module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.1</token>
     </macros>
 
     <requirements>
@@ -10,7 +10,12 @@
 
     <command detect_errors="exit_code"><![CDATA[
       
-      ln -s $input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext;
+      #if $input_haddock_wf_data:
+        mkdir -p input_folder;
+        #for $dataset in $input_haddock_wf_data:
+            cp '$dataset' input_folder/'$dataset.element_identifier';
+        #end for
+      #end if
       #if $reference_pdb_path:
         ln -s $reference_pdb_path ./reference_pdb_path.$reference_pdb_path.ext;
       #end if
@@ -27,45 +32,47 @@
         --config ./config_json.$config_json.ext
       #end if
       
-      --input_haddock_wf_data_zip ./input_haddock_wf_data_zip.$input_haddock_wf_data_zip.ext
+      #if $input_haddock_wf_data:
+        --input_haddock_wf_data ./input_folder
+      #end if
       #if $reference_pdb_path:
         --reference_pdb_path ./reference_pdb_path.$reference_pdb_path.ext
       #end if
       #if $haddock_config_path:
         --haddock_config_path ./haddock_config_path.$haddock_config_path.ext
       #end if
-      --output_evaluation_zip_path $outname_output_evaluation_zip_path
-      #if $outname_output_haddock_wf_data_zip:
-        --output_haddock_wf_data_zip $outname_output_haddock_wf_data_zip
+      --output_haddock_wf_data ./output_folder
+      #if $outname_output_evaluation_zip_path:
+        --output_evaluation_zip_path $outname_output_evaluation_zip_path
       #end if
       ;
       
-      mv $outname_output_evaluation_zip_path $output_evaluation_zip_path;
-      if test -f $outname_output_haddock_wf_data_zip; then mv $outname_output_haddock_wf_data_zip $output_haddock_wf_data_zip; fi;
+      if test -f $outname_output_evaluation_zip_path; then mv $outname_output_evaluation_zip_path $output_evaluation_zip_path; fi;
       ]]>
     </command>
 
     <inputs>
-      <param name="input_haddock_wf_data_zip" type="data" format="zip" optional="false" help="Path to the input zipball containing all the current Haddock workflow data"/>
+      <param name="input_haddock_wf_data" type="data_collection" collection_type="list" optional="false" help="Path to the input directory containing all the current Haddock workflow data"/>
       <param name="reference_pdb_path" type="data" format="pdb" optional="true" help="Path to the input PDB file containing an structure for reference"/>
       <param name="haddock_config_path" type="data" format="cfg" optional="true" help="Haddock configuration CFG file path"/>
-      <param name="outname_output_evaluation_zip_path" type="text" optional="false" help="Path to the output PDB file collection in zip format"/>
-      <param name="outname_output_haddock_wf_data_zip" type="text" optional="true" help="Path to the output zipball containing all the current Haddock workflow data"/>
+      <param name="outname_output_evaluation_zip_path" type="text" optional="true" help="Path to the output PDB file collection in zip format"/>
       <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
 
     <outputs>
+      <collection name="output_haddock_wf_data" type="list" label="Path to the output directory containing all the current Haddock workflow data">
+        <discover_datasets pattern="__designation__" directory="output_haddock_wf_data" />
+      </collection>
       <data name="output_evaluation_zip_path" format="zip" />
-      <data name="output_haddock_wf_data_zip" format="zip" />
     </outputs>
 
     <tests>
         <test>
           <param name="config_json" value="config_capri_eval.json" ftype="json" />
-          <param name="input_haddock_wf_data_zip" value="haddock_wf_data_rigid.zip" ftype="zip" />
+          <param name="input_haddock_wf_data" value="haddock_wf_data_rigid.zip" ftype="zip" />
           <param name="reference_pdb_path" value="e2a-hpr_1GGR.pdb" ftype="pdb" />
+          <param name="outname_output_haddock_wf_data" value="haddock_wf_data_caprieval" />
           <param name="outname_output_evaluation_zip_path" value="caprieval_output.zip" />
-          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data_caprieval.zip" />
           <output name="output_evaluation_zip_path" ftype="zip">
             <assert_contents>
               <has_size value="2258375" delta="564593"/>

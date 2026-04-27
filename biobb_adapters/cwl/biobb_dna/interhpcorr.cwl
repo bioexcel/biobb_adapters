@@ -141,7 +141,7 @@ inputs:
     label: Advanced configuration options for biobb_dna InterHelParCorrelation
     doc: |-
       Advanced configuration options for biobb_dna InterHelParCorrelation. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna InterHelParCorrelation documentation: https://biobb-dna.readthedocs.io/en/latest/interbp_correlations.html#interbp-correlations-interhpcorr-module
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

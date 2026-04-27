@@ -81,7 +81,7 @@ inputs:
     label: Advanced configuration options for biobb_dna Puckering
     doc: |-
       Advanced configuration options for biobb_dna Puckering. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna Puckering documentation: https://biobb-dna.readthedocs.io/en/latest/backbone.html#module-backbone.puckering
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

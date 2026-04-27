@@ -66,7 +66,7 @@ inputs:
     label: Advanced configuration options for biobb_pytorch decode_model
     doc: |-
       Advanced configuration options for biobb_pytorch decode_model. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch decode_model documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.decode_model
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

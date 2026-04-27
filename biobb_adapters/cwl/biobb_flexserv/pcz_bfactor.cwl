@@ -67,7 +67,7 @@ inputs:
     label: Advanced configuration options for biobb_flexserv PCZbfactor
     doc: |-
       Advanced configuration options for biobb_flexserv PCZbfactor. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexserv PCZbfactor documentation: https://biobb-flexserv.readthedocs.io/en/latest/pcasuite.html#module-pcasuite.pcz_bfactor
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

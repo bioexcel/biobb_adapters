@@ -1,7 +1,7 @@
 <tool id="biobb_cp2k_cp2k_prep" name="Cp2kPrep" version="@TOOL_VERSION@" >
     <description>Helper bb to prepare inputs for the CP2K QM tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.1</token>
     </macros>
 
     <requirements>
@@ -46,7 +46,7 @@
     </command>
 
     <inputs>
-      <param name="input_inp_path" type="data" format="pdb" optional="true" help="Input configuration file (CP2K run options)"/>
+      <param name="input_inp_path" type="data" format="inp" optional="true" help="Input configuration file (CP2K run options)"/>
       <param name="input_pdb_path" type="data" format="pdb" optional="true" help="Input PDB file"/>
       <param name="input_rst_path" type="data" format="wfn" optional="true" help="Input restart file (WFN)"/>
       <param name="outname_output_inp_path" type="text" optional="false" help="Output CP2K input configuration file"/>

@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_pdb_path=FILE_IN, output_log_path=FILE_OUT, output_crd_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _bdrun(input_pdb_path, output_log_path, output_crd_path,  properties, **kwargs):
+def _bdrun(input_pdb_path, output_log_path, output_crd_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def bd_run(input_pdb_path, output_log_path, output_crd_path, properties=None, **
        True:
         print("WARN: Task BDRun already executed.")
     else:
-        _bdrun( input_pdb_path,  output_log_path,  output_crd_path,  properties, **kwargs)
+        _bdrun(input_pdb_path, output_log_path, output_crd_path, properties, **kwargs)

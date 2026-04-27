@@ -79,10 +79,10 @@ inputs:
       prefix: --input_trajectory_path
 
   config:
-    label: Advanced configuration options for biobb_pytorch MDFeaturePipeline
+    label: Advanced configuration options for biobb_pytorch mdfeaturizer
     doc: |-
-      Advanced configuration options for biobb_pytorch MDFeaturePipeline. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch MDFeaturePipeline documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.mdfeaturizer
-    type: string?
+      Advanced configuration options for biobb_pytorch mdfeaturizer. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch mdfeaturizer documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.mdfeaturizer
+    type: File?
     inputBinding:
       prefix: --config
 

@@ -53,7 +53,7 @@ inputs:
     label: Advanced configuration options for biobb_flexserv PCZanimate
     doc: |-
       Advanced configuration options for biobb_flexserv PCZanimate. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexserv PCZanimate documentation: https://biobb-flexserv.readthedocs.io/en/latest/pcasuite.html#module-pcasuite.pcz_animate
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

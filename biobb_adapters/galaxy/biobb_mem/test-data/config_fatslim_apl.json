@@ -1,5 +1,5 @@
 {
-    "disable_logs": true,
+    "remove_tmp": false,
     "ignore_no_box": true,
     "lipid_selection": "(resname DPPC and name P8)"
 }

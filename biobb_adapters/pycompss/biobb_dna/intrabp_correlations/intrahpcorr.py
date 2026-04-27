@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_filename_shear=FILE_IN, input_filename_stretch=FILE_IN, input_filename_stagger=FILE_IN, input_filename_buckle=FILE_IN, input_filename_propel=FILE_IN, input_filename_opening=FILE_IN, output_csv_path=FILE_OUT, output_jpg_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _intrahelparcorrelation(input_filename_shear, input_filename_stretch, input_filename_stagger, input_filename_buckle, input_filename_propel, input_filename_opening, output_csv_path, output_jpg_path,  properties, **kwargs):
+def _intrahelparcorrelation(input_filename_shear, input_filename_stretch, input_filename_stagger, input_filename_buckle, input_filename_propel, input_filename_opening, output_csv_path, output_jpg_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def intrahpcorr(input_filename_shear, input_filename_stretch, input_filename_sta
        True:
         print("WARN: Task IntraHelParCorrelation already executed.")
     else:
-        _intrahelparcorrelation( input_filename_shear,  input_filename_stretch,  input_filename_stagger,  input_filename_buckle,  input_filename_propel,  input_filename_opening,  output_csv_path,  output_jpg_path,  properties, **kwargs)
+        _intrahelparcorrelation(input_filename_shear, input_filename_stretch, input_filename_stagger, input_filename_buckle, input_filename_propel, input_filename_opening, output_csv_path, output_jpg_path, properties, **kwargs)

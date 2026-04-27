@@ -84,7 +84,7 @@ inputs:
     label: Advanced configuration options for biobb_chemistry AcpypeConvertAMBERtoGMX
     doc: |-
       Advanced configuration options for biobb_chemistry AcpypeConvertAMBERtoGMX. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_chemistry AcpypeConvertAMBERtoGMX documentation: https://biobb-chemistry.readthedocs.io/en/latest/acpype.html#module-acpype.acpype_convert_amber_to_gmx
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

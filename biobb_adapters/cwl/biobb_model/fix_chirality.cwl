@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_model FixChirality
     doc: |-
       Advanced configuration options for biobb_model FixChirality. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixChirality documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_chirality
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

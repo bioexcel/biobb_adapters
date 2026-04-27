@@ -213,7 +213,7 @@ inputs:
     label: Advanced configuration options for biobb_amber SanderMDRun
     doc: |-
       Advanced configuration options for biobb_amber SanderMDRun. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber SanderMDRun documentation: https://biobb-amber.readthedocs.io/en/latest/sander.html#module-sander.sander_mdrun
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

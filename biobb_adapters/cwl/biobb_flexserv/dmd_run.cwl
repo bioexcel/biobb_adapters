@@ -71,7 +71,7 @@ inputs:
     label: Advanced configuration options for biobb_flexserv DMDRun
     doc: |-
       Advanced configuration options for biobb_flexserv DMDRun. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexserv DMDRun documentation: https://biobb-flexserv.readthedocs.io/en/latest/flexserv.html#module-flexserv.dmd_run
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

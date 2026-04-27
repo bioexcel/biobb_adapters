@@ -65,7 +65,7 @@ inputs:
     label: Advanced configuration options for biobb_vs BindingSite
     doc: |-
       Advanced configuration options for biobb_vs BindingSite. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_vs BindingSite documentation: https://biobb-vs.readthedocs.io/en/latest/utils.html#module-utils.bindingsite
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

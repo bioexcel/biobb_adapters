@@ -1,7 +1,7 @@
 <tool id="biobb_mem_cpptraj_density" name="CpptrajDensity" version="@TOOL_VERSION@" >
     <description>Wrapper of the Ambertools Cpptraj module for calculating density profile along an axis of a given cpptraj compatible trajectory.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.2</token>
     </macros>
 
     <requirements>

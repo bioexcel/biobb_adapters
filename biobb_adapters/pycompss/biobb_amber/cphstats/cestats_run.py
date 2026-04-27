@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_cein_path=FILE_IN, input_ceout_path=FILE_IN, output_dat_path=FILE_OUT, output_population_path=FILE_OUT, output_chunk_path=FILE_OUT, output_cumulative_path=FILE_OUT, output_conditional_path=FILE_OUT, output_chunk_conditional_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _cestatsrun(input_cein_path, input_ceout_path, output_dat_path, output_population_path, output_chunk_path, output_cumulative_path, output_conditional_path, output_chunk_conditional_path,  properties, **kwargs):
+def _cestatsrun(input_cein_path, input_ceout_path, output_dat_path, output_population_path, output_chunk_path, output_cumulative_path, output_conditional_path, output_chunk_conditional_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -40,4 +40,4 @@ def cestats_run(input_cein_path, input_ceout_path, output_dat_path, output_popul
        True:
         print("WARN: Task CestatsRun already executed.")
     else:
-        _cestatsrun( input_cein_path,  input_ceout_path,  output_dat_path,  output_population_path,  output_chunk_path,  output_cumulative_path,  output_conditional_path,  output_chunk_conditional_path,  properties, **kwargs)
+        _cestatsrun(input_cein_path, input_ceout_path, output_dat_path, output_population_path, output_chunk_path, output_cumulative_path, output_conditional_path, output_chunk_conditional_path, properties, **kwargs)

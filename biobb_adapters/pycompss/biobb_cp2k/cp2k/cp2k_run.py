@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_inp_path=FILE_IN, output_log_path=FILE_OUT, output_outzip_path=FILE_OUT, output_rst_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _cp2krun(input_inp_path, output_log_path, output_outzip_path, output_rst_path,  properties, **kwargs):
+def _cp2krun(input_inp_path, output_log_path, output_outzip_path, output_rst_path, properties, **kwargs):
     
     task_config.config_multinode(properties)
     
@@ -37,4 +37,4 @@ def cp2k_run(input_inp_path, output_log_path, output_outzip_path, output_rst_pat
        True:
         print("WARN: Task Cp2kRun already executed.")
     else:
-        _cp2krun( input_inp_path,  output_log_path,  output_outzip_path,  output_rst_path,  properties, **kwargs)
+        _cp2krun(input_inp_path, output_log_path, output_outzip_path, output_rst_path, properties, **kwargs)

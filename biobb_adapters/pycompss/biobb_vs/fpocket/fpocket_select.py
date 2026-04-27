@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_pockets_zip=FILE_IN, output_pocket_pdb=FILE_OUT, output_pocket_pqr=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _fpocketselect(input_pockets_zip, output_pocket_pdb, output_pocket_pqr,  properties, **kwargs):
+def _fpocketselect(input_pockets_zip, output_pocket_pdb, output_pocket_pqr, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def fpocket_select(input_pockets_zip, output_pocket_pdb, output_pocket_pqr, prop
        True:
         print("WARN: Task FPocketSelect already executed.")
     else:
-        _fpocketselect( input_pockets_zip,  output_pocket_pdb,  output_pocket_pqr,  properties, **kwargs)
+        _fpocketselect(input_pockets_zip, output_pocket_pdb, output_pocket_pqr, properties, **kwargs)

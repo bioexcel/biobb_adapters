@@ -109,7 +109,7 @@ inputs:
     label: Advanced configuration options for biobb_mem MDAHole
     doc: |-
       Advanced configuration options for biobb_mem MDAHole. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_mem MDAHole documentation: https://biobb-mem.readthedocs.io/en/latest/mdanalysis_biobb.html#module-mdanalysis_biobb.mda_hole
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

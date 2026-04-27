@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(output_sdf_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _idealsdf(output_sdf_path,  properties, **kwargs):
+def _idealsdf(output_sdf_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -35,4 +35,4 @@ def ideal_sdf(output_sdf_path, properties=None, **kwargs):
        True:
         print("WARN: Task IdealSdf already executed.")
     else:
-        _idealsdf( output_sdf_path,  properties, **kwargs)
+        _idealsdf(output_sdf_path, properties, **kwargs)

@@ -68,7 +68,7 @@ inputs:
     label: Advanced configuration options for biobb_chemistry AcpypeParamsGMXOPLS
     doc: |-
       Advanced configuration options for biobb_chemistry AcpypeParamsGMXOPLS. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_chemistry AcpypeParamsGMXOPLS documentation: https://biobb-chemistry.readthedocs.io/en/latest/acpype.html#module-acpype.acpype_params_gmx_opls
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

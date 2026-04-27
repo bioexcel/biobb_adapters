@@ -13,7 +13,7 @@ baseCommand: cpptraj_rmsf
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:5.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:5.2.1--gmx2026_2
 
 inputs:
   input_top_path:
@@ -108,7 +108,7 @@ inputs:
     label: Advanced configuration options for biobb_analysis CpptrajRmsf
     doc: |-
       Advanced configuration options for biobb_analysis CpptrajRmsf. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_analysis CpptrajRmsf documentation: https://biobb-analysis.readthedocs.io/en/latest/ambertools.html#module-ambertools.cpptraj_rmsf
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

@@ -52,7 +52,7 @@ inputs:
     label: Advanced configuration options for biobb_structure_utils ClosestResidues
     doc: |-
       Advanced configuration options for biobb_structure_utils ClosestResidues. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_structure_utils ClosestResidues documentation: https://biobb-structure-utils.readthedocs.io/en/latest/utils.html#module-utils.closest_residues
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

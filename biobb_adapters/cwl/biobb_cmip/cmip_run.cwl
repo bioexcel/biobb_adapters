@@ -240,7 +240,7 @@ inputs:
     label: Advanced configuration options for biobb_cmip Titration
     doc: |-
       Advanced configuration options for biobb_cmip Titration. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_cmip Titration documentation: https://biobb-cmip.readthedocs.io/en/latest/cmip.html#module-cmip.cmip_run
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

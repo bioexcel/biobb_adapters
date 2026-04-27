@@ -91,7 +91,7 @@ inputs:
     label: Advanced configuration options for biobb_analysis GMXRmsf
     doc: |-
       Advanced configuration options for biobb_analysis GMXRmsf. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_analysis GMXRmsf documentation: https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_rmsf
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

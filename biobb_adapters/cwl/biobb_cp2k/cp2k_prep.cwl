@@ -82,7 +82,7 @@ inputs:
     label: Advanced configuration options for biobb_cp2k Cp2kPrep
     doc: |-
       Advanced configuration options for biobb_cp2k Cp2kPrep. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_cp2k Cp2kPrep documentation: https://biobb-cp2k.readthedocs.io/en/latest/cp2k.html#module-cp2k.cp2k_prep
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

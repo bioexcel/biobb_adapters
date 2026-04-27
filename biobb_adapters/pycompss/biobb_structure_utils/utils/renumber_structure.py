@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_structure_path=FILE_IN, output_structure_path=FILE_OUT, output_mapping_json_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _renumberstructure(input_structure_path, output_structure_path, output_mapping_json_path,  properties, **kwargs):
+def _renumberstructure(input_structure_path, output_structure_path, output_mapping_json_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def renumber_structure(input_structure_path, output_structure_path, output_mappi
        True:
         print("WARN: Task RenumberStructure already executed.")
     else:
-        _renumberstructure( input_structure_path,  output_structure_path,  output_mapping_json_path,  properties, **kwargs)
+        _renumberstructure(input_structure_path, output_structure_path, output_mapping_json_path, properties, **kwargs)

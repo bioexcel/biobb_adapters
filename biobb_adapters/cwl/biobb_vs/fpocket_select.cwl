@@ -66,7 +66,7 @@ inputs:
     label: Advanced configuration options for biobb_vs FPocketSelect
     doc: |-
       Advanced configuration options for biobb_vs FPocketSelect. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_vs FPocketSelect documentation: https://biobb-vs.readthedocs.io/en/latest/fpocket.html#module-fpocket.fpocket_select
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

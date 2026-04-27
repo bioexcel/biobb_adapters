@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_structure1_path=FILE_IN, input_structure2_path=FILE_IN, output_pairs1_path=FILE_OUT, output_pairs2_path=FILE_OUT, output_log_path=FILE_OUT, output_structure1_path=FILE_OUT, output_structure2_path=FILE_OUT, output_morph1_path=FILE_OUT, output_morph2_path=FILE_OUT, output_scaffold1_path=FILE_OUT, output_scaffold2_path=FILE_OUT, output_score_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _pmxatom_mapping(input_structure1_path, input_structure2_path, output_pairs1_path, output_pairs2_path, output_log_path, output_structure1_path, output_structure2_path, output_morph1_path, output_morph2_path, output_scaffold1_path, output_scaffold2_path, output_score_path,  properties, **kwargs):
+def _pmxatom_mapping(input_structure1_path, input_structure2_path, output_pairs1_path, output_pairs2_path, output_log_path, output_structure1_path, output_structure2_path, output_morph1_path, output_morph2_path, output_scaffold1_path, output_scaffold2_path, output_score_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -44,4 +44,4 @@ def pmxatom_mapping(input_structure1_path, input_structure2_path, output_pairs1_
        True:
         print("WARN: Task Pmxatom_mapping already executed.")
     else:
-        _pmxatom_mapping( input_structure1_path,  input_structure2_path,  output_pairs1_path,  output_pairs2_path,  output_log_path,  output_structure1_path,  output_structure2_path,  output_morph1_path,  output_morph2_path,  output_scaffold1_path,  output_scaffold2_path,  output_score_path,  properties, **kwargs)
+        _pmxatom_mapping(input_structure1_path, input_structure2_path, output_pairs1_path, output_pairs2_path, output_log_path, output_structure1_path, output_structure2_path, output_morph1_path, output_morph2_path, output_scaffold1_path, output_scaffold2_path, output_score_path, properties, **kwargs)

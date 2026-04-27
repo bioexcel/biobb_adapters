@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_crd_path=FILE_IN, input_top_path=FILE_IN, output_path_gro=FILE_OUT, output_path_top=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _acpypeconvertambertogmx(input_crd_path, input_top_path, output_path_gro, output_path_top,  properties, **kwargs):
+def _acpypeconvertambertogmx(input_crd_path, input_top_path, output_path_gro, output_path_top, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def acpype_convert_amber_to_gmx(input_crd_path, input_top_path, output_path_gro,
        True:
         print("WARN: Task AcpypeConvertAMBERtoGMX already executed.")
     else:
-        _acpypeconvertambertogmx( input_crd_path,  input_top_path,  output_path_gro,  output_path_top,  properties, **kwargs)
+        _acpypeconvertambertogmx(input_crd_path, input_top_path, output_path_gro, output_path_top, properties, **kwargs)

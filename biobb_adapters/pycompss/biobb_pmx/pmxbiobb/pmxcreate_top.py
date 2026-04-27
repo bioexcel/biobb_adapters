@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_topology1_path=FILE_IN, input_topology2_path=FILE_IN, output_topology_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _pmxcreate_top(input_topology1_path, input_topology2_path, output_topology_path,  properties, **kwargs):
+def _pmxcreate_top(input_topology1_path, input_topology2_path, output_topology_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -35,4 +35,4 @@ def pmxcreate_top(input_topology1_path, input_topology2_path, output_topology_pa
        True:
         print("WARN: Task Pmxcreate_top already executed.")
     else:
-        _pmxcreate_top( input_topology1_path,  input_topology2_path,  output_topology_path,  properties, **kwargs)
+        _pmxcreate_top(input_topology1_path, input_topology2_path, output_topology_path, properties, **kwargs)

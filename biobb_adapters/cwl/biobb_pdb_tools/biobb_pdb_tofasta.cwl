@@ -51,7 +51,7 @@ inputs:
     label: Advanced configuration options for biobb_pdb_tofasta Pdbtofasta
     doc: |-
       Advanced configuration options for biobb_pdb_tofasta Pdbtofasta. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pdb_tofasta Pdbtofasta documentation: https://biobb-pdb-tools.readthedocs.io/en/latest/pdb_tools.html#pdb-tools-biobb-pdb-tofasta-module
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

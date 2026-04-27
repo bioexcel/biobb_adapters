@@ -1,0 +1,149 @@
+<tool id="biobb_gromacs_mdrun_plumed" name="MdrunPlumed" version="@TOOL_VERSION@" >
+    <description>Wrapper of the GROMACS mdrun module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">5.2.1</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_gromacs</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_tpr_path ./input_tpr_path.$input_tpr_path.ext;
+      #if $input_cpt_path:
+        ln -s $input_cpt_path ./input_cpt_path.$input_cpt_path.ext;
+      #end if
+      #if $input_plumed_path:
+        ln -s $input_plumed_path ./input_plumed_path.$input_plumed_path.ext;
+      #end if
+      #if $input_plumed_folder:
+        mkdir -p input_folder;
+        #for $dataset in $input_plumed_folder:
+            cp '$dataset' input_folder/'$dataset.element_identifier';
+        #end for
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      mdrun_plumed
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_tpr_path ./input_tpr_path.$input_tpr_path.ext
+      #if $input_cpt_path:
+        --input_cpt_path ./input_cpt_path.$input_cpt_path.ext
+      #end if
+      #if $input_plumed_path:
+        --input_plumed_path ./input_plumed_path.$input_plumed_path.ext
+      #end if
+      #if $input_plumed_folder:
+        --input_plumed_folder ./input_folder
+      #end if
+      --output_gro_path $outname_output_gro_path
+      --output_edr_path $outname_output_edr_path
+      --output_log_path $outname_output_log_path
+      #if $outname_output_trr_path:
+        --output_trr_path $outname_output_trr_path
+      #end if
+      #if $outname_output_xtc_path:
+        --output_xtc_path $outname_output_xtc_path
+      #end if
+      #if $outname_output_cpt_path:
+        --output_cpt_path $outname_output_cpt_path
+      #end if
+      #if $outname_output_dhdl_path:
+        --output_dhdl_path $outname_output_dhdl_path
+      #end if
+      --output_plumed_folder ./output_folder
+      ;
+      
+      mv $outname_output_gro_path $output_gro_path;
+      mv $outname_output_edr_path $output_edr_path;
+      mv $outname_output_log_path $output_log_path;
+      if test -f $outname_output_trr_path; then mv $outname_output_trr_path $output_trr_path; fi;
+      if test -f $outname_output_xtc_path; then mv $outname_output_xtc_path $output_xtc_path; fi;
+      if test -f $outname_output_cpt_path; then mv $outname_output_cpt_path $output_cpt_path; fi;
+      if test -f $outname_output_dhdl_path; then mv $outname_output_dhdl_path $output_dhdl_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_tpr_path" type="data" format="tpr" optional="false" help="Path to the portable binary run input file TPR"/>
+      <param name="input_cpt_path" type="data" format="cpt" optional="true" help="Path to the input GROMACS checkpoint file CPT"/>
+      <param name="input_plumed_path" type="data" format="dat" optional="true" help="Path to the main PLUMED input file. If provided, PLUMED will be used during the simulation. All files used by the main PLUMED input file must exist in the input_plumed_folder and be called with just their name. Make sure to provide a GROMACS version with the PLUMED patch"/>
+      <param name="input_plumed_folder" type="data_collection" collection_type="list" optional="true" help="Path to the folder with all files needed by the main PLUMED input file, see input_plumed_path"/>
+      <param name="outname_output_gro_path" type="text" optional="false" help="Path to the output GROMACS structure GRO file"/>
+      <param name="outname_output_edr_path" type="text" optional="false" help="Path to the output GROMACS portable energy file EDR"/>
+      <param name="outname_output_log_path" type="text" optional="false" help="Path to the output GROMACS trajectory log file LOG"/>
+      <param name="outname_output_trr_path" type="text" optional="true" help="Path to the GROMACS uncompressed raw trajectory file TRR"/>
+      <param name="outname_output_xtc_path" type="text" optional="true" help="Path to the GROMACS compressed trajectory file XTC"/>
+      <param name="outname_output_cpt_path" type="text" optional="true" help="Path to the output GROMACS checkpoint file CPT"/>
+      <param name="outname_output_dhdl_path" type="text" optional="true" help="Path to the output dhdl.xvg file only used when free energy calculation is turned on"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_gro_path" format="gro" />
+      <data name="output_edr_path" format="edr" />
+      <data name="output_log_path" format="log" />
+      <data name="output_trr_path" format="trr" />
+      <data name="output_xtc_path" format="xtc" />
+      <data name="output_cpt_path" format="cpt" />
+      <data name="output_dhdl_path" format="xvg" />
+      <collection name="output_plumed_folder" type="list" label="Folder where PLUMED generated output files will be saved">
+        <discover_datasets pattern="__designation__" directory="output_plumed_folder" />
+      </collection>
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_mdrun_plumed.json" ftype="json" />
+          <param name="input_tpr_path" value="mdrun.tpr" ftype="tpr" />
+          <param name="outname_output_gro_path" value="output_gro_path.gro" />
+          <param name="outname_output_edr_path" value="output_edr_path.edr" />
+          <param name="outname_output_log_path" value="output_log_path.log" />
+          <param name="outname_output_trr_path" value="output_trr_path.trr" />
+          <output name="output_trr_path" ftype="trr">
+            <assert_contents>
+              <has_size value="3248928" delta="812232"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-gromacs.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

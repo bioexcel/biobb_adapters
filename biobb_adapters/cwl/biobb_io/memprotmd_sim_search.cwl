@@ -36,7 +36,7 @@ inputs:
     label: Advanced configuration options for biobb_io MemProtMDSimSearch
     doc: |-
       Advanced configuration options for biobb_io MemProtMDSimSearch. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_io MemProtMDSimSearch documentation: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim_search
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

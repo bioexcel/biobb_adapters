@@ -36,7 +36,7 @@ inputs:
     label: Advanced configuration options for biobb_io CanonicalFasta
     doc: |-
       Advanced configuration options for biobb_io CanonicalFasta. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_io CanonicalFasta documentation: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.canonical_fasta
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

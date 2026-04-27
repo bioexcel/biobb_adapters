@@ -86,7 +86,7 @@ inputs:
     label: Advanced configuration options for biobb_chemistry BabelRemoveHydrogens
     doc: |-
       Advanced configuration options for biobb_chemistry BabelRemoveHydrogens. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_chemistry BabelRemoveHydrogens documentation: https://biobb-chemistry.readthedocs.io/en/latest/babelm.html#module-babelm.babel_remove_hydrogens
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

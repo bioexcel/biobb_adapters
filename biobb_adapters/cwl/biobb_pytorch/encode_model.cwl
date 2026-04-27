@@ -66,7 +66,7 @@ inputs:
     label: Advanced configuration options for biobb_pytorch EvaluateEncoder
     doc: |-
       Advanced configuration options for biobb_pytorch EvaluateEncoder. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch EvaluateEncoder documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-biobb_pytorch.mdae.encode_model
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

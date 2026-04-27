@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_a_xvg_zip_path=FILE_IN, input_b_xvg_zip_path=FILE_IN, output_result_path=FILE_OUT, output_work_plot_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _pmxanalyse(input_a_xvg_zip_path, input_b_xvg_zip_path, output_result_path, output_work_plot_path,  properties, **kwargs):
+def _pmxanalyse(input_a_xvg_zip_path, input_b_xvg_zip_path, output_result_path, output_work_plot_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def pmxanalyse(input_a_xvg_zip_path, input_b_xvg_zip_path, output_result_path, o
        True:
         print("WARN: Task Pmxanalyse already executed.")
     else:
-        _pmxanalyse( input_a_xvg_zip_path,  input_b_xvg_zip_path,  output_result_path,  output_work_plot_path,  properties, **kwargs)
+        _pmxanalyse(input_a_xvg_zip_path, input_b_xvg_zip_path, output_result_path, output_work_plot_path, properties, **kwargs)

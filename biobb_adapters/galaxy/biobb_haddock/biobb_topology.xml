@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_topology" name="Topology" version="@TOOL_VERSION@" >
     <description>Wrapper class for the HADDOCK3 Topology module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.1</token>
     </macros>
 
     <requirements>
@@ -34,18 +34,17 @@
       #if $haddock_config_path:
         --haddock_config_path ./haddock_config_path.$haddock_config_path.ext
       #end if
-      --mol1_output_top_zip_path $outname_mol1_output_top_zip_path
+      #if $outname_mol1_output_top_zip_path:
+        --mol1_output_top_zip_path $outname_mol1_output_top_zip_path
+      #end if
       #if $outname_mol2_output_top_zip_path:
         --mol2_output_top_zip_path $outname_mol2_output_top_zip_path
       #end if
-      #if $outname_output_haddock_wf_data_zip:
-        --output_haddock_wf_data_zip $outname_output_haddock_wf_data_zip
-      #end if
+      --output_haddock_wf_data ./output_folder
       ;
       
-      mv $outname_mol1_output_top_zip_path $mol1_output_top_zip_path;
+      if test -f $outname_mol1_output_top_zip_path; then mv $outname_mol1_output_top_zip_path $mol1_output_top_zip_path; fi;
       if test -f $outname_mol2_output_top_zip_path; then mv $outname_mol2_output_top_zip_path $mol2_output_top_zip_path; fi;
-      if test -f $outname_output_haddock_wf_data_zip; then mv $outname_output_haddock_wf_data_zip $output_haddock_wf_data_zip; fi;
       ]]>
     </command>
 
@@ -53,16 +52,17 @@
       <param name="mol1_input_pdb_path" type="data" format="pdb" optional="false" help="Path to the input PDB file"/>
       <param name="mol2_input_pdb_path" type="data" format="pdb" optional="true" help="Path to the input PDB file"/>
       <param name="haddock_config_path" type="data" format="cfg" optional="true" help="Haddock configuration CFG file path"/>
-      <param name="outname_mol1_output_top_zip_path" type="text" optional="false" help="Path to the output PDB file collection in zip format"/>
+      <param name="outname_mol1_output_top_zip_path" type="text" optional="true" help="Path to the output PDB file collection in zip format"/>
       <param name="outname_mol2_output_top_zip_path" type="text" optional="true" help="Path to the output PDB file collection in zip format"/>
-      <param name="outname_output_haddock_wf_data_zip" type="text" optional="true" help="Path to the output zipball containing all the current Haddock workflow data"/>
       <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
 
     <outputs>
       <data name="mol1_output_top_zip_path" format="zip" />
       <data name="mol2_output_top_zip_path" format="zip" />
-      <data name="output_haddock_wf_data_zip" format="zip" />
+      <collection name="output_haddock_wf_data" type="list" label="Path to the output zipball containing all the current Haddock workflow data">
+        <discover_datasets pattern="__designation__" directory="output_haddock_wf_data" />
+      </collection>
     </outputs>
 
     <tests>
@@ -72,7 +72,7 @@
           <param name="mol2_input_pdb_path" value="hpr_ensemble.pdb" ftype="pdb" />
           <param name="outname_mol1_output_top_zip_path" value="mol1_top.zip" />
           <param name="outname_mol2_output_top_zip_path" value="mol2_top.zip" />
-          <param name="outname_output_haddock_wf_data_zip" value="haddock_wf_data.zip" />
+          <param name="outname_output_haddock_wf_data" value="haddock_wf_data_topology" />
           <output name="mol1_output_top_zip_path" ftype="zip">
             <assert_contents>
               <has_size value="111214" delta="27803"/>

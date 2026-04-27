@@ -66,7 +66,7 @@ inputs:
     label: Advanced configuration options for biobb_gromacs Genrestr
     doc: |-
       Advanced configuration options for biobb_gromacs Genrestr. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_gromacs Genrestr documentation: https://biobb-gromacs.readthedocs.io/en/latest/gromacs.html#module-gromacs.genrestr
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

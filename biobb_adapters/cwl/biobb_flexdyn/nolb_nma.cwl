@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_flexdyn Nolb_nma
     doc: |-
       Advanced configuration options for biobb_flexdyn Nolb_nma. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexdyn Nolb_nma documentation: https://biobb-flexdyn.readthedocs.io/en/latest/flexdyn.html#module-flexdyn.nolb
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

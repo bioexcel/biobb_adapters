@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_vs ExtractModelPDBQT
     doc: |-
       Advanced configuration options for biobb_vs ExtractModelPDBQT. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_vs ExtractModelPDBQT documentation: https://biobb-vs.readthedocs.io/en/latest/utils.html#module-utils.extract_model_pdbqt
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

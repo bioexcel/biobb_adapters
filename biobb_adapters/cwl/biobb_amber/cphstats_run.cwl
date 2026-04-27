@@ -163,7 +163,7 @@ inputs:
     label: Advanced configuration options for biobb_amber CphstatsRun
     doc: |-
       Advanced configuration options for biobb_amber CphstatsRun. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber CphstatsRun documentation: https://biobb-amber.readthedocs.io/en/latest/cphstats.html#module-cphstats.cphstats_run
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

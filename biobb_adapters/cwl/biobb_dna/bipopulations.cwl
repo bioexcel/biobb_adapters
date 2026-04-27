@@ -111,7 +111,7 @@ inputs:
     label: Advanced configuration options for biobb_dna BIPopulations
     doc: |-
       Advanced configuration options for biobb_dna BIPopulations. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna BIPopulations documentation: https://biobb-dna.readthedocs.io/en/latest/backbone.html#module-backbone.bipopulations
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

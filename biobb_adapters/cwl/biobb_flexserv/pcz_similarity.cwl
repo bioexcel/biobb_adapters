@@ -65,7 +65,7 @@ inputs:
     label: Advanced configuration options for biobb_flexserv PCZsimilarity
     doc: |-
       Advanced configuration options for biobb_flexserv PCZsimilarity. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexserv PCZsimilarity documentation: https://biobb-flexserv.readthedocs.io/en/latest/pcasuite.html#module-pcasuite.pcz_similarity
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

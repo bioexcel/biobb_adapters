@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_model FixSideChain
     doc: |-
       Advanced configuration options for biobb_model FixSideChain. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixSideChain documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_side_chain
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

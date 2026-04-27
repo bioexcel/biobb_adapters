@@ -53,7 +53,7 @@ inputs:
     label: Advanced configuration options for biobb_structure_utils ExtractAtoms
     doc: |-
       Advanced configuration options for biobb_structure_utils ExtractAtoms. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_structure_utils ExtractAtoms documentation: https://biobb-structure-utils.readthedocs.io/en/latest/utils.html#module-utils.extract_chain
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

@@ -79,7 +79,7 @@ inputs:
     label: Advanced configuration options for biobb_gromacs AppendLigand
     doc: |-
       Advanced configuration options for biobb_gromacs AppendLigand. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_gromacs AppendLigand documentation: https://biobb-gromacs.readthedocs.io/en/latest/gromacs_extra.html#gromacs-extra-append-ligand-module
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

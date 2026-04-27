@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_keepcoord" name="BiobbPdbKeepcoord" version="@TOOL_VERSION@" >
     <description>Removes all non-coordinate records from the file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.1</token>
     </macros>
 
     <requirements>
@@ -30,7 +30,7 @@
     </command>
 
     <inputs>
-      <param name="input_file_path" type="data" format="pdb" optional="false" help="PDB file"/>
+      <param name="input_file_path" type="data" format="pdb" optional="false" help="Input PDB file"/>
       <param name="outname_output_file_path" type="text" optional="false" help="PDB file with only coordinate records"/>
       <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>

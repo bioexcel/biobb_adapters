@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_zip_file=FILE_IN, output_path_csv=FILE_OUT, output_path_jpg=FILE_OUT, output_list_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _dnatimeseriesunzip(input_zip_file, output_path_csv, output_path_jpg, output_list_path,  properties, **kwargs):
+def _dnatimeseriesunzip(input_zip_file, output_path_csv, output_path_jpg, output_list_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -37,4 +37,4 @@ def dna_timeseries_unzip(input_zip_file, output_path_csv, output_path_jpg, outpu
        True:
         print("WARN: Task DnaTimeseriesUnzip already executed.")
     else:
-        _dnatimeseriesunzip( input_zip_file,  output_path_csv,  output_path_jpg,  output_list_path,  properties, **kwargs)
+        _dnatimeseriesunzip(input_zip_file, output_path_csv, output_path_jpg, output_list_path, properties, **kwargs)

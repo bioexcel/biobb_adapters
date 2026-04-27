@@ -216,7 +216,7 @@ inputs:
     label: Advanced configuration options for biobb_amber PmemdMDRun
     doc: |-
       Advanced configuration options for biobb_amber PmemdMDRun. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber PmemdMDRun documentation: https://biobb-amber.readthedocs.io/en/latest/pmemd.html#module-pmemd.pmemd_mdrun
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

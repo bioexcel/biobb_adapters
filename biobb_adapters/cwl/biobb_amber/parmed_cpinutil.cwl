@@ -69,7 +69,7 @@ inputs:
     label: Advanced configuration options for biobb_amber ParmedCpinUtil
     doc: |-
       Advanced configuration options for biobb_amber ParmedCpinUtil. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber ParmedCpinUtil documentation: https://biobb-amber.readthedocs.io/en/latest/parmed.html#module-parmed.parmed_cpinutil
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

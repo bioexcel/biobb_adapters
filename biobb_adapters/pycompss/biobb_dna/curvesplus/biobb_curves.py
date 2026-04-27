@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_struc_path=FILE_IN, output_cda_path=FILE_OUT, output_lis_path=FILE_OUT, input_top_path=FILE_IN, output_zip_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _curves(input_struc_path, output_cda_path, output_lis_path, input_top_path, output_zip_path,  properties, **kwargs):
+def _curves(input_struc_path, output_cda_path, output_lis_path, input_top_path, output_zip_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -37,4 +37,4 @@ def biobb_curves(input_struc_path, output_cda_path, output_lis_path, input_top_p
        True:
         print("WARN: Task Curves already executed.")
     else:
-        _curves( input_struc_path,  output_cda_path,  output_lis_path,  input_top_path,  output_zip_path,  properties, **kwargs)
+        _curves(input_struc_path, output_cda_path, output_lis_path, input_top_path, output_zip_path, properties, **kwargs)

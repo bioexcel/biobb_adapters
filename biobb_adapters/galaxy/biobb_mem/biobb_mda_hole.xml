@@ -1,7 +1,7 @@
 <tool id="biobb_mem_mda_hole" name="MdaHole" version="@TOOL_VERSION@" >
     <description>Wrapper of the MDAnalysis HOLE module for analyzing ion channel pores or transporter pathways.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.2</token>
     </macros>
 
     <requirements>

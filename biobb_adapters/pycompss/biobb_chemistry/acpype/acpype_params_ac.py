@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_path=FILE_IN, output_path_frcmod=FILE_OUT, output_path_inpcrd=FILE_OUT, output_path_lib=FILE_OUT, output_path_prmtop=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _acpypeparamsac(input_path, output_path_frcmod, output_path_inpcrd, output_path_lib, output_path_prmtop,  properties, **kwargs):
+def _acpypeparamsac(input_path, output_path_frcmod, output_path_inpcrd, output_path_lib, output_path_prmtop, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -38,4 +38,4 @@ def acpype_params_ac(input_path, output_path_frcmod, output_path_inpcrd, output_
        True:
         print("WARN: Task AcpypeParamsAC already executed.")
     else:
-        _acpypeparamsac( input_path,  output_path_frcmod,  output_path_inpcrd,  output_path_lib,  output_path_prmtop,  properties, **kwargs)
+        _acpypeparamsac(input_path, output_path_frcmod, output_path_inpcrd, output_path_lib, output_path_prmtop, properties, **kwargs)

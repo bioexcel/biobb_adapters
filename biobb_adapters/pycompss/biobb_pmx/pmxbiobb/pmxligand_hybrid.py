@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_structure1_path=FILE_IN, input_structure2_path=FILE_IN, input_topology1_path=FILE_IN, input_topology2_path=FILE_IN, output_log_path=FILE_OUT, output_structure1_path=FILE_OUT, output_structure2_path=FILE_OUT, output_topology_path=FILE_OUT, output_atomtypes_path=FILE_OUT, input_pairs_path=FILE_IN, input_scaffold1_path=FILE_IN, input_scaffold2_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _pmxligand_hybrid(input_structure1_path, input_structure2_path, input_topology1_path, input_topology2_path, output_log_path, output_structure1_path, output_structure2_path, output_topology_path, output_atomtypes_path, input_pairs_path, input_scaffold1_path, input_scaffold2_path,  properties, **kwargs):
+def _pmxligand_hybrid(input_structure1_path, input_structure2_path, input_topology1_path, input_topology2_path, output_log_path, output_structure1_path, output_structure2_path, output_topology_path, output_atomtypes_path, input_pairs_path, input_scaffold1_path, input_scaffold2_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -39,4 +39,4 @@ def pmxligand_hybrid(input_structure1_path, input_structure2_path, input_topolog
        True:
         print("WARN: Task Pmxligand_hybrid already executed.")
     else:
-        _pmxligand_hybrid( input_structure1_path,  input_structure2_path,  input_topology1_path,  input_topology2_path,  output_log_path,  output_structure1_path,  output_structure2_path,  output_topology_path,  output_atomtypes_path,  input_pairs_path,  input_scaffold1_path,  input_scaffold2_path,  properties, **kwargs)
+        _pmxligand_hybrid(input_structure1_path, input_structure2_path, input_topology1_path, input_topology2_path, output_log_path, output_structure1_path, output_structure2_path, output_topology_path, output_atomtypes_path, input_pairs_path, input_scaffold1_path, input_scaffold2_path, properties, **kwargs)

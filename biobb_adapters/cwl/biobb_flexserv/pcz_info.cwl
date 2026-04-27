@@ -51,7 +51,7 @@ inputs:
     label: Advanced configuration options for biobb_flexserv PCZinfo
     doc: |-
       Advanced configuration options for biobb_flexserv PCZinfo. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexserv PCZinfo documentation: https://biobb-flexserv.readthedocs.io/en/latest/pcasuite.html#module-pcasuite.pcz_info
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

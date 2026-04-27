@@ -81,7 +81,7 @@ inputs:
     label: Advanced configuration options for biobb_dna HelParBimodality
     doc: |-
       Advanced configuration options for biobb_dna HelParBimodality. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna HelParBimodality documentation: https://biobb-dna.readthedocs.io/en/latest/dna.html#module-dna.dna_bimodality
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

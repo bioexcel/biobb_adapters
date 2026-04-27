@@ -37,7 +37,7 @@ inputs:
     label: Advanced configuration options for biobb_io Mmcif
     doc: |-
       Advanced configuration options for biobb_io Mmcif. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_io Mmcif documentation: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.mmcif
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

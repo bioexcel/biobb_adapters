@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_pdb_tools Pdbkeepcoord
     doc: |-
       Advanced configuration options for biobb_pdb_tools Pdbkeepcoord. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pdb_tools Pdbkeepcoord documentation: https://biobb-pdb-tools.readthedocs.io/en/latest/pdb_tools.html#module-pdb_tools.biobb_pdb_keepcoord
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

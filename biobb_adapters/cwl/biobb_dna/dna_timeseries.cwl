@@ -53,7 +53,7 @@ inputs:
     label: Advanced configuration options for biobb_dna HelParTimeSeries
     doc: |-
       Advanced configuration options for biobb_dna HelParTimeSeries. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna HelParTimeSeries documentation: https://biobb-dna.readthedocs.io/en/latest/dna.html#module-dna.dna_timeseries
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

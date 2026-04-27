@@ -1,7 +1,7 @@
 <tool id="biobb_mem_fatslim_apl" name="FatslimApl" version="@TOOL_VERSION@" >
     <description>Wrapper of the FATSLiM area per lipid module for area per lipid calculation.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.2</token>
     </macros>
 
     <requirements>
@@ -61,7 +61,7 @@
           <param name="outname_output_csv_path" value="apl.csv" />
           <output name="output_csv_path" ftype="csv">
             <assert_contents>
-              <has_size value="27928" delta="6982"/>
+              <has_size value="26593" delta="6648"/>
             </assert_contents>
           </output>
         </test>

@@ -166,7 +166,7 @@ inputs:
     label: Advanced configuration options for biobb_amber CestatsRun
     doc: |-
       Advanced configuration options for biobb_amber CestatsRun. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber CestatsRun documentation: https://biobb-amber.readthedocs.io/en/latest/cphstats.html#module-cphstats.cestats_run
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

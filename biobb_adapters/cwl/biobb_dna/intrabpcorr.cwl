@@ -142,7 +142,7 @@ inputs:
     label: Advanced configuration options for biobb_dna IntraBasePairCorrelation
     doc: |-
       Advanced configuration options for biobb_dna IntraBasePairCorrelation. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna IntraBasePairCorrelation documentation: https://biobb-dna.readthedocs.io/en/latest/intrabp_correlations.html#intrabp-correlations-intrabpcorr-module
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

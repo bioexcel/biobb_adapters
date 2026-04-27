@@ -91,7 +91,7 @@ inputs:
     label: Advanced configuration options for biobb_analysis GMXTrjConvStrEns
     doc: |-
       Advanced configuration options for biobb_analysis GMXTrjConvStrEns. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_analysis GMXTrjConvStrEns documentation: https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_trjconv_str_ens
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

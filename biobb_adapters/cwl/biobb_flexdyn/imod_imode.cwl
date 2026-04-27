@@ -51,7 +51,7 @@ inputs:
     label: Advanced configuration options for biobb_flexdyn imod_imode
     doc: |-
       Advanced configuration options for biobb_flexdyn imod_imode. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_flexdyn imod_imode documentation: https://biobb-flexdyn.readthedocs.io/en/latest/flexdyn.html#module-flexdyn.imod_imode
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

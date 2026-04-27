@@ -157,7 +157,7 @@ inputs:
     label: Advanced configuration options for biobb_gromacs Mdrun
     doc: |-
       Advanced configuration options for biobb_gromacs Mdrun. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_gromacs Mdrun documentation: https://biobb-gromacs.readthedocs.io/en/latest/gromacs.html#module-gromacs.mdrun
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

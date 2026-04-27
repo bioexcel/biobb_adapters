@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_traj_path=FILE_IN, input_top_path=FILE_IN, output_traj_path=FILE_OUT, input_index_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _gmximage(input_traj_path, input_top_path, output_traj_path, input_index_path,  properties, **kwargs):
+def _gmximage(input_traj_path, input_top_path, output_traj_path, input_index_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -35,4 +35,4 @@ def gmx_image(input_traj_path, input_top_path, output_traj_path, input_index_pat
        True:
         print("WARN: Task GMXImage already executed.")
     else:
-        _gmximage( input_traj_path,  input_top_path,  output_traj_path,  input_index_path,  properties, **kwargs)
+        _gmximage(input_traj_path, input_top_path, output_traj_path, input_index_path, properties, **kwargs)

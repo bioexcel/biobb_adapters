@@ -51,7 +51,7 @@ inputs:
     label: Advanced configuration options for biobb_model FixPdb
     doc: |-
       Advanced configuration options for biobb_model FixPdb. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixPdb documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_pdb
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

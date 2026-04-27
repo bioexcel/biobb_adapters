@@ -24,7 +24,7 @@ inputs:
       File type: input
       Accepted formats: directory, zip
       Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_topology.zip
-    type: File
+    type: Directory
     format:
     - edam:format_1915
     - edam:format_3987
@@ -128,7 +128,7 @@ inputs:
     label: Advanced configuration options for biobb_haddock FlexRef
     doc: |-
       Advanced configuration options for biobb_haddock FlexRef. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_haddock FlexRef documentation: https://biobb-haddock.readthedocs.io/en/latest/haddock.html#module-haddock.flex_ref
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 
@@ -138,7 +138,7 @@ outputs:
       data
     doc: |-
       Path to the output directory containing all the current Haddock workflow data
-    type: File
+    type: Directory
     outputBinding:
       glob: $(inputs.output_haddock_wf_data)
     format: edam:format_1915

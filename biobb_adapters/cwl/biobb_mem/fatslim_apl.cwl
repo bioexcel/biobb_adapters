@@ -90,7 +90,7 @@ inputs:
     label: Advanced configuration options for biobb_mem FatslimAPL
     doc: |-
       Advanced configuration options for biobb_mem FatslimAPL. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_mem FatslimAPL documentation: https://biobb-mem.readthedocs.io/en/latest/fatslim.html#module-fatslim.fatslim_apl
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

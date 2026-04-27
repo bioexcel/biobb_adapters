@@ -142,7 +142,7 @@ inputs:
     label: Advanced configuration options for biobb_analysis GMXCluster
     doc: |-
       Advanced configuration options for biobb_analysis GMXCluster. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_analysis GMXCluster documentation: https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_cluster
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

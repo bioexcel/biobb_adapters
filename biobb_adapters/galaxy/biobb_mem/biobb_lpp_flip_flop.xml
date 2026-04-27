@@ -1,7 +1,7 @@
 <tool id="biobb_mem_lpp_flip_flop" name="LppFlipFlop" version="@TOOL_VERSION@" >
     <description>Wrapper of the LiPyphilic FlipFlop module for finding flip-flop events in a lipid bilayer.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.2</token>
     </macros>
 
     <requirements>

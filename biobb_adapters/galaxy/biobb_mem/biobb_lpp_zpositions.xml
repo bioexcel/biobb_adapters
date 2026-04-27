@@ -1,7 +1,7 @@
 <tool id="biobb_mem_lpp_zpositions" name="LppZpositions" version="@TOOL_VERSION@" >
     <description>Wrapper of the LiPyphilic ZPositions module for calculating the z distance of lipids to the bilayer center.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.2</token>
     </macros>
 
     <requirements>

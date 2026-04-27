@@ -36,7 +36,7 @@ inputs:
     label: Advanced configuration options for biobb_io PdbClusterZip
     doc: |-
       Advanced configuration options for biobb_io PdbClusterZip. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_io PdbClusterZip documentation: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb_cluster_zip
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

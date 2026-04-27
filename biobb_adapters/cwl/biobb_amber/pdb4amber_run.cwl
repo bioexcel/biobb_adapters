@@ -51,7 +51,7 @@ inputs:
       Pdb4amberRun
     doc: |-
       Advanced configuration options for biobb_amber.pdb4amber.pdb4amber_run Pdb4amberRun. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber.pdb4amber.pdb4amber_run Pdb4amberRun documentation: https://biobb-amber.readthedocs.io/en/latest/pdb4amber.html#module-pdb4amber.pdb4amber_run
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

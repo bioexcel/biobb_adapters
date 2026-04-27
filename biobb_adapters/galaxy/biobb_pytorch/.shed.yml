@@ -1,9 +1,9 @@
 name: biobb_pytorch
 owner: chemteam
-description: "biobb_pytorch is the Biobb module collection to train and create ML & DL models using the popular PyTorch Python library"
+description: "Biobb_pytorch is a BioBB category for creating and training Machine Learning and Deep Learning models using PyTorch. It allows building, training, and evaluating Molecular Dynamics AutoEncoders (MDAE) and other PyTorch-based models for analyzing molecular dynamics trajectories."
 homepage_url: https://github.com/bioexcel/biobb_pytorch
 long_description: |
-    biobb_pytorch is the Biobb module collection to train and create ML & DL models using the popular PyTorch Python library.
+    Biobb_pytorch is a BioBB category for creating and training Machine Learning and Deep Learning models using PyTorch. It allows building, training, and evaluating Molecular Dynamics AutoEncoders (MDAE) and other PyTorch-based models for analyzing molecular dynamics trajectories..
     Biobb (BioExcel building blocks) packages are Python building blocks that
     create new layer of compatibility and interoperability over popular bioinformatics tools.
     The latest documentation of this package can be found in our readthedocs site:
@@ -11,10 +11,13 @@ long_description: |
 remote_repository_url: https://github.com/galaxycomputationalchemistry/galaxy-tools-compchem/tree/master/tools/biobb_pytorch
 type: unrestricted
 categories:
-  - md
-  - molecular
-  - dynamics
   - pytorch
+  - machine learning
+  - deep learning
+  - autoencoder
+  - molecular dynamics
+  - neural networks
+  - MDAE
 maintainers:
   - PauAndrio
   - gbayarri

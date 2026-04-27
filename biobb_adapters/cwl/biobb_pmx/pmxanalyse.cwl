@@ -81,7 +81,7 @@ inputs:
     label: Advanced configuration options for biobb_pmx Pmxanalyse
     doc: |-
       Advanced configuration options for biobb_pmx Pmxanalyse. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pmx Pmxanalyse documentation: https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxanalyse
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

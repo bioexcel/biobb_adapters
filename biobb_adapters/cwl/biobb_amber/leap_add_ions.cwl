@@ -167,7 +167,7 @@ inputs:
     label: Advanced configuration options for biobb_amber LeapAddIons
     doc: |-
       Advanced configuration options for biobb_amber LeapAddIons. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber LeapAddIons documentation: https://biobb-amber.readthedocs.io/en/latest/leap.html#module-leap.leap_add_ions
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

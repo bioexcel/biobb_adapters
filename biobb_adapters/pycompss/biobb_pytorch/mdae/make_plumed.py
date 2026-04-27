@@ -1,0 +1,40 @@
+# Python
+import os
+import sys
+import traceback
+# Pycompss
+from pycompss.api.task import task
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
+# Adapters commons pycompss
+from biobb_adapters.pycompss.biobb_commons import task_config
+# Wrapped Biobb
+from biobb_pytorch.mdae.make_plumed import GeneratePlumed  # Importing class instead of module to avoid name collision
+
+task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
+
+
+@task(input_model_pth_path=FILE_IN, output_plumed_dat_path=FILE_OUT, output_features_dat_path=FILE_OUT, output_model_ptc_path=FILE_OUT, input_stats_pt_path=FILE_IN, input_reference_pdb_path=FILE_IN, input_ndx_path=FILE_IN, 
+      on_failure="IGNORE", time_out=task_time_out)
+def _generateplumed(input_model_pth_path, output_plumed_dat_path, output_features_dat_path, output_model_ptc_path, input_stats_pt_path, input_reference_pdb_path, input_ndx_path, properties, **kwargs):
+    
+    task_config.pop_pmi(os.environ)
+    
+    try:
+        GeneratePlumed(input_model_pth_path=input_model_pth_path, output_plumed_dat_path=output_plumed_dat_path, output_features_dat_path=output_features_dat_path, output_model_ptc_path=output_model_ptc_path, input_stats_pt_path=input_stats_pt_path, input_reference_pdb_path=input_reference_pdb_path, input_ndx_path=input_ndx_path, properties=properties, **kwargs).launch()
+    except Exception as e:
+        traceback.print_exc()
+        raise e
+    finally:
+        sys.stdout.flush()
+        sys.stderr.flush()
+
+
+def make_plumed(input_model_pth_path, output_plumed_dat_path, output_features_dat_path, output_model_ptc_path, input_stats_pt_path=None, input_reference_pdb_path=None, input_ndx_path=None, properties=None, **kwargs):
+
+    if (output_plumed_dat_path is None or (os.path.exists(output_plumed_dat_path) and os.stat(output_plumed_dat_path).st_size > 0)) and \
+       (output_features_dat_path is None or (os.path.exists(output_features_dat_path) and os.stat(output_features_dat_path).st_size > 0)) and \
+       (output_model_ptc_path is None or (os.path.exists(output_model_ptc_path) and os.stat(output_model_ptc_path).st_size > 0)) and \
+       True:
+        print("WARN: Task GeneratePlumed already executed.")
+    else:
+        _generateplumed(input_model_pth_path, output_plumed_dat_path, output_features_dat_path, output_model_ptc_path, input_stats_pt_path, input_reference_pdb_path, input_ndx_path, properties, **kwargs)

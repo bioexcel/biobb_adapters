@@ -35,7 +35,7 @@ inputs:
     label: Advanced configuration options for biobb_io ApiBindingSite
     doc: |-
       Advanced configuration options for biobb_io ApiBindingSite. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_io ApiBindingSite documentation: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.api_binding_site
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

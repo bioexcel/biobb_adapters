@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_pdb_path=FILE_IN, input_probe_pdb_path=FILE_IN, output_pdb_path=FILE_OUT, output_grd_path=FILE_OUT, output_cube_path=FILE_OUT, output_rst_path=FILE_OUT, input_rst_path=FILE_IN, output_byat_path=FILE_OUT, output_log_path=FILE_OUT, input_vdw_params_path=FILE_IN, input_params_path=FILE_IN, output_json_box_path=FILE_OUT, output_json_external_box_path=FILE_OUT, input_json_box_path=FILE_IN, input_json_external_box_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _titration(input_pdb_path, input_probe_pdb_path, output_pdb_path, output_grd_path, output_cube_path, output_rst_path, input_rst_path, output_byat_path, output_log_path, input_vdw_params_path, input_params_path, output_json_box_path, output_json_external_box_path, input_json_box_path, input_json_external_box_path,  properties, **kwargs):
+def _titration(input_pdb_path, input_probe_pdb_path, output_pdb_path, output_grd_path, output_cube_path, output_rst_path, input_rst_path, output_byat_path, output_log_path, input_vdw_params_path, input_params_path, output_json_box_path, output_json_external_box_path, input_json_box_path, input_json_external_box_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -42,4 +42,4 @@ def cmip_run(input_pdb_path, input_probe_pdb_path=None, output_pdb_path=None, ou
        True:
         print("WARN: Task Titration already executed.")
     else:
-        _titration( input_pdb_path,  input_probe_pdb_path,  output_pdb_path,  output_grd_path,  output_cube_path,  output_rst_path,  input_rst_path,  output_byat_path,  output_log_path,  input_vdw_params_path,  input_params_path,  output_json_box_path,  output_json_external_box_path,  input_json_box_path,  input_json_external_box_path,  properties, **kwargs)
+        _titration(input_pdb_path, input_probe_pdb_path, output_pdb_path, output_grd_path, output_cube_path, output_rst_path, input_rst_path, output_byat_path, output_log_path, input_vdw_params_path, input_params_path, output_json_box_path, output_json_external_box_path, input_json_box_path, input_json_external_box_path, properties, **kwargs)

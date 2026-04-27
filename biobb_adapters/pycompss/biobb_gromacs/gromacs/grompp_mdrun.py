@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_gro_path=FILE_IN, input_top_zip_path=FILE_IN, output_trr_path=FILE_OUT, output_gro_path=FILE_OUT, output_edr_path=FILE_OUT, output_log_path=FILE_OUT, input_cpt_path=FILE_IN, input_ndx_path=FILE_IN, input_mdp_path=FILE_IN, output_xtc_path=FILE_OUT, output_cpt_path=FILE_OUT, output_dhdl_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _gromppmdrun(input_gro_path, input_top_zip_path, output_trr_path, output_gro_path, output_edr_path, output_log_path, input_cpt_path, input_ndx_path, input_mdp_path, output_xtc_path, output_cpt_path, output_dhdl_path,  properties, **kwargs):
+def _gromppmdrun(input_gro_path, input_top_zip_path, output_trr_path, output_gro_path, output_edr_path, output_log_path, input_cpt_path, input_ndx_path, input_mdp_path, output_xtc_path, output_cpt_path, output_dhdl_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -41,4 +41,4 @@ def grompp_mdrun(input_gro_path, input_top_zip_path, output_trr_path, output_gro
        True:
         print("WARN: Task GromppMdrun already executed.")
     else:
-        _gromppmdrun( input_gro_path,  input_top_zip_path,  output_trr_path,  output_gro_path,  output_edr_path,  output_log_path,  input_cpt_path,  input_ndx_path,  input_mdp_path,  output_xtc_path,  output_cpt_path,  output_dhdl_path,  properties, **kwargs)
+        _gromppmdrun(input_gro_path, input_top_zip_path, output_trr_path, output_gro_path, output_edr_path, output_log_path, input_cpt_path, input_ndx_path, input_mdp_path, output_xtc_path, output_cpt_path, output_dhdl_path, properties, **kwargs)

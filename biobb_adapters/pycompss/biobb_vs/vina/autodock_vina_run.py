@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_ligand_pdbqt_path=FILE_IN, input_receptor_pdbqt_path=FILE_IN, input_box_path=FILE_IN, output_pdbqt_path=FILE_OUT, output_log_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _autodockvinarun(input_ligand_pdbqt_path, input_receptor_pdbqt_path, input_box_path, output_pdbqt_path, output_log_path,  properties, **kwargs):
+def _autodockvinarun(input_ligand_pdbqt_path, input_receptor_pdbqt_path, input_box_path, output_pdbqt_path, output_log_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def autodock_vina_run(input_ligand_pdbqt_path, input_receptor_pdbqt_path, input_
        True:
         print("WARN: Task AutoDockVinaRun already executed.")
     else:
-        _autodockvinarun( input_ligand_pdbqt_path,  input_receptor_pdbqt_path,  input_box_path,  output_pdbqt_path,  output_log_path,  properties, **kwargs)
+        _autodockvinarun(input_ligand_pdbqt_path, input_receptor_pdbqt_path, input_box_path, output_pdbqt_path, output_log_path, properties, **kwargs)

@@ -56,7 +56,7 @@ inputs:
     label: Advanced configuration options for biobb_amber.process.process_minout ProcessMinOut
     doc: |-
       Advanced configuration options for biobb_amber.process.process_minout ProcessMinOut. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber.process.process_minout ProcessMinOut documentation: https://biobb-amber.readthedocs.io/en/latest/process.html#module-process.process_minout
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

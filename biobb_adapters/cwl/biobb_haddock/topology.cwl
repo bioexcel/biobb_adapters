@@ -109,7 +109,7 @@ inputs:
     label: Advanced configuration options for biobb_haddock Topology
     doc: |-
       Advanced configuration options for biobb_haddock Topology. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_haddock Topology documentation: https://biobb-haddock.readthedocs.io/en/latest/haddock.html#module-haddock.topology
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 
@@ -119,7 +119,7 @@ outputs:
       data
     doc: |-
       Path to the output zipball containing all the current Haddock workflow data
-    type: File
+    type: Directory
     outputBinding:
       glob: $(inputs.output_haddock_wf_data)
     format: edam:format_3987

@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_tpr_path=FILE_IN, output_gro_path=FILE_OUT, input_top_zip_path=FILE_IN, output_top_zip_path=FILE_OUT, input_ndx_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _genion(input_tpr_path, output_gro_path, input_top_zip_path, output_top_zip_path, input_ndx_path,  properties, **kwargs):
+def _genion(input_tpr_path, output_gro_path, input_top_zip_path, output_top_zip_path, input_ndx_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def genion(input_tpr_path, output_gro_path, input_top_zip_path, output_top_zip_p
        True:
         print("WARN: Task Genion already executed.")
     else:
-        _genion( input_tpr_path,  output_gro_path,  input_top_zip_path,  output_top_zip_path,  input_ndx_path,  properties, **kwargs)
+        _genion(input_tpr_path, output_gro_path, input_top_zip_path, output_top_zip_path, input_ndx_path, properties, **kwargs)

@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_structure_path=FILE_IN, input_traj_path=FILE_IN, output_pdb_path=FILE_OUT, input_index_path=FILE_IN, output_cluster_log_path=FILE_OUT, output_rmsd_cluster_xpm_path=FILE_OUT, output_rmsd_dist_xvg_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _gmxcluster(input_structure_path, input_traj_path, output_pdb_path, input_index_path, output_cluster_log_path, output_rmsd_cluster_xpm_path, output_rmsd_dist_xvg_path,  properties, **kwargs):
+def _gmxcluster(input_structure_path, input_traj_path, output_pdb_path, input_index_path, output_cluster_log_path, output_rmsd_cluster_xpm_path, output_rmsd_dist_xvg_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -38,4 +38,4 @@ def gmx_cluster(input_structure_path, input_traj_path, output_pdb_path, input_in
        True:
         print("WARN: Task GMXCluster already executed.")
     else:
-        _gmxcluster( input_structure_path,  input_traj_path,  output_pdb_path,  input_index_path,  output_cluster_log_path,  output_rmsd_cluster_xpm_path,  output_rmsd_dist_xvg_path,  properties, **kwargs)
+        _gmxcluster(input_structure_path, input_traj_path, output_pdb_path, input_index_path, output_cluster_log_path, output_rmsd_cluster_xpm_path, output_rmsd_dist_xvg_path, properties, **kwargs)

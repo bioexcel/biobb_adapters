@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_path=FILE_IN, output_path_itp=FILE_OUT, output_path_top=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _acpypeparamsgmxopls(input_path, output_path_itp, output_path_top,  properties, **kwargs):
+def _acpypeparamsgmxopls(input_path, output_path_itp, output_path_top, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -36,4 +36,4 @@ def acpype_params_gmx_opls(input_path, output_path_itp, output_path_top, propert
        True:
         print("WARN: Task AcpypeParamsGMXOPLS already executed.")
     else:
-        _acpypeparamsgmxopls( input_path,  output_path_itp,  output_path_top,  properties, **kwargs)
+        _acpypeparamsgmxopls(input_path, output_path_itp, output_path_top, properties, **kwargs)

@@ -51,7 +51,7 @@ inputs:
     label: Advanced configuration options for biobb_pmx Pmxmerge_ff
     doc: |-
       Advanced configuration options for biobb_pmx Pmxmerge_ff. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pmx Pmxmerge_ff documentation: https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxmerge_ff
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

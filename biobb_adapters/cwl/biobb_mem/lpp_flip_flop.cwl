@@ -108,7 +108,7 @@ inputs:
     label: Advanced configuration options for biobb_mem LPPFlipFlop
     doc: |-
       Advanced configuration options for biobb_mem LPPFlipFlop. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_mem LPPFlipFlop documentation: https://biobb-mem.readthedocs.io/en/latest/lipyphilic_biobb.html#module-lipyphilic_biobb.lpp_flip_flop
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

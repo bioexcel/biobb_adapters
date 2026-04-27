@@ -1,0 +1,140 @@
+<tool id="biobb_analysis_gmx_check" name="GmxCheck" version="@TOOL_VERSION@" >
+    <description>Wrapper of the GROMACS check module for comparing and validating GROMACS files.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">5.2.1</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_analysis</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      #if $input_structure_path:
+        ln -s $input_structure_path ./input_structure_path.$input_structure_path.ext;
+      #end if
+      #if $input_structure_2_path:
+        ln -s $input_structure_2_path ./input_structure_2_path.$input_structure_2_path.ext;
+      #end if
+      #if $input_traj_path:
+        ln -s $input_traj_path ./input_traj_path.$input_traj_path.ext;
+      #end if
+      #if $input_traj_2_path:
+        ln -s $input_traj_2_path ./input_traj_2_path.$input_traj_2_path.ext;
+      #end if
+      #if $input_energy_path:
+        ln -s $input_energy_path ./input_energy_path.$input_energy_path.ext;
+      #end if
+      #if $input_energy_2_path:
+        ln -s $input_energy_2_path ./input_energy_2_path.$input_energy_2_path.ext;
+      #end if
+      #if $structure_check_path:
+        ln -s $structure_check_path ./structure_check_path.$structure_check_path.ext;
+      #end if
+      #if $input_index_path:
+        ln -s $input_index_path ./input_index_path.$input_index_path.ext;
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      gmx_check
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      #if $input_structure_path:
+        --input_structure_path ./input_structure_path.$input_structure_path.ext
+      #end if
+      #if $input_structure_2_path:
+        --input_structure_2_path ./input_structure_2_path.$input_structure_2_path.ext
+      #end if
+      #if $input_traj_path:
+        --input_traj_path ./input_traj_path.$input_traj_path.ext
+      #end if
+      #if $input_traj_2_path:
+        --input_traj_2_path ./input_traj_2_path.$input_traj_2_path.ext
+      #end if
+      #if $input_energy_path:
+        --input_energy_path ./input_energy_path.$input_energy_path.ext
+      #end if
+      #if $input_energy_2_path:
+        --input_energy_2_path ./input_energy_2_path.$input_energy_2_path.ext
+      #end if
+      #if $structure_check_path:
+        --structure_check_path ./structure_check_path.$structure_check_path.ext
+      #end if
+      #if $input_index_path:
+        --input_index_path ./input_index_path.$input_index_path.ext
+      #end if
+      --output_log_path $outname_output_log_path
+      ;
+      
+      mv $outname_output_log_path $output_log_path;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_structure_path" type="data" format="tpr" optional="true" help="Path to the first GROMACS run input file"/>
+      <param name="input_structure_2_path" type="data" format="tpr" optional="true" help="Path to the second GROMACS run input file"/>
+      <param name="input_traj_path" type="data" format="xtc" optional="true" help="Path to the first GROMACS trajectory file"/>
+      <param name="input_traj_2_path" type="data" format="xtc" optional="true" help="Path to the second GROMACS trajectory file"/>
+      <param name="input_energy_path" type="data" format="edr" optional="true" help="Path to the first GROMACS energy file"/>
+      <param name="input_energy_2_path" type="data" format="edr" optional="true" help="Path to the second GROMACS energy file"/>
+      <param name="structure_check_path" type="data" format="tpr" optional="true" help="Path to the structure file to analyze for internal consistency"/>
+      <param name="input_index_path" type="data" format="ndx" optional="true" help="Path to the GROMACS index file"/>
+      <param name="outname_output_log_path" type="text" optional="false" help="Path to the text file storing the gmx check console output"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_log_path" format="txt" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_gmx_check.json" ftype="json" />
+          <param name="input_structure_path" value="topology.tpr" ftype="tpr" />
+          <param name="input_structure_2_path" value="topology.tpr" ftype="tpr" />
+          <param name="outname_output_log_path" value="output.log" />
+          <output name="output_log_path" ftype="log">
+            <assert_contents>
+              <has_size value="1230" delta="307"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-analysis.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

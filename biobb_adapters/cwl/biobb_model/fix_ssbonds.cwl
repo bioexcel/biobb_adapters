@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_model FixSSBonds
     doc: |-
       Advanced configuration options for biobb_model FixSSBonds. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixSSBonds documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_ssbonds
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

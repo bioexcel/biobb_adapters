@@ -4,7 +4,7 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
-from pycompss.api.parameter import FILE_IN, FILE_OUT
+from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -15,7 +15,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 @task(input_pdb_orig_path=FILE_IN, input_pdb_target_path=FILE_IN, input_aln_orig_path=FILE_IN, input_aln_target_path=FILE_IN, output_log_path=FILE_OUT, output_ene_path=FILE_OUT, output_trj_path=FILE_OUT, output_pdb_path=FILE_OUT, input_config_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _godmdrun(input_pdb_orig_path, input_pdb_target_path, input_aln_orig_path, input_aln_target_path, output_log_path, output_ene_path, output_trj_path, output_pdb_path, input_config_path,  properties, **kwargs):
+def _godmdrun(input_pdb_orig_path, input_pdb_target_path, input_aln_orig_path, input_aln_target_path, output_log_path, output_ene_path, output_trj_path, output_pdb_path, input_config_path, properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
@@ -38,4 +38,4 @@ def godmd_run(input_pdb_orig_path, input_pdb_target_path, input_aln_orig_path, i
        True:
         print("WARN: Task GOdMDRun already executed.")
     else:
-        _godmdrun( input_pdb_orig_path,  input_pdb_target_path,  input_aln_orig_path,  input_aln_target_path,  output_log_path,  output_ene_path,  output_trj_path,  output_pdb_path,  input_config_path,  properties, **kwargs)
+        _godmdrun(input_pdb_orig_path, input_pdb_target_path, input_aln_orig_path, input_aln_target_path, output_log_path, output_ene_path, output_trj_path, output_pdb_path, input_config_path, properties, **kwargs)

@@ -68,7 +68,7 @@ inputs:
     label: Advanced configuration options for biobb_structure_utils RenumberStructure
     doc: |-
       Advanced configuration options for biobb_structure_utils RenumberStructure. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_structure_utils RenumberStructure documentation: https://biobb-structure-utils.readthedocs.io/en/latest/utils.html#module-utils.renumber_structure
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

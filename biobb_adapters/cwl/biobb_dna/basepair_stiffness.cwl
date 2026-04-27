@@ -142,7 +142,7 @@ inputs:
     label: Advanced configuration options for biobb_dna BPStiffness
     doc: |-
       Advanced configuration options for biobb_dna BPStiffness. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna BPStiffness documentation: https://biobb-dna.readthedocs.io/en/latest/stiffness.html#module-stiffness.basepair_stiffness
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

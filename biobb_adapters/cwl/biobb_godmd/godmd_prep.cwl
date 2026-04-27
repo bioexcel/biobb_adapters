@@ -85,7 +85,7 @@ inputs:
     label: Advanced configuration options for biobb_godmd GOdMDPrep
     doc: |-
       Advanced configuration options for biobb_godmd GOdMDPrep. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_godmd GOdMDPrep documentation: https://biobb-godmd.readthedocs.io/en/latest/godmd.html#module-godmd.godmd_prep
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

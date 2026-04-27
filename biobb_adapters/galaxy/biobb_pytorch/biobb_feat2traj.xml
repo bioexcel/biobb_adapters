@@ -1,0 +1,100 @@
+<tool id="biobb_pytorch_feat2traj" name="Feat2traj" version="@TOOL_VERSION@" >
+    <description>Converts a .pt file (features) to a trajectory using cartesian indices and topology from the stats file.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">5.2.3</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_pytorch</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_results_npz_path ./input_results_npz_path.$input_results_npz_path.ext;
+      ln -s $input_stats_pt_path ./input_stats_pt_path.$input_stats_pt_path.ext;
+      #if $input_topology_path:
+        ln -s $input_topology_path ./input_topology_path.$input_topology_path.ext;
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      feat2traj
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_results_npz_path ./input_results_npz_path.$input_results_npz_path.ext
+      --input_stats_pt_path ./input_stats_pt_path.$input_stats_pt_path.ext
+      #if $input_topology_path:
+        --input_topology_path ./input_topology_path.$input_topology_path.ext
+      #end if
+      --output_traj_path $outname_output_traj_path
+      #if $outname_output_top_path:
+        --output_top_path $outname_output_top_path
+      #end if
+      ;
+      
+      mv $outname_output_traj_path $output_traj_path;
+      if test -f $outname_output_top_path; then mv $outname_output_top_path $output_top_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_results_npz_path" type="data" format="npz" optional="false" help="Path to the input reconstructed results file (.npz), typically containing an 'xhat' array"/>
+      <param name="input_stats_pt_path" type="data" format="pt" optional="false" help="Path to the input model statistics file (.pt) containing cartesian indices and optionally topology"/>
+      <param name="input_topology_path" type="data" format="pdb" optional="true" help="Path to the topology file (PDB) used if no suitable topology is found in the stats file. Used if no topology is found in stats"/>
+      <param name="outname_output_traj_path" type="text" optional="false" help="Path to save the trajectory in xtc/pdb/dcd format"/>
+      <param name="outname_output_top_path" type="text" optional="true" help="Path to save the output topology file (pdb). Used if trajectory format requires separate topology"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_traj_path" format="xtc" />
+      <data name="output_top_path" format="pdb" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_feat2traj.json" ftype="json" />
+          <param name="input_results_npz_path" value="ref_output_decode_results.npz" ftype="npz" />
+          <param name="input_stats_pt_path" value="ref_output_stats.pt" ftype="pt" />
+          <param name="input_topology_path" value="MCV1900209.pdb" ftype="pdb" />
+          <param name="outname_output_traj_path" value="output_traj.xtc" />
+          <param name="outname_output_top_path" value="output_top.pdb" />
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-pytorch.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

@@ -52,7 +52,7 @@ inputs:
     label: Advanced configuration options for biobb_gromacs Editconf
     doc: |-
       Advanced configuration options for biobb_gromacs Editconf. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_gromacs Editconf documentation: https://biobb-gromacs.readthedocs.io/en/latest/gromacs.html#module-gromacs.editconf
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

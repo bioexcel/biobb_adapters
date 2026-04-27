@@ -51,7 +51,7 @@ inputs:
     label: Advanced configuration options for biobb_structure_utils RemovePdbWater
     doc: |-
       Advanced configuration options for biobb_structure_utils RemovePdbWater. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_structure_utils RemovePdbWater documentation: https://biobb-structure-utils.readthedocs.io/en/latest/utils.html#module-utils.remove_pdb_water
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

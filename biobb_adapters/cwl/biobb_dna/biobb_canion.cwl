@@ -80,7 +80,7 @@ inputs:
     label: Advanced configuration options for biobb_dna Canion
     doc: |-
       Advanced configuration options for biobb_dna Canion. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna Canion documentation: https://biobb-dna.readthedocs.io/en/latest/curvesplus.html#module-curvesplus.biobb_canion
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

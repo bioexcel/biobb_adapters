@@ -36,7 +36,7 @@ inputs:
     label: Advanced configuration options for biobb_io MemProtMDSimList
     doc: |-
       Advanced configuration options for biobb_io MemProtMDSimList. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_io MemProtMDSimList documentation: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim_list
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

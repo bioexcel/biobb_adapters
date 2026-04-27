@@ -52,7 +52,7 @@ inputs:
     label: Advanced configuration options for biobb_vs BoxResidues
     doc: |-
       Advanced configuration options for biobb_vs BoxResidues. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_vs BoxResidues documentation: https://biobb-vs.readthedocs.io/en/latest/utils.html#module-utils.box_residues
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

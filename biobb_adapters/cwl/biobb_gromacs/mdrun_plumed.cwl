@@ -175,11 +175,11 @@ inputs:
       see input_plumed_path
     doc: |-
       Path to the folder with all files needed by the main PLUMED input file, see input_plumed_path
-      Type: string
+      Type: dir
       File type: input
       Accepted formats: directory
       Example file: null
-    type: File?
+    type: Directory?
     format:
     - edam:format_1915
     inputBinding:
@@ -189,7 +189,7 @@ inputs:
     label: Folder where PLUMED generated output files will be saved
     doc: |-
       Folder where PLUMED generated output files will be saved
-      Type: string
+      Type: dir
       File type: output
       Accepted formats: directory
       Example file: null
@@ -204,7 +204,7 @@ inputs:
     label: Advanced configuration options for biobb_gromacs MdrunPlumed
     doc: |-
       Advanced configuration options for biobb_gromacs MdrunPlumed. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_gromacs MdrunPlumed documentation: https://biobb-gromacs.readthedocs.io/en/latest/gromacs.html#module-gromacs.mdrun_plumed
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 
@@ -277,7 +277,7 @@ outputs:
     label: Folder where PLUMED generated output files will be saved
     doc: |-
       Folder where PLUMED generated output files will be saved
-    type: File?
+    type: Directory?
     outputBinding:
       glob: $(inputs.output_plumed_folder)
     format: edam:format_1915

@@ -88,7 +88,7 @@ inputs:
       CpptrajRandomizeIons
     doc: |-
       Advanced configuration options for biobb_amber.cpptraj.cpptraj_randomize_ions CpptrajRandomizeIons. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_amber.cpptraj.cpptraj_randomize_ions CpptrajRandomizeIons documentation: https://biobb-amber.readthedocs.io/en/latest/cpptraj.html#module-cpptraj.cpptraj_randomize_ions
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

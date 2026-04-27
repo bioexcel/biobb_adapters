@@ -70,7 +70,7 @@ inputs:
     label: Advanced configuration options for biobb_mem GorderUA
     doc: |-
       Advanced configuration options for biobb_mem GorderUA. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_mem GorderUA documentation: https://biobb-mem.readthedocs.io/en/latest/gorder.html#module-gorder.gorder_ua
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_pdb_tools Pdbsplitseg
     doc: |-
       Advanced configuration options for biobb_pdb_tools Pdbsplitseg. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pdb_tools Pdbsplitseg documentation: https://biobb-pdb-tools.readthedocs.io/en/latest/pdb_tools.html#pdb-tools-biobb-pdb-splitseg-module
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

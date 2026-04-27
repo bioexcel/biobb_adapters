@@ -37,7 +37,7 @@ inputs:
     label: Advanced configuration options for biobb_io PdbVariants
     doc: |-
       Advanced configuration options for biobb_io PdbVariants. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_io PdbVariants documentation: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb_variants
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

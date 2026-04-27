@@ -1,7 +1,7 @@
 <tool id="biobb_chemistry_acpype_convert_amber_to_gmx" name="AcpypeConvertAmberToGmx" version="@TOOL_VERSION@" >
     <description>This class is a wrapper of Acpype tool for the conversion of AMBER topologies to GROMACS.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.1</token>
     </macros>
 
     <requirements>

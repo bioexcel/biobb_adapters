@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_tofasta" name="BiobbPdbTofasta" version="@TOOL_VERSION@" >
     <description>Extracts the residue sequence in a PDB file to FASTA format.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.1.0</token>
+      <token name="@TOOL_VERSION@">5.2.1</token>
     </macros>
 
     <requirements>
@@ -30,7 +30,7 @@
     </command>
 
     <inputs>
-      <param name="input_file_path" type="data" format="pdb" optional="false" help="PDB file"/>
+      <param name="input_file_path" type="data" format="pdb" optional="false" help="Input PDB file"/>
       <param name="outname_output_file_path" type="text" optional="false" help="FASTA file containing the aminoacids sequence"/>
       <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
     </inputs>
@@ -44,7 +44,7 @@
           <param name="config_json" value="config_biobb_pdb_tofasta.json" ftype="json" />
           <param name="input_file_path" value="1AKI.pdb" ftype="pdb" />
           <param name="outname_output_file_path" value="output.fasta" />
-          <output name="output_file_path" ftype="pdb">
+          <output name="output_file_path" ftype="fasta">
             <assert_contents>
               <has_size value="219" delta="54"/>
             </assert_contents>

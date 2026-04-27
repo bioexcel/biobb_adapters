@@ -67,7 +67,7 @@ inputs:
     label: Advanced configuration options for biobb_dna InterSequenceCorrelation
     doc: |-
       Advanced configuration options for biobb_dna InterSequenceCorrelation. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna InterSequenceCorrelation documentation: https://biobb-dna.readthedocs.io/en/latest/interbp_correlations.html#interbp-correlations-interseqcorr-module
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

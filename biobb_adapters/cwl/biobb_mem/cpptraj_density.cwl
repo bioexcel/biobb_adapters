@@ -130,7 +130,7 @@ inputs:
     label: Advanced configuration options for biobb_mem CpptrajDensity
     doc: |-
       Advanced configuration options for biobb_mem CpptrajDensity. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_mem CpptrajDensity documentation: https://biobb-mem.readthedocs.io/en/latest/ambertools.html#module-ambertools.cpptraj_density
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

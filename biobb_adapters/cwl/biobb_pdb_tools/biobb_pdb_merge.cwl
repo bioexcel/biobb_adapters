@@ -50,7 +50,7 @@ inputs:
     label: Advanced configuration options for biobb_pdb_tools Pdbmerge
     doc: |-
       Advanced configuration options for biobb_pdb_tools Pdbmerge. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pdb_tools Pdbmerge documentation: https://biobb-pdb-tools.readthedocs.io/en/latest/pdb_tools.html#module-pdb_tools.biobb_pdb_merge
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 

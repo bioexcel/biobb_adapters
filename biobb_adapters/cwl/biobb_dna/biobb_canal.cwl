@@ -64,7 +64,7 @@ inputs:
     label: Advanced configuration options for biobb_dna Canal
     doc: |-
       Advanced configuration options for biobb_dna Canal. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_dna Canal documentation: https://biobb-dna.readthedocs.io/en/latest/curvesplus.html#module-curvesplus.biobb_canal
-    type: string?
+    type: File?
     inputBinding:
       prefix: --config
 
