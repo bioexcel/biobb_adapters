@@ -1,0 +1,33 @@
+process {{ process_name }} {
+    tag '{{ process_name }}'
+    {% if container %}container '{{ container }}'{% endif %}
+    publishDir params.workflow_dir, mode: 'copy', overwrite: true
+
+    input:
+    val cfg
+    {% for inp in inputs %}
+    path {{ inp }}
+    {% endfor %}
+
+    output:
+    {% for out in outputs %}
+    path '{{ out.path }}'{% if out.emit %}, emit: '{{ out.emit }}'{% endif %}
+    {% endfor %}
+    path '.command.log', emit: 'log'
+
+    script:
+    def stepCfg = {
+        {% for k,v in kwargs.items() %}
+        '{{ k }}': {{ v }},{% endfor %}
+        properties: cfg.properties
+    }
+    def configJson = groovy.json.JsonOutput.toJson(stepCfg)
+    """
+    python - <<'PY'
+import json
+from {{ module_import }} import {{ tool_func }}
+cfg = json.loads('''${configJson}''')
+{{ tool_func }}(**cfg)
+PY
+    """
+}
