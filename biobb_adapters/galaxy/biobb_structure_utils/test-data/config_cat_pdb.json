@@ -1,3 +1,5 @@
 {
-    "remove_tmp": true
+    "properties": {
+        "remove_tmp": true
+    }
 }

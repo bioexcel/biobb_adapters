@@ -1,3 +1,5 @@
 {
-    "execution_type": "pb_interaction_energy"
+    "properties": {
+        "execution_type": "pb_interaction_energy"
+    }
 }

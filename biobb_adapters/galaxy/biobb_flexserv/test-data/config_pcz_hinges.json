@@ -1,4 +1,6 @@
 {
-    "eigenvector": 0,
-    "method": "Bfactor_slope"
+    "properties": {
+        "eigenvector": 0,
+        "method": "Bfactor_slope"
+    }
 }

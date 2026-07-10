@@ -1,4 +1,6 @@
 {
-    "binary_path": "gmx",
-    "restart": "False"
+    "properties": {
+        "binary_path": "gmx",
+        "restart": "False"
+    }
 }

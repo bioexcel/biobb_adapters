@@ -1,4 +1,6 @@
 {
-    "fit": true,
-    "distance": 0.05
+    "properties": {
+        "fit": true,
+        "distance": 0.05
+    }
 }

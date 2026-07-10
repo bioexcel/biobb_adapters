@@ -1,4 +1,6 @@
 {
-    "select": "protein",
-    "steps": 5
+    "properties": {
+        "select": "protein",
+        "steps": 5
+    }
 }

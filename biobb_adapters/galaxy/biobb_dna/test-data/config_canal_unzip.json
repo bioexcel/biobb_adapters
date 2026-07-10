@@ -1,4 +1,6 @@
 {
-    "type": "histo",
-    "helpar_name": "alphaC"
+    "properties": {
+        "type": "histo",
+        "helpar_name": "alphaC"
+    }
 }

@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: zip
-      Example file: https://github.com/bioexcel/biobb_pmx/raw/master/biobb_pmx/test/data/pmx/topology.zip
+      Example file: https://github.com/bioexcel/biobb_pmx/blob/master/biobb_pmx/test/data/pmx/mut_gmx.top.zip
     type: File
     format:
     - edam:format_3987

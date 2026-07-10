@@ -1,4 +1,5 @@
 {
-    "remove_tmp": false,
-    "neutral": true
+    "properties": {
+        "neutral": true
+    }
 }

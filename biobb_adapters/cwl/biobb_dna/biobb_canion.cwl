@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: cdi
-      Example file: https://mmb.irbbarcelona.org/biobb-dev/biobb-api/public/samples/THGA_K.cdi
+      Example file: https://github.com/bioexcel/biobb_dna/releases/download/assets/THGA_K.cdi
     type: File
     format:
     - edam:format_2330

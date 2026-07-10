@@ -1,6 +1,8 @@
 {
-    "input_format": "pdb",
-    "output_format": "pdb",
-    "coordinates": 3,
-    "ph": 7.4
+    "properties": {
+        "input_format": "pdb",
+        "output_format": "pdb",
+        "coordinates": 3,
+        "ph": 7.4
+    }
 }

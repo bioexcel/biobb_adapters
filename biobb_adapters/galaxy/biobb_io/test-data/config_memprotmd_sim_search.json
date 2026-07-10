@@ -1,4 +1,6 @@
 {
-    "collection_name": "refs",
-    "keyword": "porin"
+    "properties": {
+        "collection_name": "refs",
+        "keyword": "porin"
+    }
 }

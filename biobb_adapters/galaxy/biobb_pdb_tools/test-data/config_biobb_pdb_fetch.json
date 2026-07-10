@@ -1,4 +1,6 @@
 {
-    "pdbid": "1nmr",
-    "biounit": false
+    "properties": {
+        "pdbid": "1nmr",
+        "biounit": false
+    }
 }

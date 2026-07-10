@@ -1,3 +1,5 @@
 {
-    "variance": 90
+    "properties": {
+        "variance": 90
+    }
 }

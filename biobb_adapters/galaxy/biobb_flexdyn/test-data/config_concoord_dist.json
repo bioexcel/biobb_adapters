@@ -1,4 +1,6 @@
 {
-    "vdw": 1,
-    "bond_angle": 1
+    "properties": {
+        "vdw": 1,
+        "bond_angle": 1
+    }
 }

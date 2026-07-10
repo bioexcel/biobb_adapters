@@ -1,7 +1,9 @@
 {
-    "residue_name_list": [
-        "NA",
-        "CL",
-        "SOL"
-    ]
+    "properties": {
+        "residue_name_list": [
+            "NA",
+            "CL",
+            "SOL"
+        ]
+    }
 }

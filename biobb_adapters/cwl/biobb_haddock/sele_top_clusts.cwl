@@ -23,7 +23,7 @@ inputs:
       Type: dir
       File type: input
       Accepted formats: directory, zip
-      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_rigid.zip
+      Example file: https://github.com/bioexcel/biobb_haddock/raw/master/biobb_haddock/test/data/haddock/haddock_wf_data_clustfcc.zip
     type: Directory
     format:
     - edam:format_1915

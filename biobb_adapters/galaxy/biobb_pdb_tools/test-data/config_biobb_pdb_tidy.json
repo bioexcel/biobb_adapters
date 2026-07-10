@@ -1,3 +1,5 @@
 {
-    "strict": false
+    "properties": {
+        "strict": false
+    }
 }

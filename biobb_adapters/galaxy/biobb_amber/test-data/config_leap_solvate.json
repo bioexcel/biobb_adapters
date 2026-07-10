@@ -1,9 +1,11 @@
 {
-    "forcefield": [
-        "protein.ff14SB"
-    ],
-    "water_type": "TIP3PBOX",
-    "distance_to_molecule": "9.0",
-    "box_type": "truncated_octahedron",
-    "remove_tmp": true
+    "properties": {
+        "forcefield": [
+            "protein.ff14SB"
+        ],
+        "water_type": "TIP3PBOX",
+        "distance_to_molecule": "9.0",
+        "box_type": "truncated_octahedron",
+        "remove_tmp": true
+    }
 }

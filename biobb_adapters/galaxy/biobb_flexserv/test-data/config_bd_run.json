@@ -1,4 +1,6 @@
 {
-    "time": 10000,
-    "wfreq": 100
+    "properties": {
+        "time": 10000,
+        "wfreq": 100
+    }
 }

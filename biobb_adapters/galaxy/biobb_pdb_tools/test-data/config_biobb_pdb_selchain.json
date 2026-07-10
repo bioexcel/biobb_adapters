@@ -1,3 +1,5 @@
 {
-    "chains": "B"
+    "properties": {
+        "chains": "B"
+    }
 }

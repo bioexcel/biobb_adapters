@@ -1,5 +1,7 @@
 {
-    "method": "CGI BAR JARZ",
-    "temperature": 298.15,
-    "dpi": 600
+    "properties": {
+        "method": "CGI BAR JARZ",
+        "temperature": 298.15,
+        "dpi": 600
+    }
 }

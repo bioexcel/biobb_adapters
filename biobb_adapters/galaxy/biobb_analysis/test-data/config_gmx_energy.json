@@ -1,6 +1,8 @@
 {
-    "terms": [
-        "Potential",
-        "Pressure"
-    ]
+    "properties": {
+        "terms": [
+            "Potential",
+            "Pressure"
+        ]
+    }
 }

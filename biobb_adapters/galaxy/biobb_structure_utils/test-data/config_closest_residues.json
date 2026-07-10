@@ -1,11 +1,13 @@
 {
-    "residues": [
-        {
-            "name": "HIS",
-            "model": "1"
-        },
-        580,
-        61
-    ],
-    "radius": 5
+    "properties": {
+        "residues": [
+            {
+                "name": "HIS",
+                "model": "1"
+            },
+            580,
+            61
+        ],
+        "radius": 5
+    }
 }

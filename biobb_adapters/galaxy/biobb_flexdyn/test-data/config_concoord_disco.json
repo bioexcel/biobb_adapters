@@ -1,4 +1,6 @@
 {
-    "vdw": 4,
-    "num_structs": 20
+    "properties": {
+        "vdw": 4,
+        "num_structs": 20
+    }
 }

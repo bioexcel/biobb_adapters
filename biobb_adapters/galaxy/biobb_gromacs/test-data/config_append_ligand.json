@@ -1,3 +1,5 @@
 {
-    "posres_name": "POSRES_LIGAND"
+    "properties": {
+        "posres_name": "POSRES_LIGAND"
+    }
 }

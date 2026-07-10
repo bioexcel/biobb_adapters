@@ -1,5 +1,7 @@
 {
-    "Dataset": {
-        "batch_size": 32
+    "properties": {
+        "Dataset": {
+            "batch_size": 32
+        }
     }
 }

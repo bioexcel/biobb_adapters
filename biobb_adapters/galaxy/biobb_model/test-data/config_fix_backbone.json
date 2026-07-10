@@ -1,5 +1,7 @@
 {
-    "restart": false,
-    "add_caps": false,
-    "modeller_key": "MODELIRANJE"
+    "properties": {
+        "restart": false,
+        "add_caps": false,
+        "modeller_key": "MODELIRANJE"
+    }
 }

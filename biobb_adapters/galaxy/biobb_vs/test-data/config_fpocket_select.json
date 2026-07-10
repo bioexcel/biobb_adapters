@@ -1,3 +1,5 @@
 {
-    "pocket": 4
+    "properties": {
+        "pocket": 4
+    }
 }

@@ -1,6 +1,8 @@
 {
-    "forcefield": [
-        "protein.ff14SB"
-    ],
-    "remove_tmp": true
+    "properties": {
+        "forcefield": [
+            "protein.ff14SB"
+        ],
+        "remove_tmp": true
+    }
 }

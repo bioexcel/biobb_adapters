@@ -1,6 +1,8 @@
 {
-    "features": [
-        "chains",
-        "models"
-    ]
+    "properties": {
+        "features": [
+            "chains",
+            "models"
+        ]
+    }
 }

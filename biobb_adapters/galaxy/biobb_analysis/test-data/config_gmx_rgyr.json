@@ -1,3 +1,5 @@
 {
-    "selection": "System"
+    "properties": {
+        "selection": "System"
+    }
 }

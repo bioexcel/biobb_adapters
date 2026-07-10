@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/structure.solv.pdb
+      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/structure.ions.input.pdb
     type: File
     format:
     - edam:format_1476

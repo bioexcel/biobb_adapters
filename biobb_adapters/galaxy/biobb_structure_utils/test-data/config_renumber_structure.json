@@ -1,3 +1,5 @@
 {
-    "renumber_residues": true
+    "properties": {
+        "renumber_residues": true
+    }
 }

@@ -1,5 +1,7 @@
 {
-    "ignore_no_box": true,
-    "lipid_sel": "(resname DPPC and name P8)",
-    "height_sel": "(resname DPPC and name P8)"
+    "properties": {
+        "ignore_no_box": true,
+        "lipid_sel": "(resname DPPC and name P8)",
+        "height_sel": "(resname DPPC and name P8)"
+    }
 }

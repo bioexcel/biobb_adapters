@@ -56,12 +56,12 @@
           <param name="outname_output_rst_path" value="cp2k_run_out.wfn" />
           <output name="output_log_path" ftype="log">
             <assert_contents>
-              <has_size value="33058" delta="8264"/>
+              <has_size value="33787" delta="8446"/>
             </assert_contents>
           </output>
           <output name="output_outzip_path" ftype="zip">
             <assert_contents>
-              <has_size value="37731" delta="9432"/>
+              <has_size value="38460" delta="9615"/>
             </assert_contents>
           </output>
           <output name="output_rst_path" ftype="wfn">

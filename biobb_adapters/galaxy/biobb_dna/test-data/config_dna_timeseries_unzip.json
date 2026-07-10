@@ -1,6 +1,8 @@
 {
-    "type": "hist",
-    "parameter": "shift",
-    "sequence": "CGCGAATTCGCG",
-    "index": 5
+    "properties": {
+        "type": "hist",
+        "parameter": "shift",
+        "sequence": "CGCGAATTCGCG",
+        "index": 5
+    }
 }

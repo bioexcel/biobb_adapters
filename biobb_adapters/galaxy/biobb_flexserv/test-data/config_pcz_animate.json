@@ -1,4 +1,6 @@
 {
-    "eigenvector": 1,
-    "pdb": true
+    "properties": {
+        "eigenvector": 1,
+        "pdb": true
+    }
 }

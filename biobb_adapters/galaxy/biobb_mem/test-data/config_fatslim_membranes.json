@@ -1,6 +1,8 @@
 {
-    "ignore_no_box": true,
-    "remove_tmp": false,
-    "selection": "(resname DPPC and name P8)",
-    "cutoff": 2.2
+    "properties": {
+        "ignore_no_box": true,
+        "remove_tmp": false,
+        "selection": "(resname DPPC and name P8)",
+        "cutoff": 2.2
+    }
 }

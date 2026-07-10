@@ -1,5 +1,7 @@
 {
-    "snapshot": 12,
-    "mask": "c-alpha",
-    "format": "pdb"
+    "properties": {
+        "snapshot": 12,
+        "mask": "c-alpha",
+        "format": "pdb"
+    }
 }

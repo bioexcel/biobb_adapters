@@ -1,8 +1,10 @@
 {
-    "terms": [
-        "TEMP",
-        "VOLUME",
-        "EKTOT"
-    ],
-    "remove_tmp": true
+    "properties": {
+        "terms": [
+            "TEMP",
+            "VOLUME",
+            "EKTOT"
+        ],
+        "remove_tmp": true
+    }
 }

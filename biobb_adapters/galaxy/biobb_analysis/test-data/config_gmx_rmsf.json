@@ -1,9 +1,5 @@
 {
-    "selection": "System",
-    "demean": true,
-    "mass_weighted": false,
-    "nofit": false,
-    "bfactor": false,
-    "bin_width": 0.1,
-    "hist": false
+    "properties": {
+        "selection": "System"
+    }
 }

@@ -1,6 +1,8 @@
 {
-    "input_format": "smi",
-    "output_format": "mol2",
-    "coordinates": 2,
-    "ph": 7.4
+    "properties": {
+        "input_format": "smi",
+        "output_format": "mol2",
+        "coordinates": 2,
+        "ph": 7.4
+    }
 }

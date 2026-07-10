@@ -1,4 +1,5 @@
 {
-    "residue_list": 3,
-    "remove_tmp": true
+    "properties": {
+        "residue_list": 3
+    }
 }

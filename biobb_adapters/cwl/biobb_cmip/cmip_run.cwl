@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: pdb
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_cmip/master/biobb_cmip/test/data/cmip/1kim_h.pdb
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_cmip/master/biobb_cmip/test/data/cmip/RBD-hACE2.hACE2.cmip.pdb
     type: File
     format:
     - edam:format_1476
@@ -51,7 +51,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: pdb
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_cmip/master/biobb_cmip/test/reference/cmip/1kim_neutral.pdb
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_cmip/master/biobb_cmip/test/reference/cmip/RBD.energies.byat.out
     type: string
     format:
     - edam:format_1476

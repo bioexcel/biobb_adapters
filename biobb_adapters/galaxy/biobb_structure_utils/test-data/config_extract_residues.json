@@ -1,9 +1,11 @@
 {
-    "residues": [
-        {
-            "name": "HIS",
-            "model": "1"
-        },
-        61
-    ]
+    "properties": {
+        "residues": [
+            {
+                "name": "HIS",
+                "model": "1"
+            },
+            61
+        ]
+    }
 }

@@ -1,3 +1,5 @@
 {
-    "restart": false
+    "properties": {
+        "restart": false
+    }
 }

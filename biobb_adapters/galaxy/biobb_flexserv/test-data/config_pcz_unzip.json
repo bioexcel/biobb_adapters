@@ -1,3 +1,5 @@
 {
-    "pdb": false
+    "properties": {
+        "pdb": false
+    }
 }

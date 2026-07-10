@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper of the AmberTools (AMBER MD Package) ambpdb tool module.
 
 doc: |-
-  Generates a PDB structure from AMBER topology (parmtop) and coordinates (crd) files, using the ambpdb tool from the AmberTools MD package.
+  Generates a PDB structure from AMBER topology (parmtop) and coordinates (crd) files, using the ambpdb tool from the AmberTools MD package
 
 baseCommand: amber_to_pdb
 
