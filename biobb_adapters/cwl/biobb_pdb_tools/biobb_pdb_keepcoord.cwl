@@ -12,7 +12,7 @@ baseCommand: biobb_pdb_keepcoord
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pdb_tools:5.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pdb_tools:5.3.2--pyhdfd78af_0
 
 inputs:
   input_file_path:

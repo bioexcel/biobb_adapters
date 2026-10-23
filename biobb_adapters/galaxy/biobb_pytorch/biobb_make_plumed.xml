@@ -1,7 +1,7 @@
 <tool id="biobb_pytorch_make_plumed" name="MakePlumed" version="@TOOL_VERSION@" >
     <description>Generate PLUMED input for biased dynamics using an MDAE model.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.3</token>
+      <token name="@TOOL_VERSION@">5.3.0</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_selaltloc" name="BiobbPdbSelaltloc" version="@TOOL_VERSION@" >
     <description>Selects alternative locations from a PDB file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.1</token>
+      <token name="@TOOL_VERSION@">5.3.2</token>
     </macros>
 
     <requirements>

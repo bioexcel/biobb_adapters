@@ -1,7 +1,7 @@
 <tool id="biobb_amber_parmed_hmassrepartition" name="ParmedHmassrepartition" version="@TOOL_VERSION@" >
     <description>Wrapper of the AmberTools (AMBER MD Package) parmed tool module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.1</token>
+      <token name="@TOOL_VERSION@">5.3.3</token>
     </macros>
 
     <requirements>

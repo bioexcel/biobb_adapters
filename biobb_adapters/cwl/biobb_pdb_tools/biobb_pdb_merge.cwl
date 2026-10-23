@@ -12,7 +12,7 @@ baseCommand: biobb_pdb_merge
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pdb_tools:5.2.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pdb_tools:5.3.2--pyhdfd78af_0
 
 inputs:
   input_file_path:
@@ -21,11 +21,12 @@ inputs:
       Input ZIP file of selected protein
       Type: string
       File type: input
-      Accepted formats: zip
+      Accepted formats: zip, pdb
       Example file: https://raw.githubusercontent.com/bioexcel/biobb_pdb_tools/master/biobb_pdb_tools/test/data/pdb_tools/input_pdb_merge.zip
     type: File
     format:
     - edam:format_3987
+    - edam:format_1476
     inputBinding:
       position: 1
       prefix: --input_file_path

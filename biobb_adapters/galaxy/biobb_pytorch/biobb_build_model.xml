@@ -1,7 +1,7 @@
 <tool id="biobb_pytorch_build_model" name="BuildModel" version="@TOOL_VERSION@" >
     <description>Build a Molecular Dynamics AutoEncoder (MDAE) PyTorch model.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.3</token>
+      <token name="@TOOL_VERSION@">5.3.0</token>
     </macros>
 
     <requirements>

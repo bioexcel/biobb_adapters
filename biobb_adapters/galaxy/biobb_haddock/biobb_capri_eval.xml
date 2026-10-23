@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_capri_eval" name="CapriEval" version="@TOOL_VERSION@" >
     <description>Wrapper class for the HADDOCK3 CapriEval module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.1</token>
+      <token name="@TOOL_VERSION@">5.3.0</token>
     </macros>
 
     <requirements>

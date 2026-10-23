@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_fixinsert" name="BiobbPdbFixinsert" version="@TOOL_VERSION@" >
     <description>Deletes insertion codes and shifts the residue numbering of downstream residues.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.1</token>
+      <token name="@TOOL_VERSION@">5.3.2</token>
     </macros>
 
     <requirements>

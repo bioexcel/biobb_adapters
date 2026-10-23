@@ -1,7 +1,7 @@
 <tool id="biobb_pytorch_feat2traj" name="Feat2traj" version="@TOOL_VERSION@" >
     <description>Converts a .pt file (features) to a trajectory using cartesian indices and topology from the stats file.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.3</token>
+      <token name="@TOOL_VERSION@">5.3.0</token>
     </macros>
 
     <requirements>

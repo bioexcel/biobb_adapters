@@ -12,7 +12,7 @@ baseCommand: haddock3_restrain_bodies
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.2.1--pyh106432d_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.0--pyh106432d_0
 
 inputs:
   input_structure_path:

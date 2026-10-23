@@ -1,7 +1,7 @@
 <tool id="biobb_mem_gorder_cg" name="GorderCg" version="@TOOL_VERSION@" >
     <description>Wrapper of the gorder coarse-grained module for computing lipid order parameters per atom for carbon tails.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.2</token>
+      <token name="@TOOL_VERSION@">5.3.1</token>
     </macros>
 
     <requirements>

@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_reres" name="BiobbPdbReres" version="@TOOL_VERSION@" >
     <description>Renumbers the residues of the PDB file starting from a given number (default 1).</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.1</token>
+      <token name="@TOOL_VERSION@">5.3.2</token>
     </macros>
 
     <requirements>

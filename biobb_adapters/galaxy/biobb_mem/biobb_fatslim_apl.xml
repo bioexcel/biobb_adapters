@@ -1,7 +1,7 @@
 <tool id="biobb_mem_fatslim_apl" name="FatslimApl" version="@TOOL_VERSION@" >
     <description>Wrapper of the FATSLiM area per lipid module for area per lipid calculation.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.2</token>
+      <token name="@TOOL_VERSION@">5.3.1</token>
     </macros>
 
     <requirements>

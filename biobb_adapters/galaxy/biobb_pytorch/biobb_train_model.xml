@@ -1,7 +1,7 @@
 <tool id="biobb_pytorch_train_model" name="TrainModel" version="@TOOL_VERSION@" >
     <description>Trains a PyTorch autoencoder using the given properties.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.3</token>
+      <token name="@TOOL_VERSION@">5.3.0</token>
     </macros>
 
     <requirements>

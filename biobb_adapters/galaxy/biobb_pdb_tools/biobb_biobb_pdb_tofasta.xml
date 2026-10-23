@@ -1,7 +1,7 @@
 <tool id="biobb_pdb_tools_biobb_pdb_tofasta" name="BiobbPdbTofasta" version="@TOOL_VERSION@" >
     <description>Extracts the residue sequence in a PDB file to FASTA format.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.2.1</token>
+      <token name="@TOOL_VERSION@">5.3.2</token>
     </macros>
 
     <requirements>
