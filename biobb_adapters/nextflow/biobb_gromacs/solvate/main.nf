@@ -32,6 +32,10 @@ process BIOBB_GROMACS_SOLVATE {
     output_top_zip_path = "${prefix}_top_zip.${outputs.output_top_zip_path ?: 'zip'}"
     def props = [can_write_file_log: false] + (task.ext.properties ?: [:]) + [raise_error: true, restart: false]
     """
+    # Containers run as the host user (docker -u) have no user name or writable home: getpass and tool caches need them
+    export USER="\${USER:-biobb}"
+    [ -w "\${HOME:-/}" ] || export HOME="\$PWD"
+
     cat > config.json <<'END_CONFIG'
     ${groovy.json.JsonOutput.toJson([properties: props])}
     END_CONFIG

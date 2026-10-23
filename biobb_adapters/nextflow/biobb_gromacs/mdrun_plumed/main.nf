@@ -45,6 +45,10 @@ process BIOBB_GROMACS_MDRUN_PLUMED {
     output_plumed_folder = (outputs.output_plumed_folder ?: 'directory') == 'directory' ? "${prefix}_plumed_folder" : "${prefix}_plumed_folder.${outputs.output_plumed_folder ?: 'directory'}"
     def props = [can_write_file_log: false, num_threads: task.cpus] + (task.ext.properties ?: [:]) + [raise_error: true, restart: false]
     """
+    # Containers run as the host user (docker -u) have no user name or writable home: getpass and tool caches need them
+    export USER="\${USER:-biobb}"
+    [ -w "\${HOME:-/}" ] || export HOME="\$PWD"
+
     cat > config.json <<'END_CONFIG'
     ${groovy.json.JsonOutput.toJson([properties: props])}
     END_CONFIG
