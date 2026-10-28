@@ -1,5 +1,5 @@
 {
     "properties": {
-        "pose": 1
+        "remove_tmp": false
     }
 }

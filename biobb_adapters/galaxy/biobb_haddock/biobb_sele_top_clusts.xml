@@ -1,7 +1,7 @@
 <tool id="biobb_haddock_sele_top_clusts" name="SeleTopClusts" version="@TOOL_VERSION@" >
     <description>Wrapper class for the HADDOCK3 SeleTopClusts module.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.3.0</token>
+      <token name="@TOOL_VERSION@">5.3.1</token>
     </macros>
 
     <requirements>

@@ -12,7 +12,7 @@ baseCommand: contact_map
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.0--pyh106432d_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.1--pyh106432d_0
 
 inputs:
   input_haddock_wf_data:

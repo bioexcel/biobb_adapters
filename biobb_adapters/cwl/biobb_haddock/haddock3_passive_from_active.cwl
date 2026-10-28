@@ -14,7 +14,7 @@ baseCommand: haddock3_passive_from_active
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.0--pyh106432d_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.1--pyh106432d_0
 
 inputs:
   input_pdb_path:

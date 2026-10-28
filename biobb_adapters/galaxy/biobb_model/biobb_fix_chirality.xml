@@ -1,7 +1,7 @@
 <tool id="biobb_model_fix_chirality" name="FixChirality" version="@TOOL_VERSION@" >
     <description>Fix chirality errors of residues.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.3.1</token>
+      <token name="@TOOL_VERSION@">5.3.0</token>
     </macros>
 
     <requirements>
