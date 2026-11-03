@@ -8,7 +8,6 @@
 include { BIOBB_MODEL_CHECKING_LOG } from '../checking_log'
 include { BIOBB_MODEL_FIX_ALTLOCS } from '../fix_altlocs'
 include { BIOBB_MODEL_FIX_AMIDES } from '../fix_amides'
-include { BIOBB_MODEL_FIX_BACKBONE } from '../fix_backbone'
 include { BIOBB_MODEL_FIX_CHIRALITY } from '../fix_chirality'
 include { BIOBB_MODEL_FIX_PDB } from '../fix_pdb'
 include { BIOBB_MODEL_FIX_SIDE_CHAIN } from '../fix_side_chain'
@@ -24,7 +23,7 @@ workflow {
     BIOBB_MODEL_CHECKING_LOG(channel.of([[id: 'checking_log'], file("${params.test_data}/data/model/2ki5.pdb")]))
     BIOBB_MODEL_FIX_ALTLOCS(channel.of([[id: 'fix_altlocs'], file("${params.test_data}/data/model/3ebp.pdb")]))
     BIOBB_MODEL_FIX_AMIDES(channel.of([[id: 'fix_amides'], file("${params.test_data}/data/model/5s2z.pdb")]))
-    BIOBB_MODEL_FIX_BACKBONE(channel.of([[id: 'fix_backbone'], file("${params.test_data}/data/model/2ki5.pdb"), file("${params.test_data}/data/model/2ki5.fasta")]))
+    // fix_backbone: skipped, needs Modeller (licensed, not in the biocontainer) to model the backbone breaks of the test structure
     BIOBB_MODEL_FIX_CHIRALITY(channel.of([[id: 'fix_chirality'], file("${params.test_data}/data/model/3e2y.pdb")]))
     BIOBB_MODEL_FIX_PDB(channel.of([[id: 'fix_pdb'], file("${params.test_data}/data/model/test_fixpdb.pdb")]))
     BIOBB_MODEL_FIX_SIDE_CHAIN(channel.of([[id: 'fix_side_chain'], file("${params.test_data}/data/model/2ki5.pdb")]))
@@ -35,7 +34,6 @@ workflow {
         'checking_log.output_log_path',
         'fix_altlocs.output_pdb_path',
         'fix_amides.output_pdb_path',
-        'fix_backbone.output_pdb_path',
         'fix_chirality.output_pdb_path',
         'fix_pdb.output_pdb_path',
         'fix_side_chain.output_pdb_path',
@@ -47,7 +45,6 @@ workflow {
             BIOBB_MODEL_CHECKING_LOG.out.output_log_path.map { meta, _file -> meta.id + '.output_log_path' },
             BIOBB_MODEL_FIX_ALTLOCS.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
             BIOBB_MODEL_FIX_AMIDES.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
-            BIOBB_MODEL_FIX_BACKBONE.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
             BIOBB_MODEL_FIX_CHIRALITY.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
             BIOBB_MODEL_FIX_PDB.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
             BIOBB_MODEL_FIX_SIDE_CHAIN.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },

@@ -16,7 +16,6 @@ include { BIOBB_AMBER_LEAP_SOLVATE } from '../leap_solvate'
 include { BIOBB_AMBER_PARMED_CPINUTIL } from '../parmed_cpinutil'
 include { BIOBB_AMBER_PARMED_HMASSREPARTITION } from '../parmed_hmassrepartition'
 include { BIOBB_AMBER_PDB4AMBER_RUN } from '../pdb4amber_run'
-include { BIOBB_AMBER_PMEMD_MDRUN } from '../pmemd_mdrun'
 include { BIOBB_AMBER_PROCESS_MDOUT } from '../process_mdout'
 include { BIOBB_AMBER_PROCESS_MINOUT } from '../process_minout'
 include { BIOBB_AMBER_SANDER_MDRUN } from '../sander_mdrun'
@@ -38,7 +37,7 @@ workflow {
     BIOBB_AMBER_PARMED_CPINUTIL(channel.of([[id: 'parmed_cpinutil'], file("${params.test_data}/data/parmed/cln025.prmtop")]))
     BIOBB_AMBER_PARMED_HMASSREPARTITION(channel.of([[id: 'parmed_hmassrepartition'], file("${params.test_data}/data/parmed/input.hmass.prmtop")]))
     BIOBB_AMBER_PDB4AMBER_RUN(channel.of([[id: 'pdb4amber_run'], file("${params.test_data}/data/pdb4amber/1aki_fixed.pdb")]))
-    BIOBB_AMBER_PMEMD_MDRUN(channel.of([[id: 'pmemd_mdrun'], file("${params.test_data}/data/sander/cln025.prmtop"), file("${params.test_data}/data/sander/cln025.inpcrd"), [], [], []]))
+    // pmemd_mdrun: skipped, needs pmemd (Amber), not in any ambertools conda package
     BIOBB_AMBER_PROCESS_MDOUT(channel.of([[id: 'process_mdout'], file("${params.test_data}/data/process/sander.heat.log")]))
     BIOBB_AMBER_PROCESS_MINOUT(channel.of([[id: 'process_minout'], file("${params.test_data}/data/process/sander.min.log")]))
     BIOBB_AMBER_SANDER_MDRUN(channel.of([[id: 'sander_mdrun'], file("${params.test_data}/data/sander/cln025.prmtop"), file("${params.test_data}/data/sander/cln025.inpcrd"), [], [], []]))
@@ -62,9 +61,6 @@ workflow {
         'parmed_cpinutil.output_cpin_path',
         'parmed_hmassrepartition.output_top_path',
         'pdb4amber_run.output_pdb_path',
-        'pmemd_mdrun.output_log_path',
-        'pmemd_mdrun.output_traj_path',
-        'pmemd_mdrun.output_rst_path',
         'process_mdout.output_dat_path',
         'process_minout.output_dat_path',
         'sander_mdrun.output_log_path',
@@ -102,12 +98,6 @@ workflow {
             BIOBB_AMBER_PARMED_CPINUTIL.out.output_top_path.map { meta, _file -> meta.id + '.output_top_path' },
             BIOBB_AMBER_PARMED_HMASSREPARTITION.out.output_top_path.map { meta, _file -> meta.id + '.output_top_path' },
             BIOBB_AMBER_PDB4AMBER_RUN.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
-            BIOBB_AMBER_PMEMD_MDRUN.out.output_log_path.map { meta, _file -> meta.id + '.output_log_path' },
-            BIOBB_AMBER_PMEMD_MDRUN.out.output_traj_path.map { meta, _file -> meta.id + '.output_traj_path' },
-            BIOBB_AMBER_PMEMD_MDRUN.out.output_rst_path.map { meta, _file -> meta.id + '.output_rst_path' },
-            BIOBB_AMBER_PMEMD_MDRUN.out.output_cpout_path.map { meta, _file -> meta.id + '.output_cpout_path' },
-            BIOBB_AMBER_PMEMD_MDRUN.out.output_cprst_path.map { meta, _file -> meta.id + '.output_cprst_path' },
-            BIOBB_AMBER_PMEMD_MDRUN.out.output_mdinfo_path.map { meta, _file -> meta.id + '.output_mdinfo_path' },
             BIOBB_AMBER_PROCESS_MDOUT.out.output_dat_path.map { meta, _file -> meta.id + '.output_dat_path' },
             BIOBB_AMBER_PROCESS_MINOUT.out.output_dat_path.map { meta, _file -> meta.id + '.output_dat_path' },
             BIOBB_AMBER_SANDER_MDRUN.out.output_log_path.map { meta, _file -> meta.id + '.output_log_path' },
