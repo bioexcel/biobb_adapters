@@ -12,7 +12,7 @@ baseCommand: gmx_check
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:5.3.0--gmx2026_2
+    dockerPull: quay.io/biocontainers/biobb_analysis:5.3.1--pyhdfd78af_0
 
 inputs:
   output_log_path:

@@ -7,7 +7,7 @@ This class is a wrapper of the MemProtMD to download a simulation using its REST
 
 Wrapper for the MemProtMD DB REST API to download a simulation.
 
-Nextflow adapter of the [MemProtMDSim](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [MemProtMDSim](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

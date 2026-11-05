@@ -7,7 +7,7 @@ Wrapper of the Ambertools Cpptraj module for stripping a defined set of atoms (m
 
 Cpptraj (the successor to ptraj) is the main program in Ambertools for processing coordinate trajectories and data files. The parameter names and defaults are the same as the ones in the official Cpptraj manual.
 
-Nextflow adapter of the [CpptrajStrip](https://biobb-analysis.readthedocs.io/en/latest/ambertools.html#module-ambertools.cpptraj_strip) building block of [biobb_analysis](https://github.com/bioexcel/biobb_analysis) 5.3.0.
+Nextflow adapter of the [CpptrajStrip](https://biobb-analysis.readthedocs.io/en/latest/ambertools.html#module-ambertools.cpptraj_strip) building block of [biobb_analysis](https://github.com/bioexcel/biobb_analysis) 5.3.1.
 
 ## Get started
 

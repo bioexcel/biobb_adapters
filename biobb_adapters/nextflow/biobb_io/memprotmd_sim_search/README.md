@@ -7,7 +7,7 @@ This class is a wrapper of the MemProtMD to perform advanced searches in the Mem
 
 Wrapper for the MemProtMD DB REST API to perform advanced searches.
 
-Nextflow adapter of the [MemProtMDSimSearch](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim_search) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [MemProtMDSimSearch](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim_search) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

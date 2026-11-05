@@ -7,7 +7,7 @@ Wrapper of the GROMACS cluster module for clustering structures from a given GRO
 
 GROMACS cluster can cluster structures using several different methods. Distances between structures can be determined from a trajectory. RMS deviation after fitting or RMS deviation of atom-pair distances can be used to define the distance between structures.
 
-Nextflow adapter of the [GMXCluster](https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_cluster) building block of [biobb_analysis](https://github.com/bioexcel/biobb_analysis) 5.3.0.
+Nextflow adapter of the [GMXCluster](https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_cluster) building block of [biobb_analysis](https://github.com/bioexcel/biobb_analysis) 5.3.1.
 
 ## Get started
 

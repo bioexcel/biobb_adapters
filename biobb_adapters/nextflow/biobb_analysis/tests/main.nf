@@ -7,6 +7,7 @@
 
 include { BIOBB_ANALYSIS_CPPTRAJ_AVERAGE } from '../cpptraj_average'
 include { BIOBB_ANALYSIS_CPPTRAJ_BFACTOR } from '../cpptraj_bfactor'
+include { BIOBB_ANALYSIS_CPPTRAJ_CLUSTER } from '../cpptraj_cluster'
 include { BIOBB_ANALYSIS_CPPTRAJ_CONVERT } from '../cpptraj_convert'
 include { BIOBB_ANALYSIS_CPPTRAJ_DRY } from '../cpptraj_dry'
 include { BIOBB_ANALYSIS_CPPTRAJ_IMAGE } from '../cpptraj_image'
@@ -36,6 +37,7 @@ workflow {
     main:
     BIOBB_ANALYSIS_CPPTRAJ_AVERAGE(channel.of([[id: 'cpptraj_average'], file("${params.test_data}/data/ambertools/cpptraj.parm.top"), file("${params.test_data}/data/ambertools/cpptraj.traj.dcd")]))
     BIOBB_ANALYSIS_CPPTRAJ_BFACTOR(channel.of([[id: 'cpptraj_bfactor'], file("${params.test_data}/data/ambertools/cpptraj.parm.top"), file("${params.test_data}/data/ambertools/cpptraj.traj.dcd"), []]))
+    BIOBB_ANALYSIS_CPPTRAJ_CLUSTER(channel.of([[id: 'cpptraj_cluster'], file("${params.test_data}/data/ambertools/cpptraj.parm.top"), file("${params.test_data}/data/ambertools/cpptraj.traj.dcd")]))
     BIOBB_ANALYSIS_CPPTRAJ_CONVERT(channel.of([[id: 'cpptraj_convert'], file("${params.test_data}/data/ambertools/cpptraj.parm.top"), file("${params.test_data}/data/ambertools/cpptraj.traj.dcd")]))
     BIOBB_ANALYSIS_CPPTRAJ_DRY(channel.of([[id: 'cpptraj_dry'], file("${params.test_data}/data/ambertools/cpptraj.parm.top"), file("${params.test_data}/data/ambertools/cpptraj.traj.dcd")]))
     BIOBB_ANALYSIS_CPPTRAJ_IMAGE(channel.of([[id: 'cpptraj_image'], file("${params.test_data}/data/ambertools/cpptraj.parm.top"), file("${params.test_data}/data/ambertools/cpptraj.traj.dcd")]))
@@ -60,6 +62,10 @@ workflow {
     def expected = [
         'cpptraj_average.output_cpptraj_path',
         'cpptraj_bfactor.output_cpptraj_path',
+        'cpptraj_cluster.output_cpptraj_path',
+        'cpptraj_cluster.output_summary_path',
+        'cpptraj_cluster.output_info_path',
+        'cpptraj_cluster.output_traj_path',
         'cpptraj_convert.output_cpptraj_path',
         'cpptraj_dry.output_cpptraj_path',
         'cpptraj_image.output_cpptraj_path',
@@ -86,6 +92,10 @@ workflow {
         .mix(
             BIOBB_ANALYSIS_CPPTRAJ_AVERAGE.out.output_cpptraj_path.map { meta, _file -> meta.id + '.output_cpptraj_path' },
             BIOBB_ANALYSIS_CPPTRAJ_BFACTOR.out.output_cpptraj_path.map { meta, _file -> meta.id + '.output_cpptraj_path' },
+            BIOBB_ANALYSIS_CPPTRAJ_CLUSTER.out.output_cpptraj_path.map { meta, _file -> meta.id + '.output_cpptraj_path' },
+            BIOBB_ANALYSIS_CPPTRAJ_CLUSTER.out.output_summary_path.map { meta, _file -> meta.id + '.output_summary_path' },
+            BIOBB_ANALYSIS_CPPTRAJ_CLUSTER.out.output_info_path.map { meta, _file -> meta.id + '.output_info_path' },
+            BIOBB_ANALYSIS_CPPTRAJ_CLUSTER.out.output_traj_path.map { meta, _file -> meta.id + '.output_traj_path' },
             BIOBB_ANALYSIS_CPPTRAJ_CONVERT.out.output_cpptraj_path.map { meta, _file -> meta.id + '.output_cpptraj_path' },
             BIOBB_ANALYSIS_CPPTRAJ_DRY.out.output_cpptraj_path.map { meta, _file -> meta.id + '.output_cpptraj_path' },
             BIOBB_ANALYSIS_CPPTRAJ_IMAGE.out.output_cpptraj_path.map { meta, _file -> meta.id + '.output_cpptraj_path' },

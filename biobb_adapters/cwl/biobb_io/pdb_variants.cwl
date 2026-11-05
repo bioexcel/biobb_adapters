@@ -7,13 +7,13 @@ label: This class creates a text file containing a list of all the variants mapp
   to a PDB code from the corresponding UNIPROT entries.
 
 doc: |-
-  Wrapper for the UNIPROT mirror of the MMB group REST API for creating a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.
+  Wrapper for the MMB group REST API (UNIPROT code of the PDB entry), the PDBe SIFTS API (residue mapping) and the UNIPROT REST API (natural variants) for creating a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.
 
 baseCommand: pdb_variants
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_io:5.3.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_io:5.3.2--pyhdfd78af_0
 
 inputs:
   output_mutations_list_txt:

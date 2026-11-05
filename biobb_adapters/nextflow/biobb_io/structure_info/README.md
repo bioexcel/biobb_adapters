@@ -7,7 +7,7 @@ This class is a wrapper for getting all the available information of a structure
 
 Wrapper for the MMB PDB mirror for getting all the available information of a structure from the Protein Data Bank.
 
-Nextflow adapter of the [StructureInfo](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.structure_info) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [StructureInfo](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.structure_info) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

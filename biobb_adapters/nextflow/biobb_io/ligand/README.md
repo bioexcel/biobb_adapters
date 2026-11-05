@@ -7,7 +7,7 @@ This class is a wrapper for downloading a PDB ligand from the Protein Data Bank.
 
 Wrapper for the Protein Data Bank in Europe and the MMB PDB mirror for downloading a single PDB ligand.
 
-Nextflow adapter of the [Ligand](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.ligand) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [Ligand](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.ligand) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

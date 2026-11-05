@@ -7,7 +7,7 @@ Wrapper class for the PMX ligand_hybrid module.
 
 Create a hybrid topology and structure based on two ligand structures.
 
-Nextflow adapter of the [Pmxligand_hybrid](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxligand_hybrid) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.0.
+Nextflow adapter of the [Pmxligand_hybrid](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxligand_hybrid) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.1.
 
 ## Get started
 

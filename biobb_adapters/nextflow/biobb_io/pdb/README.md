@@ -7,7 +7,7 @@ This class is a wrapper for downloading a PDB structure from the Protein Data Ba
 
 Wrapper for the Protein Data Bank in Europe, the Protein Data Bank and the MMB PDB mirror for downloading a single PDB structure.
 
-Nextflow adapter of the [Pdb](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [Pdb](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

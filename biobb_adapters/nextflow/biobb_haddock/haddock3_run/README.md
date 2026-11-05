@@ -7,7 +7,7 @@ Wrapper class for the HADDOCK3 Run module.
 
 The HADDOCK3 run module launches the HADDOCK3 execution for docking.
 
-Nextflow adapter of the [Haddock3Run](https://biobb-haddock.readthedocs.io/en/latest/haddock.html#module-haddock.haddock3_run) building block of [biobb_haddock](https://github.com/bioexcel/biobb_haddock) 5.3.1.
+Nextflow adapter of the [Haddock3Run](https://biobb-haddock.readthedocs.io/en/latest/haddock.html#module-haddock.haddock3_run) building block of [biobb_haddock](https://github.com/bioexcel/biobb_haddock) 5.3.2.
 
 ## Get started
 
@@ -65,6 +65,7 @@ process {
 | Name | Type | Default | Description |
 |---|---|---|---|
 | `cfg` | object | {} | Haddock configuration options specification. |
+| `restart_from` | integer | null | Restart the run from a given step, this maps to the HADDOCK3 --restart option. Step folders from the selected step onward will be deleted. Use 0 to start the run from scratch, reusing an existing non-empty run_dir. |
 | `binary_path` | string | "haddock" | Path to the haddock haddock executable binary. |
 | `remove_tmp` | boolean | true | Remove temporal files. |
 | `sandbox_path` | string | "./" | Parent path to the sandbox directory. |

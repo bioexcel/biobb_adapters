@@ -7,7 +7,7 @@ Wrapper class for the PMX mutate module.
 
 Mutate residues in a protein structure.
 
-Nextflow adapter of the [Pmxmutate](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxmutate) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.0.
+Nextflow adapter of the [Pmxmutate](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxmutate) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.1.
 
 ## Get started
 

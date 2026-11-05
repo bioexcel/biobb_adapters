@@ -7,7 +7,7 @@ Wrapper class for the HADDOCK3 extend module.
 
 The HADDOCK3 extend. module continues the HADDOCK3 execution for docking of an already started run.
 
-Nextflow adapter of the [Haddock3Extend](https://biobb-haddock.readthedocs.io/en/latest/haddock.html#module-haddock.haddock3_extend) building block of [biobb_haddock](https://github.com/bioexcel/biobb_haddock) 5.3.1.
+Nextflow adapter of the [Haddock3Extend](https://biobb-haddock.readthedocs.io/en/latest/haddock.html#module-haddock.haddock3_extend) building block of [biobb_haddock](https://github.com/bioexcel/biobb_haddock) 5.3.2.
 
 ## Get started
 

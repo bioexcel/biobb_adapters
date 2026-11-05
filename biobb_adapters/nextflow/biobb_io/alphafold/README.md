@@ -7,7 +7,7 @@ This class is a wrapper for downloading a PDB structure from the AlphaFold Prote
 
 Wrapper for the AlphaFold Protein Structure Database for downloading a single PDB structure from its corresponding Uniprot code.
 
-Nextflow adapter of the [AlphaFold](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.alphafold) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [AlphaFold](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.alphafold) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

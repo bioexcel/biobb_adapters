@@ -7,7 +7,7 @@ Wrapper class for the Haddock-Restraints Accessibility module.
 
 Haddock-Restraints Accessibility computes residues accessibility using freesasa included in the Haddock3 package.
 
-Nextflow adapter of the [Accessibility](https://biobb-haddock.readthedocs.io/en/latest/haddock_restraints.html#module-haddock_restraints.haddock3_accessibility) building block of [biobb_haddock](https://github.com/bioexcel/biobb_haddock) 5.3.1.
+Nextflow adapter of the [Accessibility](https://biobb-haddock.readthedocs.io/en/latest/haddock_restraints.html#module-haddock_restraints.haddock3_accessibility) building block of [biobb_haddock](https://github.com/bioexcel/biobb_haddock) 5.3.2.
 
 ## Get started
 

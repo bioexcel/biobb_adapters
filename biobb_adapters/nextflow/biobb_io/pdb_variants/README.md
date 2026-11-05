@@ -5,9 +5,9 @@
 
 This class creates a text file containing a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.
 
-Wrapper for the UNIPROT mirror of the MMB group REST API for creating a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.
+Wrapper for the MMB group REST API (UNIPROT code of the PDB entry), the PDBe SIFTS API (residue mapping) and the UNIPROT REST API (natural variants) for creating a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.
 
-Nextflow adapter of the [PdbVariants](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb_variants) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [PdbVariants](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb_variants) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

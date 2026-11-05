@@ -7,7 +7,7 @@ Wrapper of the GROMACS check module for comparing and validating GROMACS files.
 
 GROMACS check reads, analyzes and compares run input, trajectory and energy files reporting potential differences and inconsistencies.
 
-Nextflow adapter of the [GMXCheck](https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_check) building block of [biobb_analysis](https://github.com/bioexcel/biobb_analysis) 5.3.0.
+Nextflow adapter of the [GMXCheck](https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_check) building block of [biobb_analysis](https://github.com/bioexcel/biobb_analysis) 5.3.1.
 
 ## Get started
 

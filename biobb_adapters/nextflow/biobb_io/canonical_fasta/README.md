@@ -7,7 +7,7 @@ This class is a wrapper for downloading a FASTA structure from the Protein Data 
 
 Wrapper for the Protein Data Bank and the MMB PDB mirror for downloading a single FASTA structure.
 
-Nextflow adapter of the [CanonicalFasta](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.canonical_fasta) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [CanonicalFasta](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.canonical_fasta) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

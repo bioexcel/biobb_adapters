@@ -7,7 +7,7 @@ This class is a wrapper for downloading an ideal SDF ligand from the Protein Dat
 
 Wrapper for the Protein Data Bank in Europe and the Protein Data Bank for downloading a single ideal SDF ligand.
 
-Nextflow adapter of the [IdealSdf](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.ideal_sdf) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [IdealSdf](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.ideal_sdf) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

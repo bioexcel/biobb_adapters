@@ -7,7 +7,7 @@ Wrapper class for the PMX analyse module.
 
 Analyze the work values from the dgdl.xvg files of the A and B states to calculate the free energy difference between two states.
 
-Nextflow adapter of the [Pmxanalyse](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxanalyse) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.0.
+Nextflow adapter of the [Pmxanalyse](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxanalyse) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.1.
 
 ## Get started
 

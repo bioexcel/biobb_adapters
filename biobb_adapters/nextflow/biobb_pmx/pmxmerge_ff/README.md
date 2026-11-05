@@ -7,7 +7,7 @@ Wrapper class for the PMX merge_ff module.
 
 Merge ligand topology files.
 
-Nextflow adapter of the [Pmxmerge_ff](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxmerge_ff) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.0.
+Nextflow adapter of the [Pmxmerge_ff](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxmerge_ff) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.1.
 
 ## Get started
 

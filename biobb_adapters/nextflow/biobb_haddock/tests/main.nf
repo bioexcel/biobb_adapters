@@ -5,7 +5,7 @@
  * Usage: nextflow run main.nf [-profile docker|apptainer] [--test_data <biobb_haddock/test folder or URL>]
  */
 
-include { BIOBB_HADDOCK_ANARCII } from '../anarcii'
+include { BIOBB_HADDOCK_BIOBB_ANARCII } from '../biobb_anarcii'
 include { BIOBB_HADDOCK_CAPRI_EVAL } from '../capri_eval'
 include { BIOBB_HADDOCK_CLUST_FCC } from '../clust_fcc'
 include { BIOBB_HADDOCK_CONTACT_MAP } from '../contact_map'
@@ -28,7 +28,7 @@ params {
 
 workflow {
     main:
-    BIOBB_HADDOCK_ANARCII(channel.of([[id: 'anarcii'], file("${params.test_data}/data/haddock_restraints/4G6K_clean.pdb")]))
+    BIOBB_HADDOCK_BIOBB_ANARCII(channel.of([[id: 'biobb_anarcii'], file("${params.test_data}/data/haddock_restraints/4G6K_clean.pdb")]))
     BIOBB_HADDOCK_CAPRI_EVAL(channel.of([[id: 'capri_eval'], file("${params.test_data}/data/haddock/haddock_wf_data_rigid.zip"), file("${params.test_data}/data/haddock/e2a-hpr_1GGR.pdb"), []]))
     BIOBB_HADDOCK_CLUST_FCC(channel.of([[id: 'clust_fcc'], file("${params.test_data}/data/haddock/haddock_wf_data_caprieval.zip"), []]))
     BIOBB_HADDOCK_CONTACT_MAP(channel.of([[id: 'contact_map'], file("${params.test_data}/data/haddock/haddock_wf_data_clustfcc.zip"), []]))
@@ -46,7 +46,7 @@ workflow {
     BIOBB_HADDOCK_TOPOLOGY(channel.of([[id: 'topology'], file("${params.test_data}/data/haddock/e2aP_1F3G.pdb"), file("${params.test_data}/data/haddock/hpr_ensemble.pdb"), []]))
 
     def expected = [
-        'anarcii.output_pdb_path',
+        'biobb_anarcii.output_pdb_path',
         'capri_eval.output_haddock_wf_data',
         'capri_eval.output_evaluation_zip_path',
         'clust_fcc.output_haddock_wf_data',
@@ -76,7 +76,7 @@ workflow {
     ]
     channel.empty()
         .mix(
-            BIOBB_HADDOCK_ANARCII.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
+            BIOBB_HADDOCK_BIOBB_ANARCII.out.output_pdb_path.map { meta, _file -> meta.id + '.output_pdb_path' },
             BIOBB_HADDOCK_CAPRI_EVAL.out.output_haddock_wf_data.map { meta, _file -> meta.id + '.output_haddock_wf_data' },
             BIOBB_HADDOCK_CAPRI_EVAL.out.output_evaluation_zip_path.map { meta, _file -> meta.id + '.output_evaluation_zip_path' },
             BIOBB_HADDOCK_CLUST_FCC.out.output_haddock_wf_data.map { meta, _file -> meta.id + '.output_haddock_wf_data' },

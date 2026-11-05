@@ -7,7 +7,7 @@ This class is a wrapper for downloading a trajectory / topology pair from the MD
 
 Wrapper for the MDDB Database for downloading a trajectory and its corresponding topology.
 
-Nextflow adapter of the [MDDB](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.mddb) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [MDDB](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.mddb) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

@@ -12,7 +12,7 @@ baseCommand: haddock3_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.1--pyh106432d_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.2--pyh106432d_0
 
 inputs:
   input_haddock_wf_data:

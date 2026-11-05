@@ -7,7 +7,7 @@ This class is a wrapper for the PDBe REST API Binding Sites endpoint.
 
 This call provides details on binding sites in the entry as per STRUCT_SITE records in PDB files, such as ligand, residues in the site, description of the site, etc.
 
-Nextflow adapter of the [ApiBindingSite](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.api_binding_site) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [ApiBindingSite](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.api_binding_site) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

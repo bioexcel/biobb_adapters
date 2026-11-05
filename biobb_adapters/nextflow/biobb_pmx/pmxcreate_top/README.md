@@ -7,7 +7,7 @@ Wrapper class for the PMX create_top module.
 
 Create a complete ligand topology file from two input topology files.
 
-Nextflow adapter of the [Pmxcreate_top](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxcreate_top) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.0.
+Nextflow adapter of the [Pmxcreate_top](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxcreate_top) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.1.
 
 ## Get started
 

@@ -7,7 +7,7 @@ This class is a wrapper of the MemProtMD to get all available membrane-protein s
 
 Wrapper for the MemProtMD DB REST API to get all available membrane-protein systems (simulations).
 
-Nextflow adapter of the [MemProtMDSimList](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim_list) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.1.
+Nextflow adapter of the [MemProtMDSimList](https://biobb-io.readthedocs.io/en/latest/api.html#module-api.memprotmd_sim_list) building block of [biobb_io](https://github.com/bioexcel/biobb_io) 5.3.2.
 
 ## Get started
 

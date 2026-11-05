@@ -8,11 +8,11 @@ label: Wrapper class for the ANARCII antibody numbering tool.
 doc: |-
   ANARCII numbers antibody, TCR, and other immune receptor sequences. Given an input PDB structure it renumbers it (IMGT scheme by default) and writes the renumbered PDB structure.
 
-baseCommand: anarcii
+baseCommand: biobb_anarcii
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.1--pyh106432d_0
+    dockerPull: quay.io/biocontainers/biobb_haddock:5.3.2--pyh106432d_0
 
 inputs:
   input_pdb_path:
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: pdb
-      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/data/utils/4G6K_anarcii_imgt.pdb
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_haddock/master/biobb_haddock/test/reference/utils/4G6K_anarcii_imgt.pdb
     type: string
     format:
     - edam:format_1476
@@ -49,7 +49,7 @@ inputs:
   config:
     label: Advanced configuration options for biobb_haddock Anarcii
     doc: |-
-      Advanced configuration options for biobb_haddock Anarcii. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_haddock Anarcii documentation: https://biobb-haddock.readthedocs.io/en/latest/utils.html#module-utils.anarcii
+      Advanced configuration options for biobb_haddock Anarcii. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_haddock Anarcii documentation: https://biobb-haddock.readthedocs.io/en/latest/utils.html#module-utils.biobb_anarcii
     type: File?
     inputBinding:
       prefix: --config

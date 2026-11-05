@@ -7,7 +7,7 @@ Wrapper class for the PMX gentop module.
 
 Generate a topology file for a morphing simulation.
 
-Nextflow adapter of the [PmxGentop](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxgentop) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.0.
+Nextflow adapter of the [PmxGentop](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxgentop) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.1.
 
 ## Get started
 

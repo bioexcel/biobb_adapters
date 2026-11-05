@@ -7,7 +7,7 @@ Wrapper class for the PMX atom_mapping module.
 
 Perform atom mapping between two ligand structures.
 
-Nextflow adapter of the [Pmxatom_mapping](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxatom_mapping) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.0.
+Nextflow adapter of the [Pmxatom_mapping](https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxatom_mapping) building block of [biobb_pmx](https://github.com/bioexcel/biobb_pmx) 5.3.1.
 
 ## Get started
 

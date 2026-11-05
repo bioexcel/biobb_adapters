@@ -8,7 +8,7 @@ from pycompss.api.parameter import FILE_IN, FILE_OUT, DIRECTORY_IN, DIRECTORY_OU
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
-from biobb_haddock.utils.anarcii import Anarcii  # Importing class instead of module to avoid name collision
+from biobb_haddock.utils.biobb_anarcii import Anarcii  # Importing class instead of module to avoid name collision
 
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
@@ -29,7 +29,7 @@ def _anarcii(input_pdb_path, output_pdb_path, properties, **kwargs):
         sys.stderr.flush()
 
 
-def anarcii(input_pdb_path, output_pdb_path, properties=None, **kwargs):
+def biobb_anarcii(input_pdb_path, output_pdb_path, properties=None, **kwargs):
 
     if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
        True:

@@ -1,7 +1,7 @@
-<tool id="biobb_haddock_anarcii" name="Anarcii" version="@TOOL_VERSION@" >
+<tool id="biobb_haddock_biobb_anarcii" name="BiobbAnarcii" version="@TOOL_VERSION@" >
     <description>Wrapper class for the ANARCII antibody numbering tool.</description>
     <macros>
-      <token name="@TOOL_VERSION@">5.3.1</token>
+      <token name="@TOOL_VERSION@">5.3.2</token>
     </macros>
 
     <requirements>
@@ -15,7 +15,7 @@
         ln -s $config_json ./config_json.$config_json.ext;
       #end if
 
-      anarcii
+      biobb_anarcii
 
       #if $config_json:
         --config ./config_json.$config_json.ext
@@ -41,7 +41,7 @@
 
     <tests>
         <test>
-          <param name="config_json" value="config_anarcii.json" ftype="json" />
+          <param name="config_json" value="config_biobb_anarcii.json" ftype="json" />
           <param name="input_pdb_path" value="4G6K_clean.pdb" ftype="pdb" />
           <param name="outname_output_pdb_path" value="4G6K_anarcii_imgt.pdb" />
           <output name="output_pdb_path" ftype="pdb">
