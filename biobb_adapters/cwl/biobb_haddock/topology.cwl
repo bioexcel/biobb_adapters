@@ -31,21 +31,22 @@ inputs:
       prefix: --mol1_input_pdb_path
 
   output_haddock_wf_data:
-    label: Path to the output zipball containing all the current Haddock workflow
+    label: Path to the output directory containing all the current Haddock workflow
       data
     doc: |-
-      Path to the output zipball containing all the current Haddock workflow data
+      Path to the output directory containing all the current Haddock workflow data
       Type: dir
       File type: output
-      Accepted formats: zip
+      Accepted formats: directory, zip
       Example file: null
     type: string
     format:
+    - edam:format_1915
     - edam:format_3987
     inputBinding:
       position: 2
       prefix: --output_haddock_wf_data
-    default: system.zip
+    default: system.directory
 
   mol1_output_top_zip_path:
     label: Path to the output PDB file collection in zip format
@@ -115,14 +116,14 @@ inputs:
 
 outputs:
   output_haddock_wf_data:
-    label: Path to the output zipball containing all the current Haddock workflow
+    label: Path to the output directory containing all the current Haddock workflow
       data
     doc: |-
-      Path to the output zipball containing all the current Haddock workflow data
+      Path to the output directory containing all the current Haddock workflow data
     type: Directory
     outputBinding:
       glob: $(inputs.output_haddock_wf_data)
-    format: edam:format_3987
+    format: edam:format_1915
 
   mol1_output_top_zip_path:
     label: Path to the output PDB file collection in zip format
